@@ -1,0 +1,450 @@
+[
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Alabama",
+      "code": "AL"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Alaska",
+      "code": "AK"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Arizona",
+      "code": "AZ"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Arkansas",
+      "code": "AR"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "California",
+      "code": "CA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Colorado",
+      "code": "CO"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Connecticut",
+      "code": "CT"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Delaware",
+      "code": "DE"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "District Of Columbia",
+      "code": "DC"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Florida",
+      "code": "FL"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Georgia",
+      "code": "GA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Hawaii",
+      "code": "HI"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Idaho",
+      "code": "ID"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Illinois",
+      "code": "IL"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Indiana",
+      "code": "IN"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Iowa",
+      "code": "IA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Kansas",
+      "code": "KS"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Kentucky",
+      "code": "KY"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Louisiana",
+      "code": "LA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Maine",
+      "code": "ME"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Maryland",
+      "code": "MD"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Massachusetts",
+      "code": "MA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Michigan",
+      "code": "MI"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Minnesota",
+      "code": "MN"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Mississippi",
+      "code": "MS"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Missouri",
+      "code": "MO"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Montana",
+      "code": "MT"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Nebraska",
+      "code": "NE"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Nevada",
+      "code": "NV"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "New Hampshire",
+      "code": "NH"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "New Jersey",
+      "code": "NJ"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "New Mexico",
+      "code": "NM"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "New York",
+      "code": "NY"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "North Carolina",
+      "code": "NC"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "North Dakota",
+      "code": "ND"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Ohio",
+      "code": "OH"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Oklahoma",
+      "code": "OK"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Oregon",
+      "code": "OR"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Pennsylvania",
+      "code": "PA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Rhode Island",
+      "code": "RI"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "South Carolina",
+      "code": "SC"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "South Dakota",
+      "code": "SD"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Tennessee",
+      "code": "TN"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Texas",
+      "code": "TX"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Utah",
+      "code": "UT"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Vermont",
+      "code": "VT"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Virginia",
+      "code": "VA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Washington",
+      "code": "WA"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "West Virginia",
+      "code": "WV"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Wisconsin",
+      "code": "WI"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Wyoming",
+      "code": "WY"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Alberta",
+      "code": "AB"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "British Columbia",
+      "code": "BC"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Manitoba",
+      "code": "MB"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "New Brunswick",
+      "code": "NB"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Newfoundland and Labrador",
+      "code": "NL"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Nova Scotia",
+      "code": "NS"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Northwest Territories",
+      "code": "NT"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Nunavut",
+      "code": "NU"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Ontario",
+      "code": "ON"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Prince Edward Island",
+      "code": "PE"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Quebec",
+      "code": "QC"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Saskatchewan",
+      "code": "SK"
+    }
+  },
+  {
+    "model": "partners.LocationCategory",
+    "fields": {
+      "name": "Yukon Territory",
+      "code": "YT"
+    }
+  }
+]

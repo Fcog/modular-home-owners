@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-partners-index{% endblock %}
+
+{% block content %}
+    {{ page.intro }}
+
+    <h2>Partners:</h2>
+    <ul>
+        {% for post in page.get_children %}
+            <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
