@@ -165,6 +165,7 @@ class FloorplanGalleryImage(Orderable):
     image = models.ForeignKey(
         'wagtailimages.Image',
         on_delete=models.CASCADE,
+        null=True,
         related_name='+'
     )
     caption = models.CharField(blank=True, max_length=250)
@@ -188,6 +189,7 @@ class ElevationGalleryImage(Orderable):
     image = models.ForeignKey(
         'wagtailimages.Image',
         on_delete=models.CASCADE,
+        null=True,
         related_name='+'
     )
     caption = models.CharField(blank=True, max_length=250)
