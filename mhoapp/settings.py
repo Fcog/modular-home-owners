@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import  load_dotenv
+import django_heroku
+import dj_database_url
+
+
+load_dotenv() # take environment variables from .env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,8 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -49,6 +55,8 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+
+    'storages',  # S3 buckets storage.
 
     'mhoapp.base',
     'mhoapp.homes',
@@ -122,6 +130,30 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+
+if os.getenv("ENVIRONMENT") == 'dev':
+    DEBUG = True
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
+    }
+else:
+    DEBUG = False
+
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -132,4 +164,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
+
+
+django_heroku.settings(locals())
