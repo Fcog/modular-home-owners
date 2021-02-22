@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0061_auto_20210218_1553'),
         ('wagtailimages', '0023_add_choose_permissions'),
     ]
 

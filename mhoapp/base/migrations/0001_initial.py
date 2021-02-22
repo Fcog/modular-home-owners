@@ -9,10 +9,6 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('wagtailcore', '0061_auto_20210218_1553'),
-    ]
-
     operations = [
         migrations.CreateModel(
             name='FrontPage',
