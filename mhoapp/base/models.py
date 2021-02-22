@@ -7,15 +7,13 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class PersonBlock(blocks.StructBlock):
-    first_name = blocks.CharBlock()
-    surname = blocks.CharBlock()
-    photo = ImageChooserBlock(required=False)
-    biography = blocks.RichTextBlock()
+class HeroBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    background_image = ImageChooserBlock()
 
     class Meta:
-        icon = 'user'
-        template = 'base/blocks/person.html'
+        icon = 'uni52'
+        template = 'base/blocks/hero.html'
 
 
 class FrontPage(Page):
