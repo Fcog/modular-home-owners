@@ -164,6 +164,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+SECRET_KEY = os.environ['SECRET_KEY']
 
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
 
