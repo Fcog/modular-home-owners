@@ -23,7 +23,7 @@ class FrontPage(Page):
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-        ('person', PersonBlock()),
+        ('person', HeroBlock()),
     ])
 
     content_panels = Page.content_panels + [
