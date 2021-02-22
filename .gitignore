@@ -1,4 +1,6 @@
 __pycache__
 media
+staticfiles
+static
 .idea
 .env
