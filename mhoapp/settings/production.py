@@ -3,7 +3,7 @@ import django_heroku
 import dj_database_url
 
 SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Database
