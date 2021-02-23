@@ -162,8 +162,7 @@ else:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-if os.getenv("ENVIRONMENT") == 'dev':
-    # Use whitenoise in dev
+if os.getenv("ENVIRONMENT") == 'dev2':
 
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -183,19 +182,17 @@ else:
         'CacheControl': 'max-age=86400',
     }
 
-    AWS_LOCATION = 'static'
-
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mhoapp/static'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
