@@ -154,7 +154,7 @@ if os.getenv("ENVIRONMENT") == 'dev':
 
 else:
 
-    DEBUG = False
+    DEBUG = True
 
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
