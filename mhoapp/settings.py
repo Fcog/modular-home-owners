@@ -12,12 +12,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import  load_dotenv
+from dotenv import load_dotenv
 import django_heroku
 import dj_database_url
 
 
-load_dotenv() # take environment variables from .env
+load_dotenv()  # take environment variables from .env
+
+SECRET_KEY = os.environ['SECRET_KEY']
+
+WAGTAIL_SITE_NAME = 'Modular Home Owners'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*')
 
 # Application definition
 
@@ -150,32 +154,31 @@ if os.getenv("ENVIRONMENT") == 'dev':
 else:
     DEBUG = True
 
-    DATABASES = {}
+    DATABASES = ''
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-SECRET_KEY = os.environ['SECRET_KEY']
-
-WAGTAIL_SITE_NAME = 'Modular Home Owners'
+# STATIC_URL = '/staticfiles/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#  STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # S3 storage config for static files
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+AWS_DEFAULT_ACL = 'public-read'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mhoapp/static'),
 ]
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ['S3_BUCKET_NAME']
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
@@ -183,8 +186,11 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 AWS_LOCATION = 'static'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 django_heroku.settings(locals())
