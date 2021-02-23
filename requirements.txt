@@ -3,6 +3,4 @@ psycopg2-binary>=2.8
 wagtail>=2.12
 gunicorn
 django-heroku
-django-storages
-boto3
 python-dotenv
