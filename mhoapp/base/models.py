@@ -12,7 +12,7 @@ class HeroBlock(blocks.StructBlock):
     background_image = ImageChooserBlock()
 
     class Meta:
-        icon = 'uni52'
+        icon = 'placeholder'
         template = 'base/blocks/hero.html'
 
 
