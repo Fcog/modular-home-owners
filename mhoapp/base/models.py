@@ -20,10 +20,7 @@ class FrontPage(Page):
     # Database fields
 
     body = StreamField([
-        ('heading', blocks.CharBlock(form_classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-        ('person', HeroBlock()),
+        ('hero', HeroBlock()),
     ])
 
     content_panels = Page.content_panels + [
