@@ -60,8 +60,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
-    'storages',  # S3 buckets storage.
-
     'mhoapp.base',
     'mhoapp.homes',
     'mhoapp.partners',
@@ -161,7 +159,7 @@ else:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
