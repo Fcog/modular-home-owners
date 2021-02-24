@@ -160,12 +160,8 @@ if DEVELOPMENT_MODE is True:
     }
 
 elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv('DATABASE_URL', None) is None:
-        raise Exception('DATABASE_URL environment variable not defined')
-
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600),
-    }
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Static files (CSS, JavaScript, Images)
