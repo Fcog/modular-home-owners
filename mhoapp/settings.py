@@ -192,9 +192,12 @@ else:
         'CacheControl': 'max-age=86400',
     }
 
+    STATICFILES_LOCATION = 'static'
+    MEDIAFILES_LOCATION = 'media'
+
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-    STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/static/'
-    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/media/'
+    STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
