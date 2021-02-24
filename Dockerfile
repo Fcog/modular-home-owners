@@ -1,4 +1,4 @@
-FROM python:3
+FROM nikolaik/python-nodejs:latest
 ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 COPY requirements.txt /code/

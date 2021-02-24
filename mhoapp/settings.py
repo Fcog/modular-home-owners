@@ -23,6 +23,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
 
+TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -56,8 +57,6 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-    
-    'storages',  # S3 buckets storage.
 
     'modelcluster',
     'taggit',
@@ -65,6 +64,10 @@ INSTALLED_APPS = [
     'mhoapp.base',
     'mhoapp.homes',
     'mhoapp.partners',
+    'mhoapp.theme',
+
+    'storages',  # S3 buckets storage.
+    'tailwind',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +87,7 @@ ROOT_URLCONF = 'mhoapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['mhoapp/templates', ],
+        'DIRS': ['mhoapp/theme/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -163,11 +166,10 @@ else:
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mhoapp/static'),
+    os.path.join(BASE_DIR, 'mhoapp/theme/static'),
 ]
 
 # Use AWS S3 storage
@@ -175,12 +177,11 @@ STATICFILES_DIRS = [
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
-AWS_DEFAULT_ACL = None
+AWS_S3_ENDPOINT_URL = os.environ['AWS_S3_ENDPOINT_URL']
+AWS_DEFAULT_ACL = 'public-read'
 AWS_LOCATION = 'static'
-AWS_QUERYSTRING_AUTH = False
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
