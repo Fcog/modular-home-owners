@@ -159,7 +159,7 @@ if DEVELOPMENT_MODE is True:
         }
     }
 
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+else:
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
