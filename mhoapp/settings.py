@@ -19,11 +19,18 @@ import dj_database_url
 
 load_dotenv()  # take environment variables from .env
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
 
 TAILWIND_APP_NAME = 'mhoapp.theme'
+
+
+# Development mode settings
+
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +39,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+
 
 # Application definition
 
@@ -139,10 +147,7 @@ USE_TZ = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
-if os.getenv("ENVIRONMENT") == 'dev':
-    DEBUG = True
-
+if DEVELOPMENT_MODE is True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -154,12 +159,12 @@ if os.getenv("ENVIRONMENT") == 'dev':
         }
     }
 
-else:
-
-    DEBUG = True
-
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+    if os.getenv('DATABASE_URL', None) is None:
+        raise Exception('DATABASE_URL environment variable not defined')
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    }
 
 
 # Static files (CSS, JavaScript, Images)
