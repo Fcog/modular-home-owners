@@ -7,20 +7,49 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
-class PartnersIndexPage(Page):
+class PartnerTypePage(Page):
     # Database fields
 
+    type = models.CharField(max_length=100, default='')
     intro = models.CharField(max_length=250, default='')
 
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
+        FieldPanel('type'),
         FieldPanel('intro'),
     ]
 
     # Parent page / subpage type rules
 
     subpage_types = ['PartnerPage']
+    
+    
+@register_snippet
+class TypeCategory(models.Model):
+    # Database fields
+
+    name = models.CharField(max_length=100)
+
+    # Editor panels configuration
+
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldRowPanel(
+                    [
+                        FieldPanel('name'),
+                    ]
+                )
+            ]
+        )
+    ]
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'types of partners'
 
 
 @register_snippet
@@ -52,33 +81,6 @@ class LocationCategory(models.Model):
         verbose_name_plural = 'locations of partners'
 
 
-@register_snippet
-class TypeCategory(models.Model):
-    # Database fields
-
-    name = models.CharField(max_length=100)
-
-    # Editor panels configuration
-
-    panels = [
-        MultiFieldPanel(
-            [
-                FieldRowPanel(
-                    [
-                        FieldPanel('name'),
-                    ]
-                )
-            ]
-        )
-    ]
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'types of partners'
-
-
 class PartnerPage(Page):
     # Database fields
 
@@ -99,7 +101,6 @@ class PartnerPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    types = ParentalManyToManyField(TypeCategory)
     locations = ParentalManyToManyField(LocationCategory)
 
     # Editor panels configuration
@@ -120,13 +121,6 @@ class PartnerPage(Page):
                 ),
             ],
             heading="Basic info",
-            classname="collapsible"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('types', widget=forms.CheckboxSelectMultiple),
-            ],
-            heading="Types",
             classname="collapsible"
         ),
         MultiFieldPanel(
@@ -152,7 +146,7 @@ class PartnerPage(Page):
 
     # Parent page / subpage type rules
 
-    parent_page_types = ['PartnersIndexPage']
+    parent_page_types = ['PartnerTypePage']
 
 
 class PartnerGalleryImage(Orderable):

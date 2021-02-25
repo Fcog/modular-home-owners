@@ -9,6 +9,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 from mhoapp.partners.models import PartnerPage
+from .admin import HomePageForm
 
 
 class HomesIndexPage(Page):
@@ -149,9 +150,8 @@ class HomePage(Page):
 
     parent_page_types = ['HomesIndexPage']
 
-
-# Admin custom changes
-HomePage._meta.get_field("title").verbose_name = "Home Name"
+    # Admin custom changes
+    base_form_class = HomePageForm
 
 
 class FloorplanGalleryImage(Orderable):
