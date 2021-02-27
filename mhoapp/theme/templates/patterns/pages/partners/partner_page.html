@@ -1,0 +1,21 @@
+{% extends "patterns/base_page.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    {{ page.name }}
+
+    <h2>Main Image:</h2>
+    {% image page.main_image fill-320x240 %}
+
+    <section>
+        <h2>Gallery Images:</h2>
+        {% for item in page.gallery_images.all %}
+            <div style="margin: 10px">
+                {% image item.image fill-320x240 %}
+                <p>{{ item.caption }}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}

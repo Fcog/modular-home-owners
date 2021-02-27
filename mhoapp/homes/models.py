@@ -13,6 +13,8 @@ from .admin import HomePageForm
 
 
 class HomesIndexPage(Page):
+    template = 'patterns/pages/homes/homes_index_page.html'
+
     # Database fields
 
     intro = models.CharField(max_length=250, default='')
@@ -48,6 +50,8 @@ class StyleCategory(models.Model):
 
 
 class HomePage(Page):
+    template = 'patterns/pages/homes/home_page.html'
+
     # Database fields
 
     code = models.TextField(max_length=255)

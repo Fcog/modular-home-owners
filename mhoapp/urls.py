@@ -26,6 +26,16 @@ from .settings import DEVELOPMENT_MODE
 urlpatterns = [
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
+]
+
+# Include UI pattern library URL before the Wagtail URLs.
+if DEVELOPMENT_MODE is True:
+    urlpatterns += [
+        path('pattern-library/', include('pattern_library.urls')),
+    ]
+
+# Include Wagtail URLs last.
+urlpatterns += [
     path(r'', include(wagtail_urls)),
 ]
 

@@ -8,4 +8,4 @@ class HomePageForm(WagtailAdminPageForm):
 
         # Manually edit the default form's title attributes:
         title = self.fields['title']
-        title.label = "Home name"
+        title.label = 'Home name'

@@ -1,0 +1,26 @@
+.main-menu {
+  position: relative;
+  
+  li {
+    display: inline;
+  }
+
+  a {
+    margin: 3rem 1rem;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+  }
+
+  [aria-haspopup="true"] {
+    &:hover {
+      ~ ul {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{% load menu_tags %}
+
+<header>
+
+    <div class="container my-12">
+
+        <div class="flex justify-between">
+
+            <div>Modular Home Owners</div>
+
+            <nav class="flex justify-between">
+
+                {% main_menu template="patterns/molecules/main_menu/main_menu.html" add_sub_menus_inline=True %}
+
+                {% include "patterns/molecules/search_box/search_box.html" with class="ml-6" %}
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</header>

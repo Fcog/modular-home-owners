@@ -1,0 +1,31 @@
+@tailwind components;
+
+.main-menu {
+  li {
+    display: inline;
+  }
+
+  a {
+    margin: 3rem 1rem;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 3rem;
+  }
+
+  [aria-haspopup="true"] {
+    &:hover {
+      ~ ul {
+        display: block;
+      }
+    }
+  }
+}
+@tailwind utilities;
+
+@tailwind base;
+
+
+/*# sourceMappingURL=scripts.css.map */

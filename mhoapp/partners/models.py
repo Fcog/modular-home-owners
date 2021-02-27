@@ -6,50 +6,37 @@ from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
+from .admin import PartnerTypePageForm
+
+
+class PartnersIndexPage(Page):
+    template = 'patterns/pages/archive/archive.html'
+
+    # Parent page / subpage type rules
+
+    subpage_types = ['PartnerTypePage']
+
 
 class PartnerTypePage(Page):
+    template = 'patterns/pages/partners/partner_type_page.html'
+
     # Database fields
 
-    type = models.CharField(max_length=100, default='')
     intro = models.CharField(max_length=250, default='')
 
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
-        FieldPanel('type'),
         FieldPanel('intro'),
     ]
 
     # Parent page / subpage type rules
 
+    parent_page_types = ['PartnersIndexPage']
     subpage_types = ['PartnerPage']
-    
-    
-@register_snippet
-class TypeCategory(models.Model):
-    # Database fields
 
-    name = models.CharField(max_length=100)
-
-    # Editor panels configuration
-
-    panels = [
-        MultiFieldPanel(
-            [
-                FieldRowPanel(
-                    [
-                        FieldPanel('name'),
-                    ]
-                )
-            ]
-        )
-    ]
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'types of partners'
+    # Admin custom changes
+    base_form_class = PartnerTypePageForm
 
 
 @register_snippet
@@ -82,6 +69,8 @@ class LocationCategory(models.Model):
 
 
 class PartnerPage(Page):
+    template = 'patterns/pages/partners/partner_page.html'
+    
     # Database fields
 
     name = models.TextField(max_length=255)

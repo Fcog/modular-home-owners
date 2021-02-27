@@ -1,0 +1,15 @@
+{% extends "patterns/base_page.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    <h2>{{ page.title }} Partners:</h2>
+
+    <ul>
+        {% for post in page.get_children %}
+            <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
