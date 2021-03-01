@@ -1,0 +1,20 @@
+context:
+  menu_items:
+    - text: Building Resources
+      link: http://google.com
+      sub_menu:
+        items:
+          - text: Resource 1
+            link: http://google.com
+          - text: Resource 2
+            link: http://google.com
+          - text: Resource 3
+            link: http://google.com
+    - text: Our Mission
+      link: http://google.com
+    - text: Manufacturers
+      link: http://google.com
+    - text: Builders
+      link: http://google.com
+    - text: Ask a Question
+      link: http://google.com

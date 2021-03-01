@@ -2,7 +2,7 @@
 
 <header>
 
-    <div class="container my-12">
+    <div class="container my-8">
 
         <div class="flex justify-between">
 
@@ -12,7 +12,7 @@
 
                 {% main_menu template="patterns/molecules/main_menu/main_menu.html" add_sub_menus_inline=True %}
 
-                {% include "patterns/molecules/search_box/search_box.html" with class="ml-6" %}
+                {% include "patterns/molecules/search_box/search_box.html" with class="hidden lg:flex ml-6" %}
 
             </nav>
 

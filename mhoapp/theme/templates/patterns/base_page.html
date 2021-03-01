@@ -19,6 +19,7 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'mhoapp/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -28,9 +29,9 @@
     <body>
         {% wagtailuserbar %}
 
-        {% include "patterns/organisms/header.html" %}
+        {% include "patterns/organisms/header/header.html" %}
 
-        <main>
+        <main class="my-12">
 
             {% block content %}
 
@@ -40,10 +41,9 @@
 
         </main>
 
-        {% include "patterns/organisms/footer.html" %}
+        {% include "patterns/organisms/footer/footer.html" %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'mhoapp/scripts.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

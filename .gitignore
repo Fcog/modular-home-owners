@@ -5,3 +5,4 @@ media
 staticfiles
 .idea
 .env
+pgdata

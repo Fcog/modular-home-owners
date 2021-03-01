@@ -113,6 +113,7 @@ TEMPLATES = [
             'builtins': [
                 'pattern_library.loader_tags'
             ],
+            'debug': DEBUG,
         },
     },
 ]
@@ -203,6 +204,10 @@ else:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'mhoapp/theme/static'),
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -213,10 +218,6 @@ if DEVELOPMENT_MODE is True:
     MEDIA_URL = '/media/'
 else:
     # Use AWS S3 storage
-
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'mhoapp/theme/static'),
-    ]
 
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
@@ -236,4 +237,3 @@ else:
 
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
-

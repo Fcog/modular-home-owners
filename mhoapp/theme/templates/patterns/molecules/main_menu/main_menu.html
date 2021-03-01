@@ -1,37 +1,48 @@
-<ul class="main-menu">
+<div class="menu">
 
-{% for item in menu_items %}
+  <label for="menu">Menu <i class="fa fa-bars"></i></label>
 
-    <li class="{{ item.active_class }}">
+  <input type="checkbox" id="menu">
 
-        <a
-            href="{{ item.href }}"
-            {% if item.sub_menu %} aria-haspopup="true" {% endif %}>
+  <ul>
+
+    {% for item in menu_items %}
+
+    <li {% if item.sub_menu %} class="menu-hasdropdown" aria-haspopup="true" {% endif %}>
+
+        <a href="{{ item.href }}">
 
             {{ item.text }}
 
+            {% if item.sub_menu %}
+
+            <label title="toggle menu" for="menu-{{ forloop.counter }}">
+                <i class="fa fa-caret-down"></i>
+            </label>
+
+            {% endif %}
         </a>
 
         {% if item.sub_menu %}
 
-            <ul>
+        <input type="checkbox" id="menu-{{ forloop.counter }}">
 
-                {% for sub_item in item.sub_menu.items %}
+        <ul class="menu-dropdown">
 
-                    <li class="{{ sub_item.active_class }}">
+            {% for sub_item in item.sub_menu.items %}
 
-                        <a href="{{ sub_item.href }}">{{ sub_item.text }}</a>
+            <li><a href="{{ item.href }}">{{ item.text }}</a></li>
 
-                    </li>
+            {% endfor %}
 
-                {% endfor %}
-
-            </ul>
+        </ul>
 
         {% endif %}
 
     </li>
 
-{% endfor %}
+    {% endfor %}
 
-</ul>
+  </ul>
+
+</div>

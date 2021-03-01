@@ -1,0 +1,170 @@
+/* vars */
+
+$menu_background: #ffffff;
+$menu_color: #000000;
+$menu_breakpoint : 1024px;
+$menu_toggle_background: #ffffff;
+$menu_border: 1px solid rgba(255,255,255,0.1);
+$menu_padding: 15px 20px;
+$menu_icon_padding: 5px 10px;
+
+/* hide show mixin */
+
+@define-mixin show {
+  display: block;
+  animation: grow .5s ease-in-out; /* optional animation */
+}
+
+@define-mixin hide {
+  display: none;
+}
+
+/* global  styles */
+
+.menu {
+  background: $menu_background;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu,
+.menu a {
+  color: $menu_color;
+  text-decoration: none;
+}
+
+.menu a {
+  display: block;
+  white-space: nowrap; /* prevent links form going to a new line */
+}
+
+.menu-dropdown,
+.menu input[type="checkbox"] { /* hide defaults */
+  @add-mixin hide;
+}
+
+.menu label:hover {
+  cursor: pointer;
+}
+
+/* narrow styles */
+
+@media screen and (max-width: $menu_breakpoint) {
+  /* hide navigation and right icons */
+  .menu > ul,
+  .menu-righticon {
+    @add-mixin hide;
+  }
+  input[type="checkbox"]:checked + ul {
+    @add-mixin show;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* large styles */
+
+@media screen and (min-width: $menu_breakpoint) {
+  /* hide show navigation button and checkboxes */
+  .menu > label,
+  input[type="checkbox"] {
+    @add-mixin hide;
+  }
+
+  .menu a {
+    padding: $menu_padding;
+  }
+
+  /* align items and style them */
+  .menu > ul > li {
+    display: inline-block;
+  }
+
+  /* hover logics */
+  .menu-hasdropdown {
+    position: relative;
+    &:hover {
+      > ul {
+        @add-mixin show;
+      }
+    }
+  }
+
+  /* dropdown position and style */
+  .menu-hasdropdown > ul {
+    position: absolute;
+    top:100%;
+    left: 0;
+    background: $menu_background;
+  }
+
+  /* flyout position */
+  .menu-hasflyout > ul {
+    left: 100%;
+    top:0;
+  }
+
+  .menu-hasflyout .menu-downicon {
+    @add-mixin hide;
+  }
+}
+
+
+/* look and feel only, not needed for core menu*/
+
+/* optional animation for display none/block */
+@keyframes grow {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.menu-dropdown a {
+  padding: $menu_padding;
+  border-bottom: $menu_border;
+}
+
+/* narrow  */
+@media screen and (max-width: $menu_breakpoint) {
+ .menu > label {
+    background: $menu_toggle_background;
+    display: block;
+    text-align: right;
+  }
+
+  input[type="checkbox"]:checked + ul {
+    padding-top: 3rem;
+    background: $menu_background;
+  }
+
+  .menu a {
+    padding: $menu_padding;
+  }
+
+  .menu > ul i {
+    float: right;
+    padding: $menu_icon_padding;
+    background: darken($menu_background,15%);
+  }
+
+  .menu-dropdown  a {
+    background: darken($menu_background,5%);
+  }
+
+  .menu-hasflyout > ul a {
+    background: darken($menu_background,10%);
+  }
+}
