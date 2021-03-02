@@ -1,3 +1,5 @@
+{% load wagtailimages_tags %}
+
 <div class="luxbar luxbar-default">
 
     <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
@@ -7,7 +9,13 @@
         <ul class="luxbar-navigation">
 
             <li class="luxbar-header">
-                <a class="luxbar-brand" href="#">Brand</a>
+
+                <a class="luxbar-brand" href="/">
+
+					{% image mhoapp.logo width-120 %}
+
+				</a>
+
                 <label class="luxbar-hamburger luxbar-hamburger-spin" for="luxbar-checkbox"><span></span></label>
             </li>
 
