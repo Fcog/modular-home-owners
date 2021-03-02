@@ -2,4 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Navbar styles https://balzss.github.io/luxbar/ */
+@import "luxbar/build/luxbar";
+
 @import "./main-menu.css";

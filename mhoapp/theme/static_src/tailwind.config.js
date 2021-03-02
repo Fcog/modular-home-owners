@@ -6,14 +6,20 @@ module.exports = {
         // your project structure or change it to match.
         // '../../templates/**/*.html',
     ],
+    important: true,
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {
-            colors: {
-                green: '#609c00',
-                blue: '#0d476c',
-                'blue-light': '#37b1ff'
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            white: '#ffffff',
+            green: '#609c00',
+            blue: {
+                DEFAULT: '#0d476c',
+                light: '#37b1ff',
             },
+        },
+        extend: {
             container: {
               center: true,
               padding: {
@@ -29,5 +35,7 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }

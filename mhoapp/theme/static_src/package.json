@@ -12,6 +12,8 @@
     "build:tailwind": "tailwind build src/styles.css -o ../static/mhoapp/styles.css"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
+    "luxbar": "^0.3.2",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {

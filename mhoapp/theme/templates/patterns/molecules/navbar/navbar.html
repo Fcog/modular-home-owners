@@ -1,0 +1,53 @@
+<div class="luxbar luxbar-default">
+
+    <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
+
+    <div class="luxbar-menu luxbar-menu-right luxbar-menu-light">
+
+        <ul class="luxbar-navigation">
+
+            <li class="luxbar-header">
+                <a class="luxbar-brand" href="#">Brand</a>
+                <label class="luxbar-hamburger luxbar-hamburger-spin" for="luxbar-checkbox"><span></span></label>
+            </li>
+
+			{% for item in menu_items %}
+
+            <li class="luxbar-item {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
+
+				<a href="{{ item.href }}">{{ item.text }}</a>
+
+				{% if item.sub_menu %}
+
+				<ul>
+
+					{% for sub_item in item.sub_menu.items %}
+
+					<li class="luxbar-item {% if item.sub_menu %}active{% endif %}">
+
+						<a href="{{ item.href }}">{{ item.text }}</a>
+
+					</li>
+
+					{% endfor %}
+
+				</ul>
+
+				{% endif %}
+
+			</li>
+
+			{% endfor %}
+
+
+			<li class="luxbar-item">
+
+				{% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find your home" class="py-2 ml-4" %}
+
+			</li>
+
+        </ul>
+
+    </div>
+
+</div>
