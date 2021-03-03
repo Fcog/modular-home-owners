@@ -8,7 +8,7 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" type="text/css" href="{% static 'mhoapp/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mhoapp/main.css' %}">
 
     </head>
 
@@ -19,6 +19,10 @@
             {{ pattern_library_rendered_pattern }}
 
         {% endblock %}
+
+
+        {# Global javascript #}
+        <script src="{% static 'mhoapp/bundle.js' %}"></script>
 
     </body>
 

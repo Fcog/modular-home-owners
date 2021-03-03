@@ -7,6 +7,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
+from mhoapp.theme.models import *
 
 class FlexibleOneColumnPage(Page):
     template = 'patterns/pages/flexible/one-col.html'
@@ -14,10 +15,11 @@ class FlexibleOneColumnPage(Page):
     # Database fields
 
     body = StreamField([
-        ('heading', blocks.CharBlock()),
+        ('headingH1', HeadingH1()),
+        ('headingH2', HeadingH2()),
+        ('resourcesCTA', ResourcesCTABlock()),
         ('paragraph', blocks.RichTextBlock()),
         ('text', blocks.TextBlock()),
-        ('char', blocks.CharBlock()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),

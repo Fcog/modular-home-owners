@@ -2,6 +2,8 @@ module.exports = {
     purge: [
         // Templates within theme app (e.g. base.html)
         '../templates/**/*.html',
+        '../templates/**/**/*.html',
+        '../templates/**/**/**/*.html',
         // Templates in other apps. Uncomment the following line if it matches
         // your project structure or change it to match.
         // '../../templates/**/*.html',
@@ -29,6 +31,10 @@ module.exports = {
                 xl: '5rem',
                 '2xl': '6rem',
               },
+            },
+            spacing: {
+                mob: '1rem',
+                dsk: '2rem',
             }
         },
     },
