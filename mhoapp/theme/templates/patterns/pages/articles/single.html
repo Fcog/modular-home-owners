@@ -1,1 +1,9 @@
-<h2>Single article</h2>
+{% extends "patterns/base_page.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    {% include_block page.body %}
+
+{% endblock %}
