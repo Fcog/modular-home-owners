@@ -10,6 +10,16 @@
 
 .full-width {
 	width: 100vw;
-  margin-left: 50%;
+  margin-left: 49.2%;
   transform: translateX(-50%);
+}
+
+.block-paragraph,
+.block-headingH1,
+.block-headingH2 {
+	@apply mb-mob;
+
+	@screen lg {
+		@apply mb-dsk;
+	}
 }

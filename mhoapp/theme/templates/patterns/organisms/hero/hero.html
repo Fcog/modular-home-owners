@@ -1,0 +1,21 @@
+{% load wagtailimages_tags %}
+
+<div class="py-12 h-screen flex justify-between">
+
+    <div class="w-8/12">
+
+        <h1 class="mb-mob lg:mb-dsk text-5xl font-bold">{{ value.heading }}</h1>
+
+        <p class="mb-mob lg:mb-dsk w-8/12">{{ value.introduction }}</p>
+
+        {% include "patterns/atoms/button/button.html" with url="http://google.com" text=value.search_button_text %}
+
+    </div>
+
+    <div>
+
+        {% image value.image width-400 %}
+
+    </div>
+
+</div>

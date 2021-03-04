@@ -27,9 +27,9 @@ module.exports = {
               padding: {
                 DEFAULT: '1rem',
                 sm: '2rem',
-                lg: '4rem',
-                xl: '5rem',
-                '2xl': '6rem',
+                lg: '0',
+                xl: '0',
+                '2xl': '0',
               },
             },
             spacing: {
@@ -37,6 +37,9 @@ module.exports = {
                 dsk: '2rem',
             }
         },
+        maxWidth: {
+            '15': '15rem',
+        }
     },
     variants: {
         extend: {},
