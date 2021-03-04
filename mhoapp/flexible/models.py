@@ -13,7 +13,6 @@ class FlexibleOneColumnPage(Page):
     template = 'patterns/pages/flexible/one-col.html'
 
     # Database fields
-
     body = StreamField([
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
@@ -27,7 +26,6 @@ class FlexibleOneColumnPage(Page):
     ], default='')
 
     # Editor panels configuration
-
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]

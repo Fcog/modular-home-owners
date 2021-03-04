@@ -13,7 +13,6 @@ class PartnersIndexPage(Page):
     template = 'patterns/pages/archive/archive.html'
 
     # Parent page / subpage type rules
-
     subpage_types = ['PartnerTypePage']
 
 
@@ -21,17 +20,14 @@ class PartnerTypePage(Page):
     template = 'patterns/pages/partners/partner_type_page.html'
 
     # Database fields
-
     intro = models.CharField(max_length=250, default='')
 
     # Editor panels configuration
-
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
     ]
 
     # Parent page / subpage type rules
-
     parent_page_types = ['PartnersIndexPage']
     subpage_types = ['PartnerPage']
 
@@ -42,12 +38,10 @@ class PartnerTypePage(Page):
 @register_snippet
 class LocationCategory(models.Model):
     # Database fields
-
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=2, default="")
 
     # Editor panels configuration
-
     panels = [
         MultiFieldPanel(
             [
@@ -70,9 +64,8 @@ class LocationCategory(models.Model):
 
 class PartnerPage(Page):
     template = 'patterns/pages/partners/partner_page.html'
-    
-    # Database fields
 
+    # Database fields
     name = models.TextField(max_length=255)
     logo = models.ForeignKey(
         'wagtailimages.Image',
@@ -93,7 +86,6 @@ class PartnerPage(Page):
     locations = ParentalManyToManyField(LocationCategory)
 
     # Editor panels configuration
-
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
@@ -134,13 +126,11 @@ class PartnerPage(Page):
     ]
 
     # Parent page / subpage type rules
-
     parent_page_types = ['PartnerTypePage']
 
 
 class PartnerGalleryImage(Orderable):
     # Database fields
-
     page = ParentalKey(
         PartnerPage,
         on_delete=models.CASCADE,
@@ -154,7 +144,6 @@ class PartnerGalleryImage(Orderable):
     caption = models.CharField(blank=True, max_length=250)
 
     # Editor panels configuration
-
     panels = [
         ImageChooserPanel('image'),
         FieldPanel('caption'),

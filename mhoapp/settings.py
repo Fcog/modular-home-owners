@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.forms',
@@ -200,6 +201,10 @@ if DEVELOPMENT_MODE is True:
 else:
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+
+# https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
+WAGTAIL_USAGE_COUNT_ENABLED = True
 
 
 # Static files (CSS, JavaScript, Images)

@@ -16,28 +16,23 @@ class HomesIndexPage(Page):
     template = 'patterns/pages/homes/homes_index_page.html'
 
     # Database fields
-
     intro = models.CharField(max_length=250, default='')
 
     # Editor panels configuration
-
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
     ]
 
     # Parent page / subpage type rules
-
     subpage_types = ['HomePage']
 
 
 @register_snippet
 class StyleCategory(models.Model):
     # Database fields
-
     name = models.CharField(max_length=255)
 
     # Editor panels configuration
-
     panels = [
         FieldPanel('name'),
     ]
@@ -49,11 +44,39 @@ class StyleCategory(models.Model):
         verbose_name_plural = 'styles of homes'
 
 
+@register_snippet
+class PriceRanges(models.Model):
+    UNDER = 'UN'
+    OVER = 'OV'
+
+    # Database fields
+    type = models.CharField(
+        max_length=2,
+        choices=[
+            (UNDER, 'Under'),
+            (OVER, 'Over'),
+        ],
+        default=UNDER,
+    )
+    price = models.PositiveIntegerField(default=0)
+
+    # Editor panels configuration
+    panels = [
+        FieldPanel('type'),
+        FieldPanel('price'),
+    ]
+
+    def __str__(self):
+        return self.get_type_display() + ' ' + str(self.price)
+
+    class Meta:
+        verbose_name_plural = 'price ranges'
+
+
 class HomePage(Page):
     template = 'patterns/pages/homes/home_page.html'
 
     # Database fields
-
     code = models.TextField(max_length=255)
     rating = models.FloatField(
         null=True,
@@ -92,7 +115,6 @@ class HomePage(Page):
     )
 
     # Custom search fields
-
     search_fields = Page.search_fields + [
         index.FilterField('style'),
         index.SearchField('cost'),
@@ -103,7 +125,6 @@ class HomePage(Page):
     ]
 
     # Editor panels configuration
-
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
@@ -151,7 +172,6 @@ class HomePage(Page):
     ]
 
     # Parent page / subpage type rules
-
     parent_page_types = ['HomesIndexPage']
 
     # Admin custom changes
@@ -160,7 +180,6 @@ class HomePage(Page):
 
 class FloorplanGalleryImage(Orderable):
     # Database fields
-
     page = ParentalKey(
         HomePage,
         on_delete=models.CASCADE,
@@ -175,7 +194,6 @@ class FloorplanGalleryImage(Orderable):
     caption = models.CharField(blank=True, max_length=250)
 
     # Editor panels configuration
-
     panels = [
         ImageChooserPanel('image'),
         FieldPanel('caption'),
@@ -184,7 +202,6 @@ class FloorplanGalleryImage(Orderable):
 
 class ElevationGalleryImage(Orderable):
     # Database fields
-
     page = ParentalKey(
         HomePage,
         on_delete=models.CASCADE,
@@ -199,7 +216,6 @@ class ElevationGalleryImage(Orderable):
     caption = models.CharField(blank=True, max_length=250)
 
     # Editor panels configuration
-
     panels = [
         ImageChooserPanel('image'),
         FieldPanel('caption'),

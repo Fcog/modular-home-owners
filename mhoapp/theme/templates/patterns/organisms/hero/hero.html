@@ -1,21 +1,27 @@
 {% load wagtailimages_tags %}
 
-<div class="py-12 h-screen flex justify-between">
+<div>
 
-    <div class="w-8/12">
+    <div class="py-12 flex justify-between">
 
-        <h1 class="mb-mob lg:mb-dsk text-5xl font-bold">{{ value.heading }}</h1>
+        <div class="w-8/12">
 
-        <p class="mb-mob lg:mb-dsk w-8/12">{{ value.introduction }}</p>
+            {% block left_content %}
+            {% endblock %}
 
-        {% include "patterns/atoms/button/button.html" with url="http://google.com" text=value.search_button_text %}
+        </div>
+
+        <div>
+
+            {% image image width-400 %}
+
+        </div>
+
+
 
     </div>
 
-    <div>
-
-        {% image value.image width-400 %}
-
-    </div>
+    {% block bottom_content %}
+    {% endblock %}
 
 </div>
