@@ -19791,10 +19791,6 @@ select {
       background-color: #ffffff !important;
     }
 
-.luxbar-menu-light .dropdown.luxbar-item:after {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1397521/arrowBottom.svg#light');
-      }
-
 .full-width {
   width: 100vw;
   margin-left: 49.2%;

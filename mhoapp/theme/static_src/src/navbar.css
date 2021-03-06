@@ -30,11 +30,5 @@
     ul {
       background-color: #ffffff !important;
     }
-
-    &.luxbar-item {
-      &:after {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1397521/arrowBottom.svg#light');
-      }
-    }
   }
 }

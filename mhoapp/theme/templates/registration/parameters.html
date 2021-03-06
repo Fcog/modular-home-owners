@@ -1,0 +1,37 @@
+{% extends "registration/base.html" %}
+
+{% block sub_title %}Edit account parameters{% endblock sub_title %}
+
+{% block inner_content %}
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="m-0 card-title h5">Edit account parameter</h3>
+        </div>
+        <div class="card-body">
+          <form method="post" action="." class="form" enctype="multipart/form-data" novalidate>{% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                {% include "registration/form_field.html" with field=form.username %}
+              </div>
+              <div class="col-md-6">
+                {% include "registration/form_field.html" with field=form.email %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-actions">
+                  <div class="float-right">
+                    <a href="{% url 'unregister' %}" class="btn btn-danger">Remove your account</a>
+                  </div>
+                  <input type="submit" class="btn btn-large btn-primary" value="Submit" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock inner_content %}

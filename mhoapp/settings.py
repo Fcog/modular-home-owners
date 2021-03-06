@@ -15,6 +15,9 @@ import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
+from django.urls import reverse_lazy
+from machina import MACHINA_MAIN_TEMPLATE_DIR
+from machina import MACHINA_MAIN_STATIC_DIR
 
 
 load_dotenv()  # take environment variables from .env
@@ -22,6 +25,7 @@ load_dotenv()  # take environment variables from .env
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
+MACHINA_FORUM_NAME = 'Modular Home Owners Forum'
 
 TAILWIND_APP_NAME = 'mhoapp.theme'
 
@@ -70,11 +74,30 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    # Machina dependencies:
+    'mptt',
+    'haystack',
+    'widget_tweaks',
+
+    # Machina apps:
+    'machina',
+    'machina.apps.forum',
+    'machina.apps.forum_conversation',
+    'machina.apps.forum_conversation.forum_attachments',
+    'machina.apps.forum_conversation.forum_polls',
+    'machina.apps.forum_feeds',
+    'machina.apps.forum_moderation',
+    'machina.apps.forum_search',
+    'machina.apps.forum_tracking',
+    'machina.apps.forum_member',
+    'machina.apps.forum_permission',
+
     'storages',  # S3 buckets storage.
     'tailwind',
-    'pattern_library',
+    'pattern_library', # Live styleguide
     'wagtailmenus',
 
+    'mhoapp.authentication',
     'mhoapp.base',
     'mhoapp.homes',
     'mhoapp.partners',
@@ -94,6 +117,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 ]
 
 ROOT_URLCONF = 'mhoapp.urls'
@@ -101,7 +125,10 @@ ROOT_URLCONF = 'mhoapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['mhoapp/theme/templates', ],
+        'DIRS': [
+            'mhoapp/theme/templates',
+            MACHINA_MAIN_TEMPLATE_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,6 +138,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtailmenus.context_processors.wagtailmenus',
+                'machina.core.context_processors.metadata',
             ],
             'builtins': [
                 'pattern_library.loader_tags'
@@ -121,7 +149,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mhoapp.wsgi.application'
-
 
 # UI Pattern Library settings
 
@@ -142,11 +169,11 @@ PATTERN_LIBRARY = {
 
     # Set which template components should be rendered inside of,
     # so they may use page-level component dependencies like CSS.
-    'PATTERN_BASE_TEMPLATE_NAME': 'patterns/base.html',
+    'PATTERN_BASE_TEMPLATE_NAME': 'base.html',
 
     # Any template in BASE_TEMPLATE_NAMES or any template that extends a template in
     # BASE_TEMPLATE_NAMES is a "page" and will be rendered as-is without being wrapped.
-    'BASE_TEMPLATE_NAMES': ['patterns/base_page.html'],
+    'BASE_TEMPLATE_NAMES': ['base_page.html'],
 }
 
 
@@ -168,6 +195,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# AUTH CONFIGURATION
+# ------------------------------------------------------------------------------
+
+LOGIN_URL = reverse_lazy('login')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -212,6 +243,7 @@ WAGTAIL_USAGE_COUNT_ENABLED = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mhoapp/theme/static'),
+    MACHINA_MAIN_STATIC_DIR,
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -243,3 +275,22 @@ else:
 
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'machina_attachments': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp',
+    },
+}
+
+# Search engine for the forum
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}

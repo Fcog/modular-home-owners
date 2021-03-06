@@ -1,0 +1,70 @@
+{% extends "board_base.html" %}
+
+{% block sub_title %}Sign in{% endblock sub_title %}
+
+{% block breadcrumb %}{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="mx-auto col-md-6 vertical-offset-100">
+
+            <div class="card">
+
+                <div class="card-header">
+                    <h3 class="m-0 card-title h5"><strong>Sign in</strong></h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form
+                        method="post"
+                        action="."
+                        class="form"
+                        enctype="multipart/form-data"
+                        novalidate>
+
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+
+                            {% for error in form.non_field_errors %}
+
+                                <div class="alert alert-danger">
+                                    <i class="icon-exclamation-sign"></i> {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                        {% include "registration/form_field.html" with field=form.username %}
+
+                        {% include "registration/form_field.html" with field=form.password %}
+
+                        <input type="hidden" name="next" value="/forum">
+
+                        <div class="form-actions">
+
+                            <a
+                                href="{% url 'password_reset' %}"
+                                class="btn btn-large btn-default">
+                                Forgot password?
+                            </a>
+
+                            <input type="submit" class="btn btn-large btn-primary" value="Login" />
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content %}
