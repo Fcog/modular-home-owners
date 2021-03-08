@@ -29,7 +29,3 @@ class FlexibleOneColumnPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
-
-
-class FlexibleTwoColumnPage(Page):
-    template = 'patterns/pages/flexible/two-col.html'

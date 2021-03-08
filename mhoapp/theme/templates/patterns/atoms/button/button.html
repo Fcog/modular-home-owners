@@ -1,5 +1,17 @@
-<a
-    class="flex justify-center py-4 max-w-15 w-full bg-green text-white rounded-full {{ class }}"
+<a class="flex justify-center items-center px-9 font-bold text-xl leading-none rounded-full
+
+    {% if size == "normal" %} h-20 {% endif %}
+    {% if size == "small" %} h-15 {% endif %}
+
+    {% if inverted is False %} text-white {% endif %}
+    {% if inverted is False and color == "green" %} bg-green {% endif %}
+    {% if inverted is False and color == "blue" %} bg-blue-light {% endif %}
+
+    {% if inverted is True %} border-2 {% endif %}
+    {% if inverted is True and color == "green" %} text-green border-green {% endif %}
+    {% if inverted is True and color == "blue" %} text-blue-light border-blue-light {% endif %}
+
+    {{ class }}"
     href="{{ url }}">
 
     {{ text }}

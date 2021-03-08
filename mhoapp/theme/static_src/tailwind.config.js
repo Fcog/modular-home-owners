@@ -17,11 +17,14 @@ module.exports = {
             white: '#ffffff',
             green: '#609c00',
             blue: {
-                DEFAULT: '#0d476c',
-                light: '#37b1ff',
+                DEFAULT: '#003E64',
+                light: '#36B2FF',
             },
         },
         extend: {
+            screens: {
+                '2xl': '1640px'
+            },
             container: {
               center: true,
               padding: {
@@ -35,6 +38,9 @@ module.exports = {
             spacing: {
                 mob: '1rem',
                 dsk: '2rem',
+            },
+            height: {
+                15: '3.75rem',
             }
         },
         maxWidth: {

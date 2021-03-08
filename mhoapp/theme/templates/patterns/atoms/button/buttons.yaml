@@ -1,0 +1,26 @@
+context:
+  button_variants:
+    - color: green
+      size: normal
+      inverted: False
+    - color: blue
+      size: normal
+      inverted: False
+    - color: green
+      size: normal
+      inverted: True
+    - color: blue
+      size: normal
+      inverted: True
+    - color: green
+      size: small
+      inverted: False
+    - color: blue
+      size: small
+      inverted: False
+    - color: green
+      size: small
+      inverted: True
+    - color: blue
+      size: small
+      inverted: True

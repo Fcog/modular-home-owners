@@ -1,0 +1,11 @@
+{% if menu_heading %}
+    <h4 class="mb-5 uppercase font-bold text-2xl">{{ menu_heading|safe }}</h4>
+{% endif %}
+
+<ul>
+    {% for item in menu_items %}
+    <li class="mb-3 {{ item.active_class }}">
+        <a class="text-xl opacity-60" href="{{ item.href }}">{{ item.text }}</a>
+    </li>
+    {% endfor %}
+</ul>

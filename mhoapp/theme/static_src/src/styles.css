@@ -8,6 +8,11 @@
 /* Navbar overrides */
 @import "./navbar.css";
 
+body {
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .full-width {
 	width: 100vw;
   margin-left: 49.2%;

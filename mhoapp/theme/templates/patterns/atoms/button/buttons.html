@@ -1,0 +1,19 @@
+<div class="pl-frame pl-frame--white">
+
+    <h2 class="mb-4">Buttons</h2>
+
+    {% for variant in button_variants %}
+
+        <div class="mb-4 {% if variant.class %}{{ variant.class }}{% endif %}">
+
+            <p>Color: {{ variant.color }}</p>
+            <p>Size: {{ variant.size }}</p>
+            <p>Inverted: {{ variant.inverted }}</p>
+
+            {% include "patterns/atoms/button/button.html" with color=variant.color size=variant.size inverted=variant.inverted %}
+
+        </div>
+
+    {% endfor %}
+
+</div>
