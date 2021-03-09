@@ -30,21 +30,29 @@
 
                 <div class="md:flex justify-evenly lg:w-2/3">
 
-                    <div class="mb-16 md:mb-0 md:w-1/3 lg:w-2/4 lg:pr-12 2xl:pr-20">
+                    <div class="mb-16 md:mb-0 md:w-1/3 lg:pr-12 2xl:pr-20">
 
                         {% flat_menu 'resources' template="patterns/molecules/menus/vertical.html" %}
 
                     </div>
 
-                    <div class="mb-16 md:mb-0 md:w-1/3 lg:w-1/4 lg:pr-6 2xl:pr-12">
+                    <div class="mb-16 md:mb-0 md:w-1/3 lg:pr-12 2xl:pr-20">
 
-                        {% flat_menu 'about' template="patterns/molecules/menus/vertical.html" %}
-                        {% flat_menu 'partners' template="patterns/molecules/menus/vertical.html" %}
-                        {% flat_menu 'forum' template="patterns/molecules/menus/vertical.html" %}
+                        <div class="mb-16">
+                            {% flat_menu 'about' template="patterns/molecules/menus/vertical.html" %}
+                        </div>
+
+                        <div class="mb-16">
+                            {% flat_menu 'partners' template="patterns/molecules/menus/vertical.html" %}
+                        </div>
+
+                        <div class="mb-16">
+                            {% flat_menu 'forum' template="patterns/molecules/menus/vertical.html" %}
+                        </div>
 
                     </div>
 
-                    <div class="mb-16 md:mb-0 md:w-1/3 lg:w-2/4 lg:pl-6 2xl:pl-12">
+                    <div class="mb-16 md:mb-0 md:w-1/3">
 
                         {% flat_menu 'find_home' template="patterns/molecules/menus/vertical.html" %}
 

@@ -4,7 +4,7 @@
 
 <ul>
     {% for item in menu_items %}
-    <li class="mb-3 {{ item.active_class }}">
+    <li class="mb-2.5 {{ item.active_class }}">
         <a class="text-xl opacity-60" href="{{ item.href }}">{{ item.text }}</a>
     </li>
     {% endfor %}
