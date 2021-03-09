@@ -8,8 +8,15 @@
 /* Navbar overrides */
 @import "./navbar.css";
 
+html {
+	font-size: 14px;
+
+	@screen 2xl {
+		font-size: 16px;
+	}
+}
+
 body {
-	font-size: 16px;
 	font-family: 'Montserrat', sans-serif;
 }
 

@@ -19795,8 +19795,18 @@ select {
       background-color: #ffffff !important;
     }
 
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 1640px) {
+
+html {
+    font-size: 16px
+}
+  }
+
 body {
-  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
 }
 
