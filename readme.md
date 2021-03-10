@@ -17,7 +17,8 @@ Wagtail CMS
 # Infrastructure
 Create a DigitalOcean app and a Space for storing the static files.
 Create a Postgres DB.
-##Run command
+
+## Run command
 `gunicorn --worker-tmp-dir /dev/shm mhoapp.wsgi`
 
 ## Deployment to Digital Ocean
