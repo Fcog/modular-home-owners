@@ -1,0 +1,1 @@
+static files build of the app go here :)
