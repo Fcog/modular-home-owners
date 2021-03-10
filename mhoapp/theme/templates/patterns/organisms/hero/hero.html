@@ -1,25 +1,21 @@
-{% load wagtailimages_tags %}
+<div class="relative">
 
-<div>
+    <div class="pt-8 lg:pt-28 flex justify-between">
 
-    <div class="py-12 flex justify-between">
+        <div class="relative pb-20">
 
-        <div class="w-8/12">
+            <div class="lg:w-1/2">
 
-            {% block left_content %}
-            {% endblock %}
+                {% block left_content %}
+                {% endblock %}
 
-        </div>
-
-        <div>
-
-            {% image image width-400 %}
+            </div>
 
         </div>
-
-
 
     </div>
+
+    <div class="absolute bottom-0 full-width bg-blue h-52 -z-10"></div>
 
     {% block bottom_content %}
     {% endblock %}

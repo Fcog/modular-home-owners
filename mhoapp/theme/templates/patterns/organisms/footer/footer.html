@@ -1,7 +1,7 @@
 {% load wagtailimages_tags wagtailcore_tags menu_tags %}
 {% wagtail_site as current_site %}
 
-<footer class="pt-40 pb-20 bg-blue text-white">
+<footer class="pt-20 lg:pt-40 pb-12 lg:pb-20 bg-blue text-white">
 
     <div class="flex justify-center container">
 
@@ -62,11 +62,13 @@
 
             </div>
 
-            <div class="flex mt-20">
+            <div class="lg:flex mt-20">
 
-                <p class="mr-3 font-bold opacity-60">{{ current_site.site_name }}</p>
+                <p class="mb-6 lg:mb-0 lg:mr-3 font-bold opacity-60">{{ current_site.site_name }}</p>
 
-                {% flat_menu 'footer_bottom' template="patterns/molecules/menus/horizontal.html" max_levels=1 show_menu_heading=False %}
+                <div>
+                    {% flat_menu 'footer_bottom' template="patterns/molecules/menus/horizontal.html" max_levels=1 show_menu_heading=False %}
+                </div>
 
             </div>
 

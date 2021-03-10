@@ -1,45 +1,28 @@
 {% extends "patterns/organisms/hero/hero.html" %}
-
-{% load humanize %}
+{% load wagtailimages_tags %}
 
 {% block left_content %}
 
-    <h1 class="mb-mob lg:mb-dsk text-5xl font-bold">{{ heading }}</h1>
+    {% image image scale-100 as bg_image %}
 
-    <p class="mb-mob lg:mb-dsk w-8/12">{{ introduction }}</p>
+    <div
+        class="absolute lg:-right-24 lg:-top-8 h-5/6 lg:h-full w-full pb-20 bg-right bg-80% lg:bg-contain bg-no-repeat"
+        style="background-image:url({{ bg_image.url }})"></div>
 
-    <div class="mb-mob lg:mb-dsk">
+    <h1 class="mb-9 text-4xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
 
-        <select name="style" id="style">
+    <p class="mb-9 w-8/12 text-2xl text-blue-dark font-bold md:font-normal leading-normal">{{ introduction }}</p>
 
-            <option>Choose Style</option>
+    <div class="flex mb-8 md:w-10/12">
 
-            {% for style in styles %}
+        {% include "patterns/atoms/select/select.html" with options=styles default_text="Choose Style" class="border-r-0" %}
 
-            <option value="{{ style.id }}">{{ style.name }}</option>
-
-            {% endfor %}
-
-        </select>
-
-        <select name="price-range" id="price-range">
-
-            <option>Price Range</option>
-
-            {% for price_range in price_ranges %}
-
-            <option value="{{ price_range.id }}">
-                {{ price_range.text }}
-            </option>
-
-            {% endfor %}
-
-        </select>
+        {% include "patterns/atoms/select/select.html" with options=price_ranges default_text="Price Range" %}
 
     </div>
 
-    <div class="mb-16">
-        {% include "patterns/atoms/button/button.html" with url="http://google.com" text=search_button_text %}
+    <div class="mb-16 md:w-5/12">
+        {% include "patterns/atoms/button/button.html" with url="http://google.com" text=search_button_text color="green" size="normal" inverted=False %}
     </div>
 
 {% endblock %}

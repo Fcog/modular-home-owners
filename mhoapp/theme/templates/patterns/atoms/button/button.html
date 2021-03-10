@@ -1,7 +1,7 @@
-<a class="flex justify-center items-center px-9 font-bold text-xl leading-none rounded-full
+<a class="flex justify-center items-center pr-10 font-bold text-xl leading-none rounded-full
 
     {% if size == "normal" %} h-20 {% endif %}
-    {% if size == "small" %} h-15 {% endif %}
+    {% if size == "small" %} h-14 {% endif %}
 
     {% if inverted is False %} text-white {% endif %}
     {% if inverted is False and color == "green" %} bg-green {% endif %}
@@ -10,6 +10,8 @@
     {% if inverted is True %} border-2 {% endif %}
     {% if inverted is True and color == "green" %} text-green border-green {% endif %}
     {% if inverted is True and color == "blue" %} text-blue-light border-blue-light {% endif %}
+
+    {% if icon %} icon icon-magnifying {% else %} pl-10 {% endif %}
 
     {{ class }}"
     href="{{ url }}">

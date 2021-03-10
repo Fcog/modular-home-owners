@@ -23,7 +23,13 @@
 
             <li class="luxbar-item {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
 
-				<a href="{{ item.href }}">{{ item.text }}</a>
+				<a
+					class="text-xl text-blue-dark"
+					href="{{ item.href }}">
+
+					{{ item.text }}
+
+				</a>
 
 				{% if item.sub_menu %}
 
@@ -50,7 +56,7 @@
 
 			<li class="luxbar-item">
 
-				{% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find your home" class="py-0 ml-4" size="small" color="green" inverted=False %}
+				{% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find Your Home" class="py-0 ml-4" size="small" color="green" inverted=True icon="magnifying-glass" %}
 
 			</li>
 

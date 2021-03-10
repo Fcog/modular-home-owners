@@ -37,7 +37,13 @@ class HeroBlock(blocks.StructBlock):
         context['image'] = value['image']
         context['search_button_text'] = value['search_button_text']
         context['filter_bar_text'] = value['filter_bar_text']
-        context['styles'] = StyleCategory.objects.all()
+        context['styles'] = list(map(
+            lambda item: {
+                'id': item.id,
+                'text': item.name,
+            },
+            StyleCategory.objects.all()
+        ))
         context['price_ranges'] = list(map(
             lambda item: {
                 'id': item.id,

@@ -33,6 +33,12 @@ module.exports = {
                     'css-loader', // Read and imports the CSS from the CSS files.
                     'postcss-loader',
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+                use: {
+                    loader: 'url-loader?limit=100000'
+                }
             }
         ]
     },
