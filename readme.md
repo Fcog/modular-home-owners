@@ -1,6 +1,4 @@
-#Django App
-
-Wagtail CMS
+# Modular Homeowners website
 
 ## Installation
 - Install Docker
