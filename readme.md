@@ -25,10 +25,10 @@ Create a Postgres DB.
 - git push master
 
 # Build with
-Django: https://docs.djangoproject.com/
-Wagtail CMS: https://docs.wagtail.io/
-Forum: https://django-machina.readthedocs.io/en/stable/index.html
-Live Styleguide: https://github.com/torchbox/django-pattern-library
-TailwindCSS: https://tailwindcss.com/
-Webpack: https://webpack.js.org/
-PostCSS: https://postcss.org/
+- Django: https://docs.djangoproject.com/
+- Wagtail CMS: https://docs.wagtail.io/
+- Forum: https://django-machina.readthedocs.io/en/stable/index.html
+- Live Styleguide: https://github.com/torchbox/django-pattern-library
+- TailwindCSS: https://tailwindcss.com/
+- Webpack: https://webpack.js.org/
+- PostCSS: https://postcss.org/
