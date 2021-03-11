@@ -98,10 +98,9 @@ class HomePage(Page):
 
     # Database fields
     code = models.TextField(max_length=255)
-    rating = models.FloatField(
-        null=True,
-        blank=True,
-        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    certified = models.BooleanField(
+        null=False,
+        default=False,
     )
     sqft = models.PositiveSmallIntegerField()
     bedrooms = models.PositiveSmallIntegerField()
@@ -151,7 +150,7 @@ class HomePage(Page):
                 FieldRowPanel(
                     [
                         FieldPanel('code'),
-                        FieldPanel('rating'),
+                        FieldPanel('certified'),
                     ]
                 ),
                 FieldRowPanel(
@@ -187,7 +186,7 @@ class HomePage(Page):
                 ),
             ],
             heading="Basic info",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
     ]
 
