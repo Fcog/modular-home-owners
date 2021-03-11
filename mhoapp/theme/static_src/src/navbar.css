@@ -23,6 +23,7 @@
 
     a {
       box-sizing: initial !important;
+      width: 100%;
     }
   }
 

@@ -1119,6 +1119,10 @@ select {
   width: 100% !important;
 }
 
+.z-20 {
+  z-index: 20 !important;
+}
+
 .-z-10 {
   z-index: -10 !important;
 }
@@ -1649,6 +1653,7 @@ select {
 
 .luxbar-menu-light .luxbar-item a {
       box-sizing: initial !important;
+      width: 100%;
     }
 
 .luxbar-menu-light .dropdown ul {
