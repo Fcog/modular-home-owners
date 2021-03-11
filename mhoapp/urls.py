@@ -23,6 +23,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from machina import urls as machina_urls
+import debug_toolbar
 
 from .settings import DEVELOPMENT_MODE
 
@@ -38,6 +39,7 @@ urlpatterns = [
 if DEVELOPMENT_MODE is True:
     urlpatterns += [
         path('pattern-library/', include('pattern_library.urls')),
+        path('__debug__/', include(debug_toolbar.urls)),
     ]
 
 # Include Wagtail URLs last.

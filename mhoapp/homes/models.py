@@ -26,6 +26,26 @@ class HomesIndexPage(Page):
     # Parent page / subpage type rules
     subpage_types = ['HomePage']
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        style = request.GET.get('style')
+        price_range = request.GET.get('price-range')
+
+        filtered_objects = HomePage.objects
+
+        if style is None and price_range is None:
+            filtering = filtered_objects.all()
+        else:
+            if style:
+                filtering = filtered_objects.filter(style__name__iexact=style)
+            if price_range:
+                filtering = price_range_filter(filtering, price_range)
+
+        context['data'] = filtering
+
+        return context
+
 
 @register_snippet
 class StyleCategory(models.Model):
@@ -220,3 +240,14 @@ class ElevationGalleryImage(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('caption'),
     ]
+
+
+def price_range_filter(filtered_objects, value):
+    switcher = {
+        'under-50000': filtered_objects.filter(cost__gte=0, cost__lte=50000),
+        'under-100000': filtered_objects.filter(cost__gt=50000, cost__lte=100000),
+        'under-200000': filtered_objects.filter(cost__gt=100000, cost__lte=200000),
+        'under-300000': filtered_objects.filter(cost__gt=200000, cost__lte=300000),
+        'over-300000': filtered_objects.filter(cost__gt=300000),
+    }
+    return switcher.get(value, filtered_objects)

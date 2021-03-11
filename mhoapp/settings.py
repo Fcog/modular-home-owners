@@ -23,31 +23,29 @@ from machina import MACHINA_MAIN_STATIC_DIR
 load_dotenv()  # take environment variables from .env
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
-
 WAGTAIL_SITE_NAME = 'Modular Home Owners'
 MACHINA_FORUM_NAME = 'Modular Home Owners Forum'
-
 TAILWIND_APP_NAME = 'mhoapp.theme'
 
 
 # Development mode settings
-
+# ------------------------------------------------------------------------------
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
+DEBUG_BAR = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ------------------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,0.0.0.0,localhost').split(',')
 
 
 # Application definition
-
+# ------------------------------------------------------------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -94,7 +92,6 @@ INSTALLED_APPS = [
 
     'storages',  # S3 buckets storage.
     'tailwind',
-    'pattern_library', # Live styleguide
     'wagtailmenus',
 
     'mhoapp.authentication',
@@ -107,6 +104,20 @@ INSTALLED_APPS = [
     'mhoapp.theme',
 ]
 
+# Include apps only in dev env.
+if DEVELOPMENT_MODE is True:
+    INSTALLED_APPS += [
+        'pattern_library', # Live styleguide
+    ]
+
+if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
+
+# Middleware
+# ------------------------------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -120,8 +131,17 @@ MIDDLEWARE = [
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 ]
 
+# Include middleware only in dev env.
+if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]
+
 ROOT_URLCONF = 'mhoapp.urls'
 
+
+# Templates
+# ------------------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -150,8 +170,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mhoapp.wsgi.application'
 
-# UI Pattern Library settings
 
+# UI Pattern Library settings
+# ------------------------------------------------------------------------------
 PATTERN_LIBRARY = {
     # Groups of templates for the pattern library navigation. The keys
     # are the group titles and the values are lists of template name prefixes that will
@@ -179,7 +200,7 @@ PATTERN_LIBRARY = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
-
+# ------------------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -195,28 +216,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # AUTH CONFIGURATION
 # ------------------------------------------------------------------------------
-
 LOGIN_URL = reverse_lazy('login')
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-
+# ------------------------------------------------------------------------------
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+# ------------------------------------------------------------------------------
 if DEVELOPMENT_MODE is True:
     DATABASES = {
         'default': {
@@ -234,13 +252,9 @@ else:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
-# https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
-WAGTAIL_USAGE_COUNT_ENABLED = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+# ------------------------------------------------------------------------------
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mhoapp/theme/static'),
     MACHINA_MAIN_STATIC_DIR,
@@ -251,12 +265,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if DEVELOPMENT_MODE is True:
     # local storage
-
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
 else:
     # Use AWS S3 storage
-
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
@@ -276,6 +288,8 @@ else:
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
+# https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
+WAGTAIL_USAGE_COUNT_ENABLED = True
 
 CACHES = {
     'default': {
@@ -287,10 +301,45 @@ CACHES = {
     },
 }
 
-# Search engine for the forum
 
+# Search engine for the forum
+# ------------------------------------------------------------------------------
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
+}
+
+
+# Debug toolbar config
+# ------------------------------------------------------------------------------
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '172.22.0.1',
+]
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.history.HistoryPanel',
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+    'debug_toolbar.panels.profiling.ProfilingPanel',
+]
+
+DEBUG_TOOLBAR_CONFIG = {
+    # Toolbar options
+    'RESULTS_CACHE_SIZE': 3,
+    'SHOW_COLLAPSED': True,
+    # Panel options
+    'SQL_WARNING_THRESHOLD': 100,   # milliseconds
+    'INTERCEPT_REDIRECTS': False,
 }

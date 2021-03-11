@@ -1,0 +1,17 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="mb-mob lg:mb-dsk grid grid-cols-3 gap-4">
+
+    {% for card in cards %}
+
+    <a href="{% pageurl card %}" class="border">
+
+        {% image card.specific.main_image fill-320x240 class="w-full" %}
+
+        {{ card.title }}
+
+    </a>
+
+    {% endfor %}
+
+</div>

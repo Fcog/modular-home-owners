@@ -1,15 +1,10 @@
 {% extends "base_page.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
     {{ page.intro }}
 
-    <h2>Homes:</h2>
-    <ul>
-        {% for post in page.get_children %}
-            <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
+    {% include "patterns/molecules/cards-grid/cards-grid.html" with cards=data %}
 
 {% endblock %}
