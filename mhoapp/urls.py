@@ -23,9 +23,11 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from machina import urls as machina_urls
-import debug_toolbar
 
-from .settings import DEVELOPMENT_MODE
+from .settings import DEVELOPMENT_MODE, DEBUG_BAR
+
+if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
+    import debug_toolbar
 
 urlpatterns = [
     path('admin/forum', admin.site.urls),
@@ -39,8 +41,13 @@ urlpatterns = [
 if DEVELOPMENT_MODE is True:
     urlpatterns += [
         path('pattern-library/', include('pattern_library.urls')),
+    ]
+
+if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
+    urlpatterns += [
         path('__debug__/', include(debug_toolbar.urls)),
     ]
+
 
 # Include Wagtail URLs last.
 urlpatterns += [
