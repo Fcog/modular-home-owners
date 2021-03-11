@@ -15,14 +15,14 @@
 
     <div class="flex mb-8 md:w-10/12">
 
-        {% include "patterns/atoms/select/select.html" with options=styles default_text="Choose Style" class="border-r-0" %}
+        {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" class="border-r-0" %}
 
-        {% include "patterns/atoms/select/select.html" with options=price_ranges default_text="Price Range" %}
+        {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" %}
 
     </div>
 
     <div class="mb-16 md:w-5/12">
-        {% include "patterns/atoms/button/button.html" with url="http://google.com" text=search_button_text color="green" size="normal" inverted=False %}
+        {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="green" size="normal" inverted=False %}
     </div>
 
 {% endblock %}

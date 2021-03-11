@@ -1,4 +1,18 @@
-<a class="flex justify-center items-center pr-10 font-bold text-xl leading-none rounded-full
+{% if url %}
+<a
+{% else %}
+<button
+{% endif %}
+
+    {% if id %}
+    id="{{ id }}"
+    {% endif %}
+
+    {% if url %}
+    href="{{ url }}"
+    {% endif %}
+
+    class="flex justify-center items-center pr-10 font-bold text-xl leading-none rounded-full outline-none
 
     {% if size == "normal" %} h-20 {% endif %}
     {% if size == "small" %} h-14 {% endif %}
@@ -13,9 +27,12 @@
 
     {% if icon %} icon icon-magnifying {% else %} pl-10 {% endif %}
 
-    {{ class }}"
-    href="{{ url }}">
+    {{ class }}">
 
     {{ text }}
 
+{% if url %}
 </a>
+{% else %}
+</button>
+{% endif %}

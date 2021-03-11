@@ -39,16 +39,15 @@ class HeroBlock(blocks.StructBlock):
         context['filter_bar_text'] = value['filter_bar_text']
         context['styles'] = list(map(
             lambda item: {
-                'id': item.id,
+                'id': item.name.lower(),
                 'text': item.name,
             },
             StyleCategory.objects.all()
         ))
         context['price_ranges'] = list(map(
             lambda item: {
-                'id': item.id,
+                'id': f'{item.get_type_display().lower()}-{item.price}',
                 'text': f'{item.get_type_display()} ${item.price}',
-                'url': 'http://google.com'
             },
             PriceRanges.objects.all()
         ))
