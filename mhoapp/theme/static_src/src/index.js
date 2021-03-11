@@ -8,7 +8,6 @@ function redirectToSearch() {
     document
         .getElementById('search-homes')
         .addEventListener('click', function() {
-            console.log('hola')
             const params = new URLSearchParams({
                 'style': document.getElementById('style').value,
                 'price-range': document.getElementById('price-range').value,

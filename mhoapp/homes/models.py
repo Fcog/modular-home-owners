@@ -34,15 +34,15 @@ class HomesIndexPage(Page):
 
         filtered_objects = HomePage.objects
 
-        if style is None and price_range is None:
-            filtering = filtered_objects.all()
+        if style is None and price_range is None or style == 'all' and price_range == 'all':
+            filtered_objects = filtered_objects.all()
         else:
-            if style:
-                filtering = filtered_objects.filter(style__name__iexact=style)
-            if price_range:
-                filtering = price_range_filter(filtering, price_range)
+            if style and style != 'all':
+                filtered_objects = filtered_objects.filter(style__name__iexact=style)
+            if price_range and price_range != 'all':
+                filtered_objects = price_range_filter(filtered_objects, price_range)
 
-        context['data'] = filtering
+        context['data'] = filtered_objects
 
         return context
 
