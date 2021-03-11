@@ -13,7 +13,7 @@
 
     {% for option in options %}
 
-    <option value="{{ option.id }}">
+    <option value="{{ option.id }}" {% if option.selected %}selected="selected"{% endif%}>
         {{ option.text }}
     </option>
 

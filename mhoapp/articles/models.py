@@ -9,14 +9,14 @@ from wagtail.embeds.blocks import EmbedBlock
 from mhoapp.theme.models import HeadingH2
 
 class ArticlesIndexPage(Page):
-    template = 'patterns/pages/archive/archive.html'
+    template = 'patterns/templates/archive/archive.html'
 
     # Parent page / subpage type rules
     subpage_types = ['ArticlePage']
 
 
 class ArticlePage(Page):
-    template = 'patterns/pages/articles/single.html'
+    template = 'patterns/templates/articles/single.html'
 
     # Database fields
     body = StreamField([

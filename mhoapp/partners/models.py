@@ -17,7 +17,7 @@ class PartnersIndexPage(Page):
 
 
 class PartnerTypePage(Page):
-    template = 'patterns/pages/partners/partner_type_page.html'
+    template = 'patterns/templates/partners/partner_type_page.html'
 
     # Database fields
     intro = models.CharField(max_length=250, default='')
@@ -63,7 +63,7 @@ class LocationCategory(models.Model):
 
 
 class PartnerPage(Page):
-    template = 'patterns/pages/partners/partner_page.html'
+    template = 'patterns/templates/partners/partner_page.html'
 
     # Database fields
     name = models.TextField(max_length=255)

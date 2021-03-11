@@ -3,17 +3,17 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from wagtail.search import index
 from modelcluster.fields import ParentalKey
 from wagtail.core.models import Page, Orderable
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel, PageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
-from mhoapp.partners.models import PartnerPage
+from mhoapp.partners.models import PartnerPage, LocationCategory
 from .admin import HomePageForm
 
 
 class HomesIndexPage(Page):
-    template = 'patterns/pages/homes/homes_index_page.html'
+    template = 'patterns/templates/homes/homes_index_page.html'
 
     # Database fields
     intro = models.CharField(max_length=250, default='')
@@ -31,18 +31,31 @@ class HomesIndexPage(Page):
 
         style = request.GET.get('style')
         price_range = request.GET.get('price-range')
+        location = request.GET.get('shipping')
 
         filtered_objects = HomePage.objects
 
-        if style is None and price_range is None or style == 'all' and price_range == 'all':
+        if (style is None and price_range is None and location is None
+            or style == 'all' and price_range == 'all' and location == 'all'):
             filtered_objects = filtered_objects.all()
         else:
             if style and style != 'all':
                 filtered_objects = filtered_objects.filter(style__name__iexact=style)
             if price_range and price_range != 'all':
                 filtered_objects = price_range_filter(filtered_objects, price_range)
+            if location and location != 'all':
+                filtered_objects = filtered_objects.filter(partner__locations__code__iexact=location)
 
         context['data'] = filtered_objects
+
+        context['locations'] = list(map(
+            lambda item: {
+                'id': item.code,
+                'text': item.name,
+                'selected': item.code == location,
+            },
+            LocationCategory.objects.all()
+        ))
 
         return context
 
@@ -94,7 +107,7 @@ class PriceRanges(models.Model):
 
 
 class HomePage(Page):
-    template = 'patterns/pages/homes/home_page.html'
+    template = 'patterns/templates/homes/home_page.html'
 
     # Database fields
     code = models.TextField(max_length=255)
@@ -172,6 +185,7 @@ class HomePage(Page):
                     ]
                 ),
                 SnippetChooserPanel('style'),
+                PageChooserPanel('partner', 'partners.PartnerPage'),
                 FieldPanel('link'),
                 FieldPanel('floorplans_link'),
                 FieldPanel('info'),

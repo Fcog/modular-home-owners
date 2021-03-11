@@ -1,0 +1,33 @@
+{% extends "base_page.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+    <div class="py-24">
+
+        {{ page.intro }}
+
+    </div>
+
+    <div class="flex mb-24">
+
+        <div class="w-1/4">
+
+            {% include "patterns/molecules/filters/filters.html" with class="lg:mr-8" locations=locations %}
+
+        </div>
+
+        <div class="w-3/4">
+
+            {% if data %}
+                {% include "patterns/molecules/cards-grid/cards-grid.html" with cards=data %}
+            {% else %}
+                <p>No homes available with this criteria.</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

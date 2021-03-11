@@ -10,7 +10,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from mhoapp.theme.models import *
 
 class FlexibleOneColumnPage(Page):
-    template = 'patterns/pages/flexible/one-col.html'
+    template = 'patterns/templates/flexible/one-col.html'
 
     # Database fields
     body = StreamField([

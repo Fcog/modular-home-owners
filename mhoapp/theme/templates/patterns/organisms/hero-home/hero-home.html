@@ -1,5 +1,6 @@
 {% extends "patterns/organisms/hero/hero.html" %}
-{% load wagtailimages_tags %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block left_content %}
 
@@ -13,17 +14,21 @@
 
     <p class="mb-9 w-8/12 text-2xl text-blue-dark font-bold md:font-normal leading-normal">{{ introduction }}</p>
 
-    <div class="flex mb-8 md:w-10/12">
+    <form action="{% slugurl 'homes' %}" method="get">
 
-        {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" class="border-r-0" %}
+        <div class="flex mb-8 md:w-10/12">
 
-        {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" %}
+            {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" class="border-r-0" %}
 
-    </div>
+            {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" size="big" %}
 
-    <div class="mb-16 md:w-5/12">
-        {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="green" size="normal" inverted=False %}
-    </div>
+        </div>
+
+        <div class="mb-16 md:w-5/12">
+            {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="green" size="normal" inverted=False type="submit" %}
+        </div>
+
+    </form>
 
 {% endblock %}
 
