@@ -37,9 +37,9 @@
 
 					{% for sub_item in item.sub_menu.items %}
 
-					<li class="luxbar-item {% if item.sub_menu %}active{% endif %}">
+					<li class="luxbar-item {% if sub_item.sub_menu %}active{% endif %}">
 
-						<a href="{{ item.href }}">{{ item.text }}</a>
+						<a href="{{ sub_item.href }}">{{ sub_item.text }}</a>
 
 					</li>
 
