@@ -1,5 +1,5 @@
 context:
-  button_variants:
+  variants:
     - color: green
       size: normal
       inverted: False

@@ -1,0 +1,4 @@
+context:
+  variants:
+    - size: normal
+    - size: big

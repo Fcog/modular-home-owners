@@ -1,0 +1,17 @@
+<div class="pl-frame pl-frame--white">
+
+    <h2 class="mb-4">Select Fields</h2>
+
+    {% for variant in variants %}
+
+        <div class="mb-4 {% if variant.class %}{{ variant.class }}{% endif %}">
+
+            <p>Size: {{ variant.size }}</p>
+
+            {% include "patterns/atoms/select/select.html" with size=variant.size %}
+
+        </div>
+
+    {% endfor %}
+
+</div>
