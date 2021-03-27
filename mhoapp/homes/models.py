@@ -7,14 +7,13 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from mhoapp.partners.models import PartnerPage, LocationCategory
 from .admin import HomePageForm
 
 
 class HomesIndexPage(Page):
-    template = 'patterns/templates/homes/homes_index_page.html'
-
     # Database fields
     intro = models.CharField(max_length=250, default='')
 
@@ -26,28 +25,51 @@ class HomesIndexPage(Page):
     # Parent page / subpage type rules
     subpage_types = ['HomePage']
 
+
+    def get_template(self, request):
+        if request.htmx:
+            return 'patterns/molecules/cards-grid/cards-grid.html'
+        
+        return 'patterns/templates/homes/homes_index_page.html'
+
+
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        page = request.GET.get('page')
         style = request.GET.get('style')
         price_range = request.GET.get('price-range')
         location = request.GET.get('shipping')
 
-        filtered_objects = HomePage.objects
+        # Get the full unpaginated listing of homes as a queryset.
+        homes = HomePage.objects.live()
 
-        if (style is None and price_range is None and location is None
-            or style == 'all' and price_range == 'all' and location == 'all'):
-            filtered_objects = filtered_objects.all()
-        else:
-            if style and style != 'all':
-                filtered_objects = filtered_objects.filter(style__name__iexact=style)
-            if price_range and price_range != 'all':
-                filtered_objects = price_range_filter(filtered_objects, price_range)
-            if location and location != 'all':
-                filtered_objects = filtered_objects.filter(partner__locations__code__iexact=location)
+        # Filter by style.
+        if style and style != 'all':
+            homes = homes.filter(style__name__iexact=style)
 
-        context['data'] = filtered_objects
+        # Filter by price range.            
+        if price_range and price_range != 'all':
+            homes = price_range_filter(homes, price_range)
 
+        # Filter by location.            
+        if location and location != 'all':
+            homes = homes.filter(partner__locations__code__iexact=location)
+
+        # Set up pagination.
+        paginator = Paginator(homes, 3) # Show 3 resources per page        
+
+        try:
+            homes = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            homes = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            homes = paginator.page(paginator.num_pages)                       
+
+        context['cards'] = homes
+       
         context['locations'] = list(map(
             lambda item: {
                 'id': item.code,
@@ -57,7 +79,7 @@ class HomesIndexPage(Page):
             LocationCategory.objects.all()
         ))
 
-        return context
+        return context     
 
 
 @register_snippet

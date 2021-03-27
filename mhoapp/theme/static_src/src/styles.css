@@ -8,6 +8,8 @@
 /* Navbar overrides */
 @import "./navbar.css";
 
+@import "./htmx.css";
+
 $green: #609c00;
 
 html {

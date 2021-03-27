@@ -129,6 +129,7 @@ MIDDLEWARE = [
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
+    "django_htmx.middleware.HtmxMiddleware"
 ]
 
 # Include middleware only in dev env.

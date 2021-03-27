@@ -18,13 +18,15 @@
 
         </div>
 
-        <div class="w-3/4">
+        <div class="w-3/4" hx-indicator=".htmx-indicator">
 
-            {% if data %}
-                {% include "patterns/molecules/cards-grid/cards-grid.html" with cards=data %}
+            {% if cards %}
+                {% include "patterns/molecules/cards-grid/cards-grid.html" %}
             {% else %}
                 <p>No homes available with this criteria.</p>
             {% endif %}
+
+            <center><div class="htmx-indicator spinner" width="60"></div></center>
 
         </div>
 
