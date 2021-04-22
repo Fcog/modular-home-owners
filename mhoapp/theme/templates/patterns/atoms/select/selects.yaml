@@ -2,3 +2,7 @@ context:
   variants:
     - size: normal
     - size: big
+    - size: normal
+      icon: "home icon"
+    - size: big    
+      icon: "home icon"

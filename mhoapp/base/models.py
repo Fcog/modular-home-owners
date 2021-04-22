@@ -1,21 +1,23 @@
 from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtailsvg.models import Svg
+from wagtailsvg.edit_handlers import SvgChooserPanel
 
 
 class MHOSettings(models.Model):
 
     # Database fields
-
     logo = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True, blank=True,
+        Svg,
+        null=True, 
+        blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
     logo_white = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True, blank=True,
+        Svg,
+        null=True, 
+        blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
@@ -23,10 +25,9 @@ class MHOSettings(models.Model):
     search_button_text = models.CharField(max_length=254, default="Find Your Home")
 
     # Editor panels configuration
-
     panels = [
-        ImageChooserPanel('logo'),
-        ImageChooserPanel('logo_white'),
+        SvgChooserPanel('logo'),
+        SvgChooserPanel('logo_white'),
         FieldPanel('contact_email'),
         FieldPanel('search_button_text'),
     ]

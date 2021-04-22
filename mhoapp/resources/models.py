@@ -3,7 +3,7 @@ from wagtail.core.models import Page
 
 
 class ResourcesIndexPage(Page):
-    template = 'patterns/pages/flexible/one-col.html'
+    template = 'patterns/templates/flexible/one-col.html'
 
     # Parent page / subpage type rules
 
@@ -11,7 +11,7 @@ class ResourcesIndexPage(Page):
 
 
 class ResourcePage(Page):
-    template = 'patterns/pages/flexible/one-col.html'
+    template = 'patterns/templates/flexible/one-col.html'
 
     # Parent page / subpage type rules
 

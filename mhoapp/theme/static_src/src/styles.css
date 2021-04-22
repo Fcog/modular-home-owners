@@ -13,7 +13,11 @@
 $green: #609c00;
 
 html {
-	font-size: 14px;
+	font-size: 16px;
+
+  @screen md {
+    font-size: 14px;
+  }
 
 	@screen 2xl {
 		font-size: 16px;
@@ -24,10 +28,22 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.full-width {
-	width: 100vw;
-  margin-left: 49.2%;
-  transform: translateX(-50%);
+@layer utilities {
+  @variants responsive {
+    .full-width {
+      width: 100vw;
+      margin-left: 49.2%;
+      margin-right: 49.2%;
+      transform: translateX(-50%);
+    }
+
+    .full-width-overflow {
+      width: 120vw !important;
+      margin-left: 49.2%;
+      margin-right: 49.2%;      
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .underline-spaced {
@@ -66,6 +82,16 @@ body {
 	background-size: 8%;
 }
 
+.icon--small {
+	svg {
+		height: 1.5rem;
+
+		@screen md {
+			height: auto;
+		}
+	}
+}
+
 .icon-green {
 	path {
 		fill: $green;
@@ -73,5 +99,9 @@ body {
 }
 
 .icon-magnifying {
-	background-image: url('icons/magnifying-glass.svg');
+	background-image: url('svg/magnifying-glass.svg');
+}
+
+select {
+	background-position: right 1.5rem center;
 }

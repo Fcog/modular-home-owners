@@ -12,6 +12,8 @@
 - `docker ps`
 - `docker exec -it [container-id] python manage.py yarn start-webpack`
 
+UI components Live styleguide: http://0.0.0.0:8000/pattern-library/
+
 # Infrastructure
 Create a DigitalOcean app and a Space for storing the static files.
 Create a Postgres DB.

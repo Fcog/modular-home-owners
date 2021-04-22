@@ -1,0 +1,33 @@
+{% for item in menu_items %}
+
+<li class="luxbar-item luxbar-item-first-level {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
+
+    <a
+        class="luxbar-item-a luxbar-item-a-first-level"
+        href="{{ item.href }}">
+
+        {{ item.text }}
+
+    </a>
+
+    {% if item.sub_menu %}
+
+    <ul>
+
+        {% for sub_item in item.sub_menu.items %}
+
+        <li class="luxbar-item {% if sub_item.sub_menu %}active{% endif %}">
+
+            <a class="luxbar-item-a" href="{{ sub_item.href }}">{{ sub_item.text }}</a>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+</li>
+
+{% endfor %}

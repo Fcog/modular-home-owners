@@ -1,22 +1,43 @@
-<select
-    name="{{ id }}"
-    id="{{ id }}"
-    class="w-full text-blue-green border-blue-green
+{% load svg %}
 
-        {% if size == "normal" %} lg:pl-6 {% endif %}
-        {% if size == "big" %} py-7.5 lg:pl-20 text-xl font-medium {% endif %}
+<div class="relative {{ class }}">
 
-        {{ icon_class }}
-        {{ class }}">
+    <select
+        name="{{ id }}"
+        id="{{ id }}"
+        class="w-full text-blue-green border-blue-green
 
-    <option value="all">{{ default_text }}</option>
+            {% if size == "normal" %} lg:pl-6 {% endif %}
+            {% if size == "big" %} py-4 md:py-7.5 pl-20 md:text-xl font-medium {% endif %}
 
-    {% for option in options %}
+            {{ select_class }}">
 
-    <option value="{{ option.id }}" {% if option.selected %}selected="selected"{% endif%}>
-        {{ option.text }}
-    </option>
+        <option value="all">
+        
+            {{ default_text }}
+        
+        </option>
 
-    {% endfor %}
+        {% for option in options %}
 
-</select>
+        <option value="{{ option.id }}" {% if option.selected %}selected="selected"{% endif%}>
+
+            {{ option.text }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    {% if icon %}
+
+        <div class="absolute left-0 top-0 flex items-center icon--small h-full ml-6">
+                
+            {% svg icon %}
+            
+        </div>
+
+    {% endif %}
+
+</div>    

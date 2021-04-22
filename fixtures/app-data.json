@@ -1,0 +1,1506 @@
+[
+
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$216000$hjtr13WgCoAP$HGX5dD1wcybwjBJOsKvMKORjCys3gR/3Z159B308pWo=",
+        "last_login": "2021-03-23T14:05:10.191Z",
+        "is_superuser": true,
+        "username": "modularadmin",
+        "first_name": "",
+        "last_name": "",
+        "email": "fcog111@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-02-24T14:38:57.194Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 39,
+    "fields": {
+        "app_label": "homes",
+        "model": "elevationgalleryimage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 40,
+    "fields": {
+        "app_label": "homes",
+        "model": "floorplangalleryimage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 41,
+    "fields": {
+        "app_label": "homes",
+        "model": "homesindexpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 42,
+    "fields": {
+        "app_label": "homes",
+        "model": "stylecategory"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 43,
+    "fields": {
+        "app_label": "homes",
+        "model": "homepage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 44,
+    "fields": {
+        "app_label": "partners",
+        "model": "locationcategory"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 45,
+    "fields": {
+        "app_label": "partners",
+        "model": "partnertypepage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 46,
+    "fields": {
+        "app_label": "partners",
+        "model": "typecategory"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 47,
+    "fields": {
+        "app_label": "partners",
+        "model": "partnerpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 48,
+    "fields": {
+        "app_label": "partners",
+        "model": "partnergalleryimage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 49,
+    "fields": {
+        "app_label": "wagtailmenus",
+        "model": "flatmenu"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 50,
+    "fields": {
+        "app_label": "wagtailmenus",
+        "model": "flatmenuitem"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 51,
+    "fields": {
+        "app_label": "wagtailmenus",
+        "model": "mainmenu"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 52,
+    "fields": {
+        "app_label": "wagtailmenus",
+        "model": "mainmenuitem"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 53,
+    "fields": {
+        "app_label": "partners",
+        "model": "partnersindexpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 54,
+    "fields": {
+        "app_label": "articles",
+        "model": "articlesindexpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 55,
+    "fields": {
+        "app_label": "articles",
+        "model": "articlepage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 56,
+    "fields": {
+        "app_label": "flexible",
+        "model": "flexibleonecolumnpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 57,
+    "fields": {
+        "app_label": "flexible",
+        "model": "flexibletwocolumnpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 58,
+    "fields": {
+        "app_label": "resources",
+        "model": "resourcepage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 59,
+    "fields": {
+        "app_label": "resources",
+        "model": "resourcesindexpage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 60,
+    "fields": {
+        "app_label": "base",
+        "model": "mhosettings"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 61,
+    "fields": {
+        "app_label": "homes",
+        "model": "priceranges"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 62,
+    "fields": {
+        "app_label": "forum",
+        "model": "forum"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 63,
+    "fields": {
+        "app_label": "forum_conversation",
+        "model": "post"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 64,
+    "fields": {
+        "app_label": "forum_conversation",
+        "model": "topic"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 65,
+    "fields": {
+        "app_label": "forum_attachments",
+        "model": "attachment"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 66,
+    "fields": {
+        "app_label": "forum_polls",
+        "model": "topicpoll"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 67,
+    "fields": {
+        "app_label": "forum_polls",
+        "model": "topicpolloption"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 68,
+    "fields": {
+        "app_label": "forum_polls",
+        "model": "topicpollvote"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 69,
+    "fields": {
+        "app_label": "forum_tracking",
+        "model": "forumreadtrack"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 70,
+    "fields": {
+        "app_label": "forum_tracking",
+        "model": "topicreadtrack"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 71,
+    "fields": {
+        "app_label": "forum_member",
+        "model": "forumprofile"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 72,
+    "fields": {
+        "app_label": "forum_permission",
+        "model": "forumpermission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 73,
+    "fields": {
+        "app_label": "forum_permission",
+        "model": "groupforumpermission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 74,
+    "fields": {
+        "app_label": "forum_permission",
+        "model": "userforumpermission"
+    }
+},
+{
+    "model": "wagtailusers.userprofile",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "submitted_notifications": true,
+        "approved_notifications": true,
+        "rejected_notifications": true,
+        "preferred_language": "",
+        "current_time_zone": "",
+        "avatar": ""
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 1,
+    "fields": {
+        "collection": 1,
+        "title": "ith01.png",
+        "file": "original_images/ith01.png",
+        "width": 680,
+        "height": 510,
+        "created_at": "2021-02-24T21:17:10.603Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 502752,
+        "file_hash": "cfc3453c408523a261e64ba0e35c434530fda261"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 2,
+    "fields": {
+        "collection": 1,
+        "title": "ith01.png",
+        "file": "original_images/ith01.png",
+        "width": 680,
+        "height": 510,
+        "created_at": "2021-02-24T21:45:32.573Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 502752,
+        "file_hash": "cfc3453c408523a261e64ba0e35c434530fda261"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 3,
+    "fields": {
+        "collection": 1,
+        "title": "logo.png",
+        "file": "original_images/logo.png",
+        "width": 154,
+        "height": 72,
+        "created_at": "2021-03-03T02:31:12.760Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 12693,
+        "file_hash": "da3ea77c738332c4e83ee6b114b35039dbc613fc"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 4,
+    "fields": {
+        "collection": 1,
+        "title": "Image 8@2x.png",
+        "file": "original_images/Image_82x.png",
+        "width": 1950,
+        "height": 1398,
+        "created_at": "2021-03-10T14:40:34.543Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 2116835,
+        "file_hash": "129b13e382bce9a07949b57b8b3feaac0f9a6a4e"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 5,
+    "fields": {
+        "collection": 3,
+        "title": "Floorplan 1",
+        "file": "original_images/bh001a.jpg",
+        "width": 590,
+        "height": 600,
+        "created_at": "2021-03-23T14:12:04.996Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 99943,
+        "file_hash": "9c4675bd895d1877e0e8a07bf22585c0dbdea3b4"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 6,
+    "fields": {
+        "collection": 1,
+        "title": "bh001.jpg",
+        "file": "original_images/bh001.jpg",
+        "width": 590,
+        "height": 443,
+        "created_at": "2021-03-23T14:12:31.779Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 83359,
+        "file_hash": "601baa0880fec7a2b7e32d6e4e2432152179f72e"
+    }
+},
+{
+    "model": "wagtailimages.image",
+    "pk": 7,
+    "fields": {
+        "collection": 4,
+        "title": "bluhomeslogo.gif",
+        "file": "original_images/bluhomeslogo.gif",
+        "width": 85,
+        "height": 75,
+        "created_at": "2021-03-23T22:53:16.225Z",
+        "uploaded_by_user": 1,
+        "focal_point_x": null,
+        "focal_point_y": null,
+        "focal_point_width": null,
+        "focal_point_height": null,
+        "file_size": 3274,
+        "file_hash": "e8b2418f327ff8be6a9a3207c3082132c5d24d10"
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 1,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/ith01.max-165x165.png",
+        "width": 165,
+        "height": 123,
+        "focal_point_key": "",
+        "image": 1
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 2,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/ith01.max-165x165.png",
+        "width": 165,
+        "height": 123,
+        "focal_point_key": "",
+        "image": 2
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 3,
+    "fields": {
+        "filter_spec": "min-900x900",
+        "file": "images/ith01.min-900x900.png",
+        "width": 680,
+        "height": 510,
+        "focal_point_key": "",
+        "image": 2
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 4,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/logo.max-165x165.png",
+        "width": 154,
+        "height": 72,
+        "focal_point_key": "",
+        "image": 3
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 5,
+    "fields": {
+        "filter_spec": "width-120",
+        "file": "images/logo.width-120.png",
+        "width": 120,
+        "height": 56,
+        "focal_point_key": "",
+        "image": 3
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 6,
+    "fields": {
+        "filter_spec": "width-400",
+        "file": "images/ith01.width-400.png",
+        "width": 400,
+        "height": 300,
+        "focal_point_key": "",
+        "image": 2
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 7,
+    "fields": {
+        "filter_spec": "scale-100",
+        "file": "images/logo.scale-100.png",
+        "width": 154,
+        "height": 72,
+        "focal_point_key": "",
+        "image": 3
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 8,
+    "fields": {
+        "filter_spec": "scale-100",
+        "file": "images/ith01.scale-100.png",
+        "width": 680,
+        "height": 510,
+        "focal_point_key": "",
+        "image": 2
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 9,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/Image_82x.max-165x165.png",
+        "width": 165,
+        "height": 118,
+        "focal_point_key": "",
+        "image": 4
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 10,
+    "fields": {
+        "filter_spec": "scale-100",
+        "file": "images/Image_82x.scale-100.png",
+        "width": 1950,
+        "height": 1398,
+        "focal_point_key": "",
+        "image": 4
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 11,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/bh001a.max-165x165.jpg",
+        "width": 162,
+        "height": 165,
+        "focal_point_key": "",
+        "image": 5
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 12,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/bh001.max-165x165.jpg",
+        "width": 165,
+        "height": 123,
+        "focal_point_key": "",
+        "image": 6
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 13,
+    "fields": {
+        "filter_spec": "fill-320x240",
+        "file": "images/ith01.2e16d0ba.fill-320x240_fGVRTfm.png",
+        "width": 320,
+        "height": 240,
+        "focal_point_key": "2e16d0ba",
+        "image": 2
+    }
+},
+{
+    "model": "wagtailimages.rendition",
+    "pk": 14,
+    "fields": {
+        "filter_spec": "max-165x165",
+        "file": "images/bluhomeslogo.max-165x165.png",
+        "width": 85,
+        "height": 75,
+        "focal_point_key": "",
+        "image": 7
+    }
+},
+{
+    "model": "wagtailcore.site",
+    "pk": 1,
+    "fields": {
+        "hostname": "localhost",
+        "port": 80,
+        "site_name": "Modular Homeowners",
+        "root_page": 6,
+        "is_default_site": true
+    }
+},
+{
+    "model": "wagtailcore.locale",
+    "pk": 1,
+    "fields": {
+        "language_code": "en"
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+        "path": "0001",
+        "depth": 1,
+        "numchild": 1,
+        "translation_key": "059b2b82-d502-4fcc-94d1-bb0089483efd",
+        "locale": 1,
+        "title": "Root",
+        "draft_title": "Root",
+        "slug": "root",
+        "content_type": 1,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/",
+        "owner": null,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": null,
+        "last_published_at": null,
+        "latest_revision_created_at": null,
+        "live_revision": null,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 6,
+    "fields": {
+        "path": "00010003",
+        "depth": 2,
+        "numchild": 9,
+        "translation_key": "831533cc-94af-4de2-9986-8490d5eb67cb",
+        "locale": 1,
+        "title": "Homepage",
+        "draft_title": "Homepage",
+        "slug": "homepage",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:07:25.898Z",
+        "last_published_at": "2021-03-10T14:40:39.746Z",
+        "latest_revision_created_at": "2021-03-10T14:40:39.692Z",
+        "live_revision": 40,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 7,
+    "fields": {
+        "path": "000100030001",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "ec4f7dfb-c671-428d-87f7-be1465546dff",
+        "locale": 1,
+        "title": "Articles",
+        "draft_title": "Articles",
+        "slug": "articles",
+        "content_type": 54,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/articles/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:08:20.304Z",
+        "last_published_at": "2021-03-02T00:13:25.195Z",
+        "latest_revision_created_at": "2021-03-02T00:13:25.169Z",
+        "live_revision": 11,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 8,
+    "fields": {
+        "path": "000100030002",
+        "depth": 3,
+        "numchild": 1,
+        "translation_key": "e7dd2134-3f97-45d3-98d5-42142e9ee5bd",
+        "locale": 1,
+        "title": "Homes",
+        "draft_title": "Homes",
+        "slug": "homes",
+        "content_type": 41,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/homes/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:09:11.007Z",
+        "last_published_at": "2021-03-09T01:09:25.498Z",
+        "latest_revision_created_at": "2021-03-09T01:09:25.474Z",
+        "live_revision": 38,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 9,
+    "fields": {
+        "path": "000100030003",
+        "depth": 3,
+        "numchild": 2,
+        "translation_key": "4dc534cb-584e-450c-9933-4e57eb4e4bc3",
+        "locale": 1,
+        "title": "Partners",
+        "draft_title": "Partners",
+        "slug": "partners",
+        "content_type": 53,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/partners/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:09:26.863Z",
+        "last_published_at": "2021-03-02T00:14:51.648Z",
+        "latest_revision_created_at": "2021-03-02T00:14:51.621Z",
+        "live_revision": 16,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 10,
+    "fields": {
+        "path": "000100030004",
+        "depth": 3,
+        "numchild": 10,
+        "translation_key": "7a91aee5-fac6-410e-85f4-bd10e91de81b",
+        "locale": 1,
+        "title": "Resources",
+        "draft_title": "Resources",
+        "slug": "resources",
+        "content_type": 59,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:09:38.800Z",
+        "last_published_at": "2021-03-02T00:14:07.869Z",
+        "latest_revision_created_at": "2021-03-02T00:14:07.840Z",
+        "live_revision": 14,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 11,
+    "fields": {
+        "path": "000100030005",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "16b63847-277b-472a-b923-4f94dd02d73d",
+        "locale": 1,
+        "title": "About Us",
+        "draft_title": "About Us",
+        "slug": "about-us",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/about-us/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:10:35.994Z",
+        "last_published_at": "2021-03-02T00:13:49.513Z",
+        "latest_revision_created_at": "2021-03-02T00:13:49.485Z",
+        "live_revision": 13,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 13,
+    "fields": {
+        "path": "0001000300030001",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "b8ff2bca-865f-4988-a5c9-0aa5fed5ae82",
+        "locale": 1,
+        "title": "Builders",
+        "draft_title": "Builders",
+        "slug": "builders",
+        "content_type": 45,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/partners/builders/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:15:40.505Z",
+        "last_published_at": "2021-03-02T00:16:29.205Z",
+        "latest_revision_created_at": "2021-03-02T00:16:29.175Z",
+        "live_revision": 19,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 14,
+    "fields": {
+        "path": "0001000300030002",
+        "depth": 4,
+        "numchild": 1,
+        "translation_key": "764e9ea4-4c2d-4522-93ca-e4f92b179159",
+        "locale": 1,
+        "title": "Manufacturers",
+        "draft_title": "Manufacturers",
+        "slug": "manufacturers",
+        "content_type": 45,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/partners/manufacturers/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-02T00:15:58.318Z",
+        "last_published_at": "2021-03-02T00:15:58.318Z",
+        "latest_revision_created_at": "2021-03-02T00:15:58.300Z",
+        "live_revision": 18,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 15,
+    "fields": {
+        "path": "000100030006",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "9d922693-33dd-4e25-8d4a-c6e726b86083",
+        "locale": 1,
+        "title": "Contact Us",
+        "draft_title": "Contact Us",
+        "slug": "contact-us",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/contact-us/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-08T16:33:31.226Z",
+        "last_published_at": "2021-03-08T16:33:31.226Z",
+        "latest_revision_created_at": "2021-03-08T16:33:31.204Z",
+        "live_revision": 22,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 16,
+    "fields": {
+        "path": "000100030007",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "efd784c5-a9b8-4726-8389-ec4866e43da9",
+        "locale": 1,
+        "title": "Our Mission",
+        "draft_title": "Our Mission",
+        "slug": "our-mission",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/our-mission/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-08T23:42:46.747Z",
+        "last_published_at": "2021-03-08T23:42:46.747Z",
+        "latest_revision_created_at": "2021-03-08T23:42:46.722Z",
+        "live_revision": 23,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 17,
+    "fields": {
+        "path": "000100030008",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "bce1ebe7-6f63-4eae-9636-72bf2259c2b3",
+        "locale": 1,
+        "title": "FAQs",
+        "draft_title": "FAQs",
+        "slug": "faqs",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/faqs/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-08T23:43:17.173Z",
+        "last_published_at": "2021-03-08T23:43:31.093Z",
+        "latest_revision_created_at": "2021-03-08T23:43:31.050Z",
+        "live_revision": 25,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 18,
+    "fields": {
+        "path": "0001000300040001",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "c8c88161-45cb-4d6f-9c45-e1c399d32fdc",
+        "locale": 1,
+        "title": "Getting Started",
+        "draft_title": "Getting Started",
+        "slug": "getting-started",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/getting-started/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:09:18.885Z",
+        "last_published_at": "2021-03-09T00:10:39.115Z",
+        "latest_revision_created_at": "2021-03-09T00:10:39.085Z",
+        "live_revision": 30,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 19,
+    "fields": {
+        "path": "0001000300040002",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "047e1637-b766-472a-a70e-b2159c832e47",
+        "locale": 1,
+        "title": "Financing Guide",
+        "draft_title": "Financing Guide",
+        "slug": "financing-guide",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/financing-guide/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:09:33.906Z",
+        "last_published_at": "2021-03-09T00:10:22.504Z",
+        "latest_revision_created_at": "2021-03-09T00:10:22.469Z",
+        "live_revision": 29,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 20,
+    "fields": {
+        "path": "0001000300040003",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "4cfdfbfc-8da7-4765-afcb-af9a7fbc6f3f",
+        "locale": 1,
+        "title": "What You Need to Know",
+        "draft_title": "What You Need to Know",
+        "slug": "what-you-need-to-know",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/what-you-need-to-know/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:10:00.547Z",
+        "last_published_at": "2021-03-09T00:10:00.547Z",
+        "latest_revision_created_at": "2021-03-09T00:10:00.524Z",
+        "live_revision": 28,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 21,
+    "fields": {
+        "path": "0001000300040004",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "b524d7f1-1aa5-4405-bc8c-7d7bc1b90422",
+        "locale": 1,
+        "title": "Designing Your Home",
+        "draft_title": "Designing Your Home",
+        "slug": "designing-your-home",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/designing-your-home/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:11:11.617Z",
+        "last_published_at": "2021-03-09T00:11:11.617Z",
+        "latest_revision_created_at": "2021-03-09T00:11:11.598Z",
+        "live_revision": 31,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 22,
+    "fields": {
+        "path": "0001000300040005",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "e37778e0-26ed-447c-848e-529672a76af3",
+        "locale": 1,
+        "title": "General Contractors",
+        "draft_title": "General Contractors",
+        "slug": "general-contractors",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/general-contractors/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:11:38.216Z",
+        "last_published_at": "2021-03-09T00:11:38.216Z",
+        "latest_revision_created_at": "2021-03-09T00:11:38.197Z",
+        "live_revision": 32,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 23,
+    "fields": {
+        "path": "0001000300040006",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "b9de8b88-8d2e-4836-8c34-a2a446411f2b",
+        "locale": 1,
+        "title": "Final Planning Stage",
+        "draft_title": "Final Planning Stage",
+        "slug": "final-planning-stage",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/final-planning-stage/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:16:14.042Z",
+        "last_published_at": "2021-03-09T00:16:14.042Z",
+        "latest_revision_created_at": "2021-03-09T00:16:14.022Z",
+        "live_revision": 33,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 24,
+    "fields": {
+        "path": "0001000300040007",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "aec6e801-84ab-475c-a0b2-3b5dd58fc026",
+        "locale": 1,
+        "title": "Prepping Your Site",
+        "draft_title": "Prepping Your Site",
+        "slug": "prepping-your-site",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/prepping-your-site/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:16:35.934Z",
+        "last_published_at": "2021-03-09T00:16:35.934Z",
+        "latest_revision_created_at": "2021-03-09T00:16:35.913Z",
+        "live_revision": 34,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 25,
+    "fields": {
+        "path": "0001000300040008",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "78f6013f-bd56-40a4-a97b-b4d834190109",
+        "locale": 1,
+        "title": "Home Delivery",
+        "draft_title": "Home Delivery",
+        "slug": "home-delivery",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/home-delivery/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:18:58.335Z",
+        "last_published_at": "2021-03-09T00:18:58.335Z",
+        "latest_revision_created_at": "2021-03-09T00:18:58.314Z",
+        "live_revision": 35,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 26,
+    "fields": {
+        "path": "0001000300040009",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "81d2afa8-a492-4269-9206-16745e7efdad",
+        "locale": 1,
+        "title": "Onsite Work",
+        "draft_title": "Onsite Work",
+        "slug": "onsite-work",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/onsite-work/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:19:24.625Z",
+        "last_published_at": "2021-03-09T00:19:24.625Z",
+        "latest_revision_created_at": "2021-03-09T00:19:24.603Z",
+        "live_revision": 36,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 27,
+    "fields": {
+        "path": "000100030004000A",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "bf14bb4f-3f88-4926-9a34-df6185e50776",
+        "locale": 1,
+        "title": "Maintenance & Upkeep",
+        "draft_title": "Maintenance & Upkeep",
+        "slug": "maintenance-upkeep",
+        "content_type": 58,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/resources/maintenance-upkeep/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T00:19:44.114Z",
+        "last_published_at": "2021-03-09T00:19:44.114Z",
+        "latest_revision_created_at": "2021-03-09T00:19:44.095Z",
+        "live_revision": 37,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 28,
+    "fields": {
+        "path": "000100030009",
+        "depth": 3,
+        "numchild": 0,
+        "translation_key": "bd3957c1-6798-41b9-adb6-912d1a3c7e47",
+        "locale": 1,
+        "title": "Privacy Policy",
+        "draft_title": "Privacy Policy",
+        "slug": "privacy-policy",
+        "content_type": 56,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/privacy-policy/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": true,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-09T02:00:35.052Z",
+        "last_published_at": "2021-03-09T02:00:35.052Z",
+        "latest_revision_created_at": "2021-03-09T02:00:35.025Z",
+        "live_revision": 39,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 29,
+    "fields": {
+        "path": "00010003000300020001",
+        "depth": 5,
+        "numchild": 0,
+        "translation_key": "f6f5c77a-5316-446c-9df5-f3380d9f39cf",
+        "locale": 1,
+        "title": "Manufacturer 1",
+        "draft_title": "Manufacturer 1",
+        "slug": "manufacturer-1",
+        "content_type": 47,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/partners/manufacturers/manufacturer-1/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-23T14:10:10.804Z",
+        "last_published_at": "2021-03-23T14:10:10.804Z",
+        "latest_revision_created_at": "2021-03-23T14:10:10.773Z",
+        "live_revision": 41,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.page",
+    "pk": 30,
+    "fields": {
+        "path": "0001000300020001",
+        "depth": 4,
+        "numchild": 0,
+        "translation_key": "4b85695c-a808-4917-bab0-908fe4f0a4ff",
+        "locale": 1,
+        "title": "Home 1",
+        "draft_title": "Home 1",
+        "slug": "home-1",
+        "content_type": 43,
+        "live": true,
+        "has_unpublished_changes": false,
+        "url_path": "/homepage/homes/home-1/",
+        "owner": 1,
+        "seo_title": "",
+        "show_in_menus": false,
+        "search_description": "",
+        "go_live_at": null,
+        "expire_at": null,
+        "expired": false,
+        "locked": false,
+        "locked_at": null,
+        "locked_by": null,
+        "first_published_at": "2021-03-23T14:12:35.770Z",
+        "last_published_at": "2021-03-23T14:12:35.770Z",
+        "latest_revision_created_at": "2021-03-23T14:12:35.731Z",
+        "live_revision": 42,
+        "alias_of": null
+    }
+},
+{
+    "model": "wagtailcore.collection",
+    "pk": 1,
+    "fields": {
+        "path": "0001",
+        "depth": 1,
+        "numchild": 3,
+        "name": "Root"
+    }
+},
+{
+    "model": "wagtailcore.collection",
+    "pk": 2,
+    "fields": {
+        "path": "00010002",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Home Images"
+    }
+},
+{
+    "model": "wagtailcore.collection",
+    "pk": 3,
+    "fields": {
+        "path": "00010001",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Floorplans"
+    }
+},
+{
+    "model": "wagtailcore.collection",
+    "pk": 4,
+    "fields": {
+        "path": "00010003",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Partners Images"
+    }
+}
+]

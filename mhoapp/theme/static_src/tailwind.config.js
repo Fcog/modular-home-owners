@@ -16,6 +16,9 @@ module.exports = {
             current: 'currentColor',
             white: '#ffffff',
             green: '#609c00',
+            gray: {
+                '50': '#f8f8f8',
+            },
             blue: {
                 DEFAULT: '#003E64',
                 light: '#36B2FF',
@@ -30,16 +33,17 @@ module.exports = {
             container: {
               center: true,
               padding: {
-                DEFAULT: '1rem',
+                DEFAULT: '2rem',
                 sm: '2rem',
-                lg: '0',
-                xl: '0',
+                lg: '2rem',
+                xl: '2rem',
                 '2xl': '0',
               },
             },
             spacing: {
                 mob: '1rem',
                 dsk: '2rem',
+                '4.5': '1.15rem', // 16px
                 '7.5': '1.875rem', // 30px
             },
             fontSize: {
@@ -49,14 +53,27 @@ module.exports = {
             height: {
                 15: '3.75rem',
             },
+            width: {
+                '94%': '94%',
+                '31%': '31%',
+                '29%': '29%',
+                '64.5%': '64.5%',
+            },
             maxWidth: {
                 '15': '15rem',
             },
             backgroundSize: {
-               '80%': '80%',
+               '50%': '50%',
+               '70%': '70%',
+            },
+            backgroundPosition: {
+                'right-40%': 'right 40%',
             },
             zIndex: {
                 '-10': '-10',
+            },
+            boxShadow: {
+                'custom-1': '0px 5px 20px #00000012'
             }
         },
     },

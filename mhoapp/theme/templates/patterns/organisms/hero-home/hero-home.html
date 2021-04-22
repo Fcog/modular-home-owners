@@ -2,30 +2,34 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block left_content %}
+{% block bg_image %}
 
     {% image image scale-100 as bg_image %}
 
     <div
-        class="absolute lg:-right-24 lg:-top-8 h-5/6 lg:h-full w-full pb-20 bg-right bg-80% lg:bg-contain bg-no-repeat -z-10"
+        class="absolute bottom-0 full-width h-full pt-4 lg:pt-8 lg:pb-20 bg-bottom md:bg-right-40% 2xl:bg-right-top bg-contain md:bg-50% bg-no-repeat -z-10"
         style="background-image:url({{ bg_image.url }})"></div>
+
+{% endblock %}        
+
+{% block left_content %}
 
     <h1 class="mb-9 text-4xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
 
-    <p class="mb-9 w-8/12 text-2xl text-blue-dark font-bold md:font-normal leading-normal">{{ introduction }}</p>
+    <p class="mb-9 md:w-8/12 md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
-    <form action="{% slugurl 'homes' %}" method="get">
+    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center">
 
-        <div class="flex mb-8 md:w-10/12">
+        <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
 
-            {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" class="border-r-0" %}
+            {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" icon="home icon" select_class="md:border-r-0" class="md:w-1/2 mb-4.5 md:mb-0" %}
 
-            {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" size="big" %}
+            {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" icon="price icon" size="big" class="md:w-1/2" %}
 
         </div>
 
-        <div class="mb-16 md:w-5/12">
-            {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="green" size="normal" inverted=False type="submit" %}
+        <div class="mb-16 w-10/12 md:w-6/12 xl:w-5/12">
+            {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="blue" size="normal" inverted=False type="submit" %}
         </div>
 
     </form>
@@ -34,6 +38,13 @@
 
 {% block bottom_content %}
 
-    {% include "patterns/molecules/links-bar/links-bar.html" with text=filter_bar_text links=price_ranges %}
+    <div class="relative z-20 -mt-24 md:mt-0 z-40">
+
+        {% include "patterns/molecules/links-bar/links-bar.html" with text=filter_bar_text links=price_ranges class="z-20" %}
+
+        {# Wave blue overlay on mobile #}
+        <div class="md:hidden absolute bottom-0 h-48 full-width bg-blue z-10"></div>
+
+    </div>
 
 {% endblock %}

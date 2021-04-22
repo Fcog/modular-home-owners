@@ -6,3 +6,5 @@ staticfiles
 .idea
 .env
 pgdata
+.devcontainer
+.vscode

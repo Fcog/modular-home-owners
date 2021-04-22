@@ -71,6 +71,8 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    'wagtailsvg',
+    'svg',
 
     # Machina dependencies:
     'mptt',
