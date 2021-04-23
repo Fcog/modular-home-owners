@@ -1,8 +1,13 @@
 <ul>
+
     {% for item in menu_items %}
-    <li class="inline-block mr-6 lg:mr-0
-     lg:mx-3 {{ item.active_class }}">
-        <a class="opacity-60 underline" href="{{ item.href }}">{{ item.text }}</a>
+
+    <li class="inline-block mr-6 lg:mr-0 lg:mx-3 {{ item.active_class }}">
+
+        <a class="opacity-60 underline text-xs md:text-base" href="{{ item.href }}">{{ item.text }}</a>
+
     </li>
+
     {% endfor %}
+
 </ul>

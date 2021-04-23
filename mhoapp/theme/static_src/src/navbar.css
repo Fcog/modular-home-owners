@@ -97,6 +97,13 @@
 
       .luxbar-item-a-first-level {
         margin-left: 2rem;
+        padding-right: 1rem !important;
+
+        &:after {
+          padding-left: .5rem;
+          position: static;
+          content: url('svg/down arrow white.svg');
+        }        
 
         &.opened {
           color: #36B2FF !important;
@@ -124,7 +131,7 @@
   }
 
   .luxbar-item-a-first-level {
-    padding: 1rem !important;
+    padding: .8rem !important;
     font-size: 1.15rem;
     font-weight: bold;
   }
@@ -135,16 +142,6 @@
 
   .dropdown {
     min-height: auto !important;
-
-    .luxbar-item-a-first-level {
-      padding-right: 1rem !important;
-
-      &:after {
-        padding-left: .5rem;
-        position: static;
-        content: url('svg/down arrow white.svg');
-      }
-    }    
 
     ul {
       .luxbar-item-a {
@@ -220,6 +217,8 @@
         background-image: url('svg/down arrow.svg');
         background-position: right .7rem;
         background-size: 9px;        
+        background-repeat: no-repeat;
+        transition: all .2s ease;
       }          
   
       ul {

@@ -1,11 +1,35 @@
-{% if menu_heading %}
-    <h4 class="mb-5 uppercase font-bold text-2xl">{{ menu_heading|safe }}</h4>
-{% endif %}
+{% load svg %}
 
-<ul>
-    {% for item in menu_items %}
-    <li class="mb-2.5 {{ item.active_class }}">
-        <a class="text-xl opacity-60" href="{{ item.href }}">{{ item.text }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="js-menu-vertical mb-5">
+
+    {% if menu_heading %}
+
+        <div class="js-menu-vertical-parent-menu flex md:block justify-center items-center md:mb-6">
+
+            <h4 class="uppercase font-bold md:text-2xl">{{ menu_heading|safe }}</h4>
+
+            <span class="md:hidden pl-3">
+
+                {% svg 'down arrow white' %}
+
+            </span>
+
+        </div>            
+
+    {% endif %}
+
+    <ul class="js-menu-vertical-submenu hidden md:block mt-4 md:mt-0">
+
+        {% for item in menu_items %}
+
+        <li class="mb-2.5 md:mb-3 {{ item.active_class }}">
+
+            <a class="text-lg md:text-xl opacity-60" href="{{ item.href }}">{{ item.text }}</a>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>

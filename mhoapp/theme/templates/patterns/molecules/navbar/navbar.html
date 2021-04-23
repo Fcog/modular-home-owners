@@ -1,3 +1,5 @@
+{% load wagtailcore_tags %}
+
 <div class="luxbar luxbar-default">
 
     <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
@@ -9,11 +11,11 @@
             <li class="luxbar-header">
 
                 <a class="logo-color" href="/">
-					<img src="{{ mhoapp.logo.url }}" alt="Modular Homeowners Logo" class="h-12 md:h-16 md:h-auto">
+					<img src="{{ mhoapp.logo.url }}" alt="Modular Homeowners Logo" class="h-10 md:h-16 md:h-auto">
 				</a>
 
                 <a class="logo-white" href="/">
-					<img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-12 md:h-16 md:h-auto">
+					<img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-10 md:h-16 md:h-auto">
 				</a>                
 
                 <label class="luxbar-hamburger luxbar-hamburger-spin" for="luxbar-checkbox"><span></span></label>
@@ -24,15 +26,17 @@
 
 			<li class="luxbar-item md:hidden lg:block">
 
+                {% slugurl 'homes' as search_homes_url %}
+
                 {# Not mobile button #}
-				{% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find Your Home" class="hidden md:inline-block py-0 xl:ml-4 mt-8 md:mt-0" size="small" color="green" inverted=True %}
+				{% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="hidden md:flex py-0 xl:ml-4 mt-8 md:mt-0" size="small" color="green" inverted=True %}
 				
                 {# Mobile button #}
                 <div class="md:hidden flex justify-center mt-4">
 
                     <div class="w-10/12">
 
-                        {% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find Your Home" class="py-0 xl:ml-4 mt-8 md:mt-0" size="normal" color="blue" inverted=True %}
+                        {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="py-0 xl:ml-4 mt-8 md:mt-0" size="normal" color="blue" inverted=True %}
                 
                     </div>
 

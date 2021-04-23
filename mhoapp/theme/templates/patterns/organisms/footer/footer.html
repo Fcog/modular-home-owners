@@ -1,22 +1,22 @@
 {% load wagtailcore_tags menu_tags svg %}
 {% wagtail_site as current_site %}
 
-<footer class="pt-20 lg:pt-40 pb-12 lg:pb-20 bg-blue text-white">
+<footer class="pt-10 md:pt-20 lg:pt-40 pb-12 lg:pb-20 bg-blue text-white">
 
-    <div class="flex justify-center container">
+    <div class="flex justify-center text-center md:text-left container">
 
         <div class="2xl:w-94%">
 
             <div class="lg:flex">
 
-                <div class="mb-16 lg:mb-0 lg:w-31%">
+                <div class="mb-12 md:mb-16 lg:mb-0 lg:w-31%">
 
-                    <a class="block mb-14 mr-12 lg:w-64.5%" href="/">
-                        <img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-16 md:h-auto">
+                    <a class="flex justify-center md:block mb-8 md:mb-14 md:mr-12 lg:w-64.5%" href="/">
+                        <img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-20 md:h-16 md:h-auto">
                     </a>
 
                     <a
-                        class="inline-flex items-center mb-8 font-bold leading-none text-blue-light text-2xl"
+                        class="inline-flex items-center mb-8 font-bold leading-none text-blue-light text-lg md:text-2xl"
                         href="mailto:"
                         class="href">
 
@@ -26,37 +26,41 @@
 
                     </a>
 
-                    <div class="md:w-64.5%">
-                        {% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find your home" size="small" color="blue" inverted=True %}
-                    </div>
+                    <div class="flex md:block justify-center">
+
+                        <div class="w-10/12 md:w-4/6">
+                            {% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find your home" size="small" color="blue" inverted=True %}
+                        </div>
+
+                    </div>    
 
                 </div>
 
                 <div class="md:flex lg:w-8/12">
 
-                    <div class="mb-16 md:mb-0 md:w-2/5 lg:pr-12 2xl:pr-20">
+                    <div class="md:mb-16 md:mb-0 md:w-2/5 lg:pr-12 2xl:pr-20">
 
                         {% flat_menu 'resources' template="patterns/molecules/menus/vertical.html" %}
 
                     </div>
 
-                    <div class="mb-16 md:mb-0 md:w-29% lg:pr-12 2xl:pr-20">
+                    <div class="md:mb-16 md:mb-0 md:w-29% lg:pr-12 2xl:pr-20">
 
-                        <div class="mb-16">
+                        <div class="md:mb-16">
                             {% flat_menu 'about' template="patterns/molecules/menus/vertical.html" %}
                         </div>
 
-                        <div class="mb-16">
+                        <div class="md:mb-16">
                             {% flat_menu 'partners' template="patterns/molecules/menus/vertical.html" %}
                         </div>
 
-                        <div class="mb-16">
+                        <div class="md:mb-16">
                             {% flat_menu 'forum' template="patterns/molecules/menus/vertical.html" %}
                         </div>
 
                     </div>
 
-                    <div class="mb-16 md:mb-0 md:w-29%">
+                    <div class="md:mb-16 md:mb-0 md:w-29%">
 
                         {% flat_menu 'find_home' template="patterns/molecules/menus/vertical.html" %}
 
@@ -66,11 +70,15 @@
 
             </div>
 
-            <div class="lg:flex mt-20">
+            <div class="flex justify-evenly md:justify-start mt-20">
 
-                <p class="mb-6 lg:mb-0 lg:mr-3 font-bold opacity-60">{{ current_site.site_name }}</p>
+                <p class="flex md:block items-center mb-4 md:mb-6 lg:mb-0 lg:mr-3 text-xs md:text-base font-bold opacity-60">
+                
+                    {{ current_site.site_name }}
+                
+                </p>
 
-                <div>
+                <div class="mb-4 md:mb-0">
                     {% flat_menu 'footer_bottom' template="patterns/molecules/menus/horizontal.html" max_levels=1 show_menu_heading=False %}
                 </div>
 

@@ -1,16 +1,44 @@
 import './styles.css'
 
 document.addEventListener( 'DOMContentLoaded', () => {
-    const parentMenus = document.querySelectorAll('.luxbar-menu .dropdown')
+    function menuMobileDropdown( parentMenuSelector, menuItemSelector, submenuSelector, clickFunction ) {
+        const parentMenus = document.querySelectorAll(parentMenuSelector)
     
-    parentMenus.forEach( parentMenu => {
-        const menuItem = parentMenu.querySelector('.luxbar-item-a-first-level')
-        const submenu = parentMenu.querySelector('ul')
-
-        menuItem.addEventListener('click', event => {
-            event.preventDefault()
+        parentMenus.forEach( parentMenu => {
+            const menuItem = parentMenu.querySelector(menuItemSelector)
+            const submenu = parentMenu.querySelector(submenuSelector)
+    
+            menuItem.addEventListener('click', event => {
+                event.preventDefault()
+                clickFunction(menuItem, submenu)
+            })
+        })
+    }
+    
+    /**
+     * Main menu mobile dropdown toggling.
+     */
+    menuMobileDropdown(
+        '.luxbar-menu .dropdown', 
+        '.luxbar-item-a-first-level', 
+        'ul', 
+        (menuItem, submenu) => { 
             submenu.classList.toggle('block')
             menuItem.classList.toggle('opened')
-        })
-    })
+        }
+    )
+
+    /**
+     * Footer menu mobile dropdown toggling.
+     */    
+    menuMobileDropdown(
+        '.js-menu-vertical', 
+        '.js-menu-vertical-parent-menu', 
+        '.js-menu-vertical-submenu',
+        (menuItem, submenu) => { 
+            submenu.classList.toggle('hidden')
+            menuItem.classList.toggle('opened')
+            menuItem.classList.toggle('icon-rotate')
+        }
+    )
 })
