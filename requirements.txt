@@ -16,6 +16,7 @@ django-filter==2.4.0
 django-haystack==3.0
 django-heroku==0.3.1
 django-htmx==1.0.1
+django-inline-svg==0.1.1
 django-js-asset==1.2.2
 django-machina==1.1.4
 django-modelcluster==5.1
@@ -60,7 +61,9 @@ urllib3==1.26.3
 virtualenv==20.4.2
 virtualenv-clone==0.5.4
 wagtail==2.12.3
+wagtail-generic-chooser==0.1.1
 wagtailmenus==3.0.2
+wagtailsvg==0.0.14
 webencodings==0.5.1
 whitenoise==5.2.0
 Willow==1.4
