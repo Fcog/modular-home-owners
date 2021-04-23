@@ -28,8 +28,12 @@
 
                     <div class="flex md:block justify-center">
 
-                        <div class="w-10/12 md:w-4/6">
-                            {% include "patterns/atoms/button/button.html" with url="http://google.com" text="Find your home" size="small" color="blue" inverted=True %}
+                        <div class="w-10/12 xl:w-4/6">
+
+                            {% slugurl 'homes' as search_homes_url %}
+
+                            {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find your home" size="small" color="blue" inverted=True %}
+
                         </div>
 
                     </div>    
@@ -70,13 +74,17 @@
 
             </div>
 
-            <div class="flex justify-evenly md:justify-start mt-20">
+            <div class="flex flex-wrap justify-evenly md:justify-start mt-20">
 
-                <p class="flex md:block items-center mb-4 md:mb-6 lg:mb-0 lg:mr-3 text-xs md:text-base font-bold opacity-60">
+                <p class="flex md:block items-center mb-4 md:mb-6 lg:mb-0 lg:mr-4 text-xs md:text-base font-bold opacity-60">
                 
                     {{ current_site.site_name }}
                 
                 </p>
+
+                <p class="lg:mr-4 text-xs md:text-base opacity-60">Copyright {% now 'Y' %}</p>
+
+                <p class="lg:mr-1 text-xs md:text-base opacity-60">All Rights Reserved</p>
 
                 <div class="mb-4 md:mb-0">
                     {% flat_menu 'footer_bottom' template="patterns/molecules/menus/horizontal.html" max_levels=1 show_menu_heading=False %}
