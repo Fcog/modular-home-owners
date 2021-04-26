@@ -214,6 +214,7 @@
       }
 
       .luxbar-item-a-first-level {
+        padding-right: 1rem !important;
         background-image: url('svg/down arrow.svg');
         background-position: right .7rem;
         background-size: 9px;        

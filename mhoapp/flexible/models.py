@@ -17,6 +17,7 @@ class FlexibleOneColumnPage(Page):
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
         ('resourcesCTA', ResourcesCTABlock()),
+        ('articlesCTA', ArticlesCTABlock()),
         ('hero', HeroBlock()),
         ('paragraph', blocks.RichTextBlock()),
         ('text', blocks.TextBlock()),

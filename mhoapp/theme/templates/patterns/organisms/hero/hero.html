@@ -1,29 +1,33 @@
 {% load svg %}
 
-<div class="relative">
+<div class="container">
 
-    <div class="relative flex justify-between pb-48 md:pb-0 lg:pt-16 z-30">
+    <div class="relative">
 
-        {% block bg_image %}
-        {% endblock %}
+        <div class="relative flex justify-between pb-48 md:pb-0 lg:pt-16 z-30">
 
-        <div class="md:relative pb-20 pt-4 lg:pt-14">
+            {% block bg_image %}
+            {% endblock %}
 
-            <div class="lg:w-1/2">
+            <div class="md:relative pb-20 pt-4 lg:pt-14">
 
-                {% block left_content %}
-                {% endblock %}
+                <div class="lg:w-1/2">
+
+                    {% block left_content %}
+                    {% endblock %}
+
+                </div>
 
             </div>
 
         </div>
 
+        {# Wave blue overlay on tablet, desktop #}
+        <div class="hidden md:block absolute bottom-0 full-width h-3/6 z-10 overflow-hidden">{% svg 'blue overlay' %}</div>
+
+        {% block bottom_content %}
+        {% endblock %}
+
     </div>
-
-    {# Wave blue overlay on tablet, desktop #}
-    <div class="hidden md:block absolute bottom-0 full-width h-3/6 z-10">{% svg 'blue overlay' %}</div>
-
-    {% block bottom_content %}
-    {% endblock %}
 
 </div>

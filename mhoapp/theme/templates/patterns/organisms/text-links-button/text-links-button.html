@@ -1,11 +1,48 @@
-<div class="py-12 mb-mob lg:mb-dsk full-width {% if style == blue %}bg-blue{% else %}bg-white{% endif %}">
+{% load static %}
+
+<div class="py-16 md:py-32 mb-mob lg:mb-dsk w-full bg-blue" style="background-image:url({% static 'images/house-blue-bg.jpg' %})">
 
     <div class="container">
 
-        <p class="text-xl text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada.
-        </p>
+        <div class="pb-8 md:pb-16 lg:w-1/2 text-lg md:text-3xl text-white leading-snug">
+
+            {{ introduction }}
+
+        </div>
+
+        <div class="mb-12 xl:w-10/12">
+
+            <div class="md:flex px-6 md:px-16 py-6 md:pt-16 md:pb-20 border border-white rounded-xl">
+            
+                <div class="mb-8 md:mb-0 md:w-1/2">
+
+                    {% include "patterns/molecules/links-list/links-list.html" with title=column_1_title links=links_col_1 %}
+
+                </div>
+
+                <div class="md:w-1/2">
+
+                    {% include "patterns/molecules/links-list/links-list.html" with title=column_2_title links=links_col_2 %}
+
+                </div>
+
+            </div>
+
+        </div>            
+
+        {% if button_text %}
+
+        <div class="flex justify-center md:block">
+
+            <div class="w-10/12 md:w-4/12 xl:w-3/12">
+
+                {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.url color="blue" size="normal" inverted=False %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
 
     </div>
 

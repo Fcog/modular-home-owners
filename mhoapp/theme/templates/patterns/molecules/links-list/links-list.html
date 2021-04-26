@@ -1,0 +1,26 @@
+{% load svg %}
+
+<h3 class="mb-2 md:mb-8 text-lg md:text-3xl text-white">{{ title }}</h3>
+
+<ul class="md:text-1.5xl text-blue-light2">
+
+    {% for link in links %}
+
+        {% if link %}
+
+        <li class="mb-3 md:mb-2">
+
+            {# Link with char icon for displaying the arrow in the last line when the text wraps into a 2nd line #}
+            <a href="{{ link.url }}" class="flex items-center">
+            
+                {{ link.title }} &#8594;
+
+            </a>
+
+        </li>
+
+        {% endif %}
+
+    {% endfor %} 
+
+</ul>

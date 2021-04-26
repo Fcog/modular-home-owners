@@ -10,7 +10,7 @@ class ArticlesAdmin(ModelAdmin):
     menu_order = 100
     add_to_settings_menu = False
     exclude_from_explorer = False
-    list_display = ('title',)
+    list_display = ('title', 'resource_category')
     search_fields = ('title',)
 
 
