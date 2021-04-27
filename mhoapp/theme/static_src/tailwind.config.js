@@ -26,6 +26,10 @@ module.exports = {
                 dark: '#09293C',
                 green: '#1A5E88',
             },
+            black: {
+                DEFAULT: '#000000',
+                'light': '#707070',
+            }
         },
         extend: {
             screens: {
@@ -62,6 +66,8 @@ module.exports = {
             },
             maxWidth: {
                 '15': '15rem',
+                '16.25': '16.25rem',
+                '21.25': '21.25rem',
             },
             backgroundSize: {
                '50%': '50%',

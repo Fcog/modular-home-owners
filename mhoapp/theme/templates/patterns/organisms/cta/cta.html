@@ -1,0 +1,17 @@
+<div class="container flex justify-center text-center py-32">
+
+    <div class="md:w-10/12 lg:w-9/12 2xl:w-6/12">
+
+        <h2 class="mb-7 text-black text-1.5xl md:text-3xl font-bold">{{ title|linebreaks }}</h2>
+
+        <p class="mb-12 text-black-light md:text-1.5xl">{{ text }}</p>
+
+        <div class="flex justify-center">
+
+            {% include "patterns/atoms/button/button.html" with text=button_text url=button_url color="blue" size="normal" inverted=False %}
+
+        </div>
+
+    </div>    
+
+</div>

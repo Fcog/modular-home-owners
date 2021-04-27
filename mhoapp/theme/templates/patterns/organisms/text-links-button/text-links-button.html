@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="py-16 md:py-32 mb-mob lg:mb-dsk w-full bg-blue" style="background-image:url({% static 'images/house-blue-bg.jpg' %})">
+<div class="py-16 md:py-32 w-full bg-blue" style="background-image:url({% static 'images/house-blue-bg.jpg' %})">
 
     <div class="container">
 
@@ -34,11 +34,7 @@
 
         <div class="flex justify-center md:block">
 
-            <div class="w-10/12 md:w-4/12 xl:w-3/12">
-
-                {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.url color="blue" size="normal" inverted=False %}
-
-            </div>
+            {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="normal" inverted=False %}
 
         </div>
 

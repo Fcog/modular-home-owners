@@ -102,14 +102,6 @@ body {
 	background-image: url('svg/magnifying-glass.svg');
 }
 
-.icon-arrow-right {
-	&:after {
-		content: url('svg/right arrow.svg');
-		width: 20px;
-	}
-	
-}
-
 .icon-rotate {
   svg {
     transform: rotate(180deg);

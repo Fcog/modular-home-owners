@@ -16,7 +16,11 @@
     href="{{ url }}"
     {% endif %}
 
-    class="flex justify-center items-center md:pr-12 w-full font-bold md:text-1.5xl leading-none rounded-full outline-none
+    {% if new_window %}
+    target="_blank"
+    {% endif %}
+
+    class="inline-flex justify-center items-center md:pr-12 w-full max-w-16.25 md:max-w-21.25 font-bold md:text-1.5xl leading-none rounded-full outline-none
 
     {% if size == "normal" %} py-5 md:py-8 {% endif %}
     {% if size == "small" %} h-14 {% endif %}

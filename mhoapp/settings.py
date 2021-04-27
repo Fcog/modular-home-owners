@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'taggit',
     'wagtailsvg',
     'svg',
+    'wagtail_link_block',
 
     # Machina dependencies:
     'mptt',

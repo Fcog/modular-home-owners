@@ -1,25 +1,29 @@
 from django.db import models
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail_link_block.blocks import LinkBlock
 
 from mhoapp.homes.models import StyleCategory, PriceRanges
+from mhoapp.base.models import MHOSettings
 
-class ResourcesCTABlock(blocks.StructBlock):
-    WHITE = 'WH'
-    BLUE = 'BL'
 
-    style = blocks.ChoiceBlock(
-        choices=[
-            (WHITE, 'white'),
-            (BLUE, 'blue'),
-        ],
-        default=WHITE,
-    )
+class ForumCTA(blocks.StructBlock):
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+
+        global_data = MHOSettings.objects.first()
+
+        context['title'] = global_data.forum_title
+        context['text'] = global_data.forum_text
+        context['button_text'] = global_data.forum_button_text
+        context['button_link'] = global_data.forum_button_url()
+
+        return context
 
     class Meta:
-        label = 'Resources CTA'
+        label = 'Forum CTA'
         icon = 'placeholder'
-        template = 'patterns/organisms/text-links-button/text-links-button.html'
+        template = 'patterns/organisms/cta/cta.html'
 
 
 class ArticlesCTABlock(blocks.StructBlock):
@@ -34,8 +38,8 @@ class ArticlesCTABlock(blocks.StructBlock):
     column_2_article_2 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_2_article_3 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_2_article_4 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
-    button_link = blocks.PageChooserBlock(required=False)
     button_text = blocks.CharBlock()
+    button_link = LinkBlock()
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
@@ -52,6 +56,7 @@ class ArticlesCTABlock(blocks.StructBlock):
             value['column_2_article_3'],
             value['column_2_article_4'],
         ]
+        context['button_link'] = value['button_link']
 
         return context
     
