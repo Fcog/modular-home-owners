@@ -23038,6 +23038,17 @@ select {
     height: 3rem;
   }
 
+.svg-text-icon svg {
+    height: 3.8rem;
+  }
+
+@media (min-width: 1024px) {
+
+.svg-text-icon svg {
+      height: 5rem
+  }
+    }
+
 .splide__arrow {
   background: transparent !important;
 }

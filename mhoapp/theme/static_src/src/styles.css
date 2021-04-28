@@ -127,6 +127,16 @@ select {
 	}
 }
 
+.svg-text-icon {
+	svg {
+		height: 3.8rem;
+
+		@screen lg {
+			height: 5rem;
+		}
+	}
+}
+
 .splide__arrow {
 	background: transparent !important;
 }

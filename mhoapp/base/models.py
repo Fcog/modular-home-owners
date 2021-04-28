@@ -25,11 +25,24 @@ class MHOSettings(models.Model):
     search_button_text = models.CharField(max_length=254, default="Find Your Home")
 
     # Forum CTA global data
-    forum_title = models.TextField(max_length=255, null=True)
-    forum_text = models.TextField(max_length=255, null=True)
-    forum_button_text = models.TextField(max_length=255, null=True)
-    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+') 
+    forum_title = models.TextField(max_length=255, null=True, verbose_name="Title")
+    forum_text = models.TextField(max_length=255, null=True, verbose_name="Text")
+    forum_button_text = models.TextField(max_length=255, null=True, verbose_name="Button Text")
+    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button url") 
     forum_button_external_url = models.URLField('Button URL', null=True, blank=True)
+
+    # Get Your House CTA global data
+    gyh_title = models.TextField(max_length=255, null=True, verbose_name="Title")
+    gyh_column_1_title = models.TextField(max_length=255, null=True, verbose_name="Column 1 title")
+    gyh_column_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text")
+    gyh_column_2_title = models.TextField(max_length=255, null=True, verbose_name="Column 2 title")
+    gyh_column_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text")
+    gyh_column_3_title = models.TextField(max_length=255, null=True, verbose_name="Column 3 title")
+    gyh_column_3_text = models.TextField(max_length=255, null=True, verbose_name="Column 3 text")
+    gyh_link_1_text = models.TextField(max_length=255, null=True, verbose_name="Link 1 text")
+    gyh_link_1_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 1 url") 
+    gyh_link_2_text = models.TextField(max_length=255, null=True, verbose_name="Link 2 text")
+    gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 url") 
 
     # Editor panels configuration
     panels = [
@@ -51,6 +64,22 @@ class MHOSettings(models.Model):
                 FieldPanel('forum_button_external_url')
             ],
             heading="Forum CTA text",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('gyh_title'),
+                FieldPanel('gyh_column_1_title'),
+                FieldPanel('gyh_column_1_text'),
+                FieldPanel('gyh_column_2_title'),
+                FieldPanel('gyh_column_2_text'),
+                FieldPanel('gyh_column_3_title'),
+                FieldPanel('gyh_column_3_text'),
+                FieldPanel('gyh_link_1_text'),
+                PageChooserPanel('gyh_link_1_link'),
+                FieldPanel('gyh_link_2_text'),
+                PageChooserPanel('gyh_link_2_link'),
+            ],
+            heading="Get Your House CTA text",
         ),
     ]
 

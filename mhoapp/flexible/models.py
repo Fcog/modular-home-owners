@@ -17,6 +17,7 @@ class FlexibleOneColumnPage(Page):
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
         ('PopularHomesGrid', PopularHomesGrid()),
+        ('GetYourHouseCTA', GetYourHouseCTA()),
         ('articlesCTA', ArticlesCTABlock()),
         ('ForumCTA', ForumCTA()),
         ('hero', HeroBlock()),
