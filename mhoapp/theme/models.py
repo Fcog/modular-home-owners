@@ -21,9 +21,9 @@ class GetYourHouseCTA(blocks.StructBlock):
         context['column_3_title'] = global_data.gyh_column_3_title        
         context['column_3_text'] = global_data.gyh_column_3_text     
         context['link_1_text'] = global_data.gyh_link_1_text     
-        context['link_1_link'] = global_data.gyh_link_1_link     
+        context['link_1_url'] = global_data.gyh_link_1_link.url
         context['link_2_text'] = global_data.gyh_link_2_text     
-        context['link_2_link'] = global_data.gyh_link_2_link     
+        context['link_2_url'] = global_data.gyh_link_2_link.url
 
         return context
 
