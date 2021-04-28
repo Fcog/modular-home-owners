@@ -14,6 +14,7 @@
 @import "./htmx.css";
 
 $green: #609c00;
+$green2: #5F9B00;
 
 html {
 	font-size: 16px;
@@ -46,6 +47,13 @@ body {
       margin-right: 49.2%;      
       transform: translateX(-50%);
     }
+
+    .full-width-none {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+		transform: none;
+	  }	
   }
 }
 
@@ -154,3 +162,10 @@ select {
 .splide__arrow--next {
 	right: -2rem;
 } 
+
+.text-bold-green {
+	b,
+	strong {
+		color: $green2;
+	}
+}

@@ -1,5 +1,5 @@
 from django.db import models
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel, RichTextField
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
 
@@ -44,6 +44,16 @@ class MHOSettings(models.Model):
     gyh_link_2_text = models.TextField(max_length=255, null=True, verbose_name="Link 2 text")
     gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 url") 
 
+    # Partner CTA global data
+    partner_1_title = RichTextField(null=True, blank=True)
+    partner_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text")     
+    partner_1_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 button text") 
+    partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link url") 
+    partner_2_title = RichTextField(null=True, blank=True)
+    partner_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text")        
+    partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text")     
+    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link url")        
+
     # Editor panels configuration
     panels = [
         MultiFieldPanel(
@@ -54,6 +64,7 @@ class MHOSettings(models.Model):
                 FieldPanel('search_button_text'),
             ],
             heading="General Setting",
+            classname="collapsible collapsed",
         ),
         MultiFieldPanel(
             [
@@ -64,6 +75,7 @@ class MHOSettings(models.Model):
                 FieldPanel('forum_button_external_url')
             ],
             heading="Forum CTA text",
+            classname="collapsible collapsed",
         ),
         MultiFieldPanel(
             [
@@ -80,7 +92,22 @@ class MHOSettings(models.Model):
                 PageChooserPanel('gyh_link_2_link'),
             ],
             heading="Get Your House CTA text",
+            classname="collapsible collapsed",
         ),
+        MultiFieldPanel(
+            [
+                FieldPanel('partner_1_title'),
+                FieldPanel('partner_1_text'),
+                FieldPanel('partner_1_button_text'),
+                PageChooserPanel('partner_1_button_link'),
+                FieldPanel('partner_2_title'),
+                FieldPanel('partner_2_text'),
+                FieldPanel('partner_2_button_text'),
+                PageChooserPanel('partner_2_button_link'),
+            ],
+            heading="Partners CTA text",
+            classname="collapsible collapsed",
+        ),        
     ]
 
     def forum_button_url(self):

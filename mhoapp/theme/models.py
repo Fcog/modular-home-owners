@@ -7,6 +7,29 @@ from mhoapp.homes.models import StyleCategory, PriceRanges, HomePage
 from mhoapp.base.models import MHOSettings
 
 
+class PartnersCTA(blocks.StructBlock):
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+
+        global_data = MHOSettings.objects.first()
+
+        context['column_1_title'] = global_data.partner_1_title       
+        context['column_1_text'] = global_data.partner_1_text     
+        context['column_1_button_text'] = global_data.partner_1_button_text 
+        context['column_1_button_url'] = global_data.partner_1_button_link.url     
+        context['column_2_title'] = global_data.partner_2_title       
+        context['column_2_text'] = global_data.partner_2_text        
+        context['column_2_button_text'] = global_data.partner_2_button_text     
+        context['column_2_button_url'] = global_data.partner_2_button_link.url                
+
+        return context
+
+    class Meta:
+        label = 'Partners CTA'
+        icon = 'placeholder'
+        template = 'patterns/organisms/cta/double-column.html'
+
+
 class GetYourHouseCTA(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
