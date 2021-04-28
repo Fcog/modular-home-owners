@@ -1,23 +1,27 @@
 <div class="border-b border-gray-80">
 
-    <div class="md:flex">
+    <div class="full-width md:full-width-none md:border-b border-gray-80">
 
-        <div class="py-20 md:py-32 full-width md:full-width-none md:w-1/2 border-b md:border-b-0 md:border-r border-gray-80">
+        <div class="md:flex container">
 
-            <div class="container">
+            <div class="py-16 md:py-32 md:w-1/2 full-width md:full-width-none border-b md:border-b-0 md:border-r border-gray-80">
 
-                {% include "patterns/molecules/cards/cta/cta.html" with title=column_1_title text=column_1_text button_text=column_1_button_text button_url=column_1_button_url %}
+                <div class="container md:w-full">
+
+                    {% include "patterns/molecules/cards/cta/cta.html" with title=column_1_title text=column_1_text button_text=column_1_button_text button_url=column_1_button_url %}
+
+                </div>
 
             </div>
-        
-        </div>
 
-        <div class="py-20 md:py-32 full-width md:full-width-none md:w-1/2">
+            <div class="py-16 md:py-32 full-width md:full-width-none md:w-1/2">
 
-            <div class="container">
-            
-                {% include "patterns/molecules/cards/cta/cta.html" with title=column_2_title text=column_2_text button_text=column_2_button_text button_url=column_2_button_url %}
-            
+                <div class="container md:w-full">
+                
+                    {% include "patterns/molecules/cards/cta/cta.html" with title=column_2_title text=column_2_text button_text=column_2_button_text button_url=column_2_button_url %}
+
+                </div>
+
             </div>
 
         </div>

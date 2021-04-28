@@ -22726,14 +22726,14 @@ select {
   width: 100vw;
   margin-left: 49.2%;
   margin-right: 49.2%;
-  transform: translateX(-50%);
+  transform: translateX(-49.2%);
 }
 
 .full-width-overflow {
   width: 120vw !important;
   margin-left: 49.2%;
   margin-right: 49.2%;
-  transform: translateX(-50%);
+  transform: translateX(-49.2%);
 }
 
 .full-width-none {
@@ -45748,14 +45748,14 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .sm\:full-width-overflow {
     width: 120vw !important;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .sm\:full-width-none {
@@ -67666,14 +67666,14 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .md\:full-width-overflow {
     width: 120vw !important;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .md\:full-width-none {
@@ -89584,14 +89584,14 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .lg\:full-width-overflow {
     width: 120vw !important;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .lg\:full-width-none {
@@ -111502,14 +111502,14 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .xl\:full-width-overflow {
     width: 120vw !important;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .xl\:full-width-none {
@@ -133420,14 +133420,14 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .\32xl\:full-width-overflow {
     width: 120vw !important;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-50%);
+    transform: translateX(-49.2%);
   }
 
   .\32xl\:full-width-none {
