@@ -1,11 +1,23 @@
 {% load svg %}
 
-<div class="flex flex-col items-center md:w-4/12 md:px-8 lg:px-12 mb-9 md:mb-0">
+<div class="flex flex-col items-center md:w-4/12 md:px-8 lg:px-12 mb-10 md:mb-0">
 
     <div class="mb-4 md:mb-7 svg-text-icon">{% svg icon %}</div>
 
-    <h3 class="mb-2 md:mb-6 w-9/12 lg:w-8/12 text-lg md:text-2xl font-bold">{{ title }}</h3>
+    <h3 class="mb-3 md:mb-6 w-9/12 lg:w-8/12 text-lg md:text-2xl font-bold">{{ title }}</h3>
 
-    <p class="text-base md:text-lg">{{ text }}</p>
+    <div class="js-read-more">
+
+        <div class="js-read-more-button md:hidden flex justify-center items-center svg-h-.4">
+
+            {% svg 'down arrow white' %}
+
+            <span class="mr-1 text-xs text-blue-light3">Read more</span> 
+
+        </div>
+
+        <p class="js-read-more-text hidden md:block text-base md:text-lg">{{ text }}</p>
+
+    </div>
 
 </div>
