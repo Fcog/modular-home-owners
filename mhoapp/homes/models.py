@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.contenttypes.fields import GenericRelation
+from hitcount.models import HitCount
 from wagtail.search import index
 from modelcluster.fields import ParentalKey
 from wagtail.core.models import Page, Orderable
@@ -7,7 +10,6 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from mhoapp.partners.models import PartnerPage, LocationCategory
 from .admin import HomePageForm
@@ -167,6 +169,7 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
 
     # Custom search fields
     search_fields = Page.search_fields + [

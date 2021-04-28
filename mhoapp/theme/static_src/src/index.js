@@ -1,6 +1,12 @@
 import './styles.css'
+import Splide from '@splidejs/splide'
 
 document.addEventListener( 'DOMContentLoaded', () => {
+    new Splide('.splide', {
+        pagination: false,
+        focus: 'center',
+    }).mount();
+
     function menuMobileDropdown( parentMenuSelector, menuItemSelector, submenuSelector, clickFunction ) {
         const parentMenus = document.querySelectorAll(parentMenuSelector)
     
@@ -41,4 +47,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
             menuItem.classList.toggle('icon-rotate')
         }
     )
+
+    
 })

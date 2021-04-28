@@ -1,0 +1,17 @@
+context:
+  title: Independence Express Modular em192
+  verified: True
+  bedrooms: 2
+  baths: 1
+  sqft: 1041
+  cost: 52032
+  estimated_cost: 130082
+# Override template tags
+tags:
+    # Name of the template tag we are overriding
+    image:
+        # Arguments of the template tag
+        # Override tag
+        main_image width-400: 
+          raw: >
+            <img src="/static/images/home@2x.png" alt="Placeholder">

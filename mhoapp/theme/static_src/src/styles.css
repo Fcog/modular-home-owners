@@ -5,6 +5,9 @@
 /* Navbar styles https://balzss.github.io/luxbar/ */
 @import "luxbar/build/luxbar.css";
 
+/* Slider styles https://github.com/Splidejs/splide */
+@import "@splidejs/splide/dist/css/splide.min.css";
+
 /* Navbar overrides */
 @import "./navbar.css";
 
@@ -15,9 +18,9 @@ $green: #609c00;
 html {
 	font-size: 16px;
 
-  @screen md {
-    font-size: 14px;
-  }
+	@screen md {
+		font-size: 14px;
+	}
 
 	@screen 2xl {
 		font-size: 16px;
@@ -111,3 +114,27 @@ body {
 select {
 	background-position: right 1.5rem center;
 }
+
+.svg-h-1 {
+	svg {
+		height: 1rem;
+	}
+}
+
+.svg-h-3 {
+	svg {
+		height: 3rem;
+	}
+}
+
+.splide__arrow {
+	background: transparent !important;
+}
+
+.splide__arrow--prev {
+	left: -2rem;
+} 
+
+.splide__arrow--next {
+	right: -2rem;
+} 

@@ -1,0 +1,31 @@
+<div class="container pt-14 pb-36">
+
+    <div class="mb-6 md:mb-14 flex justify-center text-center">
+    
+        <h2 class="font-bold text-1.5xl md:text-3xl text-blue-dark">{{ title }}</h2>
+
+    </div>
+
+    <div class="md:hidden">
+    
+        {% include "patterns/molecules/sliders/homes/homes.html" with homes=homes class="mb-12" %}
+
+    </div>
+
+    <div class="hidden md:block">
+    
+        {% include "patterns/molecules/homes-grid/homes-grid.html" with homes=homes class="mb-20" %}
+
+    </div>
+
+    {% if button_text %}
+    
+    <div class="flex justify-center">
+
+        {% include "patterns/atoms/button/button.html" with text=button_text url=button_url new_window=new_window color="blue" size="normal" inverted=False %}
+
+    </div>
+
+    {% endif %}
+
+</div>

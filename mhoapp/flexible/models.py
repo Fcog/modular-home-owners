@@ -16,6 +16,7 @@ class FlexibleOneColumnPage(Page):
     body = StreamField([
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
+        ('PopularHomesGrid', PopularHomesGrid()),
         ('articlesCTA', ArticlesCTABlock()),
         ('ForumCTA', ForumCTA()),
         ('hero', HeroBlock()),

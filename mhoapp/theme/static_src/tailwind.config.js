@@ -15,9 +15,14 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             white: '#ffffff',
-            green: '#609c00',
+            green: {
+                DEFAULT: '#609c00',
+                medium: '#5F9B00',
+            },
             gray: {
                 '50': '#f8f8f8',
+                '60': '#E5E5E5',
+                '70': '#888888',
             },
             blue: {
                 DEFAULT: '#003E64',
@@ -29,6 +34,8 @@ module.exports = {
             black: {
                 DEFAULT: '#000000',
                 'light': '#707070',
+                'medium': '#231F20',
+                'medium2': '#1A1A1A',
             }
         },
         extend: {

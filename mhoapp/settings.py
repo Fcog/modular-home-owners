@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'wagtailsvg',
     'svg',
     'wagtail_link_block',
+    'hitcount',
 
     # Machina dependencies:
     'mptt',

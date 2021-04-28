@@ -1,0 +1,21 @@
+<div class="splide {{ class }}">
+
+	<div class="splide__track">
+
+		<ul class="splide__list">
+
+            {% for home in homes %}
+
+			<li class="splide__slide flex justify-center">
+
+            	{% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths=home.baths sqft=home.sqft cost=home.cost estimated_cost=home.estimated_cost %}
+
+			</li>
+
+           {% endfor %} 
+
+		</ul>
+        
+	</div>
+
+</div>

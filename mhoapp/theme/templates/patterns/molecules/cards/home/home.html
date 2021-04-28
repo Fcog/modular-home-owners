@@ -1,0 +1,53 @@
+{% load wagtailimages_tags svg custom_filters %}
+
+<a 
+    href="{{ url }}"
+    class="border border-gray-60 inline-block">
+
+    {% image main_image width-1000 %}
+
+    <div class="py-6 px-6">
+    
+        <div class="flex">
+
+            <div class="{% if verified %}w-10/12{% endif %}">
+                <h2 class="font-bold md:text-2xl text-black-medium">{{ title }}</h2>
+            </div>
+
+            {% if verified %}
+
+            <div class="flex justify-end w-2/12">
+                <div class="svg-h-3">
+                    {% svg 'verified' %}
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+        
+        <div class="flex justify-between py-3 md:py-5 mb-3 md:mb-5 text-xs md:text-base text-black-medium2 border-b border-gray-60">
+        
+            <div>{{ bedrooms }} <span class="md:hidden lg:block">Bedrooms</span></div>
+            <div>{{ baths }} <span class="md:hidden lg:block">Baths</span></div>
+            <div>{{ sqft }} <span class="md:hidden lg:block">Sq. Ft</span></div>
+        
+        </div>
+
+        <div class="flex md:block lg:flex">
+        
+            <div class="mb-4 lg:mb-0 mr-16">
+                <div class="mb-2 md:mb-1 text-xs md:text-base text-gray-70 leading-none">BASE PRICE</div>
+                <div class="font-bold text-lg md:text-2xl text-green-medium">{{ cost | currency }}</div>
+            </div>
+
+            <div class="">
+                <div class="mb-1 flex items-center text-xs md:text-base text-gray-70 svg-h-1 leading-none">EST. TOTAL <span class="ml-1">{% svg 'help' %}</span></div>
+                <div class="font-bold text-lg md:text-2xl text-green-medium">{{ estimated_cost | currency }}</div>
+            </div>
+        
+        </div>
+    
+    </div>
+
+</a>
