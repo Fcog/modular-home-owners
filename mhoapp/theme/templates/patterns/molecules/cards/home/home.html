@@ -29,7 +29,7 @@
         <div class="flex justify-between py-3 md:py-5 mb-3 md:mb-5 text-xs md:text-base text-black-medium2 border-b border-gray-60">
         
             <div>{{ bedrooms }} <span class="md:hidden lg:block">Bedrooms</span></div>
-            <div>{{ baths }} <span class="md:hidden lg:block">Baths</span></div>
+            <div>{{ baths | truncate_float }} <span class="md:hidden lg:block">Baths</span></div>
             <div>{{ sqft }} <span class="md:hidden lg:block">Sq. Ft</span></div>
         
         </div>
