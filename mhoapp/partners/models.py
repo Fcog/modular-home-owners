@@ -125,6 +125,9 @@ class PartnerPage(Page):
         ),
     ]
 
+    def PartnerType(self):
+        return self.get_parent()
+
     # Parent page / subpage type rules
     parent_page_types = ['PartnerTypePage']
 

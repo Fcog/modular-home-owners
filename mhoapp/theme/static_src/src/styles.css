@@ -38,7 +38,15 @@ body {
       width: 100vw;
       margin-left: 49.2%;
       margin-right: 49.2%;
-      transform: translateX(-49.7%);
+      transform: translateX(-49.2%);
+
+	  @screen xl {
+		transform: translateX(-49.9%);
+	  }	  	  
+
+	  @screen 2xl {
+		transform: translateX(-49.7%);
+	  }	  
     }
 
     .full-width-overflow {

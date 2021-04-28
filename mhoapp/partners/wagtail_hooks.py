@@ -10,7 +10,7 @@ class PartnersPageAdmin(ModelAdmin):
     menu_order = 200
     add_to_settings_menu = False
     exclude_from_explorer = False
-    list_display = ('name',)
+    list_display = ('name','PartnerType')
     search_fields = ('name',)
 
 

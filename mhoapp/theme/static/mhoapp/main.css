@@ -22726,8 +22726,22 @@ select {
   width: 100vw;
   margin-left: 49.2%;
   margin-right: 49.2%;
-  transform: translateX(-49.7%);
+  transform: translateX(-49.2%);
 }
+
+@media (min-width: 1280px) {
+
+.full-width {
+    transform: translateX(-49.9%)
+}
+  }
+
+@media (min-width: 1640px) {
+
+.full-width {
+    transform: translateX(-49.7%)
+}
+  }
 
 .full-width-overflow {
   width: 120vw !important;
@@ -45748,8 +45762,20 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-49.7%);
+    transform: translateX(-49.2%);
   }
+    @media (min-width: 1280px) {
+
+  .sm\:full-width {
+      transform: translateX(-49.9%)
+  }
+    }
+    @media (min-width: 1640px) {
+
+  .sm\:full-width {
+      transform: translateX(-49.7%)
+  }
+    }
 
   .sm\:full-width-overflow {
     width: 120vw !important;
@@ -67666,8 +67692,20 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-49.7%);
+    transform: translateX(-49.2%);
   }
+    @media (min-width: 1280px) {
+
+  .md\:full-width {
+      transform: translateX(-49.9%)
+  }
+    }
+    @media (min-width: 1640px) {
+
+  .md\:full-width {
+      transform: translateX(-49.7%)
+  }
+    }
 
   .md\:full-width-overflow {
     width: 120vw !important;
@@ -89584,8 +89622,20 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-49.7%);
+    transform: translateX(-49.2%);
   }
+    @media (min-width: 1280px) {
+
+  .lg\:full-width {
+      transform: translateX(-49.9%)
+  }
+    }
+    @media (min-width: 1640px) {
+
+  .lg\:full-width {
+      transform: translateX(-49.7%)
+  }
+    }
 
   .lg\:full-width-overflow {
     width: 120vw !important;
@@ -111502,8 +111552,20 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-49.7%);
+    transform: translateX(-49.2%);
   }
+    @media (min-width: 1280px) {
+
+  .xl\:full-width {
+      transform: translateX(-49.9%)
+  }
+    }
+    @media (min-width: 1640px) {
+
+  .xl\:full-width {
+      transform: translateX(-49.7%)
+  }
+    }
 
   .xl\:full-width-overflow {
     width: 120vw !important;
@@ -133420,8 +133482,20 @@ select {
     width: 100vw;
     margin-left: 49.2%;
     margin-right: 49.2%;
-    transform: translateX(-49.7%);
+    transform: translateX(-49.2%);
   }
+    @media (min-width: 1280px) {
+
+  .\32xl\:full-width {
+      transform: translateX(-49.9%)
+  }
+    }
+    @media (min-width: 1640px) {
+
+  .\32xl\:full-width {
+      transform: translateX(-49.7%)
+  }
+    }
 
   .\32xl\:full-width-overflow {
     width: 120vw !important;
