@@ -5,7 +5,22 @@ document.addEventListener( 'DOMContentLoaded', () => {
     new Splide('.splide', {
         pagination: false,
         focus: 'center',
-    }).mount();
+    }).mount()
+
+    function readMore() {
+        const readMoreContainers = document.querySelectorAll('.js-read-more')
+
+        readMoreContainers.forEach( readMoreContainer => {
+            const readMoreButton = readMoreContainer.querySelector('.js-read-more-button')
+            const readMoreText = readMoreContainer.querySelector('.js-read-more-text')
+    
+            readMoreButton.addEventListener('click', event => {
+                readMoreText.classList.toggle('hidden')
+                readMoreButton.classList.add('hidden')
+            })
+        })
+    }
+
 
     function menuMobileDropdown( parentMenuSelector, menuItemSelector, submenuSelector, clickFunction ) {
         const parentMenus = document.querySelectorAll(parentMenuSelector)
@@ -48,5 +63,5 @@ document.addEventListener( 'DOMContentLoaded', () => {
         }
     )
 
-    
+    readMore()
 })

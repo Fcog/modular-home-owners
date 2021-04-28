@@ -115,6 +115,12 @@ select {
 	background-position: right 1.5rem center;
 }
 
+.svg-h-\.4 {
+	svg {
+		height: .4rem;
+	}
+}
+
 .svg-h-1 {
 	svg {
 		height: 1rem;
