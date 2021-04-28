@@ -1,0 +1,35 @@
+{% load static svg %}
+
+<div class="pt-20 pb-32 md:py-44 bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto" style="background-image:url({% static 'images/Masked Home Gray.jpg' %})">
+
+    <div class="container">
+
+        <div class="lg:w-10/12 xl:w-8/12 2xl:w-6/12">
+
+            <h2 class="mb-8 md:mb-20 text-1.5xl md:text-3xl text-blue-dark md:font-medium text-bold-blue">{{ text | safe }}</h2>
+            
+            <ul class="md:col-count-2">
+
+                {% for link in links %}
+
+                <li class="mb-6 md:mb-8">
+                
+                    <a class="flex items-center md:text-2xl text-green-medium font-medium" href="{{ link.url }}">
+                    
+                        {{ link.title }} 
+                        
+                        <span class="ml-3">{% svg 'right arrow green' %}</span>
+                        
+                    </a>
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>    
+
+    </div>    
+
+</div>

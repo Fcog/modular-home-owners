@@ -54,6 +54,9 @@ class MHOSettings(models.Model):
     partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text")     
     partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link url")        
 
+    # Resources CTA global data
+    resources_text = RichTextField(null=True, blank=True)
+
     # Editor panels configuration
     panels = [
         MultiFieldPanel(
@@ -108,6 +111,13 @@ class MHOSettings(models.Model):
             heading="Partners CTA text",
             classname="collapsible collapsed",
         ),        
+        MultiFieldPanel(
+            [
+                FieldPanel('resources_text'),
+            ],
+            heading="Resources CTA text",
+            classname="collapsible collapsed",
+        ),            
     ]
 
     def forum_button_url(self):

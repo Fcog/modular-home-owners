@@ -4,7 +4,27 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail_link_block.blocks import LinkBlock
 
 from mhoapp.homes.models import StyleCategory, PriceRanges, HomePage
+from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import MHOSettings
+
+
+class ResourcesCTA(blocks.StaticBlock):
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+
+        global_data = MHOSettings.objects.first()
+
+        context['text'] = global_data.resources_text                
+        context['links'] = ResourcePage.objects.live()
+
+        return context
+
+    class Meta:
+        label = 'Resources CTA'
+        admin_text = 'This block is configured in the MHO settings page.'
+        icon = 'placeholder'
+        template = 'patterns/organisms/cta/links-list.html'
+
 
 
 class PartnersCTA(blocks.StaticBlock):
