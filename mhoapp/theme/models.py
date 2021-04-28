@@ -7,7 +7,7 @@ from mhoapp.homes.models import StyleCategory, PriceRanges, HomePage
 from mhoapp.base.models import MHOSettings
 
 
-class PartnersCTA(blocks.StructBlock):
+class PartnersCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
@@ -26,11 +26,12 @@ class PartnersCTA(blocks.StructBlock):
 
     class Meta:
         label = 'Partners CTA'
+        admin_text = 'This block is configured in the MHO settings page.'
         icon = 'placeholder'
         template = 'patterns/organisms/cta/double-column.html'
 
 
-class GetYourHouseCTA(blocks.StructBlock):
+class GetYourHouseCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
@@ -53,6 +54,7 @@ class GetYourHouseCTA(blocks.StructBlock):
     class Meta:
         label = 'Get Your House CTA'
         icon = 'placeholder'
+        admin_text = 'This block is configured in the MHO settings page.'
         template = 'patterns/organisms/cta/icons-cols.html'
 
 
@@ -75,7 +77,7 @@ class PopularHomesGrid(blocks.StructBlock):
         template = 'patterns/organisms/homes-grid/homes-grid.html'
 
 
-class ForumCTA(blocks.StructBlock):
+class ForumCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
@@ -91,6 +93,7 @@ class ForumCTA(blocks.StructBlock):
     class Meta:
         label = 'Forum CTA'
         icon = 'placeholder'
+        admin_text = 'This block is configured in the MHO settings page.'
         template = 'patterns/organisms/cta/cta.html'
 
 
