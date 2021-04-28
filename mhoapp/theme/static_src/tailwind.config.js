@@ -81,6 +81,7 @@ module.exports = {
             backgroundSize: {
                '50%': '50%',
                '70%': '70%',
+               '125%': '125%',
             },
             backgroundPosition: {
                 'right-40%': 'right 40%',
@@ -99,5 +100,6 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('tailwindcss-multi-column')(),
     ],
 }

@@ -169,3 +169,10 @@ select {
 		color: $green2;
 	}
 }
+
+.text-bold-blue {
+	b,
+	strong {
+		color: #1A5E88;
+	}
+}
