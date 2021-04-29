@@ -23808,6 +23808,13 @@ body {
 @media (min-width: 768px) {
 
 .icon--small svg {
+      height: 1.8rem
+  }
+    }
+
+@media (min-width: 1280px) {
+
+.icon--small svg {
       height: auto
   }
     }

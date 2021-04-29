@@ -110,6 +110,10 @@ body {
 		height: 1.5rem;
 
 		@screen md {
+			height: 1.8rem;
+		}		
+
+		@screen xl {
 			height: auto;
 		}
 	}
