@@ -1,0 +1,13 @@
+<div class="px-12 py-12 {% if no_border %} {% else %} border-b border-gray-60 {% endif %}">
+
+    <h3 class="text-1.5xl text-black-medium font-bold mb-6">{{ title }}</h3>
+
+    {% if filter == 'locations' %}
+        {% include "patterns/atoms/select/select.html" with id="shipping" options=locations default_text="Choose Location" size="normal" class="" %}
+    {% endif %}
+
+    {% if filter == 'home_styles' %}
+        {% include "patterns/atoms/checkbox-list/checkbox-list.html" with checkbox_list=home_styles name="style" %}
+    {% endif %}    
+
+</div>

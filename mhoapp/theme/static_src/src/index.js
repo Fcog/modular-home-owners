@@ -2,10 +2,13 @@ import './styles.css'
 import Splide from '@splidejs/splide'
 
 document.addEventListener( 'DOMContentLoaded', () => {
-    new Splide('.splide', {
-        pagination: false,
-        focus: 'center',
-    }).mount()
+    // Initiate sliders.
+    if (document.querySelector('.splide')) {
+        new Splide('.splide', {
+            pagination: false,
+            focus: 'center',
+        }).mount()
+    }
 
     function readMore() {
         const readMoreContainers = document.querySelectorAll('.js-read-more')

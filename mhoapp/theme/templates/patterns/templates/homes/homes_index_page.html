@@ -4,32 +4,40 @@
 
 {% block content %}
 
-    <div class="py-24">
+    <div class="container pt-20">
 
-        {{ page.intro }}
+        <div class="pb-20">
 
-    </div>
-
-    <div class="flex mb-24">
-
-        <div class="w-1/4">
-
-            {% include "patterns/molecules/filters/filters.html" with class="lg:mr-8" locations=locations %}
+            <h1 class="text-4xl text-blue-dark font-bold leading-4.5">{{ page.intro }}</h1>
 
         </div>
 
-        <div class="w-3/4" hx-indicator=".htmx-indicator">
+        <div class="md:flex mb-24">
 
-            {% if cards %}
-                {% include "patterns/molecules/cards-grid/cards-grid.html" %}
-            {% else %}
-                <p>No homes available with this criteria.</p>
-            {% endif %}
+            <div class="md:w-26.5%">
 
-            <center><div class="htmx-indicator spinner" width="60"></div></center>
+                {% include "patterns/molecules/filters/filters.html" with class="lg:mr-8" %}
+
+            </div>
+
+            <div class="md:w-73.5%" hx-indicator=".htmx-indicator">
+
+                {% if homes %}
+
+                    {% include "patterns/molecules/homes-grid/homes-grid.html" with homes=homes activate_inifinite_scroll=True class="mb-8" %}
+
+                {% else %}
+
+                    <p>No homes available with this criteria.</p>
+
+                {% endif %}
+
+                <center><div class="htmx-indicator spinner" width="60"></div></center>
+
+            </div>
 
         </div>
 
-    </div>
+    </div>   
 
 {% endblock %}

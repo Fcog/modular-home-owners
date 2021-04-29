@@ -1,48 +1,19 @@
 {% load wagtailcore_tags %}
 
-<div class="rounded-xl shadow-2xl {{ class }}">
+<div class="rounded-2xl shadow-custom-1 {{ class }}">
 
     <form action="{% slugurl 'homes' %}" method="get">
 
-        <div class="px-12 py-12 border-b">
-
-            <h3>Price Range</h3>
-
-        </div>
-
-        <div class="px-12 py-12 border-b">
-
-            <h3 class="text-xl font-bold mb-6">Shipping Available to</h3>
-
-            {% include "patterns/atoms/select/select.html" with id="shipping" options=locations default_text="Choose Location" size="normal" %}
-
-        </div>
-
-        <div class="px-12 py-12 border-b">
-
-            <div>
-
-                <h3>Bedrooms</h3>
-
-            </div>
-
-
-        </div>
-
-        <div class="px-12 py-12 border-b">
-
-            <h3>Square Footage</h3>
-
-        </div>
-
-        <div class="px-12 py-12 border-b">
-
-            <h3>Home Style</h3>
-
-        </div>
+        {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price"%}
+        {% include "patterns/molecules/filters/filter-section.html" with title="Shipping Available to" filter="locations" %}
+        {% include "patterns/molecules/filters/filter-section.html" with title="Bedrooms" title2="Bathrooms" filter="bedrooms" filter2="bathrooms" %}
+        {% include "patterns/molecules/filters/filter-section.html" with title="Square Footage" filter="sqr_footage" %}
+        {% include "patterns/molecules/filters/filter-section.html" with title="Home Style" filter="home_styles" no_border=True %}
 
         <div class="px-12 py-12">
-            {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Search" size="small" color="green" inverted=True %}
+
+            {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Apply & Search" size="small" color="blue" inverted=False %}
+
         </div>
 
     </form>

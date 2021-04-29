@@ -64,14 +64,22 @@ module.exports = {
                 '1.5xl': '1.31rem',
                 '5.5xl': '3.438rem',
             },
+            lineHeight: {
+                '4.5': '4.5rem',
+            },
+            outline: {
+                'blue-green': '1px solid #1A5E88',
+            },
             height: {
                 15: '3.75rem',
             },
             width: {
                 '94%': '94%',
                 '87%': '87%',
+                '73.5%': '73.5%',
                 '64.5%': '64.5%',
                 '31%': '31%',
+                '26.5%': '26.5%',
                 '29%': '29%',
             },
             maxWidth: {
@@ -91,7 +99,7 @@ module.exports = {
                 '-10': '-10',
             },
             boxShadow: {
-                'custom-1': '0px 5px 20px #00000012'
+                'custom-1': '0px 5px 20px #00000012',
             }
         },
     },

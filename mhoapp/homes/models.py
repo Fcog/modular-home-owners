@@ -1,3 +1,4 @@
+from functools import reduce
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -30,7 +31,7 @@ class HomesIndexPage(Page):
 
     def get_template(self, request):
         if request.htmx:
-            return 'patterns/molecules/cards-grid/cards-grid.html'
+            return 'patterns/molecules/homes-grid/homes-grid.html'
         
         return 'patterns/templates/homes/homes_index_page.html'
 
@@ -39,7 +40,7 @@ class HomesIndexPage(Page):
         context = super().get_context(request, *args, **kwargs)
 
         page = request.GET.get('page')
-        style = request.GET.get('style')
+        styles = request.GET.getlist('style')
         price_range = request.GET.get('price-range')
         location = request.GET.get('shipping')
 
@@ -47,8 +48,8 @@ class HomesIndexPage(Page):
         homes = HomePage.objects.live()
 
         # Filter by style.
-        if style and style != 'all':
-            homes = homes.filter(style__name__iexact=style)
+        if styles and styles != 'all':
+            homes = homes.filter(reduce(lambda x, y: x | y, [models.Q(style__name__iexact=item) for item in styles]))
 
         # Filter by price range.            
         if price_range and price_range != 'all':
@@ -59,7 +60,7 @@ class HomesIndexPage(Page):
             homes = homes.filter(partner__locations__code__iexact=location)
 
         # Set up pagination.
-        paginator = Paginator(homes, 3) # Show 3 resources per page        
+        paginator = Paginator(homes, 9) # Show 3 resources per page        
 
         try:
             homes = paginator.page(page)
@@ -70,7 +71,7 @@ class HomesIndexPage(Page):
             # If page is out of range (e.g. 9999), deliver last page of results.
             homes = paginator.page(paginator.num_pages)                       
 
-        context['cards'] = homes
+        context['homes'] = homes
        
         context['locations'] = list(map(
             lambda item: {
@@ -80,6 +81,16 @@ class HomesIndexPage(Page):
             },
             LocationCategory.objects.all()
         ))
+
+        context['home_styles'] = list(map(
+            lambda item: {
+                'id': item.id,
+                'label': item.name,
+                'value': item.name.lower(),
+                'checked': item.name.lower() in styles,
+            },
+            StyleCategory.objects.all().order_by('name')
+        )) 
 
         return context     
 

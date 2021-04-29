@@ -1,0 +1,21 @@
+<ul class="col-count-2">
+
+    {% for checkbox in checkbox_list %}
+
+    <li class="mb-2 flex items-center">
+    
+        <input 
+            type="checkbox" 
+            name="{{ name }}" 
+            id="{{ checkbox.id }}" 
+            value="{{ checkbox.value }}" 
+            {% if checkbox.checked %} checked {% endif %}
+            class="outline-blue-green" />
+
+        <label for="{{ checkbox.id }}" class="ml-2 text-blue-green md:text-xl">{{ checkbox.label }}</label>
+
+    </li>
+
+    {% endfor %}
+
+</ul>

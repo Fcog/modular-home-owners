@@ -87,6 +87,7 @@ class PopularHomesGrid(blocks.StructBlock):
         context = super().get_context(value, parent_context=parent_context)
         context.update(value)
 
+        context['button_url'] = value['button_link'].get_url
         context['homes'] = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
 
         return context
@@ -106,7 +107,7 @@ class ForumCTA(blocks.StaticBlock):
         context['title'] = global_data.forum_title
         context['text'] = global_data.forum_text
         context['button_text'] = global_data.forum_button_text
-        context['button_link'] = global_data.forum_button_url()
+        context['button_url'] = global_data.forum_button_url()
 
         return context
 
