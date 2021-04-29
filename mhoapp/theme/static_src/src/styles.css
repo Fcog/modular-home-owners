@@ -40,6 +40,10 @@ body {
       margin-right: 49.2%;
       transform: translateX(-49.2%);
 
+	  @screen lg {
+		transform: translateX(-50%);
+	  }	  	  	  
+
 	  @screen xl {
 		transform: translateX(-49.9%);
 	  }	  	  

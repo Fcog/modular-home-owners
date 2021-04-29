@@ -14,7 +14,7 @@
 
 {% block left_content %}
 
-    <h1 class="mb-9 text-4xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
+    <h1 class="mb-9 text-3xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
 
     <p class="mb-9 md:w-8/12 md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
@@ -22,7 +22,7 @@
 
         <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
 
-            {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" icon="home icon" select_class="md:border-r-0" class="md:w-1/2 mb-4.5 md:mb-0" %}
+            {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" icon="home icon" select_class="md:border-r-0" class="md:w-1/2 mb-3 md:mb-4.5 md:mb-0" %}
 
             {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" icon="price icon" size="big" class="md:w-1/2" %}
 
