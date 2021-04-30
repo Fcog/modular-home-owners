@@ -1,0 +1,65 @@
+.icon {
+	padding-left: 5.2rem !important;
+	background-position: 15%;
+	background-repeat: no-repeat;
+	background-size: 8%;
+}
+
+.icon--small {
+	svg {
+		height: 1.5rem;
+
+		@screen md {
+			height: 1.8rem;
+		}		
+
+		@screen xl {
+			height: auto;
+		}
+	}
+}
+
+.icon-green {
+	path {
+		fill: $green;
+	}
+}
+
+.icon-magnifying {
+	background-image: url('svg/magnifying-glass.svg');
+}
+
+.icon-rotate {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.svg-text-icon {
+	svg {
+		height: 3.8rem;
+
+		@screen lg {
+			height: 5rem;
+		}
+	}
+}
+
+.svg-h-1 {
+	svg {
+		height: 1rem;
+	}
+}
+
+.svg-h-3 {
+	svg {
+		height: 3rem;
+	}
+}
+
+.svg-h-\.4 {
+	svg {
+		height: .4rem;
+	}
+}
+

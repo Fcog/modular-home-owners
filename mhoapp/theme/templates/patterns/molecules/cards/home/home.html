@@ -28,22 +28,22 @@
         
         <div class="flex justify-between py-3 md:py-5 mb-3 md:mb-5 text-xs {% if wide_design %} 2xl:text-base {% endif %} text-black-medium border-b border-gray-60">
         
-            <div class="flex items-center leading-none"><i class="mr-2 mb-1">{% svg 'Beds Icon' %}</i> {{ bedrooms }} <span class="md:hidden xl:block ml-1">Bedrooms</span></div>
-            <div class="flex items-center leading-none"><i class="mr-2 mb-1">{% svg 'Baths Icon' %}</i> {{ baths | truncate_float }} <span class="md:hidden xl:block ml-1">Baths</span></div>
-            <div class="flex items-center leading-none"><i class="mr-2 mb-1">{% svg 'Sq Feet Icon' %}</i> {{ sqft }} <span class="md:hidden xl:block ml-1">Sq. Ft</span></div>
+            <div class="flex items-center leading-none"><i class="mr-1 2xl:mr-2 mb-1">{% svg 'Beds Icon' %}</i> {{ bedrooms }} <span class="block ml-1">Bedrooms</span></div>
+            <div class="flex items-center leading-none"><i class="mr-1 2xl:mr-2 mb-1">{% svg 'Baths Icon' %}</i> {{ baths | truncate_float }} <span class="block ml-1">Baths</span></div>
+            <div class="flex items-center leading-none"><i class="mr-1 2xl:mr-2 mb-1">{% svg 'Sq Feet Icon' %}</i> {{ sqft }} <span class="block ml-1">Sq. Ft</span></div>
         
         </div>
 
-        <div class="flex md:block lg:flex">
+        <div class="flex">
         
             <div class="mb-4 lg:mb-0 mr-16">
-                <div class="mb-2 md:mb-1 text-xs md:text-sm xl:text-base text-gray-70 leading-none">BASE PRICE</div>
-                <div class="{% if wide_design %} font-bold {% else %} font-medium {% endif %} text-lg xl:text-2xl text-green-medium">{{ cost | currency }}</div>
+                <div class="mb-2 md:mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none">BASE PRICE</div>
+                <div class="{% if wide_design %} font-bold {% else %} font-medium {% endif %} text-lg 2xl:text-2xl text-green-medium">{{ cost | currency }}</div>
             </div>
 
             <div class="">
-                <div class="mb-1 flex items-center text-xs md:text-sm xl:text-base text-gray-70 svg-h-1 leading-none">EST. TOTAL <span class="ml-1">{% svg 'help' %}</span></div>
-                <div class="{% if wide_design %} font-bold {% else %} font-medium {% endif %} text-lg xl:text-2xl text-green-medium">{{ estimated_cost | currency }}</div>
+                <div class="mb-1 flex items-center text-xs md:text-sm 2xl:text-base text-gray-70 svg-h-1 leading-none">EST. TOTAL <span class="ml-1">{% svg 'help' %}</span></div>
+                <div class="{% if wide_design %} font-bold {% else %} font-medium {% endif %} text-lg 2xl:text-2xl text-green-medium">{{ estimated_cost | currency }}</div>
             </div>
         
         </div>

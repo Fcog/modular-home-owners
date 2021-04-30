@@ -1,44 +1,18 @@
 import './styles.css'
-import Splide from '@splidejs/splide'
+
+import inputRange from './js/price-range'
+import slider from './js/slider'
+import readMore from './js/read-more'
+import menuMobileDropdown from './js/menu-mobile-dropdown'
+import heroHomePriceRange from './js/hero-home-price-range'
+
 
 document.addEventListener( 'DOMContentLoaded', () => {
-    // Initiate sliders.
-    if (document.querySelector('.splide')) {
-        new Splide('.splide', {
-            pagination: false,
-            focus: 'center',
-        }).mount()
-    }
+    inputRange()
+    slider()
+    readMore()
+    heroHomePriceRange()
 
-    function readMore() {
-        const readMoreContainers = document.querySelectorAll('.js-read-more')
-
-        readMoreContainers.forEach( readMoreContainer => {
-            const readMoreButton = readMoreContainer.querySelector('.js-read-more-button')
-            const readMoreText = readMoreContainer.querySelector('.js-read-more-text')
-    
-            readMoreButton.addEventListener('click', event => {
-                readMoreText.classList.toggle('hidden')
-                readMoreButton.classList.add('hidden')
-            })
-        })
-    }
-
-
-    function menuMobileDropdown( parentMenuSelector, menuItemSelector, submenuSelector, clickFunction ) {
-        const parentMenus = document.querySelectorAll(parentMenuSelector)
-    
-        parentMenus.forEach( parentMenu => {
-            const menuItem = parentMenu.querySelector(menuItemSelector)
-            const submenu = parentMenu.querySelector(submenuSelector)
-    
-            menuItem.addEventListener('click', event => {
-                event.preventDefault()
-                clickFunction(menuItem, submenu)
-            })
-        })
-    }
-    
     /**
      * Main menu mobile dropdown toggling.
      */
@@ -65,6 +39,4 @@ document.addEventListener( 'DOMContentLoaded', () => {
             menuItem.classList.toggle('icon-rotate')
         }
     )
-
-    readMore()
 })

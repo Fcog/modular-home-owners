@@ -1,5 +1,5 @@
 <div 
-    class="grid grid-cols-3 gap-8 {{ class }}"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 {{ class }}"
     {% if activate_inifinite_scroll and homes.next_page_number %}
     hx-get="/homes/?page={{ homes.next_page_number }}"
     hx-trigger="revealed"

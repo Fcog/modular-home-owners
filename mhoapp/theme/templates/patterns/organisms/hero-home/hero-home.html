@@ -18,7 +18,7 @@
 
     <p class="mb-9 md:w-8/12 md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
-    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center">
+    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center" id="hero-home-form">
 
         <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
 
@@ -31,6 +31,9 @@
             <div class="md:w-1/2">
 
                 {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" icon="price icon" size="big" %}
+
+                <input type="hidden" id="min-price-range" name="min-price-range">
+                <input type="hidden" id="max-price-range" name="max-price-range">
 
             </div>
 

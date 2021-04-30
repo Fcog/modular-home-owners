@@ -1,0 +1,24 @@
+<div
+    data-min-range="{{ min_range }}"
+    data-max-range="{{ max_range }}"
+    data-min-input-name="{{ min_input_name }}"
+    data-max-input-name="{{ max_input_name }}"
+    data-step="{{ step }}"
+    class="js-uislider">
+
+    <div class="mb-4 flex text-lg text-gray-90">
+        
+        <div class="mr-1 js-uislider-min-value"></div>
+
+        -
+
+        <div class="ml-1 js-uislider-max-value"></div>
+    
+    </div>
+
+    <div class="js-uislider-widget"></div>
+
+    <input type="hidden" name="{{ min_input_name }}" class="js-uislider-min-range-input">
+    <input type="hidden" name="{{ max_input_name }}" class="js-uislider-max-range-input">
+
+</div>

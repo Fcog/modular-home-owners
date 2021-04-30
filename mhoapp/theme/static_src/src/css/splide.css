@@ -1,0 +1,11 @@
+.splide__arrow {
+	background: transparent !important;
+}
+
+.splide__arrow--prev {
+	left: -2rem;
+} 
+
+.splide__arrow--next {
+	right: -2rem;
+} 

@@ -4,15 +4,19 @@
 
     <form action="{% slugurl 'homes' %}" method="get">
 
-        {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price"%}
+        {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price_range"%}
         {% include "patterns/molecules/filters/filter-section.html" with title="Shipping Available to" filter="locations" %}
         {% include "patterns/molecules/filters/filter-section.html" with title="Bedrooms" title2="Bathrooms" filter="bedrooms" filter2="bathrooms" %}
         {% include "patterns/molecules/filters/filter-section.html" with title="Square Footage" filter="sqr_footage" %}
         {% include "patterns/molecules/filters/filter-section.html" with title="Home Style" filter="home_styles" no_border=True %}
 
-        <div class="px-12 py-12">
+        <div class="flex justify-center px-4 pb-10 pt-2 xl:px-8 xl:pb-12 2xl:pb-12">
 
-            {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Apply & Search" size="small" color="blue" inverted=False %}
+            <div class="2xl:w-10/12">
+
+                {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Apply & Search" size="small" color="blue" inverted=False %}
+
+            </div>
 
         </div>
 

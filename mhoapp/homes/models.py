@@ -41,26 +41,30 @@ class HomesIndexPage(Page):
 
         page = request.GET.get('page')
         styles = request.GET.getlist('style')
-        price_range = request.GET.get('price-range')
+        min_price_range = request.GET.get('min-price-range')
+        max_price_range = request.GET.get('max-price-range')
         location = request.GET.get('shipping')
 
         # Get the full unpaginated listing of homes as a queryset.
         homes = HomePage.objects.live()
 
         # Filter by style.
-        if styles and styles != 'all':
+        if styles and 'all' not in styles:
             homes = homes.filter(reduce(lambda x, y: x | y, [models.Q(style__name__iexact=item) for item in styles]))
 
         # Filter by price range.            
-        if price_range and price_range != 'all':
-            homes = price_range_filter(homes, price_range)
+        if min_price_range:
+            homes = homes.filter(cost__gt=int(min_price_range))
+
+        if max_price_range:
+            homes = homes.filter(cost__lte=int(max_price_range))        
 
         # Filter by location.            
         if location and location != 'all':
             homes = homes.filter(partner__locations__code__iexact=location)
 
         # Set up pagination.
-        paginator = Paginator(homes, 9) # Show 3 resources per page        
+        paginator = Paginator(homes, 6) # Show 6 resources per page        
 
         try:
             homes = paginator.page(page)
@@ -71,6 +75,8 @@ class HomesIndexPage(Page):
             # If page is out of range (e.g. 9999), deliver last page of results.
             homes = paginator.page(paginator.num_pages)                       
 
+        context['activate_inifinite_scroll'] = True
+
         context['homes'] = homes
        
         context['locations'] = list(map(
@@ -79,7 +85,7 @@ class HomesIndexPage(Page):
                 'text': item.name,
                 'selected': item.code == location,
             },
-            LocationCategory.objects.all()
+            LocationCategory.objects.all().order_by('name')
         ))
 
         context['home_styles'] = list(map(
@@ -289,14 +295,3 @@ class ElevationGalleryImage(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('caption'),
     ]
-
-
-def price_range_filter(filtered_objects, value):
-    switcher = {
-        'under-50000': filtered_objects.filter(cost__gte=0, cost__lte=50000),
-        'under-100000': filtered_objects.filter(cost__gt=50000, cost__lte=100000),
-        'under-200000': filtered_objects.filter(cost__gt=100000, cost__lte=200000),
-        'under-300000': filtered_objects.filter(cost__gt=200000, cost__lte=300000),
-        'over-300000': filtered_objects.filter(cost__gt=300000),
-    }
-    return switcher.get(value, filtered_objects)

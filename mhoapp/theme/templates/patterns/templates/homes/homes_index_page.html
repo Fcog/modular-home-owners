@@ -14,13 +14,13 @@
 
         <div class="md:flex mb-24">
 
-            <div class="md:w-26.5%">
+            <div class="hidden xl:block xl:w-26.5%">
 
                 {% include "patterns/molecules/filters/filters.html" with class="lg:mr-8" %}
 
             </div>
 
-            <div class="md:w-73.5%" hx-indicator=".htmx-indicator">
+            <div class="xl:w-73.5%" hx-indicator=".htmx-indicator">
 
                 {% if homes %}
 
@@ -28,7 +28,7 @@
 
                 {% else %}
 
-                    <p>No homes available with this criteria.</p>
+                    <p class="mt-8 text-2xl font-bold">No homes available with this criteria.</p>
 
                 {% endif %}
 

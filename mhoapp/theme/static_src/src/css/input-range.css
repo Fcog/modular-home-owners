@@ -1,0 +1,24 @@
+.noUi-connect {
+    background: #5F9B00;
+}
+
+.noUi-horizontal {
+    height: .25rem;
+    box-shadow: none !important;
+    border: none !important;
+    background: #D3D3D3;
+}
+
+.noUi-handle {
+    top: -11px !important;
+    height: 24px !important;
+    width: 24px !important;
+    border-radius: 50%;
+    background: #5F9B00;
+    box-shadow: none !important;
+
+    &:before,
+    &:after {
+        display: none !important;
+    }
+}
