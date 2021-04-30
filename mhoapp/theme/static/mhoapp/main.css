@@ -24492,6 +24492,12 @@ select {
     color: #1A5E88;
   }
 
+.input-number-no-controls::-webkit-inner-spin-button,
+	.input-number-no-controls::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

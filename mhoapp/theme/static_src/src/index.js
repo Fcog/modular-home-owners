@@ -5,6 +5,7 @@ import slider from './js/slider'
 import readMore from './js/read-more'
 import menuMobileDropdown from './js/menu-mobile-dropdown'
 import heroHomePriceRange from './js/hero-home-price-range'
+import numberControl from './js/number-control'
 
 
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -12,6 +13,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     slider()
     readMore()
     heroHomePriceRange()
+    numberControl()
 
     /**
      * Main menu mobile dropdown toggling.

@@ -1,0 +1,25 @@
+<div class="js-number-control flex">
+
+    {% with button_styles="px-2.5 py-1 flex justify-center items-center border border-green-medium text-green-medium text-1.5xl leading-none rounded-sm cursor-pointer" %}   
+
+    <button 
+        type="button"
+        aria-label="Decrease value"
+        class="js-number-control-decrease mr-3 {{ button_styles }}">-</button>
+
+    <input 
+        type="number" 
+        name="{{ name }}"
+        value="{{ initial_value }}" 
+        min="0"
+        max="20"
+        class="js-number-control-input border-none w-6 p-0 md:text-xl text-gray-90 text-center input-number-no-controls outline-none" />
+
+    <button 
+        type="button"
+        aria-label="Increase value"
+        class="js-number-control-increase ml-3 {{ button_styles }}">+</button>
+
+    {% endwith %}    
+
+</div>     

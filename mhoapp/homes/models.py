@@ -46,6 +46,8 @@ class HomesIndexPage(Page):
         location = request.GET.get('shipping')
         min_sqft = request.GET.get('min-sqft')
         max_sqft = request.GET.get('max-sqft')
+        bedrooms = request.GET.get('bedrooms')
+        bathrooms = request.GET.get('bathrooms')
 
         # Get the full unpaginated listing of homes as a queryset.
         homes = HomePage.objects.live()
@@ -69,8 +71,20 @@ class HomesIndexPage(Page):
         if min_sqft:
             homes = homes.filter(sqft__gt=int(min_sqft))
 
+        # Filter by square footage.
+        if min_sqft:
+            homes = homes.filter(sqft__gt=int(min_sqft))            
+
         if max_sqft:
             homes = homes.filter(sqft__lte=int(max_sqft))            
+
+        # Filter by bedrooms.
+        if bedrooms and bedrooms != '0':
+            homes = homes.filter(bedrooms=int(bedrooms))            
+
+        # Filter by bathrooms.
+        if bathrooms and bathrooms != '0':
+            homes = homes.filter(baths=int(bathrooms))                 
 
         # Set up pagination.
         paginator = Paginator(homes, 6) # Show 6 resources per page        
@@ -106,6 +120,9 @@ class HomesIndexPage(Page):
             },
             StyleCategory.objects.all().order_by('name')
         )) 
+
+        context['bedrooms_initial_value'] = bedrooms or 0
+        context['bathrooms_initial_value'] = bathrooms or 0
 
         return context     
 

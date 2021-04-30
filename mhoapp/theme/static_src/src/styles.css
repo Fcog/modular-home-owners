@@ -128,3 +128,11 @@ select {
 		color: #1A5E88;
 	}
 }
+
+.input-number-no-controls {
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}

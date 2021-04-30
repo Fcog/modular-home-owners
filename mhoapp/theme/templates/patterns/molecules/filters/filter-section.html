@@ -1,6 +1,14 @@
 <div class="px-4 py-10 xl:px-8 xl:py-12 2xl:px-12 {% if no_border %} {% else %} border-b border-gray-60 {% endif %}">
 
-    <h3 class="text-1.5xl text-black-medium font-bold mb-6">{{ title }}</h3>
+    <div class="flex justify-between">
+
+        <h3 class="text-1.5xl text-black-medium font-bold mb-6">{{ title }}</h3>
+
+        {% if title2 %}
+        <h3 class="text-1.5xl text-black-medium font-bold mb-6">{{ title2 }}</h3>
+        {% endif %}
+
+    </div>
 
     {% if filter == 'price_range' %}
         {% include "patterns/atoms/input-range/input-range.html" with min_range=mhoapp.filter_price_min max_range=mhoapp.filter_price_max step=mhoapp.filter_price_step min_input_name="min-price-range" max_input_name="max-price-range" format="money" %}
@@ -16,6 +24,17 @@
 
     {% if filter == 'home_styles' %}
         {% include "patterns/atoms/checkbox-list/checkbox-list.html" with checkbox_list=home_styles name="style" %}
+    {% endif %}    
+
+    {% if filter == 'bedrooms' %}
+
+        <div class="flex justify-between">
+
+            {% include "patterns/atoms/number-control/number-control.html" with name="bedrooms" initial_value=bedrooms_initial_value %}
+            {% include "patterns/atoms/number-control/number-control.html" with name="bathrooms" initial_value=bathrooms_initial_value %}
+
+        </div>
+
     {% endif %}    
 
 </div>
