@@ -24,6 +24,14 @@ class MHOSettings(models.Model):
     contact_email = models.EmailField(max_length=255, default="services@mho.com")
     search_button_text = models.CharField(max_length=254, default="Find Your Home")
 
+    # Filtering default values
+    filter_price_min = models.PositiveIntegerField(default="50000", verbose_name="Price range min value")
+    filter_price_max = models.PositiveIntegerField(default="1500000", verbose_name="Price range max value")
+    filter_price_step = models.PositiveIntegerField(default="10000", verbose_name="Price range widget values step")
+    filter_sqft_min = models.PositiveIntegerField(default="50", verbose_name="Square footage min value")
+    filter_sqft_max = models.PositiveIntegerField(default="600", verbose_name="Square footage max value")
+    filter_sqft_step = models.PositiveIntegerField(default="50", verbose_name="Square footage range widget values step")
+
     # Forum CTA global data
     forum_title = models.TextField(max_length=255, null=True, verbose_name="Title")
     forum_text = models.TextField(max_length=255, null=True, verbose_name="Text")
@@ -69,6 +77,18 @@ class MHOSettings(models.Model):
             heading="General Setting",
             classname="collapsible collapsed",
         ),
+        MultiFieldPanel(
+            [
+                FieldPanel('filter_price_min'),
+                FieldPanel('filter_price_max'),
+                FieldPanel('filter_price_step'),
+                FieldPanel('filter_sqft_min'),
+                FieldPanel('filter_sqft_max'),
+                FieldPanel('filter_sqft_step'),
+            ],
+            heading="Filtering Default Values",
+            classname="collapsible collapsed",
+        ),        
         MultiFieldPanel(
             [
                 FieldPanel('forum_title'),
