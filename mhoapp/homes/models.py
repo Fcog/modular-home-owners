@@ -44,6 +44,8 @@ class HomesIndexPage(Page):
         min_price_range = request.GET.get('min-price-range')
         max_price_range = request.GET.get('max-price-range')
         location = request.GET.get('shipping')
+        min_sqft = request.GET.get('min-sqft')
+        max_sqft = request.GET.get('max-sqft')
 
         # Get the full unpaginated listing of homes as a queryset.
         homes = HomePage.objects.live()
@@ -62,6 +64,13 @@ class HomesIndexPage(Page):
         # Filter by location.            
         if location and location != 'all':
             homes = homes.filter(partner__locations__code__iexact=location)
+
+        # Filter by square footage.
+        if min_sqft:
+            homes = homes.filter(sqft__gt=int(min_sqft))
+
+        if max_sqft:
+            homes = homes.filter(sqft__lte=int(max_sqft))            
 
         # Set up pagination.
         paginator = Paginator(homes, 6) # Show 6 resources per page        

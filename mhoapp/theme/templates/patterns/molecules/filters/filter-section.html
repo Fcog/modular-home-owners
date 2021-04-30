@@ -3,8 +3,12 @@
     <h3 class="text-1.5xl text-black-medium font-bold mb-6">{{ title }}</h3>
 
     {% if filter == 'price_range' %}
-        {% include "patterns/atoms/input-range/input-range.html" with min_range=50000 max_range=1500000 step=10000 min_input_name="min-price-range" max_input_name="max-price-range" %}
+        {% include "patterns/atoms/input-range/input-range.html" with min_range=50000 max_range=1500000 step=10000 min_input_name="min-price-range" max_input_name="max-price-range" format="money" %}
     {% endif %}        
+
+    {% if filter == 'sqr_footage' %}
+        {% include "patterns/atoms/input-range/input-range.html" with min_range=50 max_range=600 step=50 min_input_name="min-sqft" max_input_name="max-sqft" format="sqft" %}
+    {% endif %}            
 
     {% if filter == 'locations' %}
         {% include "patterns/atoms/select/select.html" with id="shipping" options=locations default_text="Choose Location" size="normal" class="" %}

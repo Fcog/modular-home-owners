@@ -24,6 +24,7 @@ export default function inputRange() {
         const step = parseInt(inputRangeContainer.dataset.step)        
         const minInputName = inputRangeContainer.dataset.minInputName
         const maxInputName = inputRangeContainer.dataset.maxInputName        
+        const format = inputRangeContainer.dataset.format        
 
         // UISlider init.
         noUiSlider.create(inputRange, {
@@ -37,41 +38,45 @@ export default function inputRange() {
             }
         })
     
-        // Text range values formatting
+        // Money formatting
         var moneyFormat = wNumb({
             mark: '.',
             thousand: ',',
             prefix: '$',
         })
 
-        // Query URL values formatting.    
+        // Square feet formatting
+        var sqftFormat = wNumb({
+            thousand: ',',
+            suffix: ' ft',
+        })        
+
+        // No decimals formatting for values in the URL query params.
         var noDecimalsFormat = wNumb({
             decimals: 0,
         })              
 
+        // Widget formatting.
+        const widgetFormatting = format === 'money' ? moneyFormat : sqftFormat
+
         /**
-         * Updates the money texts values and the hidden input values with no decimals from the URL query values.
+         * Updates on initialization the range texts values and the hidden input values with no decimals from the URL query values or the default values.
          */
         const urlParams = new URLSearchParams(window.location.search)
 
-        const maxValueFromURL = parseInt(urlParams.get(maxInputName))
-        const minValueFromURL = parseInt(urlParams.get(minInputName))       
-
-        // Max initial value.
-        if (maxValueFromURL) {
-            inputRangeMax.innerHTML = moneyFormat.to(maxValueFromURL)
-            inputRange.noUiSlider.set([null, maxValueFromURL])
-        }
-
+        const initialMinValue = urlParams.get(minInputName) ? parseInt(urlParams.get(minInputName)) : minRange
+        const initialMaxValue = urlParams.get(maxInputName) ? parseInt(urlParams.get(maxInputName)) : maxRange
+        
         // Min initial value.
-        if (minValueFromURL) {
-            inputRangeMin.innerHTML = moneyFormat.to(minValueFromURL)
-            inputRange.noUiSlider.set([minValueFromURL, null])
-        }                 
+        inputRangeMin.innerHTML = widgetFormatting.to(initialMinValue)
+        inputRange.noUiSlider.set([initialMinValue, null])          
+
+        // Sets the max initial value.
+        inputRangeMax.innerHTML = widgetFormatting.to(initialMaxValue)
+        inputRange.noUiSlider.set([null, initialMaxValue])
 
         /**
-         * Event when the input range buttons are moved.
-         * Updates the money texts values and the hidden input values with no decimals.
+         * Event triggered when the input range buttons are moved (released).
          * 
          * Docs: https://refreshless.com/nouislider/events-callbacks/
          * 
@@ -79,18 +84,17 @@ export default function inputRange() {
          * @param {int} handle is equal to 1 when the right toggle button is moving, else 0.
          */
         inputRange.noUiSlider.on('update', function (values, handle) {
-            const maxValue = parseInt(values[handle])
-            const minValue = parseInt(values[handle])
+            const value = parseInt(values[handle])
 
             if (handle) {
                 // Max value changes.
-                inputRangeMax.innerHTML = moneyFormat.to(maxValue)
-                maxRangeInput.value = noDecimalsFormat.to(maxValue)
+                inputRangeMax.innerHTML = widgetFormatting.to(value)
+                maxRangeInput.value = noDecimalsFormat.to(value)
             } else {
                 // Min value changes.
-                inputRangeMin.innerHTML = moneyFormat.to(minValue)
-                minRangeInput.value = noDecimalsFormat.to(minValue)
-            }       
+                inputRangeMin.innerHTML = widgetFormatting.to(value)
+                minRangeInput.value = noDecimalsFormat.to(value)
+            }   
         })
     })
 }
