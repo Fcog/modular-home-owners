@@ -48,7 +48,6 @@ if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
         path('__debug__/', include(debug_toolbar.urls)),
     ]
 
-
 # Include Wagtail URLs last.
 urlpatterns += [
     path(r'', include(wagtail_urls)),

@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'svg',
     'wagtail_link_block',
     'hitcount',
+    'wagtailyoast',
 
     # Machina dependencies:
     'mptt',
@@ -235,7 +236,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
+WY_LOCALE = 'en_US'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

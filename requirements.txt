@@ -67,6 +67,7 @@ wagtail-generic-chooser==0.1.1
 wagtail-link-block==0.1.1
 wagtailmenus==3.0.2
 wagtailsvg==0.0.14
+wagtailyoast==0.0.7
 webencodings==0.5.1
 whitenoise==5.2.0
 Willow==1.4
