@@ -62,7 +62,10 @@ module.exports = {
                 '7.5': '1.875rem', // 30px
             },
             fontSize: {
-                '1.5xl': '1.31rem',
+                'xxs': '.7rem',
+                '1.5xl': [ '1.31rem' , {
+                    lineHeight: '1.9rem',
+                }],
                 '5.5xl': '3.438rem',
             },
             lineHeight: {

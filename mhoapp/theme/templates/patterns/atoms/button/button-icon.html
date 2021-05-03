@@ -1,0 +1,13 @@
+{% load svg %}
+
+<div class="relative">
+
+    {% include "patterns/atoms/button/button.html" with text="Filters" size="small" text_size="small" color="blue" inverted=True class="pl-4" %}
+
+    <div class="absolute left-0 top-0 flex items-center icon--small h-full ml-4 md:ml-6 -z-10">
+    
+        {% svg 'filter icon' %}
+
+    </div>
+
+</div>

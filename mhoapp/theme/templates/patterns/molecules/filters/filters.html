@@ -1,25 +1,39 @@
 {% load wagtailcore_tags %}
 
-<div class="rounded-2xl shadow-custom-1 {{ class }}">
+<div class="fixed xl:static top-0 left-0 h-screen xl:h-auto lg:w-auto xl:rounded-2xl xl:shadow-custom-1 bg-white overflow-y-scroll xl:overflow-auto z-50 {{ class }}" id="filters-menu">
 
-    <form action="{% slugurl 'homes' %}" method="get">
+    <div class="w-full">
 
-        {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price_range"%}
-        {% include "patterns/molecules/filters/filter-section.html" with title="Shipping Available to" filter="locations" %}
-        {% include "patterns/molecules/filters/filter-section.html" with title="Bedrooms" title2="Bathrooms" filter="bedrooms" %}
-        {% include "patterns/molecules/filters/filter-section.html" with title="Square Footage" filter="sqr_footage" %}
-        {% include "patterns/molecules/filters/filter-section.html" with title="Home Style" filter="home_styles" no_border=True %}
+        <div class="xl:hidden flex items-center justify-between py-6 px-8 lg:px-4 border-b border-gray-60">
 
-        <div class="flex justify-center px-4 pb-10 pt-2 xl:px-8 xl:pb-12 2xl:pb-12">
+            <h2 class="text-1.5xl text-blue-dark font-bold leading-none">Filters</h2>
+        
+            <div class="luxbar-hamburger luxbar-hamburger--opened luxbar-hamburger--bold luxbar-hamburger--black md:block" id="filters-close-button">
+                <span></span>
+            </div>
+        
+        </div>
+        
+        <form action="{% slugurl 'homes' %}" method="get">
 
-            <div class="2xl:w-10/12">
+            {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price_range"%}
+            {% include "patterns/molecules/filters/filter-section.html" with title="Shipping Available to" filter="locations" %}
+            {% include "patterns/molecules/filters/filter-section.html" with title="Bedrooms" title2="Bathrooms" filter="bedrooms" %}
+            {% include "patterns/molecules/filters/filter-section.html" with title="Square Footage" filter="sqr_footage" %}
+            {% include "patterns/molecules/filters/filter-section.html" with title="Home Style" filter="home_styles" no_border=True %}
 
-                {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Apply & Search" size="small" color="blue" inverted=False %}
+            <div class="flex justify-center px-8 lg:px-4 pb-10 xl:pt-2 xl:px-8 xl:pb-12 2xl:pb-12">
+
+                <div class="w-8/12 md:w-10/12 2xl:w-10/12">
+
+                    {% include "patterns/atoms/button/button.html" with id="search" type="submit" text="Apply & Search" size="mobile-normal-desktop-small" color="blue" inverted=False %}
+
+                </div>
 
             </div>
 
-        </div>
+        </form>
 
-    </form>
+    </div>    
 
 </div>

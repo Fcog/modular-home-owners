@@ -1,5 +1,5 @@
 <div 
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 {{ class }} {% if homes.has_previous %} mt-8 {% endif %}"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 {{ class }}"
     {% if activate_inifinite_scroll and homes.next_page_number %}
     hx-get="/homes/?page={{ homes.next_page_number }}"
     hx-trigger="revealed"
@@ -8,7 +8,7 @@
 
     {% if pagination == 5 %}
 
-        {% include "patterns/molecules/cards/home-cta/home-cta.html" %}
+        {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex" %}
 
     {% endif %}
 

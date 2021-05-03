@@ -65,6 +65,7 @@ virtualenv-clone==0.5.4
 wagtail==2.12.4
 wagtail-generic-chooser==0.1.1
 wagtail-link-block==0.1.1
+wagtail-multi-upload @ git+https://github.com/spapas/wagtail-multi-upload.git@4e6474137dc219501e7cd64d5b170c0b8c6bcd04
 wagtailmenus==3.0.2
 wagtailsvg==0.0.14
 wagtailyoast==0.0.7

@@ -4,11 +4,11 @@
 
 {% block content %}
 
-    <div class="container pt-20">
+    <div class="container pt-8 xl:pt-12 lg:pt-20">
 
         <div class="mb-9 flex">
 
-            <div class="w-1/2">
+            <div class="lg:w-1/2">
 
             {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.intro %}
 
@@ -16,15 +16,27 @@
 
         </div>
 
-        <div class="mb-8 flex justify-end">
+        <div class="mb-8 flex justify-between">
+
+            <div class="w-2/5 md:w-1/4 xl:hidden">
+
+                {% include "patterns/atoms/button/button-icon.html" with id="filters-open-button" text="Filters" size="small" text_size="small" color="blue" inverted=True %}
+
+            </div>
         
-            <div class="text-lg text-gray-70"><span class="text-green-medium font-medium underline">{{ total_homes }}</span> homes found</div>
+            <div class="flex justify-end items-center w-3/5 lg:w-full text-xxs md:text-xs lg:text-lg text-gray-70">
+
+                <span class="pr-1 text-green-medium font-medium underline">{{ total_homes }}</span> 
+
+                home{{ total_homes|pluralize }} found
+
+            </div>
 
         </div>
 
         <div class="md:flex mb-24">
 
-            <div class="hidden xl:block xl:w-26.5%">
+            <div class="xl:block xl:w-26.5%">
 
                 {% include "patterns/molecules/filters/filters.html" with class="lg:mr-8" %}
 

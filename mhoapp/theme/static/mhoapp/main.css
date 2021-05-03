@@ -7128,8 +7128,13 @@ select {
   line-height: 1 !important;
 }
 
+.text-xxs {
+  font-size: .7rem !important;
+}
+
 .text-1\.5xl {
   font-size: 1.31rem !important;
+  line-height: 1.9rem !important;
 }
 
 .text-5\.5xl {
@@ -24059,6 +24064,38 @@ select {
   box-shadow: none !important;
 }
 
+.luxbar-hamburger {
+  padding: 0 !important;
+}
+
+.luxbar-hamburger--black span {
+      background-color: #000000;
+    }
+
+.luxbar-hamburger--black span:before,
+      .luxbar-hamburger--black span:after {
+        background-color: #000000;
+      }
+
+.luxbar-hamburger--bold span:before,
+      .luxbar-hamburger--bold span:after {
+        height: 3px;
+      }
+
+.luxbar-hamburger--opened span {
+      background-color: transparent;
+    }
+
+.luxbar-hamburger--opened span:before {
+        margin-top: 0;
+        transform: rotate(-45deg);
+      }
+
+.luxbar-hamburger--opened span:after {
+        margin-top: 0;
+        transform: rotate(45deg);
+      }
+
 /**
  * Theme fixes.
  */
@@ -24069,10 +24106,6 @@ select {
   background-color: #ffffff !important;
   transition: none !important;
 }
-
-.luxbar-menu-light .luxbar-hamburger {
-    padding: 0 !important;
-  }
 
 .luxbar-menu-light .luxbar-hamburger span {
       background-color: #5D9700;
@@ -24340,6 +24373,14 @@ select {
     display: none !important;
   }
 
+.noUi-handle.noUi-handle-lower {
+    right: -23px !important;
+  }
+
+.noUi-handle.noUi-handle-upper {
+    right: -2px !important;
+  }
+
 /* Infinite scroll styles */
 
 .htmx-indicator {
@@ -24435,6 +24476,28 @@ select {
     height: .4rem;
   }
 
+.svg-h-house svg {
+    height: 10rem;
+  }
+
+/* Homes search filters menu */
+
+#filters-menu {
+  transform: translate3d(-100%, 0, 0);
+}
+
+#filters-menu.opened {
+    transform: translate3d(0, 0, 0);
+    transition: all 0.5s ease 0s;
+  }
+
+@media (min-width: 1280px) {
+
+#filters-menu {
+    transform: none
+}
+  }
+
 html {
   font-size: 16px;
 }
@@ -24507,6 +24570,17 @@ select {
 	.input-number-no-controls::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+.black-overlay:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height:100%;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
   }
 
 @media (min-width: 640px) {
@@ -30890,8 +30964,13 @@ select {
     line-height: 1 !important;
   }
 
+  .sm\:text-xxs {
+    font-size: .7rem !important;
+  }
+
   .sm\:text-1\.5xl {
     font-size: 1.31rem !important;
+    line-height: 1.9rem !important;
   }
 
   .sm\:text-5\.5xl {
@@ -53038,8 +53117,13 @@ select {
     line-height: 1 !important;
   }
 
+  .md\:text-xxs {
+    font-size: .7rem !important;
+  }
+
   .md\:text-1\.5xl {
     font-size: 1.31rem !important;
+    line-height: 1.9rem !important;
   }
 
   .md\:text-5\.5xl {
@@ -75186,8 +75270,13 @@ select {
     line-height: 1 !important;
   }
 
+  .lg\:text-xxs {
+    font-size: .7rem !important;
+  }
+
   .lg\:text-1\.5xl {
     font-size: 1.31rem !important;
+    line-height: 1.9rem !important;
   }
 
   .lg\:text-5\.5xl {
@@ -97334,8 +97423,13 @@ select {
     line-height: 1 !important;
   }
 
+  .xl\:text-xxs {
+    font-size: .7rem !important;
+  }
+
   .xl\:text-1\.5xl {
     font-size: 1.31rem !important;
+    line-height: 1.9rem !important;
   }
 
   .xl\:text-5\.5xl {
@@ -119482,8 +119576,13 @@ select {
     line-height: 1 !important;
   }
 
+  .\32xl\:text-xxs {
+    font-size: .7rem !important;
+  }
+
   .\32xl\:text-1\.5xl {
     font-size: 1.31rem !important;
+    line-height: 1.9rem !important;
   }
 
   .\32xl\:text-5\.5xl {

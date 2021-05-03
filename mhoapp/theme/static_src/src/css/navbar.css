@@ -4,6 +4,46 @@
   box-shadow: none !important;
 }
 
+.luxbar-hamburger {
+  padding: 0 !important;
+
+  &--black {
+    span {
+      background-color: #000000;
+
+      &:before,
+      &:after {
+        background-color: #000000;
+      }
+    }
+  }
+
+  &--bold {
+    span {
+      &:before,
+      &:after {
+        height: 3px;
+      }
+    }
+  }
+
+  &--opened {
+    span {
+      background-color: transparent;
+
+      &:before {
+        margin-top: 0;
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        margin-top: 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
 /**
  * Theme fixes.
  */
@@ -14,8 +54,6 @@
   transition: none !important;
 
   .luxbar-hamburger {
-    padding: 0 !important;
-
     span {
       background-color: #5D9700;
       height: 3px;

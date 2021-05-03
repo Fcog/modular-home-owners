@@ -21,4 +21,12 @@
     &:after {
         display: none !important;
     }
+
+    &.noUi-handle-lower {
+        right: -23px !important;
+    }
+
+    &.noUi-handle-upper {
+        right: -2px !important;
+    }
 }

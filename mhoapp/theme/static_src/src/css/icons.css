@@ -73,3 +73,8 @@
 	}
 }
 
+.svg-h-house {
+	svg {
+		height: 10rem;
+	}
+}
