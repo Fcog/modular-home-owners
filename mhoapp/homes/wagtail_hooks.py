@@ -10,7 +10,7 @@ class HomesAdmin(ModelAdmin):
     menu_order = 200
     add_to_settings_menu = False
     exclude_from_explorer = False
-    list_display = ('title',)
+    list_display = ('title','code','bedrooms','baths','sqft','cost','estimated_cost','verified')
     search_fields = ('title',)
 
 
