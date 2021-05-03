@@ -111,7 +111,10 @@ class HomesIndexPage(Page):
             homes = paginator.page(1)
         except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
-            homes = paginator.page(paginator.num_pages)                       
+            homes = paginator.page(paginator.num_pages)               
+
+        # Used to show the ad in the 1st page.
+        context['pagination'] = pagination               
 
         # Add the homes data to the page context.
         # -------------------------------------------------------------------------------------
