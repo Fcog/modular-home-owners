@@ -14,11 +14,12 @@ from wagtail.snippets.models import register_snippet
 
 from mhoapp.partners.models import PartnerPage, LocationCategory
 from .admin import HomePageForm
+from mhoapp.base.models import MHOSettings
 
 
 class HomesIndexPage(Page):
     # Database fields
-    intro = models.CharField(max_length=250, default='')
+    intro = models.TextField(max_length=250, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
@@ -28,17 +29,19 @@ class HomesIndexPage(Page):
     # Parent page / subpage type rules
     subpage_types = ['HomePage']
 
-
     def get_template(self, request):
         if request.htmx:
             return 'patterns/molecules/homes-grid/homes-grid.html'
         
         return 'patterns/templates/homes/homes_index_page.html'
 
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        global_data = MHOSettings.objects.first()
+
+        # Filtering logic.
+        # -------------------------------------------------------------------------------------
         page = request.GET.get('page')
         styles = request.GET.getlist('style')
         min_price_range = request.GET.get('min-price-range')
@@ -50,7 +53,7 @@ class HomesIndexPage(Page):
         bathrooms = request.GET.get('bathrooms')
 
         # Get the full unpaginated listing of homes as a queryset.
-        homes = HomePage.objects.live()
+        homes = HomePage.objects.live().order_by('title')
 
         # Filter by style.
         if styles and 'all' not in styles:
@@ -84,13 +87,25 @@ class HomesIndexPage(Page):
 
         # Filter by bathrooms.
         if bathrooms and bathrooms != '0':
-            homes = homes.filter(baths=int(bathrooms))                 
+            homes = homes.filter(baths=int(bathrooms))                
+
+        # Total homes found before doing pagination.    
+        # -------------------------------------------------------------------------------------
+        context['total_homes'] = len(homes)              
 
         # Set up pagination.
-        paginator = Paginator(homes, 6) # Show 6 resources per page        
+        # -------------------------------------------------------------------------------------
+        # Render 5 cards on the 1st page to insert the homes ad.
+        pagination = 5 if not page else 6
+
+        paginator = Paginator(homes, pagination, 3)    
 
         try:
             homes = paginator.page(page)
+
+            # Tweak to insert the 6th card from the page 1 (page 1 has a pagination of 5) into the page 2.
+            if page == '2':
+                homes = paginator.object_list[5:13]            
         except PageNotAnInteger:
             # If page is not an integer, deliver first page.
             homes = paginator.page(1)
@@ -98,10 +113,18 @@ class HomesIndexPage(Page):
             # If page is out of range (e.g. 9999), deliver last page of results.
             homes = paginator.page(paginator.num_pages)                       
 
-        context['activate_inifinite_scroll'] = True
+        # Add the homes data to the page context.
+        # -------------------------------------------------------------------------------------
+        context['homes'] = homes    
 
-        context['homes'] = homes
+        context['homes_ad_button_url'] = global_data.homes_ad_button_url()
+
+        # Tweak for infinite scroll.
+        # -------------------------------------------------------------------------------------
+        context['activate_inifinite_scroll'] = True
        
+       # Filters initial values.
+       # -------------------------------------------------------------------------------------
         context['locations'] = list(map(
             lambda item: {
                 'id': item.code,
@@ -178,7 +201,7 @@ class HomePage(Page):
 
     # Database fields
     code = models.TextField(max_length=255)
-    certified = models.BooleanField(
+    verified = models.BooleanField(
         null=False,
         default=False,
     )
@@ -231,7 +254,7 @@ class HomePage(Page):
                 FieldRowPanel(
                     [
                         FieldPanel('code'),
-                        FieldPanel('certified'),
+                        FieldPanel('verified'),
                     ]
                 ),
                 FieldRowPanel(

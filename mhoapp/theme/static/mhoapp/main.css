@@ -24416,6 +24416,17 @@ select {
     height: 1rem;
   }
 
+.svg-h-2\.5 svg {
+    height: 2rem;
+  }
+
+@media (min-width: 1024px) {
+
+.svg-h-2\.5 svg {
+      height: 2.5rem
+  }
+    }
+
 .svg-h-3 svg {
     height: 3rem;
   }

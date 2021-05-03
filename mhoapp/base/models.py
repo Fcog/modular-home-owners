@@ -24,6 +24,12 @@ class MHOSettings(models.Model):
     contact_email = models.EmailField(max_length=255, default="services@mho.com")
     search_button_text = models.CharField(max_length=254, default="Find Your Home")
 
+    # Homes Ad CTA
+    homes_ad_text = models.CharField(max_length=254, default="")
+    homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text")     
+    homes_ad_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page")    
+    homes_ad_external_url = models.URLField('Button external URL', null=True, blank=True)    
+
     # Filtering default values
     filter_price_min = models.PositiveIntegerField(default="50000", verbose_name="Price range min value")
     filter_price_max = models.PositiveIntegerField(default="1500000", verbose_name="Price range max value")
@@ -36,8 +42,8 @@ class MHOSettings(models.Model):
     forum_title = models.TextField(max_length=255, null=True, verbose_name="Title")
     forum_text = models.TextField(max_length=255, null=True, verbose_name="Text")
     forum_button_text = models.TextField(max_length=255, null=True, verbose_name="Button Text")
-    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button url") 
-    forum_button_external_url = models.URLField('Button URL', null=True, blank=True)
+    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page") 
+    forum_button_external_url = models.URLField('Button external URL', null=True, blank=True)
 
     # Get Your House CTA global data
     gyh_title = models.TextField(max_length=255, null=True, verbose_name="Title")
@@ -48,19 +54,19 @@ class MHOSettings(models.Model):
     gyh_column_3_title = models.TextField(max_length=255, null=True, verbose_name="Column 3 title")
     gyh_column_3_text = models.TextField(max_length=255, null=True, verbose_name="Column 3 text")
     gyh_link_1_text = models.TextField(max_length=255, null=True, verbose_name="Link 1 text")
-    gyh_link_1_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 1 url") 
+    gyh_link_1_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 1 URL") 
     gyh_link_2_text = models.TextField(max_length=255, null=True, verbose_name="Link 2 text")
-    gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 url") 
+    gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 URL") 
 
     # Partner CTA global data
     partner_1_title = RichTextField(null=True, blank=True)
     partner_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text")     
     partner_1_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 button text") 
-    partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link url") 
+    partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link URL") 
     partner_2_title = RichTextField(null=True, blank=True)
     partner_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text")        
     partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text")     
-    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link url")        
+    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link URL")        
 
     # Resources CTA global data
     resources_text = RichTextField(null=True, blank=True)
@@ -74,7 +80,17 @@ class MHOSettings(models.Model):
                 FieldPanel('contact_email'),
                 FieldPanel('search_button_text'),
             ],
-            heading="General Setting",
+            heading="General Settings",
+            classname="collapsible collapsed",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('homes_ad_text'),
+                FieldPanel('homes_ad_button_text'),
+                PageChooserPanel('homes_ad_button_link'),
+                FieldPanel('homes_ad_external_url'),  
+            ],
+            heading="Homes search ad",
             classname="collapsible collapsed",
         ),
         MultiFieldPanel(
@@ -97,7 +113,7 @@ class MHOSettings(models.Model):
                 PageChooserPanel('forum_button_page'),
                 FieldPanel('forum_button_external_url')
             ],
-            heading="Forum CTA text",
+            heading="Forum CTA",
             classname="collapsible collapsed",
         ),
         MultiFieldPanel(
@@ -114,7 +130,7 @@ class MHOSettings(models.Model):
                 FieldPanel('gyh_link_2_text'),
                 PageChooserPanel('gyh_link_2_link'),
             ],
-            heading="Get Your House CTA text",
+            heading="Get Your House CTA",
             classname="collapsible collapsed",
         ),
         MultiFieldPanel(
@@ -128,14 +144,14 @@ class MHOSettings(models.Model):
                 FieldPanel('partner_2_button_text'),
                 PageChooserPanel('partner_2_button_link'),
             ],
-            heading="Partners CTA text",
+            heading="Partners CTA",
             classname="collapsible collapsed",
         ),        
         MultiFieldPanel(
             [
                 FieldPanel('resources_text'),
             ],
-            heading="Resources CTA text",
+            heading="Resources CTA",
             classname="collapsible collapsed",
         ),            
     ]
@@ -145,6 +161,12 @@ class MHOSettings(models.Model):
             return self.forum_button_page.url
         elif self.forum_button_external_url:
             return self.forum_button_external_url
+
+    def homes_ad_button_url(self):
+        if self.homes_ad_button_link:
+            return self.homes_ad_button_link.url
+        elif self.homes_ad_external_url:
+            return self.homes_ad_external_url            
 
     def __str__(self):
         return "MHO website settings"

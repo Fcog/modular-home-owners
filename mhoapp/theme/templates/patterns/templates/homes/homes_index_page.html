@@ -6,9 +6,19 @@
 
     <div class="container pt-20">
 
-        <div class="pb-20">
+        <div class="mb-9 flex">
 
-            <h1 class="text-4xl text-blue-dark font-bold leading-4.5">{{ page.intro }}</h1>
+            <div class="w-1/2">
+
+            {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.intro %}
+
+            </div>
+
+        </div>
+
+        <div class="mb-8 flex justify-end">
+        
+            <div class="text-lg text-gray-70"><span class="text-green-medium font-medium underline">{{ total_homes }}</span> homes found</div>
 
         </div>
 
@@ -24,7 +34,7 @@
 
                 {% if homes %}
 
-                    {% include "patterns/molecules/homes-grid/homes-grid.html" with homes=homes activate_inifinite_scroll=True class="mb-8" %}
+                    {% include "patterns/molecules/homes-grid/homes-grid.html" with homes=homes activate_inifinite_scroll=True %}
 
                 {% else %}
 
