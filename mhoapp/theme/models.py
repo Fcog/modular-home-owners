@@ -8,6 +8,24 @@ from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import MHOSettings
 
 
+class BlueBoxCTA(blocks.StructBlock):
+    title = blocks.CharBlock()
+    text = blocks.CharBlock()
+    button_text = blocks.CharBlock()
+    button_link = LinkBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context.update(value)    
+
+        return context
+
+    class Meta:
+        label = 'Blue Box CTA'
+        icon = 'placeholder'
+        template = 'patterns/organisms/cta/blue-box.html'
+
+
 class ResourcesCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
@@ -24,7 +42,6 @@ class ResourcesCTA(blocks.StaticBlock):
         admin_text = 'This block is configured in the MHO settings page.'
         icon = 'placeholder'
         template = 'patterns/organisms/cta/links-list.html'
-
 
 
 class PartnersCTA(blocks.StaticBlock):

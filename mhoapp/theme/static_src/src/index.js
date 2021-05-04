@@ -1,6 +1,6 @@
 import './styles.css'
 
-import inputRange from './js/price-range'
+import inputRange from './js/input-range'
 import slider from './js/slider'
 import readMore from './js/read-more'
 import menuMobileDropdown from './js/menu-mobile-dropdown'
