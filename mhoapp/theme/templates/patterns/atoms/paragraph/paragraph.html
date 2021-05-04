@@ -1,0 +1,9 @@
+{% if paragraph %}
+
+<div class="text-black-light font-medium prose {% if text_small %} prose-sm lg:prose-lg {% else %} text-1.5xl {% endif %} max-w-none">
+
+    {{ paragraph | safe }}
+
+</div>
+
+{% endif %}

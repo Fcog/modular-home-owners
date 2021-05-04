@@ -1,15 +1,7 @@
 <div>
 
-    <h1 class="pb-2 xl:pb-4 text-2xl lg:text-4xl text-blue-dark font-bold lg:leading-4.5">
-    
-        {{ title }}
-    
-    </h1>
+    {% include "patterns/atoms/headings/h1.html" %}    
 
-    {% if paragraph %}
-
-    <p class="text-xs lg:text-1.5xl text-black-light font-medium">{{ paragraph }}</p>
-
-    {% endif %}
+    {% include "patterns/atoms/paragraph/paragraph.html" %}    
 
 </div>

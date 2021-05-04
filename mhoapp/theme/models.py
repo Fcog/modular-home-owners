@@ -8,6 +8,23 @@ from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import MHOSettings
 
 
+class ReadMoreText(blocks.StructBlock):
+    paragraph = blocks.RichTextBlock(default='')
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+
+        context['paragraph'] = value['paragraph']
+        context['text_small'] = True
+
+        return context
+
+    class Meta:
+        label = 'Read More text'
+        icon = 'placeholder'
+        template = 'patterns/molecules/paragraphs/readmore.html'
+
+
 class BlueBoxCTA(blocks.StructBlock):
     title = blocks.CharBlock()
     text = blocks.CharBlock()

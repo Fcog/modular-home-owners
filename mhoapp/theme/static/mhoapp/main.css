@@ -808,7 +808,7 @@ select {
 }
 
 .prose a {
-  color: #111827;
+  color: #609c00;
   text-decoration: underline;
   font-weight: 500;
 }
@@ -24825,7 +24825,7 @@ select {
   }
 
   .sm\:prose a {
-    color: #111827;
+    color: #609c00;
     text-decoration: underline;
     font-weight: 500;
   }
@@ -47159,7 +47159,7 @@ select {
   }
 
   .md\:prose a {
-    color: #111827;
+    color: #609c00;
     text-decoration: underline;
     font-weight: 500;
   }
@@ -69493,7 +69493,7 @@ select {
   }
 
   .lg\:prose a {
-    color: #111827;
+    color: #609c00;
     text-decoration: underline;
     font-weight: 500;
   }
@@ -91827,7 +91827,7 @@ select {
   }
 
   .xl\:prose a {
-    color: #111827;
+    color: #609c00;
     text-decoration: underline;
     font-weight: 500;
   }
@@ -114161,7 +114161,7 @@ select {
   }
 
   .\32xl\:prose a {
-    color: #111827;
+    color: #609c00;
     text-decoration: underline;
     font-weight: 500;
   }

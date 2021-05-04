@@ -105,8 +105,17 @@ module.exports = {
             },
             boxShadow: {
                 'custom-1': '0px 5px 20px #00000012',
-            }
-        },
+            },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        a: {
+                            color: '#609c00',
+                        },
+                    },
+                },
+            },
+        }
     },
     variants: {
         extend: {},

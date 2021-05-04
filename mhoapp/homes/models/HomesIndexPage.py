@@ -13,26 +13,44 @@ from mhoapp.base.models import MHOSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models import LocationCategory
-from mhoapp.theme.models import BlueBoxCTA
+from mhoapp.theme.models import BlueBoxCTA, ReadMoreText
 
 
 class HomesIndexPage(Page):
-    # Database fields
-    intro = models.TextField(max_length=250, default='')
+    LEFT_SHORTER = 'LS'
+    EQUAL_WIDTH = 'EW'
 
-    side_content = StreamField([
+    COLUMNS_LAYOUT = [
+        (LEFT_SHORTER, 'Left side shorter'),
+        (EQUAL_WIDTH, 'Equal width'),
+    ]
+
+    blocks = [
+        ('readMoreText', ReadMoreText()),
         ('blueBoxCTA', BlueBoxCTA()),
         ('paragraph', blocks.RichTextBlock()),
         ('text', blocks.TextBlock()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
-    ], default='')
+    ]
+
+    # Database fields
+    layout = models.CharField(
+        max_length=2,
+        choices=COLUMNS_LAYOUT,
+        default=EQUAL_WIDTH,
+        verbose_name="Columns Width"
+    )
+
+    left_content = StreamField(blocks, default='')
+    right_content = StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
-        StreamFieldPanel('side_content'),
+        FieldPanel('layout'),
+        StreamFieldPanel('left_content'),
+        StreamFieldPanel('right_content'),
     ]
 
     # Parent page / subpage type rules

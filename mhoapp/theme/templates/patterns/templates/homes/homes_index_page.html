@@ -8,17 +8,45 @@
 
         <div class="mb-9 lg:flex">
 
-            <div class="pb-6 lg:pb-0 lg:w-1/2 2xl:mr-16">
+            {# ------------ COLUMNS LAYOUT: EQUAL WIDTH (EW) ------------ #}
 
-                {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.intro %}
+            {% if page.layout == 'EW' %}
+
+            <div class="pb-6 lg:pb-0 2xl:mr-16 lg:w-1/2">
+
+                 {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.left_content %}
 
             </div>
 
-            <div class="lg:w-1/2 2xl:ml-16">
+            <div class="2xl:ml-16 lg:w-1/2">
             
-                {% include_block page.side_content %}
+                {% include_block page.right_content %}
             
             </div>
+
+            {% endif %}
+
+            {# ----------------------------------------------------------- #}
+
+            {# ------------ COLUMNS LAYOUT: LEFT SIDE SHORTER (LS) ------------------ #}
+
+            {% if page.layout == 'LS' %}
+
+            <div class="pb-6 lg:pb-0 lg:w-26.5% lg:pr-12">
+
+                {% include_block page.left_content %}
+
+            </div>
+
+            <div class="lg:w-73.5%">
+            
+                {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.right_content text_small=True %}
+            
+            </div>         
+
+            {% endif %}
+            
+            {# ------------------------------------------------------------ #}   
 
         </div>
 
