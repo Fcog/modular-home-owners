@@ -209,7 +209,7 @@ class HeroBlock(blocks.StructBlock):
                 'id': item.name.lower(),
                 'text': item.name,
             },
-            StyleCategory.objects.all()
+            StyleCategory.objects.all().order_by('name')
         ))
         context['price_ranges'] = list(map(
             lambda item: {
@@ -217,7 +217,7 @@ class HeroBlock(blocks.StructBlock):
                 'text': f'{item.get_type_display()} ${item.price}',
                 'url': item.homes_search_page.url if item.homes_search_page else ''
             },
-            PriceRanges.objects.all()
+            PriceRanges.objects.all().order_by('price')
         ))
         return context
 
