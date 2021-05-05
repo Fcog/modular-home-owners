@@ -8,6 +8,7 @@ from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 from mhoapp.base.models import MHOSettings
 from mhoapp.homes.models.HomePage import HomePage
@@ -36,11 +37,19 @@ class HomesIndexPage(Page):
     ]
 
     # Database fields
+    initial_price_range = models.ForeignKey(
+        'homes.PriceRanges',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name="Set an initial Price Range"
+    )
+
     layout = models.CharField(
         max_length=2,
         choices=COLUMNS_LAYOUT,
         default=EQUAL_WIDTH,
-        verbose_name="Columns Width"
+        verbose_name="Heading columns width"
     )
 
     left_content = StreamField(blocks, default='')
@@ -48,6 +57,7 @@ class HomesIndexPage(Page):
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
+        SnippetChooserPanel('initial_price_range'),
         FieldPanel('layout'),
         StreamFieldPanel('left_content'),
         StreamFieldPanel('right_content'),
@@ -67,12 +77,19 @@ class HomesIndexPage(Page):
 
         global_data = MHOSettings.objects.first()
 
+        # Price Range initial values.
+        # ------------------------------------------------------------------------------------- 
+        initial_min_price_range = self.initial_price_range.get_min_price_range() if self.initial_price_range else None
+        initial_max_price_range = self.initial_price_range.get_max_price_range() if self.initial_price_range else None
+        context['initial_min_price_range'] = initial_min_price_range
+        context['initial_max_price_range'] = initial_max_price_range
+
         # Filtering logic.
         # -------------------------------------------------------------------------------------
         page = request.GET.get('page')
         styles = request.GET.getlist('style')
-        min_price_range = request.GET.get('min-price-range')
-        max_price_range = request.GET.get('max-price-range')
+        min_price_range = initial_min_price_range if initial_min_price_range else request.GET.get('min-price-range') 
+        max_price_range = initial_max_price_range if initial_max_price_range else request.GET.get('max-price-range') 
         location = request.GET.get('shipping')
         min_sqft = request.GET.get('min-sqft')
         max_sqft = request.GET.get('max-sqft')

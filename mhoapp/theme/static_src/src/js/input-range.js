@@ -21,17 +21,33 @@ export default function inputRange() {
         // Widget data configs.
         const minRange = parseInt(inputRangeContainer.dataset.minRange)
         const maxRange = parseInt(inputRangeContainer.dataset.maxRange) 
+        const initialMinRange = parseInt(inputRangeContainer.dataset.initialMinRange)
+        const initialMaxRange = parseInt(inputRangeContainer.dataset.initialMaxRange)         
         const step = parseInt(inputRangeContainer.dataset.step)        
         const minInputName = inputRangeContainer.dataset.minInputName
         const maxInputName = inputRangeContainer.dataset.maxInputName        
-        const format = inputRangeContainer.dataset.format        
+        const format = inputRangeContainer.dataset.format      
+
+        // Get URL query params.
+        const urlParams = new URLSearchParams(window.location.search)
+
+        /* 
+         * Logic to set the initial min range value:
+         *
+         * 1. Check if the URL if the values are set as query params.
+         * 2. Check if the values are set in the initialMinRange and initialMaxRange data attributes (This values are set from Homes Search pages with an Initial Price Range set).
+         */
+        const initialMinValue = urlParams.get(minInputName) ? parseInt(urlParams.get(minInputName)) : isNaN(initialMinRange) ? minRange : initialMinRange
+        const initialMaxValue = urlParams.get(maxInputName) ? parseInt(urlParams.get(maxInputName)) : isNaN(initialMaxRange) ? maxRange : initialMaxRange
 
         // UISlider init.
         noUiSlider.create(inputRange, {
-            start: [minRange, maxRange],
+            start: [
+                initialMinValue, 
+                initialMaxValue,
+            ],
             step: step,
             connect: true,
-            behaviour: 'drag',
             range: {
                 'min': minRange,
                 'max': maxRange,
@@ -60,20 +76,14 @@ export default function inputRange() {
         const widgetFormatting = format === 'money' ? moneyFormat : sqftFormat
 
         /**
-         * Updates on initialization the range texts values and the hidden input values with no decimals from the URL query values or the default values.
+         * Updates on initialization the hidden input values with no decimals from the URL query values or the default values.
+         * This hidden inputs are used to generate the URL queries when filtering.
          */
-        const urlParams = new URLSearchParams(window.location.search)
 
-        const initialMinValue = urlParams.get(minInputName) ? parseInt(urlParams.get(minInputName)) : minRange
-        const initialMaxValue = urlParams.get(maxInputName) ? parseInt(urlParams.get(maxInputName)) : maxRange
-        
         // Min initial value.
-        inputRangeMin.innerHTML = widgetFormatting.to(initialMinValue)
-        inputRange.noUiSlider.set([initialMinValue, null])          
-
+        inputRangeMin.innerHTML = widgetFormatting.to(initialMinValue)  
         // Sets the max initial value.
         inputRangeMax.innerHTML = widgetFormatting.to(initialMaxValue)
-        inputRange.noUiSlider.set([null, initialMaxValue])
 
         /**
          * Event triggered when the input range buttons are moved (released).

@@ -11,7 +11,7 @@
     </div>
 
     {% if filter == 'price_range' %}
-        {% include "patterns/atoms/input-range/input-range.html" with min_range=mhoapp.filter_price_min max_range=mhoapp.filter_price_max step=mhoapp.filter_price_step min_input_name="min-price-range" max_input_name="max-price-range" format="money" %}
+        {% include "patterns/atoms/input-range/input-range.html" with min_range=mhoapp.filter_price_min max_range=mhoapp.filter_price_max step=mhoapp.filter_price_step initial_min_range=initial_min_price_range initial_max_range=initial_max_price_range min_input_name="min-price-range" max_input_name="max-price-range" format="money" %}
     {% endif %}        
 
     {% if filter == 'sqr_footage' %}

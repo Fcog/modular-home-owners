@@ -28,6 +28,16 @@ class PriceRanges(models.Model):
     def __str__(self):
         return self.get_type_display() + ' ' + str(self.price)
 
+    def get_min_price_range(self):
+        if self.type == self.UNDER:
+            return None
+        return self.price
+
+    def get_max_price_range(self):
+        if self.type == self.UNDER:
+            return self.price
+        return None
+
     class Meta:
         verbose_name_plural = 'price ranges'
 

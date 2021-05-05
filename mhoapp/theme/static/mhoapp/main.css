@@ -24542,12 +24542,21 @@ select {
 
 .noUi-handle {
   top: -11px !important;
-  height: 24px !important;
-  width: 24px !important;
+  height: 22px !important;
+  width: 22px !important;
   border-radius: 50%;
   background: #5F9B00;
   box-shadow: none !important;
 }
+
+@media (min-width: 1640px) {
+
+.noUi-handle {
+    height: 24px !important;
+
+    width: 24px !important
+}
+  }
 
 .noUi-handle:before,
     .noUi-handle:after {
@@ -24555,11 +24564,11 @@ select {
   }
 
 .noUi-handle.noUi-handle-lower {
-    right: -23px !important;
+    /* right: -23px !important; */
   }
 
 .noUi-handle.noUi-handle-upper {
-    right: -2px !important;
+    /* right: -2px !important; */
   }
 
 /* Infinite scroll styles */
