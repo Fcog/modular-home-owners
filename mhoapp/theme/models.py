@@ -3,7 +3,9 @@ from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail_link_block.blocks import LinkBlock
 
-from mhoapp.homes.models import StyleCategory, PriceRanges, HomePage
+from mhoapp.homes.models.StyleCategory import StyleCategory
+from mhoapp.homes.models.PriceRanges import PriceRanges
+from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import MHOSettings
 
