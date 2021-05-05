@@ -215,6 +215,7 @@ class HeroBlock(blocks.StructBlock):
             lambda item: {
                 'id': f'{item.get_type_display().lower()}-{item.price}',
                 'text': f'{item.get_type_display()} ${item.price}',
+                'url': item.homes_search_page.url if item.homes_search_page else ''
             },
             PriceRanges.objects.all()
         ))
