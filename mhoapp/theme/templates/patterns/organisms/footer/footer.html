@@ -76,15 +76,15 @@
 
             <div class="flex flex-wrap justify-evenly md:justify-start mt-20">
 
-                <p class="flex md:block items-center mb-4 md:mb-6 lg:mb-0 lg:mr-4 text-xs md:text-base font-bold opacity-60">
+                <p class="flex md:block items-center mb-4 md:mb-6 lg:mb-0 md:mr-4 text-xs md:text-base font-bold opacity-60">
                 
                     {{ current_site.site_name }}
                 
                 </p>
 
-                <p class="lg:mr-4 text-xs md:text-base opacity-60">Copyright {% now 'Y' %}</p>
+                <p class="md:mr-4 text-xs md:text-base opacity-60">Copyright {% now 'Y' %}</p>
 
-                <p class="lg:mr-1 text-xs md:text-base opacity-60">All Rights Reserved</p>
+                <p class="md:mr-4 text-xs md:text-base opacity-60">All Rights Reserved</p>
 
                 <div class="mb-4 md:mb-0">
                     {% flat_menu 'footer_bottom' template="patterns/molecules/menus/horizontal.html" max_levels=1 show_menu_heading=False %}
