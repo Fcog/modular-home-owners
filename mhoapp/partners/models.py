@@ -43,8 +43,8 @@ class PartnerTypePage(Page):
     def get_template(self, request):
         if request.htmx:
             return 'patterns/molecules/icons-list/icons-list.html'
-        # 'patterns/templates/partners/partner_type_page.html'
-        return 'patterns/molecules/icons-list/icons-list.html'  
+
+        return 'patterns/templates/partners/partner_type_page.html' 
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
