@@ -14,7 +14,7 @@
 		}		
 
 		@screen xl {
-			height: auto;
+			height: 2rem;
 		}
 	}
 }
@@ -70,6 +70,16 @@
 .svg-h-\.4 {
 	svg {
 		height: .4rem;
+	}
+}
+
+.svg-h-\.8 {
+	svg {
+		height: .4rem;
+
+		@screen lg {
+			height: .8rem;
+		}
 	}
 }
 

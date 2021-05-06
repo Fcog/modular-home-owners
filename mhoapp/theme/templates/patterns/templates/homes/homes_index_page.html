@@ -8,13 +8,32 @@
 
         <div class="mb-9 lg:flex">
 
+
+            {# ------------ COLUMNS LAYOUT: FULL WIDTH (FW) ------------------ #}
+
+            {% if page.layout == 'FW' %}
+
+            <div class="pb-6 lg:pb-0">
+
+                {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
+
+                {% include_block page.left_content %}
+
+            </div>
+
+            {% endif %}
+            
+            {# ------------------------------------------------------------ #}           
+
             {# ------------ COLUMNS LAYOUT: EQUAL WIDTH (EW) ------------ #}
 
             {% if page.layout == 'EW' %}
 
             <div class="pb-6 lg:pb-0 2xl:mr-16 lg:w-1/2">
 
-                 {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.left_content %}
+                 {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
+
+                 {% include_block page.left_content %}
 
             </div>
 
@@ -40,8 +59,10 @@
 
             <div class="lg:w-73.5%">
             
-                {% include "patterns/molecules/headings/page/page.html" with title=page.title paragraph=page.right_content text_small=True %}
+                {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
             
+                {% include_block page.right_content %}
+
             </div>         
 
             {% endif %}
@@ -54,7 +75,7 @@
 
             <div class="w-2/5 md:w-1/4 xl:hidden">
 
-                {% include "patterns/atoms/button/button-icon.html" with id="filters-open-button" text="Filters" size="small" text_size="small" color="blue" inverted=True %}
+                {% include "patterns/atoms/button/button-icon.html" with id="filters-open-button" text="Filters" icon="filter icon" size="small" text_size="small" color="blue" inverted=True %}
 
             </div>
         

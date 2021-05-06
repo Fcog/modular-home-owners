@@ -2,12 +2,16 @@
 
 <div class="relative">
 
-    {% include "patterns/atoms/button/button.html" with text="Filters" size="small" text_size="small" color="blue" inverted=True class="pl-4" %}
+    {% include "patterns/atoms/button/button.html" with text=text size=size text_size=text_size color=color inverted=inverted rounded=rounded class="pl-4 md:pl-16 md:pr-10" %}
+
+    {% if icon %}
 
     <div class="absolute left-0 top-0 flex items-center icon--small h-full ml-4 md:ml-6 -z-10">
     
-        {% svg 'filter icon' %}
+        {% svg icon %}
 
     </div>
+
+    {% endif %}
 
 </div>

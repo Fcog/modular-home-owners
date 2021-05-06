@@ -1,0 +1,25 @@
+{% load wagtailimages_tags svg %}
+
+<ul class="flex flex-wrap list-none">
+
+    {% for item in list %}
+
+    <li class="flex flex-col mb-6 mr-4">
+    
+        {% image item.image width-300 %}
+
+        <a 
+            class="mt-4 flex items-center text-green-medium text-xs lg:text-base"
+            href="{{ item.url }}">
+
+            Learn More
+
+            <span class="ml-2 svg-h-.8">{% svg 'right arrow green' %}</span>
+
+        </a>
+
+    </li>
+
+    {% endfor %}
+
+</ul>

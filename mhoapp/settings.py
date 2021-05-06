@@ -71,8 +71,8 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
-    'wagtailsvg',
-    'svg',
+    'wagtailsvg', 
+    'svg', # django-inline-svg
     'wagtail_link_block',
     'hitcount',
     'wagtailyoast',
@@ -268,6 +268,11 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SVG_DIRS=[
+    os.path.join(BASE_DIR, 'media/media'),
+    os.path.join(BASE_DIR, 'mhoapp/theme/static/svg'),
+]
 
 if DEVELOPMENT_MODE is True:
     # local storage

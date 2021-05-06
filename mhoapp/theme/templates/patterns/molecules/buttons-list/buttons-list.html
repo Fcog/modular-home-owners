@@ -1,0 +1,13 @@
+<ul class="md:flex flex-wrap list-none {{ class }}">
+
+    {% for button in buttons %}
+
+    <li class="mb-3 md:mr-5">
+    
+        {% include "patterns/atoms/button/button-icon.html" with text=button.text url=button.url hx_get=button.hx_get hx_target=button.hx_target icon=button.icon rounded="small" color="blue" size="small" inverted=True %}
+
+    </li>
+
+    {% endfor %}
+
+</ul>

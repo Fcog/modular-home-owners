@@ -5,6 +5,8 @@ from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
+from wagtailsvg.models import Svg
+from wagtailsvg.edit_handlers import SvgChooserPanel
 
 from .admin import PartnerTypePageForm
 
@@ -17,14 +19,18 @@ class PartnersIndexPage(Page):
 
 
 class PartnerTypePage(Page):
-    template = 'patterns/templates/partners/partner_type_page.html'
-
     # Database fields
-    intro = models.CharField(max_length=250, default='')
+    icon = models.ForeignKey(
+        Svg,
+        null=True, 
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
+        SvgChooserPanel('icon'),
     ]
 
     # Parent page / subpage type rules
@@ -33,6 +39,33 @@ class PartnerTypePage(Page):
 
     # Admin custom changes
     base_form_class = PartnerTypePageForm
+
+    def get_template(self, request):
+        if request.htmx:
+            return 'patterns/molecules/icons-list/icons-list.html'
+        # 'patterns/templates/partners/partner_type_page.html'
+        return 'patterns/molecules/icons-list/icons-list.html'  
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        partners = PartnerPage.objects.child_of(self).live()
+
+        location = request.GET.get('location')
+
+        if location:
+            partners = partners.filter(locations__code=location)
+
+        context['list'] = list(map(
+            lambda item: {
+                'title': item.title,
+                'url': item.url,
+                'image': item.logo,
+            },
+            partners.specific()
+         ))     
+
+        return context        
 
 
 @register_snippet
@@ -66,7 +99,6 @@ class PartnerPage(Page):
     template = 'patterns/templates/partners/partner_page.html'
 
     # Database fields
-    name = models.TextField(max_length=255)
     logo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -89,11 +121,6 @@ class PartnerPage(Page):
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
-                FieldRowPanel(
-                    [
-                        FieldPanel('name'),
-                    ]
-                ),
                 FieldRowPanel(
                     [
                         FieldPanel('phone'),

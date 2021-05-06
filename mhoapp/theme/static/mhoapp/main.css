@@ -24573,19 +24573,6 @@ select {
 
 /* Infinite scroll styles */
 
-.htmx-indicator {
-  opacity:0;
-  transition: opacity 200ms ease-in;
-}
-
-.htmx-request .htmx-indicator{
-  opacity:1
-}
-
-.htmx-request.htmx-indicator {
-  opacity:1
-}
-
 .spinner {
   width: 120px;
   height: 49px;
@@ -24616,7 +24603,7 @@ select {
 @media (min-width: 1280px) {
 
 .icon--small svg {
-      height: auto
+      height: 2rem
   }
     }
 
@@ -24665,6 +24652,17 @@ select {
 .svg-h-\.4 svg {
     height: .4rem;
   }
+
+.svg-h-\.8 svg {
+    height: .4rem;
+  }
+
+@media (min-width: 1024px) {
+
+.svg-h-\.8 svg {
+      height: .8rem
+  }
+    }
 
 .svg-h-house svg {
     height: 10rem;

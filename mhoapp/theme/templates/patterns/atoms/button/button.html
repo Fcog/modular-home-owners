@@ -12,6 +12,18 @@
     type="{{ type }}"
     {% endif %}
 
+    {% if hx_get %}
+    hx-get="{{ hx_get }}"
+    {% endif %}    
+
+    {% if hx_target %}
+    hx-target="{{ hx_target }}"
+    {% endif %}        
+
+    {% if hx_swap %}
+    hx-swap="{{ hx_swap }}"
+    {% endif %}       
+
     {% if url %}
     href="{{ url }}"
     {% endif %}
@@ -20,13 +32,15 @@
     target="_blank"
     {% endif %}
 
-    class="inline-flex justify-center items-center md:pr-12 w-full max-w-16.25 md:max-w-21.25 font-bold leading-none rounded-full outline-none
+    class="inline-flex justify-center items-center w-full max-w-16.25 md:max-w-21.25 font-bold leading-none outline-none
 
     {% if text_size == "small" %} text-sm md:text-lg {% else %} md:text-1.5xl {% endif %}
 
     {% if size == "normal" %} py-5 lg:py-8 {% endif %}
     {% if size == "small" %} py-3 lg:py-4 {% endif %}
     {% if size == "mobile-normal-desktop-small" %} py-5 lg:py-4 {% endif %}
+
+    {% if rounded == "small" %} rounded-lg {% else %} rounded-full {% endif %}
 
     {% if inverted is False %} text-white {% endif %}
     {% if inverted is False and color == "green" %} bg-green {% endif %}
@@ -35,8 +49,6 @@
     {% if inverted is True %} border md:border-2 {% endif %}
     {% if inverted is True and color == "green" %} text-green border-green {% endif %}
     {% if inverted is True and color == "blue" %} text-blue-light border-blue-light {% endif %}
-
-    {% if icon %} icon icon-magnifying {% else %} md:pl-12 {% endif %}
 
     {{ class }}">
 

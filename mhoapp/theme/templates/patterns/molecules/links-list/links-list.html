@@ -17,7 +17,13 @@
                 {# Link with char icon for displaying the arrow in the last line when the text wraps into a 2nd line #}
                 <span class="xl:hidden">{{ link.title }} &#8594;</span>
 
-                <span class="hidden xl:flex items-center">{{ link.title }} <span class="ml-3">{% svg 'right arrow' %}</span></span>
+                <span class="hidden xl:flex items-center">
+                
+                    {{ link.title }} 
+                    
+                    <span class="ml-3">{% svg 'right arrow' %}</span>
+                    
+                </span>
                 
             </a>
 

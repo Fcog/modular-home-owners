@@ -6,19 +6,46 @@ from wagtail_link_block.blocks import LinkBlock
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.homes.models.PriceRanges import PriceRanges
 from mhoapp.homes.models.HomePage import HomePage
+from mhoapp.partners.models import LocationCategory, PartnerTypePage
 from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import MHOSettings
+from mhoapp.base.utils import remove_extension
 
 
-class ReadMoreText(blocks.StructBlock):
-    paragraph = blocks.RichTextBlock(default='')
+class PartnersButtons(blocks.ChoiceBlock):
+    choices = tuple(LocationCategory.objects.values_list('code','name'))
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
-        context['paragraph'] = value['paragraph']
-        context['text_small'] = True
+        context['buttons'] = list(map(
+            lambda item: {
+                'hx_get': f'{item.url}?location={value}',
+                'hx_target': '#ajax-response',
+                'text': f'{value} {item.title}',
+                'icon': remove_extension(item.icon.filename),
+            },
+            PartnerTypePage.objects.all()
+        ))
 
+        return context
+
+    class Meta:
+        label = 'Partners by State Buttons'
+        icon = 'placeholder'
+        template = 'patterns/organisms/partners-buttons/partners-buttons.html'
+
+
+class ReadMoreText(blocks.StructBlock):
+    text_size = blocks.ChoiceBlock(choices=[
+        ('small', 'Small'),
+        ('normal', 'Normal'),
+    ], icon='title', default='normal')      
+    paragraph = blocks.RichTextBlock(default='')    
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context.update(value)    
         return context
 
     class Meta:
@@ -36,7 +63,6 @@ class BlueBoxCTA(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
         context.update(value)    
-
         return context
 
     class Meta:
@@ -227,15 +253,46 @@ class HeroBlock(blocks.StructBlock):
         template = 'patterns/organisms/hero-home/hero-home.html'
 
 
-class HeadingH1(blocks.CharBlock):
+class HeadingH1(blocks.StructBlock):
+    title = blocks.CharBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context.update(value)
+        return context    
+
     class Meta:
         label = 'H1'
         icon = 'title'
         template = 'patterns/atoms/headings/h1.html'
 
 
-class HeadingH2(blocks.CharBlock):
+class HeadingH2(blocks.StructBlock):
+    title = blocks.RichTextBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context.update(value)
+        return context    
+
     class Meta:
         label = 'H2'
         icon = 'title'
         template = 'patterns/atoms/headings/h2.html'
+
+
+class Paragraph(blocks.StructBlock):
+    text_size = blocks.ChoiceBlock(choices=[
+        ('small', 'Small'),
+        ('normal', 'Normal'),
+    ], icon='title', default='normal')  
+    paragraph = blocks.RichTextBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context.update(value)
+        return context    
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'patterns/atoms/paragraph/paragraph.html'    

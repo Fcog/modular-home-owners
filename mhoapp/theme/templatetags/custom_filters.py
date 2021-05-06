@@ -16,3 +16,9 @@ def truncate_float(value):
     return value
 
 register.filter('truncate_float', truncate_float)    
+
+def remove_extension(value):
+    base = os.path.basename(value)
+    return os.path.splitext(base)[0]
+
+register.filter('remove_extension', truncate_float)    

@@ -5,7 +5,7 @@ from wagtail.core.models import Page
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.fields import StreamField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
@@ -14,23 +14,25 @@ from mhoapp.base.models import MHOSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models import LocationCategory
-from mhoapp.theme.models import BlueBoxCTA, ReadMoreText
+from mhoapp.theme.models import BlueBoxCTA, ReadMoreText, PartnersButtons, Paragraph
 
 
 class HomesIndexPage(Page):
     LEFT_SHORTER = 'LS'
     EQUAL_WIDTH = 'EW'
+    FULL_WIDTH = 'FW'
 
     COLUMNS_LAYOUT = [
-        (LEFT_SHORTER, 'Left side shorter'),
-        (EQUAL_WIDTH, 'Equal width'),
+        (FULL_WIDTH, '1 Column - Full width'),
+        (LEFT_SHORTER, '2 Columns - Left side smaller'),
+        (EQUAL_WIDTH, '2 Columns - Equal width'),
     ]
 
     blocks = [
+        ('partnersButtons', PartnersButtons()),
         ('readMoreText', ReadMoreText()),
         ('blueBoxCTA', BlueBoxCTA()),
-        ('paragraph', blocks.RichTextBlock()),
-        ('text', blocks.TextBlock()),
+        ('paragraph', Paragraph()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
@@ -42,22 +44,41 @@ class HomesIndexPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        verbose_name="Set an initial Price Range"
+        verbose_name="Initial Price Range"
     )
+
+    initial_location = models.ForeignKey(
+        'partners.LocationCategory',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name="Initial location"
+    )    
 
     layout = models.CharField(
         max_length=2,
         choices=COLUMNS_LAYOUT,
-        default=EQUAL_WIDTH,
-        verbose_name="Heading columns width"
+        default=FULL_WIDTH,
+        verbose_name="Heading layout"
     )
 
-    left_content = StreamField(blocks, default='')
-    right_content = StreamField(blocks, default='')
+    left_content = StreamField(blocks, default='', verbose_name='Heading Left Content')
+    right_content = StreamField(blocks, default='', blank=True, verbose_name='Heading Right Content')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
-        SnippetChooserPanel('initial_price_range'),
+        MultiFieldPanel(
+            [
+                FieldRowPanel(
+                    [
+                        SnippetChooserPanel('initial_price_range'),
+                        SnippetChooserPanel('initial_location'),
+                    ]
+                )
+            ],
+            heading="Homes Search Filtering Initial Values",
+            classname="collapsible"
+        ),        
         FieldPanel('layout'),
         StreamFieldPanel('left_content'),
         StreamFieldPanel('right_content'),
