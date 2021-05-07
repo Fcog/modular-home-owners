@@ -23,7 +23,7 @@ class PartnersButtons(blocks.ChoiceBlock):
                 'hx_get': f'{item.url}?location={value}',
                 'hx_target': '#ajax-response',
                 'text': f'{value} {item.title}',
-                'icon': remove_extension(item.icon.filename),
+                'icon': remove_extension(item.icon.filename) if item.icon else  '',
             },
             PartnerTypePage.objects.all()
         ))
