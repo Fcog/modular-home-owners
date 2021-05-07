@@ -133,6 +133,6 @@ class HomePage(Page):
         context['page'].baths_text = 'Bath' if self.baths == 1.0 else 'Baths' 
         context['page'].stories_text = 'Story' if self.stories == 1.0 else 'Stories' 
 
-        context['page'].intro = global_data.home_intro.format(home=self)
+        context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
 
         return context
