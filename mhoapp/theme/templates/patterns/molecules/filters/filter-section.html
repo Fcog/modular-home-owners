@@ -19,7 +19,7 @@
     {% endif %}            
 
     {% if filter == 'locations' %}
-        {% include "patterns/atoms/select/select.html" with id="shipping" options=locations default_text="Choose Location" size="normal" class="" %}
+        {% include "patterns/atoms/select/select.html" with id="shipping" options=locations initial_value=initial_location default_text="Choose Location" size="normal" class="" %}
     {% endif %}
 
     {% if filter == 'home_styles' %}

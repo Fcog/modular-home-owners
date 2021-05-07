@@ -111,7 +111,7 @@ class HomesIndexPage(Page):
         styles = request.GET.getlist('style')
         min_price_range = initial_min_price_range if initial_min_price_range else request.GET.get('min-price-range') 
         max_price_range = initial_max_price_range if initial_max_price_range else request.GET.get('max-price-range') 
-        location = request.GET.get('shipping')
+        location = self.initial_location.code if self.initial_location else request.GET.get('shipping')
         min_sqft = request.GET.get('min-sqft')
         max_sqft = request.GET.get('max-sqft')
         bedrooms = request.GET.get('bedrooms')
