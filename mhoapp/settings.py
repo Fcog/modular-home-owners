@@ -269,7 +269,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-SVG_DIRS=[
+SVG_DIRS = [
     os.path.join(BASE_DIR, 'media/media'),
     os.path.join(BASE_DIR, 'mhoapp/theme/static/svg'),
 ]
