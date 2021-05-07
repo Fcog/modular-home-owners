@@ -24728,16 +24728,14 @@ body {
   border-bottom-color: #609c00;
 }
 
-.block-paragraph, .block-headingH1, .block-headingH2 {
+div[class^="block-"] {
   margin-bottom: 1rem;
 }
 
 @media (min-width: 1024px) {
 
-.block-paragraph,
-.block-headingH1,
-.block-headingH2 {
-    margin-bottom: 2rem;
+div[class^="block-"] {
+    margin-bottom: 2rem
 }
   }
 
