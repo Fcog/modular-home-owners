@@ -4,11 +4,21 @@
 
     {% include "patterns/atoms/button/button.html" with text=text size=size text_size=text_size color=color inverted=inverted rounded=rounded class="pl-4 md:pl-16 md:pr-10" %}
 
+    {% if image %}
+
+    <div class="absolute left-0 top-0 flex items-center h-full ml-6 md:ml-6 -z-10">
+    
+        <img src="{{ image }}" class="h-6 lg:h-8">
+
+    </div>
+
+    {% endif %}
+
     {% if icon %}
 
     <div class="absolute left-0 top-0 flex items-center icon--small h-full ml-4 md:ml-6 -z-10">
-    
-        {% svg icon %}
+
+    {% svg icon %}
 
     </div>
 
