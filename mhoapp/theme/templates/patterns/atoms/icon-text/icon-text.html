@@ -1,0 +1,20 @@
+{% load svg %}
+
+<div 
+    class="inline-flex items-center leading-3 {% if text_size == "big" %} text-sm lg:text-lg {% else %} text-xxxs lg:text-sm {% endif %} {{ class }}">
+
+    <i class="mr-1 2xl:mr-2 ">{% svg icon %}</i> 
+    
+    {% if quantity %}
+
+    <div class="mr-1">
+
+        {{ quantity }} 
+
+    </div>
+
+    {% endif %}
+    
+    {{ title }}
+    
+</div>

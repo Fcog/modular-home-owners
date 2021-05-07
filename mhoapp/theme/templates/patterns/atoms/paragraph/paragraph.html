@@ -1,6 +1,6 @@
 {% if paragraph %}
 
-<div class="text-black-light font-medium prose {% if text_size == 'small' %} prose-sm lg:prose-lg {% else %} text-1.5xl {% endif %} max-w-none">
+<div class="text-black-light font-medium prose {% if text_size == 'small' %} prose-sm lg:prose-lg {% else %} text-xs lg:text-1.5xl {% endif %} max-w-none">
 
     {{ paragraph | safe }}
 

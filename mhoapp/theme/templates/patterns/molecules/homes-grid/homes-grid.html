@@ -14,7 +14,7 @@
 
     {% for home in homes %}
 
-        {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths=home.baths sqft=home.sqft cost=home.cost estimated_cost=home.estimated_cost %}
+        {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths=home.baths sqft=home.sqft cost=home.cost estimated_cost=home.estimated_cost bedrooms_text=home.bedrooms_text baths_text=home.baths_text %}
 
     {% endfor %}
 

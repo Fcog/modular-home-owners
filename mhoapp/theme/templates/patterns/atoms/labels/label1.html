@@ -1,0 +1,23 @@
+{% load svg %}
+
+<div class="{{ class }}">
+
+    <div class="flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase">
+
+        {{ title }}
+
+        {% if icon %}
+
+        <span class="right-0 ml-1 xl:ml-2 svg-h-1.2">{% svg icon %}</span>
+
+        {% endif %}
+
+    </div>
+
+    <div class="{% if wide_design %} font-bold {% else %} font-medium {% endif %} {% if text_size == 'big' %} text-1.5xl 2xl:text-3xl {% else %} text-lg 2xl:text-2xl {% endif %} text-green-medium">
+    
+        {{ value }}
+
+    </div>
+
+</div>

@@ -7,6 +7,8 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
+from mhoapp.base.models import MHOSettings
+from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.admin import HomePageForm
 from mhoapp.partners.models import PartnerPage
 from mhoapp.homes.models.StyleCategory import StyleCategory
@@ -116,3 +118,21 @@ class HomePage(Page):
 
     # Admin custom changes
     base_form_class = HomePageForm
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        global_data = MHOSettings.objects.first()
+
+        self.cost = currency(self.cost)
+        self.estimated_cost = currency(self.estimated_cost)
+
+        context['page'].baths = truncate_float(self.baths)
+        context['page'].stories = truncate_float(self.stories)
+        context['page'].bedrooms_text = 'Bedroom' if self.bedrooms == 1 else 'Bedrooms' 
+        context['page'].baths_text = 'Bath' if self.baths == 1.0 else 'Baths' 
+        context['page'].stories_text = 'Story' if self.stories == 1.0 else 'Stories' 
+
+        context['page'].intro = global_data.home_intro.format(home=self)
+
+        return context

@@ -24,6 +24,14 @@ class MHOSettings(models.Model):
     contact_email = models.EmailField(max_length=255, default="services@mho.com")
     search_button_text = models.CharField(max_length=254, default="Find Your Home")
 
+    # Home introduction text
+    home_intro = models.TextField(max_length=255, null=True, verbose_name="Home introduction")
+    home_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text")
+    home_small_text = models.TextField(max_length=255, null=True, verbose_name="Small text")
+    home_verified_title = models.CharField(max_length=255, null=True, verbose_name="Verified box title")
+    home_verified_text = models.CharField(max_length=255, null=True, verbose_name="Verified box text")
+    home_similar_title = models.CharField(max_length=255, null=True, verbose_name="Similar houses section title")
+
     # Homes Ad CTA
     homes_ad_text = models.CharField(max_length=254, default="")
     homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text")     
@@ -83,6 +91,18 @@ class MHOSettings(models.Model):
             heading="General Settings",
             classname="collapsible collapsed",
         ),
+        MultiFieldPanel(
+            [
+                FieldPanel('home_intro'),
+                FieldPanel('home_button_text'),
+                FieldPanel('home_small_text'),
+                FieldPanel('home_verified_title'),
+                FieldPanel('home_verified_text'),
+                FieldPanel('home_similar_title'),
+            ],
+            heading="Home detail page",
+            classname="collapsible collapsed",
+        ),        
         MultiFieldPanel(
             [
                 FieldPanel('homes_ad_text'),

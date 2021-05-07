@@ -10,6 +10,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
+from mhoapp.base.utils import truncate_float, currency
 from mhoapp.base.models import MHOSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
@@ -181,9 +182,16 @@ class HomesIndexPage(Page):
         # Used to show the ad in the 1st page.
         context['pagination'] = pagination               
 
-        # Add the homes data to the page context.
+        # Format and add the homes data to the page context.
         # -------------------------------------------------------------------------------------
-        context['homes'] = homes    
+        for home in homes:
+            home.baths = truncate_float(home.baths)
+            home.cost = currency(home.cost)
+            home.estimated_cost = currency(home.estimated_cost)            
+            home.bedrooms_text = 'Bedroom' if home.bedrooms == 1 else 'Bedrooms' 
+            home.baths_text = 'Bath' if home.baths == 1.0 else 'Baths'           
+
+        context['homes'] = homes   
 
         context['homes_ad_button_url'] = global_data.homes_ad_button_url()
 

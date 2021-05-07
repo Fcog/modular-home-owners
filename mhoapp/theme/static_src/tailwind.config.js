@@ -20,6 +20,8 @@ module.exports = {
                 medium: '#5F9B00',
             },
             gray: {
+                '30': '#B2B2B2',
+                '40': '#CCCCCC',
                 '50': '#f8f8f8',
                 '60': '#E5E5E5',
                 '70': '#888888',
@@ -63,6 +65,7 @@ module.exports = {
                 '7.5': '1.875rem', // 30px
             },
             fontSize: {
+                'xxxs': '.6rem',
                 'xxs': '.7rem',
                 '1.5xl': [ '1.31rem' , {
                     lineHeight: '1.9rem',
