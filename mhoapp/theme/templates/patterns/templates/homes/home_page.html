@@ -8,11 +8,15 @@
 
     <div class="lg:flex container">
 
+        {% if page.elevation_gallery_images.all %}
+
         <div class="lg:w-1/2 lg:pr-16">
         
             {% include "patterns/molecules/sliders/images/images.html" with images=page.elevation_gallery_images.all %}
         
         </div>
+
+        {% endif %}
 
         <div class="lg:w-1/2">
 

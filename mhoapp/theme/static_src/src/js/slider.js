@@ -22,7 +22,6 @@ export default function slider() {
             pagination: false,
             arrows: false,
             cover: true,
-            focus: 'center',
         }).mount()
 
         const mainSlider = new Splide(sliderContainer.querySelector('.js-main-slider'), {
