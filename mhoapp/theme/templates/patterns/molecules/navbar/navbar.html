@@ -1,6 +1,8 @@
 {% load wagtailcore_tags %}
 
-<div class="luxbar luxbar-default">
+<div 
+    data-pattern="molecules/navbar"
+    class="luxbar luxbar-default">
 
     <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
 
@@ -11,7 +13,7 @@
             <li class="luxbar-header">
 
                 <a class="logo-color" href="/">
-					<img src="{{ mhoapp.logo.url }}" alt="Modular Homeowners Logo" class="h-10 md:h-16 md:h-auto">
+					<img src="{{ mhoapp.logo.url }}" alt="Modular Homeowners Logo" class="h-10 md:h-16 lg:h-auto">
 				</a>
 
                 <a class="logo-white" href="/">

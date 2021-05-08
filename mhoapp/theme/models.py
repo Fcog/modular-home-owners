@@ -3,6 +3,7 @@ from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail_link_block.blocks import LinkBlock
 
+from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.homes.models.PriceRanges import PriceRanges
 from mhoapp.homes.models.HomePage import HomePage
@@ -150,7 +151,17 @@ class PopularHomesGrid(blocks.StructBlock):
         context.update(value)
 
         context['button_url'] = value['button_link'].get_url
-        context['homes'] = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
+
+        homes = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
+
+        for home in homes:
+            home.baths = truncate_float(home.baths)
+            home.cost = currency(home.cost)
+            home.estimated_cost = currency(home.estimated_cost)            
+            home.bedrooms_text = 'Bedroom' if home.bedrooms == 1 else 'Bedrooms' 
+            home.baths_text = 'Bath' if home.baths == 1.0 else 'Baths'            
+
+        context['homes'] = homes
 
         return context
 

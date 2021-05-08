@@ -24648,8 +24648,6 @@ select {
  */
 
 .luxbar-menu-light {
-  padding-top: .5rem;
-  margin-bottom: .8rem;
   background-color: #ffffff !important;
   transition: none !important;
 }
@@ -24782,6 +24780,11 @@ select {
 @media (min-width: 768px) {
   .luxbar-header {
     margin-bottom: 0rem;
+    height: auto !important;
+  }
+
+  .luxbar-menu {
+    height: auto !important;
   }
     .luxbar-menu .luxbar-item {
       display: flex;
@@ -24817,6 +24820,9 @@ select {
             background-color: #5D9700;
             z-index: 10;
           }
+        .luxbar-menu .dropdown:hover ul {
+          top: 59px !important;
+        }
         .luxbar-menu .dropdown:hover .luxbar-item-a-first-level {
           color: #5D9700 !important;
           background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4wNjMiIGhlaWdodD0iOS40NDYiIHZpZXdCb3g9IjAgMCAxNi4wNjMgOS40NDYiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiM1ZjliMDA7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS40MTQgOC4wMzEpIHJvdGF0ZSgtOTApIj48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5Mj0iNi42MTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNi42MTcpIi8+PGxpbmUgY2xhc3M9ImEiIHgxPSI2LjYxNyIgeTE9IjYuNjE3Ii8+PC9nPjwvc3ZnPg==);
@@ -24881,17 +24887,79 @@ select {
 
 /* Slider overrides https://github.com/Splidejs/splide	*/
 
-.splide__arrow {
-  background: transparent !important;
-}
+.splide--homes .splide__arrow {
+      background: transparent !important;
+    }
 
-.splide__arrow--prev {
-  left: -2rem;
-}
+.splide--homes .splide__arrow--prev {
+      left: -2rem;
+    }
 
-.splide__arrow--next {
-  right: -2rem;
-}
+.splide--homes .splide__arrow--next {
+      right: -2rem;
+    }
+
+.splide--images .splide__arrow {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+        opacity: 1 !important;
+        width: 2rem !important;
+        height: 2rem !important;
+      }
+
+@media (min-width: 1024px) {
+
+.splide--images .splide__arrow {
+          width: 3rem !important;
+
+          height: 3rem !important
+      }
+        }
+
+.splide--images .splide__arrow svg {
+          width: 1.3rem !important;
+          height: 1.3rem !important;
+        }
+
+@media (min-width: 1024px) {
+
+.splide--images .splide__arrow svg {
+            width: 2.3rem !important;
+
+            height: 2.3rem !important
+        }
+          }
+
+.splide--images .splide__arrow path {
+          fill: #ffffff;
+        }
+
+.splide--images .splide__pagination {
+        position: static !important;
+        transform: none !important;
+        padding-top: 1rem;
+      }
+
+.splide--images .splide__pagination__page {
+          width: .65rem !important;
+          height: .65rem !important;
+          border: 1px solid #888888 !important;
+          background-color: transparent !important;
+        }
+
+.splide--images .splide__pagination__page.is-active {
+            background-color: #1A5E88 !important;
+            border: 1px solid #1A5E88 !important;
+            transform: none !important;
+          }
+
+.splide--images-thumbnails .splide__slide img {
+      width : 100%;
+      height: auto;
+    }
+
+.splide--images-thumbnails .is-active {
+      border: 2px solid #1A5E88;
+    }
 
 /* Input range overrides https://refreshless.com/nouislider/more/ */
 
@@ -25115,6 +25183,12 @@ div[class^="block-"] {
     margin-bottom: 2rem
 }
   }
+
+/* Block margin exceptions */
+
+div.block-hero, div.block-ForumCTA, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-articlesCTA {
+  margin-bottom: 0px;
+}
 
 select {
   background-position: right 1.5rem center;

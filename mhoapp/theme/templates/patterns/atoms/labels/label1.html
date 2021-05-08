@@ -1,8 +1,10 @@
 {% load svg %}
 
-<div class="{{ class }}">
+<div 
+    data-pattern="atoms/labels/label1"
+    class="{{ class }}">
 
-    <div class="flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase">
+    <div class="flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase {% if not icon %} mt-1 {% endif %}">
 
         {{ title }}
 

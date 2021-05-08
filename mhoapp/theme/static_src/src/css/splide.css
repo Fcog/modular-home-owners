@@ -1,11 +1,75 @@
-.splide__arrow {
-	background: transparent !important;
+.splide {
+	&--homes {
+		.splide__arrow {
+			background: transparent !important;
+		}
+		
+		.splide__arrow--prev {
+			left: -2rem;
+		} 
+		
+		.splide__arrow--next {
+			right: -2rem;
+		} 
+	}
+
+	&--images {
+		.splide {
+			&__arrow {
+				background-color: rgba(0, 0, 0, 0.3) !important;
+				opacity: 1 !important;
+				width: 2rem !important;
+				height: 2rem !important;			
+
+				@screen lg { 
+					width: 3rem !important;
+					height: 3rem !important;	
+				}
+
+				svg {
+					width: 1.3rem !important;
+					height: 1.3rem !important;
+
+					@screen lg {
+						width: 2.3rem !important;
+						height: 2.3rem !important;
+					}
+				}
+
+				path {
+					fill: #ffffff;
+				}
+			}
+
+			&__pagination {
+				position: static !important;
+				transform: none !important;
+				padding-top: 1rem;
+
+				&__page {
+					width: .65rem !important;
+					height: .65rem !important;
+					border: 1px solid #888888 !important;
+					background-color: transparent !important;
+
+					&.is-active {
+						background-color: #1A5E88 !important;
+						border: 1px solid #1A5E88 !important;
+						transform: none !important;
+					}
+				}
+			}
+		}
+	}
+
+	&--images-thumbnails {
+		.splide__slide img {
+			width : 100%;
+			height: auto;
+		}
+
+		.is-active {
+			border: 2px solid #1A5E88;
+		}
+	}
 }
-
-.splide__arrow--prev {
-	left: -2rem;
-} 
-
-.splide__arrow--next {
-	right: -2rem;
-} 

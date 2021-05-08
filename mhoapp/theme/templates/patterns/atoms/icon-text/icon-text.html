@@ -1,9 +1,14 @@
 {% load svg %}
 
 <div 
-    class="inline-flex items-center leading-3 {% if text_size == "big" %} text-sm lg:text-lg {% else %} text-xxxs lg:text-sm {% endif %} {{ class }}">
+    data-pattern="atoms/icon-text"
+    class="inline-flex items-center leading-3 overflow-x-hidden {% if text_size == "big" %} text-sm xl:text-lg {% else %} text-xxxs lg:text-sm {% endif %} {{ class }}">
 
-    <i class="mr-1 2xl:mr-2 ">{% svg icon %}</i> 
+    <i class="{% if text_size == "big" %} mr-3 {% else %} mr-1 {% endif %} 2xl:mr-2">
+    
+        {% svg icon %}
+
+    </i> 
     
     {% if quantity %}
 

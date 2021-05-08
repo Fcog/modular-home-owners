@@ -48,8 +48,6 @@
  * Theme fixes.
  */
 .luxbar-menu-light {
-  padding-top: .5rem;
-  margin-bottom: .8rem;
   background-color: #ffffff !important;
   transition: none !important;
 
@@ -194,9 +192,12 @@
 @screen md {
   .luxbar-header {
     margin-bottom: 0rem;
+    height: auto !important;
   }
 
   .luxbar-menu {
+    height: auto !important;
+
     .luxbar-item {
       display: flex;
       align-items: center;
@@ -245,6 +246,10 @@
   
     .dropdown {
       &:hover {
+        ul {
+          top: 59px !important;
+        }
+
         .luxbar-item-a-first-level {
           color: #5D9700 !important;
           background-image: url('svg/up arrow.svg');

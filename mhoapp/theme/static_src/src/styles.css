@@ -113,6 +113,17 @@ div[class^="block-"] {
 	}
 }
 
+/* Block margin exceptions */
+div.block-hero,
+div.block-ForumCTA,
+div.block-PopularHomesGrid,
+div.block-GetYourHouseCTA,
+div.block-PartnersCTA,
+div.block-ResourcesCTA,
+div.block-articlesCTA {
+	@apply mb-0;
+}
+
 select {
 	background-position: right 1.5rem center;
 }

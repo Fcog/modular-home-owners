@@ -1,0 +1,41 @@
+{% load wagtailimages_tags %}
+
+<div data-pattern="molecules/sliders/images" class="mb-5 js-slide-images">
+
+    <div class="splide js-main-slider splide--images">
+        <div class="splide__track">
+            <ul class="splide__list">
+
+                {% for image in images %}
+
+                <li class="splide__slide flex justify-center">
+
+                    {% image image.image width-1000 %}
+
+                </li>
+
+                {% endfor %} 
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="hidden lg:block mt-6 splide splide--images-thumbnails js-thumbnails">
+        <div class="splide__track">
+            <ul class="splide__list">
+
+                {% for image in images %}
+
+                <li class="splide__slide">
+
+                    {% image image.image width-247 %}
+
+                </li>
+
+                {% endfor %} 
+
+            </ul>
+        </div>
+    </div>
+
+</div>
