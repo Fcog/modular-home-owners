@@ -124,6 +124,8 @@ class HomePage(Page):
 
         global_data = MHOSettings.objects.first()
 
+        # Home data formatting.
+        # ------------------------------------------------------------------------------
         self.cost = currency(self.cost)
         self.estimated_cost = currency(self.estimated_cost)
 
@@ -134,5 +136,9 @@ class HomePage(Page):
         context['page'].stories_text = 'Story' if self.stories == 1.0 else 'Stories' 
 
         context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
+        
+        # Header theme
+        # ------------------------------------------------------------------------------
+        context['header_theme'] = "blue"
 
         return context

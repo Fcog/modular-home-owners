@@ -2,8 +2,12 @@
 
 <header 
     data-pattern="organisms/header/header" 
-    class="relative container md:pb-0 md:my-8 border-b border-gray-50 md:border-0 z-40">
+    class="md:py-8 border-b border-gray-50 md:border-0 {% if header_theme == "blue" %} bg-blue {% endif %}">
 
-    {% main_menu template="patterns/molecules/navbar/navbar.html" add_sub_menus_inline=True %}
+    <div class="relative container z-40">
+
+        {% main_menu template="patterns/molecules/navbar/navbar.html" add_sub_menus_inline=True %}
+
+    </div>
 
 </header>

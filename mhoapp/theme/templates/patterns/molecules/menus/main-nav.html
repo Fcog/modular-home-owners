@@ -1,3 +1,5 @@
+{% load svg %}
+
 {% for item in menu_items %}
 
 <li class="luxbar-item luxbar-item-first-level {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
@@ -7,6 +9,12 @@
         href="{{ item.href }}">
 
         {{ item.text }}
+
+        {% if item.sub_menu.items %}
+
+            {% svg 'down arrow' %}
+
+        {% endif %}
 
     </a>
 

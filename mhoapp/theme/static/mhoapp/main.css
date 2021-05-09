@@ -24611,6 +24611,10 @@ select {
   box-shadow: none !important;
 }
 
+.luxbar-header {
+  margin-bottom: 3rem;
+}
+
 .luxbar-hamburger {
   padding: 0 !important;
 }
@@ -24643,38 +24647,56 @@ select {
         transform: rotate(45deg);
       }
 
-/**
- * Theme fixes.
- */
-
-.luxbar-menu-light {
-  background-color: #ffffff !important;
-  transition: none !important;
-}
-
-.luxbar-menu-light .luxbar-hamburger span {
-      background-color: #5D9700;
-      height: 3px;
-      border-radius: 4px;
-    }
-
-.luxbar-menu-light .luxbar-hamburger span:before,
-      .luxbar-menu-light .luxbar-hamburger span:after {
-        background-color: #5D9700;
-        height: 3px;
-        border-radius: 4px;
-      }
-
-.luxbar-menu-light .active {
-    background-color: #ffffff !important;
+.luxbar-logo img {
+    max-height: 5.2rem;
   }
 
-.luxbar-menu-light .dropdown ul {
-      background-color: #ffffff !important;
+.luxbar-checkbox:not(:checked) ~ .luxbar-menu {
+  height: 67px !important;
+}
+
+.luxbar-menu {
+  padding-top: .3rem;
+  padding-bottom: .5rem;
+}
+
+.luxbar-menu .luxbar-item {
+    height: auto !important;
+    text-align: center;
+  }
+
+.luxbar-menu .luxbar-item-a-first-level {
+    display: flex;
+    align-items: center;
+    padding: .8rem !important;
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+
+.luxbar-menu .luxbar-item-a-first-level svg {
+      margin-top: 2px;
+      margin-left: .5rem;
     }
 
+.luxbar-menu .dropdown {
+    min-height: auto !important;
+  }
+
+.luxbar-menu .dropdown:hover svg  {
+        transform: rotate(180deg);
+        transition: transform .5s ease;
+      }
+
+.luxbar-menu .dropdown ul .luxbar-item-a {
+        padding: .5rem 0 !important;
+        min-height: auto !important;
+        line-height: normal !important;
+      }
+
 /**
- * On mobile menu opened.
+ * ----------------------------------------
+ * Mobile menu opened
+ * ----------------------------------------
  */
 
 .luxbar-checkbox:checked ~ .luxbar-menu {
@@ -24686,11 +24708,11 @@ select {
     transition: height .6s ease !important;
   }
 
-.luxbar-checkbox:checked ~ .luxbar-menu .logo-color {
+.luxbar-checkbox:checked ~ .luxbar-menu .luxbar-logo-color {
       display: none;
     }
 
-.luxbar-checkbox:checked ~ .luxbar-menu .logo-white {
+.luxbar-checkbox:checked ~ .luxbar-menu .luxbar-logo-white {
       display: block;
     }
 
@@ -24709,6 +24731,9 @@ select {
         }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .luxbar-item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       background-color: #09293C !important;
     }
 
@@ -24718,64 +24743,38 @@ select {
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown ul {
         display: none;
+        background-color: #09293C !important;
       }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item {
-        padding: 2px 10px 2px 40px !important;
-        margin-left: -2rem;
+        padding: .5rem 1rem !important;
       }
 
-.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level {
-        margin-left: 2rem;
-        padding-right: 1rem !important;
-      }
+.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level svg line {
+            stroke: #ffffff;
+          }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level:after {
-          padding-left: .5rem;
-          position: static;
-          content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4wNjMiIGhlaWdodD0iOS40NDYiIHZpZXdCb3g9IjAgMCAxNi4wNjMgOS40NDYiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQuNjQ5IDEuNDE0KSByb3RhdGUoOTApIj48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5MT0iNi42MTciLz48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5Mj0iNi42MTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNi42MTcpIi8+PC9nPjwvc3ZnPg==);
+          display: none !important;
         }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level.opened {
           color: #36B2FF !important;
         }
 
-.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level.opened:after {
-            content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4wNjMiIGhlaWdodD0iOS40NDYiIHZpZXdCb3g9IjAgMCAxNi4wNjMgOS40NDYiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiMzNmIyZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS40MTQgOC4wMzIpIHJvdGF0ZSgtOTApIj48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5Mj0iNi42MTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNi42MTcpIi8+PGxpbmUgY2xhc3M9ImEiIHgxPSI2LjYxNyIgeTE9IjYuNjE3Ii8+PC9nPjwvc3ZnPg==);
+.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level.opened svg line {
+              stroke: #36B2FF !important;
+            }
+
+.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level:not(.opened) svg {
+            transform: rotate(0deg);
           }
 
 /**
- * Custom changes.
+ * ----------------------------------------
+ * Medium screen
+ * ----------------------------------------
  */
-
-.luxbar-header {
-  margin-bottom: 3rem;
-}
-
-.luxbar-menu .luxbar-item {
-    height: auto !important;
-    text-align: center;
-  }
-
-.luxbar-menu .luxbar-item-a-first-level {
-    padding: .8rem !important;
-    font-size: 1.15rem;
-    font-weight: bold;
-  }
-
-.luxbar-menu .logo-white {
-    display: none;
-  }
-
-.luxbar-menu .dropdown {
-    min-height: auto !important;
-  }
-
-.luxbar-menu .dropdown ul .luxbar-item-a {
-        padding: .5rem 0 !important;
-        min-height: auto !important;
-        line-height: normal !important;
-      }
 
 @media (min-width: 768px) {
   .luxbar-header {
@@ -24810,7 +24809,14 @@ select {
       .luxbar-menu .luxbar-item-a:hover {
         color: #5D9700 !important;
       }
-          .luxbar-menu .luxbar-item-first-level:hover .luxbar-item-a-first-level:after {
+        .luxbar-menu .dropdown:hover ul {
+          top: 59px !important;
+        }
+        .luxbar-menu .dropdown:hover .luxbar-item-a-first-level {
+          color: #5D9700 !important;
+        }
+          /* Horizontal line for the 2nd level box in desktop */
+          .luxbar-menu .dropdown:hover .luxbar-item-a-first-level:after {
             position: absolute;
             top: 42px !important;
             left: 0;
@@ -24820,21 +24826,9 @@ select {
             background-color: #5D9700;
             z-index: 10;
           }
-        .luxbar-menu .dropdown:hover ul {
-          top: 59px !important;
-        }
-        .luxbar-menu .dropdown:hover .luxbar-item-a-first-level {
-          color: #5D9700 !important;
-          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4wNjMiIGhlaWdodD0iOS40NDYiIHZpZXdCb3g9IjAgMCAxNi4wNjMgOS40NDYiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiM1ZjliMDA7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS40MTQgOC4wMzEpIHJvdGF0ZSgtOTApIj48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5Mj0iNi42MTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNi42MTcpIi8+PGxpbmUgY2xhc3M9ImEiIHgxPSI2LjYxNyIgeTE9IjYuNjE3Ii8+PC9nPjwvc3ZnPg==);
-        }
-      .luxbar-menu .dropdown .luxbar-item-a-first-level {
-        padding-right: 1rem !important;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNi4wNjMiIGhlaWdodD0iOS40NDYiIHZpZXdCb3g9IjAgMCAxNi4wNjMgOS40NDYiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOm5vbmU7c3Ryb2tlOiMwOTI5M2M7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLXdpZHRoOjJweDt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQuNjQ5IDEuNDE0KSByb3RhdGUoOTApIj48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5MT0iNi42MTciLz48bGluZSBjbGFzcz0iYSIgeDE9IjYuNjE3IiB5Mj0iNi42MTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNi42MTcpIi8+PC9nPjwvc3ZnPg==);
-        background-position: right .7rem;
-        background-size: 9px;
-        background-repeat: no-repeat;
-        transition: all .2s ease;
-      }
+          .luxbar-menu .dropdown:hover .luxbar-item-a-first-level svg {
+            stroke: #5D9700 !important;
+          }
       .luxbar-menu .dropdown ul {
         margin-top: 1rem;
         box-shadow: 5px 5px 20px #00000029;
@@ -24857,6 +24851,12 @@ select {
         }
 }
 
+/**
+ * ----------------------------------------
+ * Extra Large screen
+ * ----------------------------------------
+ */
+
 @media (min-width: 1280px) {
     .luxbar-menu .luxbar-item {
       padding: 1rem;
@@ -24873,10 +24873,6 @@ select {
         -moz-column-gap: 7rem;
              column-gap: 7rem;
       }
-      .luxbar-menu .dropdown .luxbar-item-a-first-level {
-        padding-right: 1.9rem !important;
-        background-size: auto;
-      }
 }
 
 @media (min-width: 1640px) {
@@ -24884,6 +24880,65 @@ select {
       padding: 1rem 2rem !important;
     }
 }
+
+/**
+ * ----------------------------------------
+ * White theme
+ * ----------------------------------------
+ */
+
+.luxbar-menu-light {
+  background-color: #ffffff !important;
+  transition: none !important;
+}
+
+.luxbar-menu-light .luxbar-hamburger span {
+      background-color: #5D9700;
+      height: 3px;
+      border-radius: 4px;
+    }
+
+.luxbar-menu-light .luxbar-hamburger span:before,
+      .luxbar-menu-light .luxbar-hamburger span:after {
+        background-color: #5D9700;
+        height: 3px;
+        border-radius: 4px;
+      }
+
+.luxbar-menu-light .active {
+    background-color: #ffffff !important;
+  }
+
+.luxbar-menu-light .dropdown ul {
+      background-color: #ffffff !important;
+    }
+
+@media (min-width: 768px) {
+        .luxbar-menu-light .dropdown:hover .luxbar-item-a-first-level {
+          color: #5D9700 !important;
+        }
+            .luxbar-menu-light .dropdown:hover .luxbar-item-a-first-level svg line {
+              stroke: #5D9700 !important;
+            }
+      }
+
+.luxbar-menu-light .luxbar-logo-white {
+    display: none;
+  }
+
+/**
+ * ----------------------------------------
+ * Blue theme
+ * ----------------------------------------
+ */
+
+.luxbar-menu-blue .luxbar-logo-color {
+    display: none;
+  }
+
+.luxbar-menu-blue .luxbar-item-a {
+    color: #ffffff !important;
+  }
 
 /* Slider overrides https://github.com/Splidejs/splide	*/
 

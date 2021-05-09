@@ -4,6 +4,10 @@
   box-shadow: none !important;
 }
 
+.luxbar-header {
+  margin-bottom: 3rem;
+}
+
 .luxbar-hamburger {
   padding: 0 !important;
 
@@ -44,43 +48,64 @@
   }
 }
 
-/**
- * Theme fixes.
- */
-.luxbar-menu-light {
-  background-color: #ffffff !important;
-  transition: none !important;
+.luxbar-logo {
+  img {
+    max-height: 5.2rem;
+  }
+}
 
-  .luxbar-hamburger {
-    span {
-      background-color: #5D9700;
-      height: 3px;
-      border-radius: 4px;
+.luxbar-checkbox:not(:checked) ~ .luxbar-menu {
+  height: 67px !important;
+}
 
-      &:before,
-      &:after {
-        background-color: #5D9700;
-        height: 3px;
-        border-radius: 4px;
-      }
-    }
+.luxbar-menu {
+  padding-top: .3rem;
+  padding-bottom: .5rem;
+
+  .luxbar-item {
+    height: auto !important;
+    text-align: center;
   }
 
-  .active {
-    background-color: #ffffff !important;
+  .luxbar-item-a-first-level {
+    display: flex;
+    align-items: center; 
+    padding: .8rem !important;
+    font-size: 1.15rem;
+    font-weight: bold;
+    
+    svg {
+      margin-top: 2px;
+      margin-left: .5rem;
+    }    
   }
 
   .dropdown {
+    min-height: auto !important;
+
+    &:hover {
+      svg  {
+        transform: rotate(180deg);    
+        transition: transform .5s ease;
+      }
+    }
+
     ul {
-      background-color: #ffffff !important;
+      .luxbar-item-a {
+        padding: .5rem 0 !important;
+        min-height: auto !important;
+        line-height: normal !important;
+      }
     }
   }
 }
 
 /**
- * On mobile menu opened.
+ * ----------------------------------------
+ * Mobile menu opened
+ * ----------------------------------------
  */
-.luxbar-checkbox:checked {
+ .luxbar-checkbox:checked {
   & ~ .luxbar-menu {
     background-color: #09293C !important;
     width: 100vw;
@@ -89,11 +114,11 @@
     transform: translateX(-50%);    
     transition: height .6s ease !important;
 
-    .logo-color {
+    .luxbar-logo-color {
       display: none;
     }
 
-    .logo-white {
+    .luxbar-logo-white {
       display: block;
     }
 
@@ -114,6 +139,9 @@
     }
 
     .luxbar-item {
+      display: flex;
+      align-items: center;       
+      flex-direction: column;       
       background-color: #09293C !important;
     }
 
@@ -124,29 +152,38 @@
     .dropdown {
       ul {
         display: none;
-      }
+        background-color: #09293C !important;
+      }    
 
       .luxbar-item {
-        padding: 2px 10px 2px 40px !important;
-        margin-left: -2rem;
-      }      
+        padding: .5rem 1rem !important;
+      }
 
       .luxbar-item-a-first-level {
-        margin-left: 2rem;
-        padding-right: 1rem !important;
+        svg {
+          line {
+            stroke: #ffffff;
+          }
+        }      
 
         &:after {
-          padding-left: .5rem;
-          position: static;
-          content: url('svg/down arrow white.svg');
+          display: none !important;
         }        
 
         &.opened {
-          color: #36B2FF !important;
+          color: #36B2FF !important;      
+          
+          svg {
+            line {
+              stroke: #36B2FF !important;
+            }
+          }             
+        }
 
-          &:after {
-            content: url('svg/up arrow blue.svg');
-          }          
+        &:not(.opened) {
+          svg {
+            transform: rotate(0deg);
+          }
         }
       }
     }
@@ -154,41 +191,10 @@
 }
 
 /**
- * Custom changes.
+ * ----------------------------------------
+ * Medium screen
+ * ----------------------------------------
  */
-.luxbar-header {
-  margin-bottom: 3rem;
-}
-
-.luxbar-menu {
-  .luxbar-item {
-    height: auto !important;
-    text-align: center;
-  }
-
-  .luxbar-item-a-first-level {
-    padding: .8rem !important;
-    font-size: 1.15rem;
-    font-weight: bold;
-  }
-
-  .logo-white {
-    display: none;
-  }
-
-  .dropdown {
-    min-height: auto !important;
-
-    ul {
-      .luxbar-item-a {
-        padding: .5rem 0 !important;
-        min-height: auto !important;
-        line-height: normal !important;
-      }
-    }
-  }
-}
-
 @screen md {
   .luxbar-header {
     margin-bottom: 0rem;
@@ -209,7 +215,7 @@
         background-color: #ffffff !important;
       }        
     }
-  
+
     .luxbar-item-a-first-level {
       padding: 0 !important;
       color: #09293C;
@@ -227,9 +233,16 @@
       }    
     }  
   
-    .luxbar-item-first-level {
+    .dropdown {
       &:hover {
+        ul {
+          top: 59px !important;
+        }
+
         .luxbar-item-a-first-level {
+          color: #5D9700 !important;
+
+          /* Horizontal line for the 2nd level box in desktop */
           &:after {
             position: absolute;
             top: 42px !important;
@@ -240,30 +253,12 @@
             background-color: #5D9700;
             z-index: 10;
           }
-        }
-      }    
-    }
-  
-    .dropdown {
-      &:hover {
-        ul {
-          top: 59px !important;
-        }
 
-        .luxbar-item-a-first-level {
-          color: #5D9700 !important;
-          background-image: url('svg/up arrow.svg');
+          svg {
+            stroke: #5D9700 !important;
+          }
         }
-      }
-
-      .luxbar-item-a-first-level {
-        padding-right: 1rem !important;
-        background-image: url('svg/down arrow.svg');
-        background-position: right .7rem;
-        background-size: 9px;        
-        background-repeat: no-repeat;
-        transition: all .2s ease;
-      }          
+      }       
   
       ul {
         margin-top: 1rem;
@@ -291,6 +286,11 @@
   }  
 }
 
+/**
+ * ----------------------------------------
+ * Extra Large screen
+ * ----------------------------------------
+ */
 @screen xl {  
   .luxbar-menu {
     .luxbar-item {
@@ -310,11 +310,6 @@
         column-count: 2;
         column-gap: 7rem; 
       }
-
-      .luxbar-item-a-first-level {
-        padding-right: 1.9rem !important;
-        background-size: auto;
-      }
     }
   }
 }
@@ -325,4 +320,72 @@
       padding: 1rem 2rem !important;
     }
   }
+}
+
+/**
+ * ----------------------------------------
+ * White theme
+ * ----------------------------------------
+ */
+ .luxbar-menu-light {
+  background-color: #ffffff !important;
+  transition: none !important;
+
+  .luxbar-hamburger {
+    span {
+      background-color: #5D9700;
+      height: 3px;
+      border-radius: 4px;
+
+      &:before,
+      &:after {
+        background-color: #5D9700;
+        height: 3px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .active {
+    background-color: #ffffff !important;
+  }
+
+  .dropdown {
+    ul {
+      background-color: #ffffff !important;
+    }
+
+    &:hover {
+      @screen md {  
+        .luxbar-item-a-first-level {
+          color: #5D9700 !important;
+
+          svg  {
+            line {
+              stroke: #5D9700 !important;
+            }
+          }
+        }
+      }
+    }      
+  }
+
+  .luxbar-logo-white {
+    display: none;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * Blue theme
+ * ----------------------------------------
+ */
+.luxbar-menu-blue {
+  .luxbar-logo-color {
+    display: none;
+  }
+
+  .luxbar-item-a {
+    color: #ffffff !important;
+  }  
 }
