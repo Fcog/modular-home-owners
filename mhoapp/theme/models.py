@@ -80,6 +80,7 @@ class ResourcesCTA(blocks.StaticBlock):
 
         context['text'] = global_data.resources_text                
         context['links'] = ResourcePage.objects.live()
+        context['links_list_class'] = "pt-16 md:pt-44"
 
         return context
 
@@ -152,16 +153,9 @@ class PopularHomesGrid(blocks.StructBlock):
 
         context['button_url'] = value['button_link'].get_url
 
-        homes = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
+        context['homes'] = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
 
-        for home in homes:
-            home.baths = truncate_float(home.baths)
-            home.cost = currency(home.cost)
-            home.estimated_cost = currency(home.estimated_cost)            
-            home.bedrooms_text = 'Bedroom' if home.bedrooms == 1 else 'Bedrooms' 
-            home.baths_text = 'Bath' if home.baths == 1.0 else 'Baths'            
-
-        context['homes'] = homes
+        context['homes_grid_class'] = "pb-20 md:pb-36"
 
         return context
 

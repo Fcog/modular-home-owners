@@ -1,6 +1,9 @@
 {% load static svg %}
 
-<div class="pt-16 pb-32 md:py-44 bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto" style="background-image:url({% static 'images/Masked Home Gray.jpg' %})">
+<div 
+    data-pattern="organisms/cta/links-list"
+    class="pb-32 md:pb-44 bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto {{ links_list_class }}" 
+    style="background-image:url({% static 'images/Masked Home Gray.jpg' %})">
 
     <div class="container">
 

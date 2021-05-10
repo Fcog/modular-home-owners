@@ -182,16 +182,9 @@ class HomesIndexPage(Page):
         # Used to show the ad in the 1st page.
         context['pagination'] = pagination               
 
-        # Format and add the homes data to the page context.
-        # -------------------------------------------------------------------------------------
-        for home in homes:
-            home.baths = truncate_float(home.baths)
-            home.cost = currency(home.cost)
-            home.estimated_cost = currency(home.estimated_cost)            
-            home.bedrooms_text = 'Bedroom' if home.bedrooms == 1 else 'Bedrooms' 
-            home.baths_text = 'Bath' if home.baths == 1.0 else 'Baths'           
-
-        context['homes'] = homes   
+        # Add the homes data to the page context.
+        # -------------------------------------------------------------------------------------        
+        context['homes'] = homes  
 
         context['homes_ad_button_url'] = global_data.homes_ad_button_url()
 

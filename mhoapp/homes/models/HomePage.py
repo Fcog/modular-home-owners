@@ -12,6 +12,7 @@ from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.admin import HomePageForm
 from mhoapp.partners.models import PartnerPage
 from mhoapp.homes.models.StyleCategory import StyleCategory
+from mhoapp.resources.models import ResourcePage
 
 
 class HomePage(Page):
@@ -126,19 +127,43 @@ class HomePage(Page):
 
         # Home data formatting.
         # ------------------------------------------------------------------------------
-        self.cost = currency(self.cost)
-        self.estimated_cost = currency(self.estimated_cost)
-
-        context['page'].baths = truncate_float(self.baths)
-        context['page'].stories = truncate_float(self.stories)
-        context['page'].bedrooms_text = 'Bedroom' if self.bedrooms == 1 else 'Bedrooms' 
-        context['page'].baths_text = 'Bath' if self.baths == 1.0 else 'Baths' 
-        context['page'].stories_text = 'Story' if self.stories == 1.0 else 'Stories' 
-
         context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
         
         # Header theme
         # ------------------------------------------------------------------------------
         context['header_theme'] = "blue"
 
+        context['similar_homes'] = HomePage.objects.filter(partner=self.partner).exclude(id=self.id).live()[:3]
+
+        context['cta_text'] = global_data.resources_text         
+        context['cta_links'] = ResourcePage.objects.live()   
+
         return context
+
+    @property
+    def bedrooms_text(self):    
+        return 'Bedroom' if self.bedrooms == 1 else 'Bedrooms' 
+
+    @property
+    def baths_text(self):
+        return 'Bath' if self.baths == 1.0 else 'Baths'
+
+    @property
+    def stories_text(self):
+        return 'Story' if self.stories == 1.0 else 'Stories' 
+
+    @property
+    def stories_formatted(self):
+        return truncate_float(self.stories)        
+
+    @property
+    def baths_formatted(self):
+        return truncate_float(self.baths)
+
+    @property
+    def cost_formatted(self):
+        return currency(self.cost)      
+
+    @property
+    def estimated_cost_formatted(self):
+        return currency(self.estimated_cost)        

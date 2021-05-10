@@ -29,16 +29,16 @@
         <div class="flex justify-between py-3 md:py-5 mb-3 md:mb-5 text-xxs md:text-xs {% if wide_design %} 2xl:text-base {% endif %} text-black-medium border-b border-gray-60">
         
             {% include "patterns/atoms/icon-text/icon-text.html" with title=bedrooms_text quantity=bedrooms icon="Beds Icon" %}
-            {% include "patterns/atoms/icon-text/icon-text.html" with title=baths_text quantity=baths icon="Baths Icon" %}
+            {% include "patterns/atoms/icon-text/icon-text.html" with title=baths_text quantity=baths_formatted icon="Baths Icon" %}
             {% include "patterns/atoms/icon-text/icon-text.html" with title="Sq. Ft" quantity=sqft icon="Sq Feet Icon" %}
 
         </div>
 
         <div class="flex">
 
-            {% include "patterns/atoms/labels/label1.html" with title="Base Price" value=cost wide_design=wide_design class="mb-4 lg:mb-0 mr-16" %}
+            {% include "patterns/atoms/labels/label1.html" with title="Base Price" value=cost_formatted wide_design=wide_design class="mb-4 lg:mb-0 mr-16" %}
             
-            {% include "patterns/atoms/labels/label1.html" with title="Est. total" value=estimated_cost icon="help" wide_design=wide_design %}
+            {% include "patterns/atoms/labels/label1.html" with title="Est. total" value=estimated_cost_formatted icon="help" wide_design=wide_design %}
         
         </div>
     
