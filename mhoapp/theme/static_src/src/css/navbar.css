@@ -1,6 +1,7 @@
 /* Luxbar navbar overriding styles https://balzss.github.io/luxbar/ */
 
 .luxbar-default {
+  position: static !important;
   box-shadow: none !important;
 }
 
@@ -84,9 +85,11 @@
     min-height: auto !important;
 
     &:hover {
-      svg  {
-        transform: rotate(180deg);    
-        transition: transform .5s ease;
+      .luxbar-item-a-first-level {
+        svg  {
+          transform: rotate(180deg);    
+          transition: transform .5s ease;
+        }
       }
     }
 
@@ -107,11 +110,12 @@
  */
  .luxbar-checkbox:checked {
   & ~ .luxbar-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto !important;
+    padding-bottom: 6rem;
     background-color: #09293C !important;
-    width: 100vw;
-    margin-left: 49.2%;
-    margin-right: 49.2%;
-    transform: translateX(-50%);    
     transition: height .6s ease !important;
 
     .luxbar-logo-color {
@@ -156,7 +160,18 @@
       }    
 
       .luxbar-item {
-        padding: .5rem 1rem !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem !important;
+
+        svg {
+          display: none;
+        }
+      }
+
+      .luxbar-item-a {
+        padding: .65rem 0 !important;
       }
 
       .luxbar-item-a-first-level {
@@ -201,24 +216,22 @@
     height: auto !important;
   }
 
-  .luxbar-menu {
+  .luxbar-checkbox:not(:checked) ~ .luxbar-menu {
     height: auto !important;
+  }
 
+  .luxbar-menu {
     .luxbar-item {
       display: flex;
       align-items: center;
       box-sizing: initial !important;
       padding: .75rem;
-      text-align: left;
-  
-      &:hover {
-        background-color: #ffffff !important;
-      }        
+      text-align: left;      
     }
 
     .luxbar-item-a-first-level {
       padding: 0 !important;
-      color: #09293C;
+      color: #09293C !important;
       font-size: 1rem;      
       font-weight: normal;
     }
@@ -226,36 +239,26 @@
     .luxbar-item-a {
       position: relative;
       box-sizing: initial !important;
-      width: 100%;
-  
-      &:hover {
-        color: #5D9700 !important;
-      }    
+      width: 100%;   
     }  
   
     .dropdown {
       &:hover {
         ul {
-          top: 59px !important;
+          top: 60px !important;
+          z-index: 10;
         }
 
         .luxbar-item-a-first-level {
-          color: #5D9700 !important;
-
           /* Horizontal line for the 2nd level box in desktop */
           &:after {
             position: absolute;
-            top: 42px !important;
+            top: 49px !important;
             left: 0;
             content: '';
             height: 5px;
             width: 100%;
-            background-color: #5D9700;
-            z-index: 10;
-          }
-
-          svg {
-            stroke: #5D9700 !important;
+            z-index: 20;
           }
         }
       }       
@@ -265,15 +268,18 @@
         box-shadow: 5px 5px 20px #00000029;
         border-radius: 15px;
         padding: 3.5rem 5rem 3rem 5rem !important;
+
+        .luxbar-item {
+          display: inline-flex !important;
+          flex-direction: row;     
+        }
   
         .luxbar-item-a {
           display: inline;
-          padding-right: 3.5rem !important;
-          color: #0C466C;
+          padding: 0 1rem .3rem 0 !important;
+          color: #0C466C !important;
           font-size: 1.31rem;
-          background-image: url('svg/right arrow blue.svg');
-          background-repeat: no-repeat;
-          background-position: right 1.5rem center;
+          width: auto !important;
         }
   
         li {
@@ -323,25 +329,43 @@
 }
 
 /**
+ * Common Theme.
+ */
+.luxbar-hamburger {
+  span {
+    height: 3px;
+    border-radius: 4px;
+
+    &:before,
+    &:after {
+      height: 3px;
+      border-radius: 4px;
+    }
+  }
+}  
+
+.dropdown {
+  ul {
+    background-color: #ffffff !important;
+  }
+}
+
+/**
  * ----------------------------------------
  * White theme
  * ----------------------------------------
  */
- .luxbar-menu-light {
+.luxbar-menu-light {
   background-color: #ffffff !important;
   transition: none !important;
 
   .luxbar-hamburger {
     span {
       background-color: #5D9700;
-      height: 3px;
-      border-radius: 4px;
 
       &:before,
       &:after {
         background-color: #5D9700;
-        height: 3px;
-        border-radius: 4px;
       }
     }
   }
@@ -350,16 +374,56 @@
     background-color: #ffffff !important;
   }
 
-  .dropdown {
-    ul {
-      background-color: #ffffff !important;
-    }
+  .luxbar-logo-white {
+    display: none;
+  }
 
+  .luxbar-item {
     &:hover {
-      @screen md {  
-        .luxbar-item-a-first-level {
-          color: #5D9700 !important;
+      background-color: #ffffff !important;
+    }        
+  }  
 
+  .luxbar-item-a {
+    &:hover {
+      color: #5D9700 !important;
+    }    
+  } 
+
+  @screen md {  
+    .dropdown {
+      &:hover {
+        .luxbar-item-a-first-level {
+          color: #5D9700 !important; 
+
+          &:after {
+            background-color: #5D9700;
+          }
+        }
+      }
+
+      .luxbar-item {
+        &:hover {
+          .luxbar-item-a {
+            color: #5D9700 !important; 
+          }
+  
+          svg {
+            path {
+              fill: #5D9700;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .luxbar-item-a {
+          &:hover {
+            color: #5D9700 !important;
+          }
+        }
+
+        .luxbar-item-a-first-level {
           svg  {
             line {
               stroke: #5D9700 !important;
@@ -367,11 +431,7 @@
           }
         }
       }
-    }      
-  }
-
-  .luxbar-logo-white {
-    display: none;
+    }
   }
 }
 
@@ -385,7 +445,76 @@
     display: none;
   }
 
+  .luxbar-hamburger {
+    span {
+      background-color: #36B2FF;
+
+      &:before,
+      &:after {
+        background-color: #36B2FF;
+      }
+    }
+  }  
+
+  .luxbar-item-a-first-level {
+    svg {
+      line {
+        stroke: #ffffff;
+      }
+    }        
+  }  
+
   .luxbar-item-a {
     color: #ffffff !important;
   }  
+
+  .luxbar-item-a {
+    &:hover {
+      color: #36B2FF !important;
+    }    
+  }   
+
+  @screen md {  
+    .dropdown {
+      &:hover {
+        .luxbar-item-a-first-level {
+          color: #36B2FF !important; 
+          
+          &:after {
+            background-color: #36B2FF;
+          }
+        }
+      }
+
+      .luxbar-item {
+        &:hover {
+          .luxbar-item-a {
+            color: #36B2FF !important; 
+          }
+  
+          svg {
+            path {
+              fill: #36B2FF;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .luxbar-item-a {
+          &:hover {
+            color: #36B2FF !important;
+          }
+        }
+
+        .luxbar-item-a-first-level {
+          svg  {
+            line {
+              stroke: #36B2FF !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }

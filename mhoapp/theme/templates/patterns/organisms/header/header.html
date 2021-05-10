@@ -1,8 +1,10 @@
-{% load menu_tags %}
+{% load menu_tags static %}
 
 <header 
     data-pattern="organisms/header/header" 
-    class="md:py-8 border-b border-gray-50 md:border-0 {% if header_theme == "blue" %} bg-blue {% endif %}">
+    class="md:pt-8 border-b border-gray-50 md:border-0 {% if header_theme == "blue" %} pb-24 md:pb-32 xl:pb-44 bg-blue bg-contain bg-center {% else %} md:pb-8 {% endif %}" 
+    {% if header_theme == "blue" %} style="background-image:url({% static 'images/home-header.png' %})" {% endif %}
+    >
 
     <div class="relative container z-40">
 

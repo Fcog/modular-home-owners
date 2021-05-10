@@ -24608,6 +24608,7 @@ select {
 /* Luxbar navbar overriding styles https://balzss.github.io/luxbar/ */
 
 .luxbar-default {
+  position: static !important;
   box-shadow: none !important;
 }
 
@@ -24682,10 +24683,10 @@ select {
     min-height: auto !important;
   }
 
-.luxbar-menu .dropdown:hover svg  {
-        transform: rotate(180deg);
-        transition: transform .5s ease;
-      }
+.luxbar-menu .dropdown:hover .luxbar-item-a-first-level svg  {
+          transform: rotate(180deg);
+          transition: transform .5s ease;
+        }
 
 .luxbar-menu .dropdown ul .luxbar-item-a {
         padding: .5rem 0 !important;
@@ -24700,11 +24701,12 @@ select {
  */
 
 .luxbar-checkbox:checked ~ .luxbar-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto !important;
+    padding-bottom: 6rem;
     background-color: #09293C !important;
-    width: 100vw;
-    margin-left: 49.2%;
-    margin-right: 49.2%;
-    transform: translateX(-50%);
     transition: height .6s ease !important;
   }
 
@@ -24747,7 +24749,18 @@ select {
       }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item {
-        padding: .5rem 1rem !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem !important;
+      }
+
+.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item svg {
+          display: none;
+        }
+
+.luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a {
+        padding: .65rem 0 !important;
       }
 
 .luxbar-checkbox:checked ~ .luxbar-menu .dropdown .luxbar-item-a-first-level svg line {
@@ -24782,7 +24795,7 @@ select {
     height: auto !important;
   }
 
-  .luxbar-menu {
+  .luxbar-checkbox:not(:checked) ~ .luxbar-menu {
     height: auto !important;
   }
     .luxbar-menu .luxbar-item {
@@ -24792,12 +24805,9 @@ select {
       padding: .75rem;
       text-align: left;
     }
-      .luxbar-menu .luxbar-item:hover {
-        background-color: #ffffff !important;
-      }
     .luxbar-menu .luxbar-item-a-first-level {
       padding: 0 !important;
-      color: #09293C;
+      color: #09293C !important;
       font-size: 1rem;
       font-weight: normal;
     }
@@ -24806,28 +24816,19 @@ select {
       box-sizing: initial !important;
       width: 100%;
     }
-      .luxbar-menu .luxbar-item-a:hover {
-        color: #5D9700 !important;
-      }
         .luxbar-menu .dropdown:hover ul {
-          top: 59px !important;
-        }
-        .luxbar-menu .dropdown:hover .luxbar-item-a-first-level {
-          color: #5D9700 !important;
+          top: 60px !important;
+          z-index: 10;
         }
           /* Horizontal line for the 2nd level box in desktop */
           .luxbar-menu .dropdown:hover .luxbar-item-a-first-level:after {
             position: absolute;
-            top: 42px !important;
+            top: 49px !important;
             left: 0;
             content: '';
             height: 5px;
             width: 100%;
-            background-color: #5D9700;
-            z-index: 10;
-          }
-          .luxbar-menu .dropdown:hover .luxbar-item-a-first-level svg {
-            stroke: #5D9700 !important;
+            z-index: 20;
           }
       .luxbar-menu .dropdown ul {
         margin-top: 1rem;
@@ -24835,14 +24836,16 @@ select {
         border-radius: 15px;
         padding: 3.5rem 5rem 3rem 5rem !important;
       }
+        .luxbar-menu .dropdown ul .luxbar-item {
+          display: inline-flex !important;
+          flex-direction: row;
+        }
         .luxbar-menu .dropdown ul .luxbar-item-a {
           display: inline;
-          padding-right: 3.5rem !important;
-          color: #0C466C;
+          padding: 0 1rem .3rem 0 !important;
+          color: #0C466C !important;
           font-size: 1.31rem;
-          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOC4zNDUiIGhlaWdodD0iMTEuNjYxIiB2aWV3Qm94PSIwIDAgMTguMzQ1IDExLjY2MSI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6IzBjNDY2Yzt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0tNi4xODcsMTEuMDQ0LDguNzcsMTEuMDA2LDUuMDIzLDE0Ljc1M2EuNzc0Ljc3NCwwLDAsMCwwLDEuMDkuNzY1Ljc2NSwwLDAsMCwxLjA4MywwbDUuMDYxLTUuMDYxYS43NjUuNzY1LDAsMCwwLDAtMS4wODNMNi4xMTMsNC42MzJBLjc2Ni43NjYsMCwxLDAsNS4wMyw1LjcxNUw4Ljc3LDkuNDdsLTE0Ljk1Ny4wMzhhLjc3Ljc3LDAsMCwwLS43NjguNzY4QS43Ny43NywwLDAsMC02LjE4NywxMS4wNDRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2Ljk1NSAtNC40MDgpIi8+PC9zdmc+);
-          background-repeat: no-repeat;
-          background-position: right 1.5rem center;
+          width: auto !important;
         }
         .luxbar-menu .dropdown ul li {
           display: inline-block !important;
@@ -24882,6 +24885,25 @@ select {
 }
 
 /**
+ * Common Theme.
+ */
+
+.luxbar-hamburger span {
+    height: 3px;
+    border-radius: 4px;
+  }
+
+.luxbar-hamburger span:before,
+    .luxbar-hamburger span:after {
+      height: 3px;
+      border-radius: 4px;
+    }
+
+.dropdown ul {
+    background-color: #ffffff !important;
+  }
+
+/**
  * ----------------------------------------
  * White theme
  * ----------------------------------------
@@ -24894,36 +24916,48 @@ select {
 
 .luxbar-menu-light .luxbar-hamburger span {
       background-color: #5D9700;
-      height: 3px;
-      border-radius: 4px;
     }
 
 .luxbar-menu-light .luxbar-hamburger span:before,
       .luxbar-menu-light .luxbar-hamburger span:after {
         background-color: #5D9700;
-        height: 3px;
-        border-radius: 4px;
       }
 
 .luxbar-menu-light .active {
     background-color: #ffffff !important;
   }
 
-.luxbar-menu-light .dropdown ul {
+.luxbar-menu-light .luxbar-logo-white {
+    display: none;
+  }
+
+.luxbar-menu-light .luxbar-item:hover {
       background-color: #ffffff !important;
+    }
+
+.luxbar-menu-light .luxbar-item-a:hover {
+      color: #5D9700 !important;
     }
 
 @media (min-width: 768px) {
         .luxbar-menu-light .dropdown:hover .luxbar-item-a-first-level {
           color: #5D9700 !important;
         }
+          .luxbar-menu-light .dropdown:hover .luxbar-item-a-first-level:after {
+            background-color: #5D9700;
+          }
+          .luxbar-menu-light .dropdown .luxbar-item:hover .luxbar-item-a {
+            color: #5D9700 !important;
+          }
+            .luxbar-menu-light .dropdown .luxbar-item:hover svg path {
+              fill: #5D9700;
+            }
+          .luxbar-menu-light .dropdown:hover .luxbar-item-a:hover {
+            color: #5D9700 !important;
+          }
             .luxbar-menu-light .dropdown:hover .luxbar-item-a-first-level svg line {
               stroke: #5D9700 !important;
             }
-      }
-
-.luxbar-menu-light .luxbar-logo-white {
-    display: none;
   }
 
 /**
@@ -24936,8 +24970,46 @@ select {
     display: none;
   }
 
+.luxbar-menu-blue .luxbar-hamburger span {
+      background-color: #36B2FF;
+    }
+
+.luxbar-menu-blue .luxbar-hamburger span:before,
+      .luxbar-menu-blue .luxbar-hamburger span:after {
+        background-color: #36B2FF;
+      }
+
+.luxbar-menu-blue .luxbar-item-a-first-level svg line {
+        stroke: #ffffff;
+      }
+
 .luxbar-menu-blue .luxbar-item-a {
     color: #ffffff !important;
+  }
+
+.luxbar-menu-blue .luxbar-item-a:hover {
+      color: #36B2FF !important;
+    }
+
+@media (min-width: 768px) {
+        .luxbar-menu-blue .dropdown:hover .luxbar-item-a-first-level {
+          color: #36B2FF !important;
+        }
+          .luxbar-menu-blue .dropdown:hover .luxbar-item-a-first-level:after {
+            background-color: #36B2FF;
+          }
+          .luxbar-menu-blue .dropdown .luxbar-item:hover .luxbar-item-a {
+            color: #36B2FF !important;
+          }
+            .luxbar-menu-blue .dropdown .luxbar-item:hover svg path {
+              fill: #36B2FF;
+            }
+          .luxbar-menu-blue .dropdown:hover .luxbar-item-a:hover {
+            color: #36B2FF !important;
+          }
+            .luxbar-menu-blue .dropdown:hover .luxbar-item-a-first-level svg line {
+              stroke: #36B2FF !important;
+            }
   }
 
 /* Slider overrides https://github.com/Splidejs/splide	*/

@@ -26,21 +26,26 @@
 
 			{% include "patterns/molecules/menus/main-nav.html" %}
 
-			<li class="luxbar-item md:hidden lg:block">
+			<li class="md:hidden lg:flex items-center pl-8">
 
                 {% slugurl 'homes' as search_homes_url %}
 
-                {# Not mobile button #}
-				{% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="hidden md:flex py-0 xl:ml-4 mt-8 md:mt-0" size="small" color="green" inverted=True %}
-				
-                {# Mobile button #}
-                <div class="md:hidden flex justify-center mt-4">
-
-                    <div>
-
-                        {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="py-0 xl:ml-4 mt-8 md:mt-0" size="normal" color="blue" inverted=True %}
+                {# Tablet and up mobile button #}
                 
-                    </div>
+                <div class="hidden {% if header_theme != 'blue' %} md:block {% endif %} py-0 mt-8 md:mt-0">
+                    {# Green button for the white theme #}
+				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="green" inverted=True class="" %}
+                </div>
+                
+                <div class="hidden {% if header_theme == 'blue' %} md:block {% endif %} py-0 mt-8 md:mt-0">
+                    {# Blue button for the blue theme #}
+				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="blue" inverted=True class="" %}
+                </div>
+
+                {# Mobile button #}
+                <div class="md:hidden flex justify-center mt-4 w-full">
+
+                    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="py-0 xl:ml-4 mt-8 md:mt-0" size="normal" color="blue" inverted=True %}
 
                 </div>
 

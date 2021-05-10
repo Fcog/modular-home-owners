@@ -5,7 +5,7 @@
 <li class="luxbar-item luxbar-item-first-level {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
 
     <a
-        class="luxbar-item-a luxbar-item-a-first-level"
+        class="luxbar-item-a luxbar-item-a-first-level md:pointer-events-none lg:pointer-events-auto"
         href="{{ item.href }}">
 
         {{ item.text }}
@@ -27,6 +27,8 @@
         <li class="luxbar-item {% if sub_item.sub_menu %}active{% endif %}">
 
             <a class="luxbar-item-a" href="{{ sub_item.href }}">{{ sub_item.text }}</a>
+
+            {% svg 'right arrow blue' %}
 
         </li>
 
