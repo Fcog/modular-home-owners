@@ -53,9 +53,10 @@
 					background-color: transparent !important;
 
 					&.is-active {
-						background-color: #1A5E88 !important;
-						border: 1px solid #1A5E88 !important;
+						background-color: #003E64 !important;
+						border: 1px solid #003E64 !important;
 						transform: none !important;
+						opacity: none !important;
 					}
 				}
 			}

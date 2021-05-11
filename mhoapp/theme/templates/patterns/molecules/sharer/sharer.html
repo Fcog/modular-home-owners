@@ -1,0 +1,24 @@
+{% load svg %}
+<div
+    data-pattern="molecules/sharer"
+    class="js-sharer relative">
+
+    <div class="js-sharer-button flex items-center py-2 text-base text-blue-light2 svg-h-1.2 z-10 group">
+
+        {% svg 'share icon' %}
+
+        <span class="ml-1">Share</span>
+
+        <div class="js-sharer-popup absolute top-10 -right-2 px-6 py-4 bg-white rounded-xl shadow-custom-1 hidden group-hover:block">
+            {% with button_class="px-4 py-3 mb-2 text-white w-full rounded-lg" %}
+            <button class="{{ button_class }}" style="background-color:#00aced" class="button" data-sharer="twitter" data-title="{{ title }}" data-url="{{ url }}">Twitter</button>
+            <button class="{{ button_class }}" style="background-color:#3b5998" class="button" data-sharer="facebook" data-url="{{ url }}">Facebook</button>
+            <button class="{{ button_class }}" style="background-color:#444" class="button" data-sharer="email" data-title="{{ title }}" data-url="{{ url }}" data-subject="" data-to="">Email</button>
+            <button class="{{ button_class }}" style="background-color:#4DC247" class="button" data-sharer="whatsapp" data-title="{{ title }}" data-url="{{ url }}">Whatsapp</button>
+            {% endwith %}
+        </div>
+
+
+    </div>
+
+</div>

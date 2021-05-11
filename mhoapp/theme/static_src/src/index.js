@@ -10,7 +10,7 @@ import heroHomePriceRange from './js/hero-home-price-range'
 import numberControl from './js/number-control'
 import filtersMenu from './js/filters-menu'
 import floatingInputLabels from './js/floating-input-labels'
-
+import sharer from 'sharer.js'
 
 document.addEventListener( 'DOMContentLoaded', () => {
     MicroModal.init()
@@ -23,9 +23,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     floatingInputLabels().init()
 
     document.addEventListener('htmx:afterRequest', () => {
-        console.log('hola')
         floatingInputLabels().init()
-    } )
+    })
 
     /**
      * Main menu mobile dropdown toggling.
@@ -44,7 +43,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     /**
      * Footer menu mobile dropdown toggling.
-     */    
+     */   
     if ( window.innerWidth < 768 ) {
         menuMobileDropdown(
             '.js-menu-vertical', 
