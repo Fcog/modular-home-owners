@@ -11,7 +11,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 from mhoapp.base.utils import truncate_float, currency
-from mhoapp.base.models import MHOSettings
+from mhoapp.base.models import HomeSearchPageSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models import LocationCategory
@@ -97,7 +97,7 @@ class HomesIndexPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        global_data = MHOSettings.objects.first()
+        global_data = HomeSearchPageSettings.for_request(request)
 
         # Price Range initial values.
         # ------------------------------------------------------------------------------------- 

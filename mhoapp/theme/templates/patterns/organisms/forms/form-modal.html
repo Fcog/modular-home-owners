@@ -1,0 +1,70 @@
+{% load wagtailcore_tags %}
+
+{% if request.session.form_page_success %}
+
+  {% include "patterns/atoms/alerts/success.html" with text=form_page.thank_you_text alert_class="mb-6" %}
+
+{% endif %}
+
+{% if form %}
+
+<div 
+	data-pattern="organisms/forms/form-modal" 
+	class="modal micromodal-slide" id="{{ modal_id }}" aria-hidden="true">
+
+  	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+
+    	<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+
+			<header class="modal__header">
+
+				<h2 class="modal__title" id="modal-1-title">
+				{{ form_page.title }}
+				</h2>
+
+				<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+
+			</header>
+
+			<form action="{% pageurl form_page %}" method="POST" role="form" class="form">
+
+				<main class="modal__content" id="modal-1-content">
+
+					{% csrf_token %}
+
+					<div class="modal__intro">
+					{{ form_page.intro|richtext }}
+					</div>
+
+					{% include "patterns/molecules/fields/fields.html" %}
+
+					{% if page.pk != form_page.pk %}
+					{% comment %} only provide the source page if not on the actual form page {% endcomment %}
+					<input name="source-page-id" type="hidden" value="{{ page.pk }}">
+					{% endif %}
+
+				</main>
+
+				<footer class="modal__footer">
+
+					<div class="mt-8 flex justify-center">
+
+						<div class="w-11/12">
+
+						{% include "patterns/atoms/button/button.html" with text="Submit" type="submit" color="blue" size="medium" inverted=False full_width=True %}
+						
+						</div>
+
+					</div>
+
+				</footer>
+
+			</form>
+
+    	</div>
+
+  	</div>
+	  
+</div>
+
+{% endif %}

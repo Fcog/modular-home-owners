@@ -2,9 +2,11 @@ from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel, RichTextField
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 
-class MHOSettings(models.Model):
+@register_setting
+class GeneralSettings(BaseSetting):
     # Database fields
     # General Settings
     logo = models.ForeignKey(
@@ -21,88 +23,68 @@ class MHOSettings(models.Model):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    contact_email = models.EmailField(max_length=255, default="services@mho.com")
-    search_button_text = models.CharField(max_length=254, default="Find Your Home")
-
-    # Home introduction text
-    home_intro = models.TextField(max_length=255, null=True, verbose_name="Home introduction")
-    home_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text")
-    home_small_text = models.TextField(max_length=255, null=True, verbose_name="Small text")
-    home_verified_title = models.CharField(max_length=255, null=True, verbose_name="Verified box title")
-    home_verified_text = models.CharField(max_length=255, null=True, verbose_name="Verified box text")
-    home_similar_title = models.CharField(max_length=255, null=True, verbose_name="Similar houses section title")
-
-    # Homes Ad CTA
-    homes_ad_text = models.CharField(max_length=254, default="")
-    homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text")     
-    homes_ad_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page")    
-    homes_ad_external_url = models.URLField('Button external URL', null=True, blank=True)    
-
-    # Filtering default values
-    filter_price_min = models.PositiveIntegerField(default="50000", verbose_name="Price range min value")
-    filter_price_max = models.PositiveIntegerField(default="1500000", verbose_name="Price range max value")
-    filter_price_step = models.PositiveIntegerField(default="10000", verbose_name="Price range widget values step")
-    filter_sqft_min = models.PositiveIntegerField(default="50", verbose_name="Square footage min value")
-    filter_sqft_max = models.PositiveIntegerField(default="600", verbose_name="Square footage max value")
-    filter_sqft_step = models.PositiveIntegerField(default="50", verbose_name="Square footage range widget values step")
-
-    # Forum CTA global data
-    forum_title = models.TextField(max_length=255, null=True, verbose_name="Title")
-    forum_text = models.TextField(max_length=255, null=True, verbose_name="Text")
-    forum_button_text = models.TextField(max_length=255, null=True, verbose_name="Button Text")
-    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page") 
-    forum_button_external_url = models.URLField('Button external URL', null=True, blank=True)
-
-    # Get Your House CTA global data
-    gyh_title = models.TextField(max_length=255, null=True, verbose_name="Title")
-    gyh_column_1_title = models.TextField(max_length=255, null=True, verbose_name="Column 1 title")
-    gyh_column_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text")
-    gyh_column_2_title = models.TextField(max_length=255, null=True, verbose_name="Column 2 title")
-    gyh_column_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text")
-    gyh_column_3_title = models.TextField(max_length=255, null=True, verbose_name="Column 3 title")
-    gyh_column_3_text = models.TextField(max_length=255, null=True, verbose_name="Column 3 text")
-    gyh_link_1_text = models.TextField(max_length=255, null=True, verbose_name="Link 1 text")
-    gyh_link_1_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 1 URL") 
-    gyh_link_2_text = models.TextField(max_length=255, null=True, verbose_name="Link 2 text")
-    gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 URL") 
-
-    # Partner CTA global data
-    partner_1_title = RichTextField(null=True, blank=True)
-    partner_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text")     
-    partner_1_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 button text") 
-    partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link URL") 
-    partner_2_title = RichTextField(null=True, blank=True)
-    partner_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text")        
-    partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text")     
-    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link URL")        
-
-    # Resources CTA global data
-    resources_text = RichTextField(null=True, blank=True)
+    contact_email = models.EmailField(max_length=255, null=True, default="services@mho.com")
+    search_button_text = models.CharField(max_length=254, null=True,  default="Find Your Home")
 
     # Editor panels configuration
     panels = [
-        MultiFieldPanel(
-            [
-                SvgChooserPanel('logo'),
-                SvgChooserPanel('logo_white'),
-                FieldPanel('contact_email'),
-                FieldPanel('search_button_text'),
-            ],
-            heading="General Settings",
-            classname="collapsible collapsed",
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('home_intro'),
-                FieldPanel('home_button_text'),
-                FieldPanel('home_small_text'),
-                FieldPanel('home_verified_title'),
-                FieldPanel('home_verified_text'),
-                FieldPanel('home_similar_title'),
-            ],
-            heading="Home detail page",
-            classname="collapsible collapsed",
-        ),        
+        SvgChooserPanel('logo'),
+        SvgChooserPanel('logo_white'),
+        FieldPanel('contact_email'),
+        FieldPanel('search_button_text'),
+    ]
+
+
+@register_setting
+class HomePageSettings(BaseSetting):
+    home_intro = models.TextField(max_length=255, null=True, verbose_name="Home introduction", default="")
+    home_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text", default="")
+    home_small_text = models.TextField(max_length=255, null=True, verbose_name="Small text", default="")
+    home_verified_title = models.CharField(max_length=255, null=True, verbose_name="Verified box title", default="")
+    home_verified_text = models.CharField(max_length=255, null=True, verbose_name="Verified box text", default="")
+    home_similar_title = models.CharField(max_length=255, null=True, verbose_name="Similar houses section title", default="")
+    home_form = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name='Modal Form'
+    )
+
+    # Editor panels configuration
+    panels = [
+        FieldPanel('home_intro'),
+        FieldPanel('home_button_text'),
+        FieldPanel('home_small_text'),
+        FieldPanel('home_verified_title'),
+        FieldPanel('home_verified_text'),
+        FieldPanel('home_similar_title'),
+        PageChooserPanel('home_form', page_type='forms.FormPage'),
+    ]    
+
+
+@register_setting
+class HomeSearchPageSettings(BaseSetting):
+    homes_ad_text = models.CharField(max_length=254, null=True, default="")
+    homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text", default="")     
+    homes_ad_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page")    
+    homes_ad_external_url = models.URLField('Button external URL', null=True, blank=True, default="")        
+
+    filter_price_min = models.PositiveIntegerField(default="50000", null=True, verbose_name="Price range min value")
+    filter_price_max = models.PositiveIntegerField(default="1500000", null=True, verbose_name="Price range max value")
+    filter_price_step = models.PositiveIntegerField(default="10000", null=True, verbose_name="Price range widget values step")
+    filter_sqft_min = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage min value")
+    filter_sqft_max = models.PositiveIntegerField(default="600", null=True, verbose_name="Square footage max value")
+    filter_sqft_step = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage range widget values step")    
+
+    def homes_ad_button_url(self):
+        if self.homes_ad_button_link:
+            return self.homes_ad_button_link.url
+        elif self.homes_ad_external_url:
+            return self.homes_ad_external_url        
+
+    panels = [
         MultiFieldPanel(
             [
                 FieldPanel('homes_ad_text'),
@@ -125,6 +107,52 @@ class MHOSettings(models.Model):
             heading="Filtering Default Values",
             classname="collapsible collapsed",
         ),        
+    ]    
+
+
+@register_setting
+class BlocksSettings(BaseSetting):   
+    # Forum CTA global data
+    forum_title = models.TextField(max_length=255, null=True, verbose_name="Title", default="")
+    forum_text = models.TextField(max_length=255, null=True, verbose_name="Text", default="")
+    forum_button_text = models.TextField(max_length=255, null=True, verbose_name="Button Text", default="")
+    forum_button_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page") 
+    forum_button_external_url = models.URLField('Button external URL', null=True, blank=True, default="")
+
+    # Get Your House CTA global data
+    gyh_title = models.TextField(max_length=255, null=True, verbose_name="Title", default="")
+    gyh_column_1_title = models.TextField(max_length=255, null=True, verbose_name="Column 1 title", default="")
+    gyh_column_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text", default="")
+    gyh_column_2_title = models.TextField(max_length=255, null=True, verbose_name="Column 2 title", default="")
+    gyh_column_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text", default="")
+    gyh_column_3_title = models.TextField(max_length=255, null=True, verbose_name="Column 3 title", default="")
+    gyh_column_3_text = models.TextField(max_length=255, null=True, verbose_name="Column 3 text", default="")
+    gyh_link_1_text = models.TextField(max_length=255, null=True, verbose_name="Link 1 text", default="")
+    gyh_link_1_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 1 URL") 
+    gyh_link_2_text = models.TextField(max_length=255, null=True, verbose_name="Link 2 text", default="")
+    gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 URL") 
+
+    # Partner CTA global data
+    partner_1_title = RichTextField(null=True, blank=True, default="")
+    partner_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text", default="")     
+    partner_1_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 button text", default="") 
+    partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link URL") 
+    partner_2_title = RichTextField(null=True, blank=True, default="")
+    partner_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text", default="")        
+    partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text", default="")     
+    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link URL")        
+
+    # Resources CTA global data
+    resources_text = RichTextField(null=True, blank=True, default="")    
+
+    def forum_button_url(self):
+        if self.forum_button_page:
+            return self.forum_button_page.url
+        elif self.forum_button_external_url:
+            return self.forum_button_external_url    
+
+    # Editor panels configuration
+    panels = [
         MultiFieldPanel(
             [
                 FieldPanel('forum_title'),
@@ -174,19 +202,4 @@ class MHOSettings(models.Model):
             heading="Resources CTA",
             classname="collapsible collapsed",
         ),            
-    ]
-
-    def forum_button_url(self):
-        if self.forum_button_page:
-            return self.forum_button_page.url
-        elif self.forum_button_external_url:
-            return self.forum_button_external_url
-
-    def homes_ad_button_url(self):
-        if self.homes_ad_button_link:
-            return self.homes_ad_button_link.url
-        elif self.homes_ad_external_url:
-            return self.homes_ad_external_url            
-
-    def __str__(self):
-        return "MHO website settings"
+    ]    

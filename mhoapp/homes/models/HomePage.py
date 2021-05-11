@@ -7,12 +7,11 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
-from mhoapp.base.models import MHOSettings
+from mhoapp.base.models import HomePageSettings
 from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.admin import HomePageForm
 from mhoapp.partners.models import PartnerPage
 from mhoapp.homes.models.StyleCategory import StyleCategory
-from mhoapp.resources.models import ResourcePage
 
 
 class HomePage(Page):
@@ -123,9 +122,12 @@ class HomePage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        global_data = MHOSettings.objects.first()
+        global_data = HomePageSettings.for_request(request)
 
-        # Home data formatting.
+        # Data placeholders formatting.
+        # Replaces a Home field with any placeholder with the field name.
+        # ex: text: Lorem {home.cost} Ipsum => text: Lorem 500000 Ipsum
+        # Docs: https://pyformat.info/#getitem_and_getattr
         # ------------------------------------------------------------------------------
         context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
         
@@ -134,9 +136,6 @@ class HomePage(Page):
         context['header_theme'] = "blue"
 
         context['similar_homes'] = HomePage.objects.filter(partner=self.partner).exclude(id=self.id).live()[:3]
-
-        context['cta_text'] = global_data.resources_text         
-        context['cta_links'] = ResourcePage.objects.live()   
 
         return context
 

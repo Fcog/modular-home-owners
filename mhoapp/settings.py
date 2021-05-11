@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.styleguide',
+    'wagtail.contrib.settings',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -107,6 +108,7 @@ INSTALLED_APPS = [
     'mhoapp.flexible',
     'mhoapp.resources',
     'mhoapp.theme',
+    'mhoapp.forms',
 ]
 
 # Include apps only in dev env.
@@ -158,13 +160,13 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'mhoapp.base.processors.global_data',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtailmenus.context_processors.wagtailmenus',
                 'machina.core.context_processors.metadata',
+                'wagtail.contrib.settings.context_processors.settings',
             ],
             'builtins': [
                 'pattern_library.loader_tags'

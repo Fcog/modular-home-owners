@@ -1,0 +1,19 @@
+{% extends "base_page.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+<div 
+    data-pattern="templates/forms/thank-you"
+    class="container my-12 lg:my-24">
+
+    <div class="prose prose-xl">
+    
+    {{ page.thank_you_text|safe }}
+
+    </div>
+
+</div>
+
+{% endblock %}

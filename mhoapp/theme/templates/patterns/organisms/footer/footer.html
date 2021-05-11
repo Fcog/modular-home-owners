@@ -12,17 +12,17 @@
                 <div class="mb-12 md:mb-16 lg:mb-0 lg:w-31%">
 
                     <a class="flex justify-center md:block mb-8 md:mb-14 md:mr-12 lg:w-64.5%" href="/">
-                        <img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-20 md:h-16 md:h-auto">
+                        <img src="{{ settings.base.GeneralSettings.logo_white.url }}" alt="Modular Homeowners Logo" class="h-20 md:h-16 md:h-auto">
                     </a>
 
                     <a
                         class="inline-flex items-center mb-8 font-bold leading-none text-blue-light text-lg md:text-2xl"
-                        href="mailto:{{ mhoapp.contact_email }}"
+                        href="mailto:{{ settings.base.GeneralSettings.contact_email }}"
                         class="href">
 
                         {% svg 'email icon' %}
 
-                        <p class="ml-3">{{ mhoapp.contact_email }}</p>
+                        <p class="ml-3">{{ settings.base.GeneralSettings.contact_email }}</p>
 
                     </a>
 
@@ -64,7 +64,7 @@
 
                     </div>
 
-                    <div class="md:mb-16 md:mb-0 md:w-29%">
+                    <div class="md:mb-16 lg:mb-0 md:w-29%">
 
                         {% flat_menu 'find_home' template="patterns/molecules/menus/vertical.html" %}
 

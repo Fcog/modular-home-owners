@@ -9,7 +9,7 @@ from mhoapp.homes.models.PriceRanges import PriceRanges
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.partners.models import LocationCategory, PartnerTypePage
 from mhoapp.resources.models import ResourcePage
-from mhoapp.base.models import MHOSettings
+from mhoapp.base.models import BlocksSettings
 from mhoapp.base.utils import remove_extension
 
 
@@ -76,7 +76,7 @@ class ResourcesCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
-        global_data = MHOSettings.objects.first()
+        global_data = BlocksSettings.for_request(request)
 
         context['text'] = global_data.resources_text                
         context['links'] = ResourcePage.objects.live()
@@ -95,7 +95,7 @@ class PartnersCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
-        global_data = MHOSettings.objects.first()
+        global_data = BlocksSettings.for_request(request)
 
         context['column_1_title'] = global_data.partner_1_title       
         context['column_1_text'] = global_data.partner_1_text     
@@ -119,7 +119,7 @@ class GetYourHouseCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
-        global_data = MHOSettings.objects.first()
+        global_data = BlocksSettings.for_request(request)
 
         context['title'] = global_data.gyh_title        
         context['column_1_title'] = global_data.gyh_column_1_title        
@@ -169,7 +169,7 @@ class ForumCTA(blocks.StaticBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
 
-        global_data = MHOSettings.objects.first()
+        global_data = BlocksSettings.for_request(request)
 
         context['title'] = global_data.forum_title
         context['text'] = global_data.forum_text

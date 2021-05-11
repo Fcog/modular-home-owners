@@ -4,13 +4,13 @@
     data-pattern="atoms/labels/label1"
     class="{{ class }}">
 
-    <div class="flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase">
+    <div class="relative inline-flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase">
 
         {{ title }}
 
         {% if icon %}
 
-        <span class="right-0 ml-1 mb-1 xl:ml-2 svg-h-1.2">{% svg icon %}</span>
+        <span class="absolute -right-7 -top-1.5 lg:top-0.5 ml-1 xl:ml-2 svg-h-1.2">{% svg icon %}</span>
 
         {% endif %}
 

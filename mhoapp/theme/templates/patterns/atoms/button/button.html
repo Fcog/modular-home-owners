@@ -32,7 +32,15 @@
     target="_blank"
     {% endif %}
 
-    class="inline-flex justify-center items-center px-12 w-full max-w-16.25 md:max-w-21.25 font-bold leading-none outline-none
+    {% if modal_id %}
+    data-micromodal-trigger="{{ modal_id }}"
+    {% endif %}
+
+    data-pattern="atoms/button/button"
+
+    class="inline-flex justify-center items-center px-12 w-full font-bold leading-none outline-none
+
+     {% if full_width  %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
 
     {% if text_size == "small" %} text-sm md:text-lg {% else %} md:text-1.5xl {% endif %}
 
