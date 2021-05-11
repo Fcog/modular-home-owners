@@ -1,0 +1,86 @@
+.form {
+    &__field-wrapper {
+        position: relative;
+        margin-bottom: .5rem;
+        padding: 0;    
+        
+        @screen lg {
+            margin-bottom: 1rem;
+        }                 
+    }
+
+    &__input {
+        label {
+            position: absolute;
+            font-size: .875rem;
+            transform: translate(1rem, 1rem) scale(1);
+            cursor: text;
+
+            @screen lg {
+                font-size: 1rem;
+            }            
+        }
+
+        &.active {
+            label {
+                transform: translate(0, 1px) scale(.75);
+            }     
+        }            
+    }
+
+    &__checkbox {
+        display: flex;
+        flex-direction: column;
+        
+        label {
+            margin-bottom: .5rem;
+            transform: none;
+            font-size: .875rem;
+
+            @screen lg {
+                font-size: 1rem;
+            }                   
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin-right: 1rem;
+        }
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 1rem;
+        width: 100%;
+        font-size: .875rem;
+        line-height: 1rem;
+        outline: 0;
+        color: #09293C;
+        border: solid 1px #09293C;
+        border-radius: 5px;
+
+        @screen lg {
+            padding: 1.2rem .9rem;
+            font-size: 1.125rem;
+        }
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    textarea {
+        padding-top: 1.5rem;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'], {
+        width: 1rem;
+        margin-bottom: .5rem;
+    }
+}
