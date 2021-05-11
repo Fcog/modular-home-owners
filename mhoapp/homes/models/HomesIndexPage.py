@@ -14,7 +14,7 @@ from mhoapp.base.utils import truncate_float, currency
 from mhoapp.base.models import HomeSearchPageSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
-from mhoapp.partners.models import LocationCategory
+from mhoapp.partners.models.LocationCategory import LocationCategory
 from mhoapp.theme.models import BlueBoxCTA, ReadMoreText, PartnersButtons, Paragraph
 
 
@@ -92,7 +92,7 @@ class HomesIndexPage(Page):
         if request.htmx:
             return 'patterns/molecules/homes-grid/homes-grid.html'
         
-        return 'patterns/templates/homes/homes_index_page.html'
+        return 'patterns/templates/homes/homes-index-page.html'
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)

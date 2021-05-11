@@ -8,8 +8,8 @@
 
     </div>
 
-    <p class="mb-6 text-white text-2xl font-bold">{{ mhoapp.homes_ad_text }}</p>
+    <p class="mb-6 text-white text-2xl font-bold">{{ settings.base.HomeSearchPageSettings.homes_ad_text }}</p>
 
-    {% include "patterns/atoms/button/button.html" with url=mhoapp.homes_ad_button_url text=mhoapp.homes_ad_button_text size="small" text_size="small" color="blue" inverted=True %}
+    {% include "patterns/atoms/button/button.html" with url=settings.base.HomeSearchPageSettings.homes_ad_button_url text=settings.base.HomeSearchPageSettings.homes_ad_button_text size="small" text_size="small" color="blue" inverted=True %}
 
 </div>
