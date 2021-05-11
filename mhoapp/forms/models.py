@@ -16,8 +16,6 @@ class FormField(AbstractFormField):
 
 
 class FormPage(AbstractEmailForm):
-    template = 'patterns/templates/forms/form_page.html'
-
     intro = RichTextField(blank=True)
     thank_you_text = RichTextField(blank=True)
 
@@ -39,18 +37,21 @@ class FormPage(AbstractEmailForm):
         ], heading="Email", classname="collapsible collapsed"),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        context['paragraph'] = self.thank_you_text
+
+        return context
+
+    def get_template(self, request):
+        if request.htmx:
+            return 'patterns/molecules/forms/form-body.html'
+        
+        return 'patterns/templates/forms/form-page.html'       
+
     def get_landing_page_template(self, request):
+        if request.htmx:
+            return 'patterns/atoms/paragraph/paragraph.html'
+
         return 'patterns/templates/forms/thank-you.html'
-
-    def render_landing_page(self, request, form_submission=None, *args, **kwargs):
-        source_page_id = request.POST.get('source-page-id')
-
-        if source_page_id:
-            source_page = Page.objects.get(pk=source_page_id)
-
-            if source_page:
-                request.session['form_page_success'] = True
-                return redirect(source_page.url, permanent=False)
-
-        # if no source_page is set, render default landing page
-        return super().render_landing_page(request, form_submission, *args, **kwargs)

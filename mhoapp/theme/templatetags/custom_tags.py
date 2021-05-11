@@ -31,14 +31,14 @@ def form_modal(context, modal_id):
     if not form_page:
         return context
 
-    form_page = form_page.specific
+    page = form_page.specific
 
     # this will provide the parts needed to render the form
     # this does NOT handle the submission of the form - that still goes to the form page
     # this does NOT handle anything to do with rendering the 'thank you' message
 
-    context['form_page'] = form_page
+    context['page'] = page
     context['modal_id'] = modal_id
-    context['form'] = form_page.get_form(page=form_page, user=request.user)
+    context['form'] = page.get_form(page=form_page, user=request.user)
 
     return context

@@ -9,11 +9,6 @@
 /**************************\
   Basic Modal Styles
 \**************************/
-
-.modal {
-    font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-}
-  
 .modal__overlay {
     position: fixed;
     top: 0;
@@ -51,12 +46,16 @@
   
 .modal__title {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     font-weight: bold;
     font-size: 2.25rem;
     line-height: 1.25;
     color: #09293C;
     box-sizing: border-box;
+
+    @screen xl {
+        padding: 0 5rem;
+    }
 }
   
 .modal__close {
@@ -65,6 +64,8 @@
     right: 1rem;
     background: transparent;
     border: 0;
+    width: 1rem;
+    height: 1rem;
 
     @screen lg {
         top: 2rem;
@@ -75,14 +76,14 @@
 .modal__header .modal__close:before { content: "\2715"; }
   
 .modal__content {
-    margin-top: 2rem;
+    text-align: center;
     margin-bottom: 2rem;
     line-height: 1.5;
     color: rgba(0,0,0,.8);
 }
 
 .modal__intro {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
     font-size: 1.125rem;
     color: #09293C;
@@ -126,6 +127,17 @@
     color: #fff;
 }
   
+.modal__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.modal__footer-inner {
+    @screen lg {
+        width: 80%;
+    }
+}
 
 /**************************\
   Demo Animation Style

@@ -26,8 +26,8 @@ export default function floatingInputLabels() {
                 return
             }
 
-            // If input has an initial value set, then active class.
-            if (input.value) {
+            // If input has an initial value set or it has focus, then active class.
+            if (input.value || input === document.activeElement) {
                 inputContainer.classList.add('active')
             }
 

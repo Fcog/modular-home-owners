@@ -22,6 +22,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
     filtersMenu()
     floatingInputLabels().init()
 
+    document.addEventListener('htmx:afterRequest', () => {
+        console.log('hola')
+        floatingInputLabels().init()
+    } )
+
     /**
      * Main menu mobile dropdown toggling.
      */

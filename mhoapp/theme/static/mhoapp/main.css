@@ -25537,6 +25537,10 @@ select {
     margin-bottom: .5rem;
   }
 
+.form .errorlist {
+    color: red;
+  }
+
 /* Modal https://micromodal.vercel.app/ */
 
 .modal {
@@ -25550,10 +25554,6 @@ select {
 /**************************\
   Basic Modal Styles
 \**************************/
-
-.modal {
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-}
 
 .modal__overlay {
   position: fixed;
@@ -25596,7 +25596,7 @@ select {
 
 .modal__title {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   font-weight: bold;
   font-size: 2.25rem;
   line-height: 1.25;
@@ -25604,12 +25604,21 @@ select {
   box-sizing: border-box;
 }
 
+@media (min-width: 1280px) {
+
+.modal__title {
+    padding: 0 5rem
+}
+  }
+
 .modal__close {
   position: absolute;
   top: 1rem;
   right: 1rem;
   background: transparent;
   border: 0;
+  width: 1rem;
+  height: 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -25625,14 +25634,14 @@ select {
 }
 
 .modal__content {
-  margin-top: 2rem;
+  text-align: center;
   margin-bottom: 2rem;
   line-height: 1.5;
   color: rgba(0,0,0,.8);
 }
 
 .modal__intro {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-align: center;
   font-size: 1.125rem;
   color: #09293C;
@@ -25671,6 +25680,19 @@ select {
   background-color: #00449e;
   color: #fff;
 }
+
+.modal__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+
+.modal__footer-inner {
+    width: 80%
+}
+  }
 
 /**************************\
   Demo Animation Style

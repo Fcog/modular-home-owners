@@ -104,10 +104,14 @@
 
                 <div class="mb-7 lg:mb-8">
 
-                    {% form_modal "home-modal" %}
+                    {% if home_form %}
 
-                    {% include "patterns/atoms/button/button.html" with text=settings.base.HomePageSettings.home_button_text color="blue" size="medium" inverted=False modal_id="home-modal" %}
+                        {% form_modal "home-modal" %}
+
+                        {% include "patterns/atoms/button/button.html" with text=settings.base.HomePageSettings.home_button_text color="blue" size="medium" inverted=False modal_id="home-modal" %}
                 
+                    {% endif %}
+
                 </div>
 
                 <p class="text-xxs lg:text-base text-gray-30">{{ settings.base.HomePageSettings.home_small_text }}</p>

@@ -131,8 +131,8 @@ class HomePage(Page):
         # ------------------------------------------------------------------------------
         context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
         
-        # Header theme
-        # ------------------------------------------------------------------------------
+        context['home_form'] = global_data.home_form
+
         context['header_theme'] = "blue"
 
         context['similar_homes'] = HomePage.objects.filter(partner=self.partner).exclude(id=self.id).live()[:3]
