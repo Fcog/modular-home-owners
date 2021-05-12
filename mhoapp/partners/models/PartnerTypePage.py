@@ -14,6 +14,10 @@ from .PartnerPage import PartnerPage
 from mhoapp.theme.blocks import *
 
 
+def get_partner_types():
+    return tuple(PartnerTypePage.objects.values_list('id','title'))
+
+
 class PartnerTypePage(Page):
     # Database fields
     icon = models.ForeignKey(
@@ -30,8 +34,10 @@ class PartnerTypePage(Page):
     )
 
     body = StreamField([
+        ('Separator', Separator()),
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
+        ('PartnerTypeGrid', PartnerTypeGrid(choices=get_partner_types)),
         ('ResourcesCTA', ResourcesCTA()),
         ('PartnersCTA', PartnersCTA()),
         ('PopularHomesGrid', PopularHomesGrid()),

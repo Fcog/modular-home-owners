@@ -17,7 +17,7 @@ class PartnersButtons(blocks.ChoiceBlock):
                 'text': f'{value} {item.title}',
                 'image': item.icon.url,
             },
-            apps.get_model('partners', 'PartnerTypePage').objects.all()
+            apps.get_model('partners', 'PartnerTypePage').objects.live()
         ))
 
         return context

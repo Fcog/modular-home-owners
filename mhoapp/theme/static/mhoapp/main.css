@@ -25935,7 +25935,7 @@ div[class^="block-"] {
 
 /* Block margin exceptions */
 
-div.block-hero, div.block-ForumCTA, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-articlesCTA {
+div.block-two_columns, div.block-hero, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA {
   margin-bottom: 0px;
 }
 

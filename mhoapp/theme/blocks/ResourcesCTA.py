@@ -12,7 +12,7 @@ class ResourcesCTA(blocks.StaticBlock):
 
         context['text'] = global_data.resources_text                
         context['links'] = ResourcePage.objects.live()
-        context['links_list_class'] = "pt-16 md:pt-44"
+        context['links_list_class'] = "pt-16 lg:pt-24 xl:pt-44"
 
         return context
 

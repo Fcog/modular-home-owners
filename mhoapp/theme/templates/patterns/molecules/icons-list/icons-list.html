@@ -1,15 +1,17 @@
 {% load wagtailimages_tags svg %}
 
-<ul class="flex flex-wrap list-none">
+<div 
+    data-pattern="molecules/icons-list"
+    class="grid grid-cols-2 lg:grid-cols-4 gap-x-24 gap-y-16">
 
     {% for item in list %}
 
-    <li class="flex flex-col mb-6 mr-4 md:mr-8 lg:mr-12 2xl:mr-16">
-    
+    <div class="flex flex-col items-center justify-center">
+
         {% image item.image width-300 %}
 
         <a 
-            class="mt-4 flex items-center text-green-medium text-xs lg:text-base"
+            class="mt-8 flex items-center text-green-medium text-base lg:text-1.5xl font-medium"
             href="{{ item.url }}">
 
             Learn More
@@ -18,8 +20,8 @@
 
         </a>
 
-    </li>
+    </div>
 
     {% endfor %}
 
-</ul>
+</div>
