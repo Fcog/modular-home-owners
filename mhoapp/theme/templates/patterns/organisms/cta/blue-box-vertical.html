@@ -1,0 +1,11 @@
+{% load wagtailcore_tags svg %}
+
+<div class="flex flex-col items-center px-12 py-12 xl:py-20 xl:px-16 text-center bg-blue-light4 rounded-2xl">
+
+    <h2 class="mb-8 text-sm lg:text-2xl text-blue-dark font-bold">{{ title | safe }}</h2>
+
+    <p class="mb-8 text-xxs lg:text-base text-blue-dark">{{ text }}</p>
+        
+    {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="small" inverted=False %}
+
+</div>

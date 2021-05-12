@@ -11,3 +11,4 @@ from .HeadingH1 import HeadingH1
 from .HeadingH2 import HeadingH2
 from .BlueBoxCTA import BlueBoxCTA
 from .PartnersButtons import PartnersButtons
+from .Columns import TwoColumnsBlock

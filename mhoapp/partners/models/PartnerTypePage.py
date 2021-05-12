@@ -1,5 +1,6 @@
 from django.db import models
 from wagtail.core import blocks
+from wagtail.core import fields
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtailsvg.models import Svg
@@ -23,6 +24,11 @@ class PartnerTypePage(Page):
         related_name='+'
     )
 
+    heading = fields.StreamField(
+        TwoColumnsBlock, 
+        default=''
+    )
+
     body = StreamField([
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
@@ -43,6 +49,7 @@ class PartnerTypePage(Page):
     # Editor panels configuration
     content_panels = Page.content_panels + [
         SvgChooserPanel('icon'),
+        StreamFieldPanel('heading'),
         StreamFieldPanel('body'),
     ]
 
@@ -57,7 +64,7 @@ class PartnerTypePage(Page):
         if request.htmx:
             return 'patterns/molecules/icons-list/icons-list.html'
 
-        return 'patterns/templates/flexible/one-col.html' 
+        return 'patterns/templates/flexible/two-col.html' 
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)

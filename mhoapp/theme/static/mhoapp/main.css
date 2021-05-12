@@ -18958,6 +18958,14 @@ select {
   width: 64.5% !important;
 }
 
+.w-48\% {
+  width: 48% !important;
+}
+
+.w-37\% {
+  width: 37% !important;
+}
+
 .w-31\% {
   width: 31% !important;
 }
@@ -44160,6 +44168,14 @@ select {
     width: 64.5% !important;
   }
 
+  .sm\:w-48\% {
+    width: 48% !important;
+  }
+
+  .sm\:w-37\% {
+    width: 37% !important;
+  }
+
   .sm\:w-31\% {
     width: 31% !important;
   }
@@ -67115,6 +67131,14 @@ select {
 
   .md\:w-64\.5\% {
     width: 64.5% !important;
+  }
+
+  .md\:w-48\% {
+    width: 48% !important;
+  }
+
+  .md\:w-37\% {
+    width: 37% !important;
   }
 
   .md\:w-31\% {
@@ -90074,6 +90098,14 @@ select {
     width: 64.5% !important;
   }
 
+  .lg\:w-48\% {
+    width: 48% !important;
+  }
+
+  .lg\:w-37\% {
+    width: 37% !important;
+  }
+
   .lg\:w-31\% {
     width: 31% !important;
   }
@@ -113031,6 +113063,14 @@ select {
     width: 64.5% !important;
   }
 
+  .xl\:w-48\% {
+    width: 48% !important;
+  }
+
+  .xl\:w-37\% {
+    width: 37% !important;
+  }
+
   .xl\:w-31\% {
     width: 31% !important;
   }
@@ -135986,6 +136026,14 @@ select {
 
   .\32xl\:w-64\.5\% {
     width: 64.5% !important;
+  }
+
+  .\32xl\:w-48\% {
+    width: 48% !important;
+  }
+
+  .\32xl\:w-37\% {
+    width: 37% !important;
   }
 
   .\32xl\:w-31\% {
