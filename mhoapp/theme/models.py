@@ -7,7 +7,8 @@ from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.homes.models.PriceRanges import PriceRanges
 from mhoapp.homes.models.HomePage import HomePage
-from mhoapp.partners.models import LocationCategory, PartnerTypePage
+from mhoapp.partners.models.LocationCategory import LocationCategory
+from mhoapp.partners.models.PartnerTypePage import PartnerTypePage
 from mhoapp.resources.models import ResourcePage
 from mhoapp.base.models import BlocksSettings
 from mhoapp.base.utils import remove_extension

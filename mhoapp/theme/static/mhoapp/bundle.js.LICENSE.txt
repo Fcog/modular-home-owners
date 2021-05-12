@@ -1,0 +1,19 @@
+/*!
+ * Splide.js
+ * Version  : 2.4.20
+ * License  : MIT
+ * Copyright: 2020 Naotoshi Fujita
+ */
+
+/*! nouislider - 14.7.0 - 4/6/2021 */
+
+/**
+ * @preserve
+ * Sharer.js
+ *
+ * @description Create your own social share buttons
+ * @version 0.4.1
+ * @author Ellison Leao <ellisonleao@gmail.com>
+ * @license GPLv3
+ *
+ */

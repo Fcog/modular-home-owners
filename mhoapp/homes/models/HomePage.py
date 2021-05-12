@@ -10,12 +10,12 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from mhoapp.base.models import HomePageSettings
 from mhoapp.base.utils import truncate_float, currency
 from mhoapp.homes.admin import HomePageForm
-from mhoapp.partners.models import PartnerPage
+from mhoapp.partners.models.PartnerPage import PartnerPage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 
 
 class HomePage(Page):
-    template = 'patterns/templates/homes/home_page.html'
+    template = 'patterns/templates/homes/home-page.html'
 
     # Database fields
     code = models.TextField(max_length=255)
