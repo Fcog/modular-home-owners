@@ -17,6 +17,7 @@ class PartnerTypePage(Page):
         related_name='+'
     )
 
+
     # Editor panels configuration
     content_panels = Page.content_panels + [
         SvgChooserPanel('icon'),
@@ -33,7 +34,7 @@ class PartnerTypePage(Page):
         if request.htmx:
             return 'patterns/molecules/icons-list/icons-list.html'
 
-        return 'patterns/templates/partners/partner-type-page.html' 
+        return 'patterns/templates/flexible/one-col.html' 
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
