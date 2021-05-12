@@ -1,7 +1,7 @@
+from django.apps import apps
 from wagtail.core import blocks
 
 from mhoapp.partners.models.LocationCategory import LocationCategory
-from mhoapp.partners.models.PartnerTypePage import PartnerTypePage
 
 
 class PartnersButtons(blocks.ChoiceBlock):
@@ -17,7 +17,7 @@ class PartnersButtons(blocks.ChoiceBlock):
                 'text': f'{value} {item.title}',
                 'image': item.icon.url,
             },
-            PartnerTypePage.objects.all()
+            apps.get_model('partners', 'PartnerTypePage').objects.all()
         ))
 
         return context

@@ -1,7 +1,6 @@
+from django.apps import apps
 from wagtail.core import blocks
 from wagtail_link_block.blocks import LinkBlock
-
-from mhoapp.homes.models.HomePage import HomePage
 
 
 class PopularHomesGrid(blocks.StructBlock):
@@ -15,7 +14,7 @@ class PopularHomesGrid(blocks.StructBlock):
 
         context['button_url'] = value['button_link'].get_url
 
-        context['homes'] = HomePage.objects.live().order_by('-hit_count_generic__hits')[:6]
+        context['homes'] = apps.get_model('homes', 'HomePage').objects.live().order_by('-hit_count_generic__hits')[:6]
 
         context['homes_grid_class'] = "pb-20 md:pb-36"
 

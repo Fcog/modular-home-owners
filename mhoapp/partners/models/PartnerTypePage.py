@@ -1,10 +1,16 @@
 from django.db import models
+from wagtail.core import blocks
 from wagtail.core.models import Page
+from wagtail.core.fields import StreamField
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 
 from mhoapp.partners.admin import PartnerTypePageForm
 from .PartnerPage import PartnerPage
+from mhoapp.theme.blocks import *
 
 
 class PartnerTypePage(Page):
@@ -17,10 +23,27 @@ class PartnerTypePage(Page):
         related_name='+'
     )
 
+    body = StreamField([
+        ('headingH1', HeadingH1()),
+        ('headingH2', HeadingH2()),
+        ('ResourcesCTA', ResourcesCTA()),
+        ('PartnersCTA', PartnersCTA()),
+        ('PopularHomesGrid', PopularHomesGrid()),
+        ('GetYourHouseCTA', GetYourHouseCTA()),
+        ('articlesCTA', ArticlesCTABlock()),
+        ('ForumCTA', ForumCTA()),
+        ('hero', HeroBlock()),
+        ('paragraph', blocks.RichTextBlock()),
+        ('text', blocks.TextBlock()),
+        ('quote', blocks.BlockQuoteBlock()),
+        ('image', ImageChooserBlock()),
+        ('embed', EmbedBlock()),
+    ], default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
         SvgChooserPanel('icon'),
+        StreamFieldPanel('body'),
     ]
 
     # Parent page / subpage type rules
