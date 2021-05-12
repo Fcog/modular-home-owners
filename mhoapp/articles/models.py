@@ -6,7 +6,7 @@ from wagtail.admin.edit_handlers import StreamFieldPanel, FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
-from mhoapp.theme.models import HeadingH2
+from mhoapp.theme.blocks import HeadingH2
 from mhoapp.resources.models import ResourcePage
 
 

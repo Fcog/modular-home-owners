@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='flexibleonecolumnpage',
             name='body',
-            field=wagtail.core.fields.StreamField([('headingH1', mhoapp.theme.models.HeadingH1()), ('headingH2', mhoapp.theme.models.HeadingH2()), ('resourcesCTA', wagtail.core.blocks.StreamBlock([('style', wagtail.core.blocks.ChoiceBlock(choices=[('WHITE', 'white'), ('BLUE', 'blue')]))])), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('text', wagtail.core.blocks.TextBlock()), ('quote', wagtail.core.blocks.BlockQuoteBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('embed', wagtail.embeds.blocks.EmbedBlock())], default=''),
+            field=wagtail.core.fields.StreamField([('headingH1', mhoapp.theme.blocks.HeadingH1()), ('headingH2', mhoapp.theme.blocks.HeadingH2()), ('resourcesCTA', wagtail.core.blocks.StreamBlock([('style', wagtail.core.blocks.ChoiceBlock(choices=[('WHITE', 'white'), ('BLUE', 'blue')]))])), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('text', wagtail.core.blocks.TextBlock()), ('quote', wagtail.core.blocks.BlockQuoteBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('embed', wagtail.embeds.blocks.EmbedBlock())], default=''),
         ),
     ]

@@ -15,7 +15,7 @@ from mhoapp.base.models import HomeSearchPageSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models.LocationCategory import LocationCategory
-from mhoapp.theme.models import BlueBoxCTA, ReadMoreText, PartnersButtons, Paragraph
+from mhoapp.theme.blocks import Paragraph, ReadMoreText, BlueBoxCTA, PartnersButtons
 
 
 class HomesIndexPage(Page):

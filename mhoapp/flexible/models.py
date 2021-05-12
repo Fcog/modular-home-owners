@@ -9,6 +9,18 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtailyoast.edit_handlers import YoastPanel
 
 from mhoapp.theme.models import *
+from mhoapp.theme.blocks import (
+    HeroBlock, 
+    ArticlesCTABlock, 
+    ForumCTA, 
+    PopularHomesGrid, 
+    GetYourHouseCTA, 
+    PartnersCTA, 
+    ResourcesCTA, 
+    Paragraph,
+    HeadingH1,
+    HeadingH2
+)
 
 
 class FlexibleOneColumnPage(Page):
