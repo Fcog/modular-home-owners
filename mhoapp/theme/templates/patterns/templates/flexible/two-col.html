@@ -4,12 +4,16 @@
 
 {% block content %}
 
-    <div>
+    <div data-pattern="templates/flexible/two-col" class="mt-14">
     
         {% include_block page.heading %}
 
-        {% include_block page.body %}
-    
+        <div class="one-col-layout">
+        
+            {% include_block page.body %}
+        
+        </div>
+
     </div>
 
 {% endblock %}

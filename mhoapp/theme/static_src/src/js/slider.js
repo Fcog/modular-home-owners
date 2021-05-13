@@ -2,6 +2,9 @@ import Splide from '@splidejs/splide'
 
 // Initiate sliders.
 export default function slider() {
+    /**
+     * Homes and Simple sliders
+     */
     const slidersHomes = document.querySelectorAll('.js-splide-homes')
 
     slidersHomes.forEach( slider => {    
@@ -11,6 +14,23 @@ export default function slider() {
         }).mount()
     })
 
+    /**
+     * Simple sliders
+     */
+     const slidersSimple = document.querySelectorAll('.js-splide-simple')
+
+     slidersSimple.forEach( slider => {    
+         new Splide(slider, {
+             pagination: false,
+             focus: 'center',
+             heightRatio: 0.587, 
+             cover: true,
+         }).mount()
+     })    
+
+    /**
+     * Image slider with thumbnails
+     */
     const sliderContainers = document.querySelectorAll('.js-slide-images')
 
     sliderContainers.forEach( sliderContainer => {    

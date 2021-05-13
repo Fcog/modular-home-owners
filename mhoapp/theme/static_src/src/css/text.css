@@ -1,0 +1,32 @@
+.text-bold-green {
+	b,
+	strong {
+		color: #5F9B00;
+	}
+}
+
+.text-bold-blue {
+	b,
+	strong {
+		color: #1A5E88;
+	}
+}
+
+.underline-spaced {
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 0;
+		left: 0;
+		bottom: -.5rem;
+		border-bottom-style: solid;
+		border-bottom-width: 2px;
+	}
+}
+
+.underline-spaced-green:after {
+	border-bottom-color: #609c00;
+}

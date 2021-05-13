@@ -1,5 +1,7 @@
 {% load wagtailimages_tags %}
 
+{% if images %}
+
 <div data-pattern="molecules/sliders/images" class="js-slide-images {{ slider_class }}">
 
     <div class="splide js-main-slider splide--images">
@@ -39,3 +41,5 @@
     </div>
 
 </div>
+
+{% endif %}

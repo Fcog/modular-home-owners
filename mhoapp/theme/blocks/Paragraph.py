@@ -3,8 +3,8 @@ from wagtail.core import blocks
 
 class Paragraph(blocks.StructBlock):
     text_size = blocks.ChoiceBlock(choices=[
-        ('small', 'Small'),
         ('normal', 'Normal'),
+        ('large', 'Large'),
     ], icon='title', default='normal')  
     paragraph = blocks.RichTextBlock()
 

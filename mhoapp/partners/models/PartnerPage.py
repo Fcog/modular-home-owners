@@ -1,11 +1,17 @@
 from django import forms
 from django.db import models
+from wagtail.core import blocks
 from wagtail.core.models import Page
+from wagtail.core.fields import StreamField
 from modelcluster.fields import ParentalManyToManyField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 
 from .LocationCategory import LocationCategory
+from mhoapp.theme import blocks as custom_blocks
 
 
 class PartnerPage(Page):
@@ -21,14 +27,18 @@ class PartnerPage(Page):
     )
     phone = models.TextField(max_length=25)
     website = models.URLField()
-    main_image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
     locations = ParentalManyToManyField(LocationCategory)
+
+    left_content = StreamField([
+        ('headingH1', custom_blocks.HeadingH1()),
+        ('headingH2', custom_blocks.HeadingH2()),
+        ('paragraph', custom_blocks.Paragraph()),
+        ('button', custom_blocks.Button()),
+        ('Separator', custom_blocks.Separator()),
+        ('quote', blocks.BlockQuoteBlock()),
+        ('image', ImageChooserBlock()),
+        ('embed', EmbedBlock()),
+    ], default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
@@ -54,7 +64,6 @@ class PartnerPage(Page):
         MultiFieldPanel(
             [
                 ImageChooserPanel('logo'),
-                ImageChooserPanel('main_image'),
                 InlinePanel(
                     'gallery_images',
                     label="Image Gallery"
@@ -63,6 +72,7 @@ class PartnerPage(Page):
             heading="Images",
             classname="collapsible collapsed"
         ),
+        StreamFieldPanel('left_content'),
     ]
 
     def PartnerType(self):

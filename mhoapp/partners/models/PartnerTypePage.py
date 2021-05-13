@@ -1,3 +1,4 @@
+from django.apps import apps
 from django.db import models
 from wagtail.core import blocks
 from wagtail.core import fields
@@ -10,8 +11,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
 from mhoapp.partners.admin import PartnerTypePageForm
-from .PartnerPage import PartnerPage
-from mhoapp.theme.blocks import *
+from mhoapp.theme import blocks as custom_blocks
 
 
 def get_partner_types():
@@ -29,24 +29,21 @@ class PartnerTypePage(Page):
     )
 
     heading = fields.StreamField(
-        TwoColumnsBlock, 
+        custom_blocks.TwoColumnsBlock, 
         default=''
     )
 
     body = StreamField([
-        ('Separator', Separator()),
-        ('headingH1', HeadingH1()),
-        ('headingH2', HeadingH2()),
-        ('PartnerTypeGrid', PartnerTypeGrid(choices=get_partner_types)),
-        ('ResourcesCTA', ResourcesCTA()),
-        ('PartnersCTA', PartnersCTA()),
-        ('PopularHomesGrid', PopularHomesGrid()),
-        ('GetYourHouseCTA', GetYourHouseCTA()),
-        ('articlesCTA', ArticlesCTABlock()),
-        ('ForumCTA', ForumCTA()),
-        ('hero', HeroBlock()),
-        ('paragraph', blocks.RichTextBlock()),
-        ('text', blocks.TextBlock()),
+        ('Separator', custom_blocks.Separator()),
+        ('headingH2', custom_blocks.HeadingH2()),
+        ('PartnerTypeGrid', custom_blocks.PartnerTypeGrid(choices=get_partner_types)),
+        ('ResourcesCTA', custom_blocks.ResourcesCTA()),
+        ('PartnersCTA', custom_blocks.PartnersCTA()),
+        ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
+        ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
+        ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+        ('ForumCTA', custom_blocks.ForumCTA()),
+        ('paragraph', custom_blocks.Paragraph()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
@@ -75,7 +72,7 @@ class PartnerTypePage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        partners = PartnerPage.objects.child_of(self).live()
+        partners = apps.get_model('partners', 'PartnerPage').objects.child_of(self).live()
 
         location = request.GET.get('location')
 

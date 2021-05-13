@@ -1,0 +1,66 @@
+/* Spacing between blocks */
+div[class^="block-"] {
+	@apply mb-4;
+
+	@screen lg {
+		@apply mb-8;
+	}
+}
+
+/* Spacing margin exceptions */
+div.block-two_columns,
+div.block-hero,
+div.block-ForumCTA,
+div.block-partnersButtons,
+div.block-PopularHomesGrid,
+div.block-GetYourHouseCTA,
+div.block-PartnersCTA,
+div.block-ResourcesCTA,
+div.block-Separator,
+div.block-PartnerTypeGrid,
+div.block-articlesCTA {
+	@apply mb-0 clear-both;
+}
+
+/* Add more spacing between a block and a H2 Heading block */
+div[class^="block-"] ~ .block-headingH2 {
+   @apply mt-8;
+
+   @screen lg {
+    @apply mt-16;
+   }
+}
+
+.richtext-image {
+    &.left {
+        @apply mt-0 mr-0 float-left;
+    }
+
+    &.right {
+        @apply mt-0 ml-0 float-right;
+    }    
+}
+
+.block-quote {
+    blockquote {
+        @apply text-lg text-gray-90 font-bold border-l-2 border-blue-dark ml-4 pl-4 w-11/12;
+
+        @screen lg {
+            @apply w-1/2;
+        }        
+    }
+}
+
+.block-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;        
+    }
+}

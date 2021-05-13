@@ -14,3 +14,4 @@ from .PartnersButtons import PartnersButtons
 from .Columns import TwoColumnsBlock
 from .PartnerTypeGrid import PartnerTypeGrid
 from .Separator import Separator
+from .Button import Button

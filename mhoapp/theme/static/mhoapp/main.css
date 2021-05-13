@@ -18958,8 +18958,20 @@ select {
   width: 64.5% !important;
 }
 
+.w-55\% {
+  width: 55% !important;
+}
+
 .w-48\% {
   width: 48% !important;
+}
+
+.w-45\% {
+  width: 45% !important;
+}
+
+.w-43\% {
+  width: 43% !important;
 }
 
 .w-37\% {
@@ -25398,6 +25410,174 @@ select {
     /* right: -2px !important; */
   }
 
+/* General layout */
+
+.one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+@media (min-width: 640px) {
+    .one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+      max-width: 640px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
+@media (min-width: 768px) {
+    .one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+      max-width: 768px;
+    }
+  }
+
+@media (min-width: 1024px) {
+    .one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+      max-width: 1024px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
+@media (min-width: 1280px) {
+    .one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+      max-width: 1280px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
+@media (min-width: 1640px) {
+    .one-col-layout .block-image, .one-col-layout .block-paragraph, .one-col-layout .block-embed, .one-col-layout .block-quote {
+      max-width: 1640px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+.one-col-layout .block-image,
+    .one-col-layout .block-paragraph,
+    .one-col-layout .block-embed,
+    .one-col-layout .block-quote {
+    clear: both;
+  }
+
+/* Text styles */
+
+.text-bold-green b,
+	.text-bold-green strong {
+    color: #5F9B00;
+  }
+
+.text-bold-blue b,
+	.text-bold-blue strong {
+    color: #1A5E88;
+  }
+
+.underline-spaced {
+  position: relative;
+}
+
+.underline-spaced:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: -.5rem;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+  }
+
+.underline-spaced-green:after {
+  border-bottom-color: #609c00;
+}
+
+/* Blocks styles */
+
+/* Spacing between blocks */
+
+div[class^="block-"] {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+
+div[class^="block-"] {
+    margin-bottom: 2rem
+}
+  }
+
+/* Spacing margin exceptions */
+
+div.block-two_columns, div.block-hero, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA {
+  clear: both;
+  margin-bottom: 0px;
+}
+
+/* Add more spacing between a block and a H2 Heading block */
+
+div[class^="block-"] ~ .block-headingH2 {
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+
+div[class^="block-"] ~ .block-headingH2 {
+    margin-top: 4rem
+}
+  }
+
+.richtext-image.left {
+    float: left;
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+
+.richtext-image.right {
+    float: right;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+.block-quote blockquote {
+    --tw-border-opacity: 1;
+    border-color: rgba(9, 41, 60, var(--tw-border-opacity));
+    border-left-width: 2px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    --tw-text-opacity: 1;
+    color: rgba(105, 105, 105, var(--tw-text-opacity));
+    width: 91.666667%;
+  }
+
+@media (min-width: 1024px) {
+
+.block-quote blockquote {
+      width: 50%
+  }
+    }
+
+.block-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.block-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
 /* Infinite scroll styles */
 
 .spinner {
@@ -25437,10 +25617,6 @@ select {
 .icon-green path {
     fill: #609c00;
   }
-
-.icon-magnifying {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1NTEuMTMgNTUxLjEzIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgNTUxLjEzIDU1MS4xMyIgd2lkdGg9IjIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsPSIjNjA5YzAwIiBkPSJtNTUxLjEzIDUyNi43NzYtMTg2Ljc4NS0xODYuNzg1YzMwLjUwNi0zNi4wMjMgNDkuMDAzLTgyLjUyMyA0OS4wMDMtMTMzLjMxNyAwLTExMy45NjctOTIuNzA4LTIwNi42NzQtMjA2LjY3NC0yMDYuNjc0cy0yMDYuNjc0IDkyLjcwNy0yMDYuNjc0IDIwNi42NzQgOTIuNzA3IDIwNi42NzQgMjA2LjY3NCAyMDYuNjc0YzUwLjc5NCAwIDk3LjI5NC0xOC40OTcgMTMzLjMxNy00OS4wMDNsMTg2Ljc4NSAxODYuNzg1czI0LjM1NC0yNC4zNTQgMjQuMzU0LTI0LjM1NHptLTM0NC40NTYtMTQ3Ljg3NGMtOTQuOTYxIDAtMTcyLjIyOC03Ny4yNjctMTcyLjIyOC0xNzIuMjI4czc3LjI2Ny0xNzIuMjI4IDE3Mi4yMjgtMTcyLjIyOCAxNzIuMjI4IDc3LjI2NyAxNzIuMjI4IDE3Mi4yMjgtNzcuMjY3IDE3Mi4yMjgtMTcyLjIyOCAxNzIuMjI4eiIvPgo8L3N2Zz4=);
-}
 
 .icon-rotate svg {
     transform: rotate(180deg);
@@ -25624,6 +25800,16 @@ select {
 
 .form .errorlist {
     color: red;
+  }
+
+select {
+  background-position: right 1.5rem center;
+}
+
+.input-number-no-controls::-webkit-inner-spin-button,
+	.input-number-no-controls::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
 /* Modal https://micromodal.vercel.app/ */
@@ -25902,62 +26088,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
-
-.underline-spaced {
-  position: relative;
-}
-
-.underline-spaced:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 0;
-    left: 0;
-    bottom: -.5rem;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-  }
-
-.underline-spaced-green:after {
-  border-bottom-color: #609c00;
-}
-
-div[class^="block-"] {
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 1024px) {
-
-div[class^="block-"] {
-    margin-bottom: 2rem
-}
-  }
-
-/* Block margin exceptions */
-
-div.block-two_columns, div.block-hero, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA {
-  margin-bottom: 0px;
-}
-
-select {
-  background-position: right 1.5rem center;
-}
-
-.text-bold-green b,
-	.text-bold-green strong {
-    color: #5F9B00;
-  }
-
-.text-bold-blue b,
-	.text-bold-blue strong {
-    color: #1A5E88;
-  }
-
-.input-number-no-controls::-webkit-inner-spin-button,
-	.input-number-no-controls::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 
 .black-overlay:after {
     content: '\A';
@@ -44168,8 +44298,20 @@ select {
     width: 64.5% !important;
   }
 
+  .sm\:w-55\% {
+    width: 55% !important;
+  }
+
   .sm\:w-48\% {
     width: 48% !important;
+  }
+
+  .sm\:w-45\% {
+    width: 45% !important;
+  }
+
+  .sm\:w-43\% {
+    width: 43% !important;
   }
 
   .sm\:w-37\% {
@@ -67133,8 +67275,20 @@ select {
     width: 64.5% !important;
   }
 
+  .md\:w-55\% {
+    width: 55% !important;
+  }
+
   .md\:w-48\% {
     width: 48% !important;
+  }
+
+  .md\:w-45\% {
+    width: 45% !important;
+  }
+
+  .md\:w-43\% {
+    width: 43% !important;
   }
 
   .md\:w-37\% {
@@ -90098,8 +90252,20 @@ select {
     width: 64.5% !important;
   }
 
+  .lg\:w-55\% {
+    width: 55% !important;
+  }
+
   .lg\:w-48\% {
     width: 48% !important;
+  }
+
+  .lg\:w-45\% {
+    width: 45% !important;
+  }
+
+  .lg\:w-43\% {
+    width: 43% !important;
   }
 
   .lg\:w-37\% {
@@ -113063,8 +113229,20 @@ select {
     width: 64.5% !important;
   }
 
+  .xl\:w-55\% {
+    width: 55% !important;
+  }
+
   .xl\:w-48\% {
     width: 48% !important;
+  }
+
+  .xl\:w-45\% {
+    width: 45% !important;
+  }
+
+  .xl\:w-43\% {
+    width: 43% !important;
   }
 
   .xl\:w-37\% {
@@ -136028,8 +136206,20 @@ select {
     width: 64.5% !important;
   }
 
+  .\32xl\:w-55\% {
+    width: 55% !important;
+  }
+
   .\32xl\:w-48\% {
     width: 48% !important;
+  }
+
+  .\32xl\:w-45\% {
+    width: 45% !important;
+  }
+
+  .\32xl\:w-43\% {
+    width: 43% !important;
   }
 
   .\32xl\:w-37\% {

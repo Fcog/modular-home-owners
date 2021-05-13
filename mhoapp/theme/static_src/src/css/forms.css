@@ -88,3 +88,15 @@
         color: red;
     }
 }
+
+select {
+	background-position: right 1.5rem center;
+}
+
+.input-number-no-controls {
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}

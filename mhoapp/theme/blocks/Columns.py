@@ -5,7 +5,10 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtailcolumnblocks.blocks import ColumnsBlock
 
-from mhoapp.theme.blocks import *
+from .HeadingH1 import HeadingH1
+from .Paragraph import Paragraph
+from .ReadMoreText import ReadMoreText
+from .BlueBoxCTA import BlueBoxCTA
 
 
 class AvailableColumnBlocks(blocks.StreamBlock):

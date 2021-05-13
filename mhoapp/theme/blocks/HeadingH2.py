@@ -2,7 +2,7 @@ from wagtail.core import blocks
 
 
 class HeadingH2(blocks.StructBlock):
-    title = blocks.RichTextBlock()
+    title = blocks.CharBlock()
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)

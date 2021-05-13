@@ -1,0 +1,25 @@
+{% load wagtailimages_tags %}
+
+{% if images %}
+
+<div data-pattern="molecules/sliders/simple" class="js-splide-simple splide splide--images {{ slider_class }}">
+
+    <div class="splide__track">
+        <ul class="splide__list">
+
+            {% for image in images %}
+
+            <li class="splide__slide flex justify-center">
+
+                {% image image.image width-1000 %}
+
+            </li>
+
+            {% endfor %} 
+
+        </ul>
+    </div>
+
+</div>
+
+{% endif %}

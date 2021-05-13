@@ -1,21 +1,63 @@
 {% extends "base_page.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags custom_filters %}
 
 {% block content %}
-    {{ page.name }}
 
-    <h2>Main Image:</h2>
-    {% image page.main_image fill-320x240 %}
+    <div 
+        data-pattern="templates/partners/partner-page" 
+        class="container flex flex-col lg:flex-row justify-between pt-14">
+    
+        <div class="lg:pr-12 xl:pr-0 pb-8 lg:pb-24 w-full lg:w-8/12 xl:w-48% order-1 lg:order-0">
+        
+            {% include_block page.left_content %}
 
-    <section>
-        <h2>Gallery Images:</h2>
-        {% for item in page.gallery_images.all %}
-            <div style="margin: 10px">
-                {% image item.image fill-320x240 %}
-                <p>{{ item.caption }}</p>
+        </div>
+
+        <div class="w-full lg:w-4/12 xl:w-43% mb-12 lg:mb-0 lg:mt-8 order-0 lg:order-1">
+
+            <div class="border border-blue-dark rounded-xl overflow-hidden">
+
+                <div class="px-9 2xl:px-16 py-9 lg:py-14 2xl:py-16 xl:flex">
+
+                    <div class="flex justify-center items-center mb-2 md:mb-8 xl:mb-0 xl:w-45% xl:border-r border-gray-40">
+
+                        <div class="flex justify-center xl:pr-9 2xl:pr-12 w-full">
+                        
+                            {% image page.logo width-300 %}
+                        
+                        </div>
+                        
+                    </div>
+
+                    <div class="flex flex-col flex-grow justify-center items-center xl:w-55%">
+
+                        <div class="xl:pl-9 2xl:pl-12 w-full text-center xl:text-left">
+                    
+                            <div class="mb-2 md:mb-4 text-sm md:text-1.5xl text-green-medium font-medium">
+                                {{ page.phone }}
+                            </div>
+
+                            <a 
+                                href="{{ page.website }}"
+                                class="inline-block mb-5 md:mb-7 text-sm md:text-1.5xl text-green-medium font-medium">
+                                {{ page.website | remove_protocol }}
+                            </a>
+
+                            {% include "patterns/atoms/button/button.html" with text="View Floorplans" color="blue" size="small" text_size="small" full_width=True inverted=True %}
+
+                        </div>    
+                        
+                    </div>
+
+                </div>
+            
+                {% include "patterns/molecules/sliders/simple/simple.html" with images=page.gallery_images.all %}
+
             </div>
-        {% endfor %}
-    </section>
+
+        </div>
+        
+    </div>
 
 {% endblock %}

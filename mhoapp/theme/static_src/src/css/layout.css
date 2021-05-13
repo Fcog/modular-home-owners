@@ -1,0 +1,46 @@
+@layer utilities {
+  @variants responsive {
+    .full-width {
+      width: 100vw;
+      margin-left: 49.2%;
+      margin-right: 49.2%;
+      transform: translateX(-49.2%);
+
+	  @screen lg {
+		transform: translateX(-50%);
+	  }	  	  	  
+
+	  @screen xl {
+		transform: translateX(-49.9%);
+	  }	  	  
+
+	  @screen 2xl {
+		transform: translateX(-49.75%);
+	  }	  
+    }
+
+    .full-width-overflow {
+      width: 120vw !important;
+      margin-left: 49.2%;
+      margin-right: 49.2%;      
+      transform: translateX(-49.7%);
+    }
+
+    .full-width-none {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+		transform: none;
+	  }	
+  }
+}
+
+.one-col-layout {
+    .block-image,
+    .block-paragraph,
+    .block-embed,
+    .block-quote {
+        @apply container;
+        clear: both;
+    }
+}

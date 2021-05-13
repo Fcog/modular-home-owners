@@ -1,5 +1,6 @@
 import math
 import os
+import re
 
 
 def remove_extension(value):
@@ -14,3 +15,8 @@ def truncate_float(value):
 
 def currency(value):
     return "${:,}".format(value)
+
+
+def remove_protocol(value):
+    url = re.compile(r"https?://(www\.)?")
+    return url.sub('', value).strip().strip('/')

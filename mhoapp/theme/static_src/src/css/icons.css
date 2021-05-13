@@ -21,12 +21,8 @@
 
 .icon-green {
 	path {
-		fill: $green;
+		fill: #609c00;
 	}
-}
-
-.icon-magnifying {
-	background-image: url('svg/magnifying-glass.svg');
 }
 
 .icon-rotate {

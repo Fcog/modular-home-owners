@@ -1,8 +1,6 @@
 from django.apps import apps
 from wagtail.core import blocks
 
-from mhoapp.partners.models import PartnerTypePage
-
 
 class PartnerTypeGrid(blocks.ChoiceBlock):
     def get_context(self, value, parent_context=None):

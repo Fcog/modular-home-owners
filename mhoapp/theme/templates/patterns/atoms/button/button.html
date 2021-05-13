@@ -32,7 +32,7 @@
     href="{{ url }}"
     {% endif %}
 
-    {% if new_window %}
+    {% if new_window or link.new_window %}
     target="_blank"
     {% endif %}
 
@@ -42,11 +42,11 @@
 
     data-pattern="atoms/button/button"
 
-    class="inline-flex justify-center items-center px-12 w-full font-bold leading-none outline-none
+    class="inline-flex justify-center items-center px-12 w-full leading-none outline-none
 
-     {% if full_width  %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
+     {% if full_width %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
 
-    {% if text_size == "small" %} text-sm md:text-lg {% else %} md:text-1.5xl {% endif %}
+    {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} md:text-1.5xl font-bold {% endif %}
 
     {% if size == "normal" %} py-5 lg:py-8 {% endif %}
     {% if size == "small" %} py-3 lg:py-4 {% endif %}
