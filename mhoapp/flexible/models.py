@@ -18,6 +18,7 @@ class FlexibleOneColumnPage(Page):
 
     # Database fields
     body = StreamField([
+        ('separator', Separator()),
         ('headingH1', HeadingH1()),
         ('headingH2', HeadingH2()),
         ('ResourcesCTA', ResourcesCTA()),
