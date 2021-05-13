@@ -8,7 +8,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtailyoast.edit_handlers import YoastPanel
 
-from mhoapp.theme.blocks import *
+from mhoapp.theme import blocks as custom_blocks
 
 
 class FlexibleOneColumnPage(Page):
@@ -18,18 +18,17 @@ class FlexibleOneColumnPage(Page):
 
     # Database fields
     body = StreamField([
-        ('separator', Separator()),
-        ('headingH1', HeadingH1()),
-        ('headingH2', HeadingH2()),
-        ('ResourcesCTA', ResourcesCTA()),
-        ('PartnersCTA', PartnersCTA()),
-        ('PopularHomesGrid', PopularHomesGrid()),
-        ('GetYourHouseCTA', GetYourHouseCTA()),
-        ('articlesCTA', ArticlesCTABlock()),
-        ('ForumCTA', ForumCTA()),
-        ('hero', HeroBlock()),
-        ('paragraph', blocks.RichTextBlock()),
-        ('text', blocks.TextBlock()),
+        ('separator', custom_blocks.Separator()),
+        ('headingH1', custom_blocks.HeadingH1()),
+        ('headingH2', custom_blocks.HeadingH2()),
+        ('ResourcesCTA', custom_blocks.ResourcesCTA()),
+        ('PartnersCTA', custom_blocks.PartnersCTA()),
+        ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
+        ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
+        ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+        ('ForumCTA', custom_blocks.ForumCTA()),
+        ('hero', custom_blocks.HeroBlock()),
+        ('paragraph', custom_blocks.Paragraph()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),

@@ -6,17 +6,17 @@
       margin-right: 49.2%;
       transform: translateX(-49.2%);
 
-	  @screen lg {
-		transform: translateX(-50%);
-	  }	  	  	  
+      @screen lg {
+        transform: translateX(-50%);
+      }	  	  	  
 
-	  @screen xl {
-		transform: translateX(-49.9%);
-	  }	  	  
+      @screen xl {
+        transform: translateX(-49.9%);
+      }	  	  
 
-	  @screen 2xl {
-		transform: translateX(-49.75%);
-	  }	  
+      @screen 2xl {
+        transform: translateX(-49.75%);
+	    }	  
     }
 
     .full-width-overflow {
@@ -36,11 +36,12 @@
 }
 
 .one-col-layout {
-    .block-image,
-    .block-paragraph,
-    .block-embed,
-    .block-quote {
-        @apply container;
-        clear: both;
-    }
+  .block-headingH2,
+  .block-image,
+  .block-paragraph,
+  .block-embed,
+  .block-quote {
+      @apply container;
+      clear: both;
+  }
 }

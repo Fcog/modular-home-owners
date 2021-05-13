@@ -4,12 +4,14 @@
 
 {% block content %}
 
-    <div 
-        data-pattern="templates/partners/partner-page" 
-        class="container flex flex-col lg:flex-row justify-between pt-14">
+<div 
+    data-pattern="templates/partners/partner-page" 
+    class="pt-14">
+
+    <div class="container flex flex-col lg:flex-row justify-between pb-16 lg:pb-32">
     
-        <div class="lg:pr-12 xl:pr-0 pb-8 lg:pb-24 w-full lg:w-8/12 xl:w-48% order-1 lg:order-0">
-        
+        <div class="lg:pr-12 xl:pr-0 w-full lg:w-8/12 xl:w-48% order-1 lg:order-0">
+    
             {% include_block page.left_content %}
 
         </div>
@@ -57,7 +59,12 @@
             </div>
 
         </div>
-        
+    
+    
     </div>
+
+    {% include_block page.bottom_content %}
+    
+</div>
 
 {% endblock %}

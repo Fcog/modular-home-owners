@@ -40,6 +40,21 @@ class PartnerPage(Page):
         ('embed', EmbedBlock()),
     ], default='')
 
+    bottom_content = StreamField([
+        ('separator', custom_blocks.Separator()),
+        ('headingH2', custom_blocks.HeadingH2()),
+        ('ResourcesCTA', custom_blocks.ResourcesCTA()),
+        ('PartnersCTA', custom_blocks.PartnersCTA()),
+        ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
+        ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
+        ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+        ('ForumCTA', custom_blocks.ForumCTA()),
+        ('paragraph', custom_blocks.Paragraph()),
+        ('quote', blocks.BlockQuoteBlock()),
+        ('image', ImageChooserBlock()),
+        ('embed', EmbedBlock()),
+    ], default='')
+
     # Editor panels configuration
     content_panels = Page.content_panels + [
         MultiFieldPanel(
@@ -72,7 +87,20 @@ class PartnerPage(Page):
             heading="Images",
             classname="collapsible collapsed"
         ),
-        StreamFieldPanel('left_content'),
+        MultiFieldPanel(
+            [     
+                StreamFieldPanel('left_content'),
+            ],
+            heading="Left side content",
+            classname="collapsible collapsed"
+        ),                   
+        MultiFieldPanel(
+            [     
+                StreamFieldPanel('bottom_content'),
+            ],
+            heading="Bottom content",
+            classname="collapsible collapsed"
+        ),         
     ]
 
     def PartnerType(self):
