@@ -42,6 +42,5 @@
   .block-embed,
   .block-quote {
       @apply container;
-      clear: both;
   }
 }

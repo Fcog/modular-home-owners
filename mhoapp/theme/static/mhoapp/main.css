@@ -25458,14 +25458,6 @@ select {
     }
   }
 
-.one-col-layout .block-headingH2,
-  .one-col-layout .block-image,
-  .one-col-layout .block-paragraph,
-  .one-col-layout .block-embed,
-  .one-col-layout .block-quote {
-    clear: both;
-  }
-
 /* Text styles */
 
 .text-bold-green b,
@@ -25543,6 +25535,16 @@ div[class^="block-"] ~ .block-headingH2 {
     margin-top: 0px;
     margin-left: 0px;
   }
+
+/* Clear image floating */
+
+.block-headingH2,
+.block-image,
+.block-paragraph,
+.block-embed,
+.block-quote {
+  clear: both;
+}
 
 .block-quote blockquote {
     --tw-border-opacity: 1;
