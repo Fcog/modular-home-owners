@@ -1,7 +1,4 @@
-from wagtail.core import hooks
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
-from django.templatetags.static import static
-from django.utils.html import format_html
 
 from .models import HomePage
 
@@ -17,11 +14,3 @@ class HomesAdmin(ModelAdmin):
     search_fields = ('title',)
 
 modeladmin_register(HomesAdmin)
-
-
-@hooks.register('insert_global_admin_js', order=100)
-def global_admin_js():
-    return format_html(
-        '<script src="{}"></script>',
-        static('/mhoapp/bundle.js')
-    )
