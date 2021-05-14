@@ -12,6 +12,7 @@ from wagtail.embeds.blocks import EmbedBlock
 
 from .LocationCategory import LocationCategory
 from mhoapp.theme import blocks as custom_blocks
+from mhoapp.base.models import HomeSearchPageSettings
 
 
 class PartnerPage(Page):
@@ -103,9 +104,20 @@ class PartnerPage(Page):
         ),         
     ]
 
+    # Parent page / subpage type rules
+    parent_page_types = ['PartnerTypePage']    
+
     def PartnerType(self):
         return self.get_parent()
 
-    # Parent page / subpage type rules
-    parent_page_types = ['PartnerTypePage']
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        global_data = HomeSearchPageSettings.for_request(request)          
+
+        context['homes_search_page_url'] = f'{global_data.homes_search_page.full_url}?partner={self.slug}' if global_data.homes_search_page else ''
+
+        return context
+
+
 

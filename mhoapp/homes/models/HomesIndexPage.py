@@ -117,9 +117,14 @@ class HomesIndexPage(Page):
         max_sqft = request.GET.get('max-sqft')
         bedrooms = request.GET.get('bedrooms')
         bathrooms = request.GET.get('bathrooms')
+        partner = request.GET.get('partner')
 
         # Get the full unpaginated listing of homes as a queryset.
         homes = HomePage.objects.live().order_by('title')
+
+        # Filter by partner
+        if partner:
+            homes = homes.filter(partner__slug=partner)
 
         # Filter by style.
         if styles and 'all' not in styles:

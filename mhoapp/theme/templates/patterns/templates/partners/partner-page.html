@@ -46,7 +46,11 @@
                                 {{ page.website | remove_protocol }}
                             </a>
 
-                            {% include "patterns/atoms/button/button.html" with text="View Floorplans" color="blue" size="small" text_size="small" full_width=True inverted=True %}
+                            {% if homes_search_page_url %}
+
+                                {% include "patterns/atoms/button/button.html" with text="View Floorplans" url=homes_search_page_url color="blue" size="small" text_size="small" full_width=True inverted=True %}
+
+                            {% endif %}
 
                         </div>    
                         

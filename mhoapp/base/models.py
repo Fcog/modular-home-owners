@@ -66,6 +66,7 @@ class HomePageSettings(BaseSetting):
 
 @register_setting
 class HomeSearchPageSettings(BaseSetting):
+    homes_search_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Homes Search Page")    
     homes_ad_text = models.CharField(max_length=254, null=True, default="")
     homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text", default="")     
     homes_ad_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page")    
@@ -85,6 +86,13 @@ class HomeSearchPageSettings(BaseSetting):
             return self.homes_ad_external_url        
 
     panels = [
+        MultiFieldPanel(
+            [
+                PageChooserPanel('homes_search_page'),
+            ],
+            heading="General Settings",
+            classname="collapsible collapsed",
+        ),        
         MultiFieldPanel(
             [
                 FieldPanel('homes_ad_text'),
