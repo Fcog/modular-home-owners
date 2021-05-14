@@ -12,6 +12,8 @@ from .HeadingH2 import HeadingH2
 from .BlueBoxCTA import BlueBoxCTA
 from .PartnersButtons import PartnersButtons
 from .Columns import TwoColumnsBlock
+from .Columns import TwoColumnsBlockEqualWidth
+from .Columns import TwoColumnsLeftShorterBlock
 from .PartnerTypeGrid import PartnerTypeGrid
 from .Separator import Separator
 from .Button import Button

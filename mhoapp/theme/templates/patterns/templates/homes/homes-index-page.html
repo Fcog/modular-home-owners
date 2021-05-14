@@ -15,9 +15,7 @@
 
             <div class="pb-6 lg:pb-0">
 
-                {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
-
-                {% include_block page.left_content %}
+                {% include_block page.full_content %}
 
             </div>
 
@@ -29,19 +27,7 @@
 
             {% if page.layout == 'EW' %}
 
-            <div class="pb-2 lg:pb-0 2xl:mr-16 lg:w-1/2">
-
-                 {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
-
-                 {% include_block page.left_content %}
-
-            </div>
-
-            <div class="mb-6 lg:mb-0 2xl:ml-16 lg:w-1/2">
-            
-                {% include_block page.right_content %}
-            
-            </div>
+                {% include_block page.two_cols_content %}      
 
             {% endif %}
 
@@ -51,19 +37,7 @@
 
             {% if page.layout == 'LS' %}
 
-            <div class="pb-6 lg:pb-0 lg:w-26.5% lg:pr-12">
-
-                {% include_block page.left_content %}
-
-            </div>
-
-            <div class="lg:w-73.5%">
-            
-                {% include "patterns/molecules/headings/page/page.html" with title=page.title %}
-            
-                {% include_block page.right_content %}
-
-            </div>         
+                {% include_block page.two_cols_content_shorter %}      
 
             {% endif %}
             

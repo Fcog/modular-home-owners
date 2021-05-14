@@ -1,0 +1,15 @@
+{% load wagtailcore_tags %}
+
+<div class="lg:flex justify-between">
+
+    {% for column, width in columns %}
+
+        <div class="{% if forloop.first %} pb-6 lg:pb-0 lg:w-26.5% lg:pr-12 {% else %} lg:w-73.5% {% endif %}">
+
+            {% include_block column %}
+
+        </div>
+
+    {% endfor %}
+
+</div>

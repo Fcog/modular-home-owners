@@ -2,9 +2,8 @@ from functools import reduce
 from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from wagtail.core.models import Page
-from wagtail.core import blocks
+from wagtail.core import blocks, fields
 from wagtail.images.blocks import ImageChooserBlock
-from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.embeds.blocks import EmbedBlock
@@ -16,6 +15,7 @@ from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models.LocationCategory import LocationCategory
 from mhoapp.theme.blocks import Paragraph, ReadMoreText, BlueBoxCTA, PartnersButtons
+from mhoapp.theme import blocks as custom_blocks
 
 
 class HomesIndexPage(Page):
@@ -27,16 +27,6 @@ class HomesIndexPage(Page):
         (FULL_WIDTH, '1 Column - Full width'),
         (LEFT_SHORTER, '2 Columns - Left side smaller'),
         (EQUAL_WIDTH, '2 Columns - Equal width'),
-    ]
-
-    blocks = [
-        ('partnersButtons', PartnersButtons()),
-        ('readMoreText', ReadMoreText()),
-        ('blueBoxCTA', BlueBoxCTA()),
-        ('paragraph', Paragraph()),
-        ('quote', blocks.BlockQuoteBlock()),
-        ('image', ImageChooserBlock()),
-        ('embed', EmbedBlock()),
     ]
 
     # Database fields
@@ -63,8 +53,33 @@ class HomesIndexPage(Page):
         verbose_name="Heading layout"
     )
 
-    left_content = StreamField(blocks, default='', verbose_name='Heading Left Content')
-    right_content = StreamField(blocks, default='', blank=True, verbose_name='Heading Right Content')
+    two_cols_content = fields.StreamField(
+        custom_blocks.TwoColumnsBlockEqualWidth, 
+        default='', 
+        blank=True, 
+    )    
+
+    two_cols_content_shorter = fields.StreamField(
+        custom_blocks.TwoColumnsLeftShorterBlock, 
+        default='', 
+        blank=True, 
+    )        
+
+    full_content = fields.StreamField(
+        [
+            ('headingH1', custom_blocks.HeadingH1()),
+            ('headingH2', custom_blocks.HeadingH2()),
+            ('partnersButtons', custom_blocks.PartnersButtons()),
+            ('readMoreText', custom_blocks.ReadMoreText()),
+            ('blueBoxCTA', custom_blocks.BlueBoxCTA()),
+            ('paragraph', custom_blocks.Paragraph()),
+            ('quote', blocks.BlockQuoteBlock()),
+            ('image', ImageChooserBlock()),
+            ('embed', EmbedBlock()),
+        ], 
+        default='', 
+        blank=True, 
+    )
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
@@ -78,11 +93,12 @@ class HomesIndexPage(Page):
                 )
             ],
             heading="Homes Search Filtering Initial Values",
-            classname="collapsible"
+            classname="collapsible collapsed"
         ),        
         FieldPanel('layout'),
-        StreamFieldPanel('left_content'),
-        StreamFieldPanel('right_content'),
+        StreamFieldPanel('two_cols_content', classname="js-two-cols-panel"),
+        StreamFieldPanel('two_cols_content_shorter', classname="js-two-cols-shorter-panel"),
+        StreamFieldPanel('full_content', classname="js-full-content-panel"),
     ]
 
     # Parent page / subpage type rules

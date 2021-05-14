@@ -1,9 +1,7 @@
 from django.apps import apps
 from django.db import models
-from wagtail.core import blocks
-from wagtail.core import fields
+from wagtail.core import blocks, fields 
 from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
@@ -33,7 +31,7 @@ class PartnerTypePage(Page):
         default=''
     )
 
-    body = StreamField([
+    body = fields.StreamField([
         ('Separator', custom_blocks.Separator()),
         ('headingH2', custom_blocks.HeadingH2()),
         ('PartnerTypeGrid', custom_blocks.PartnerTypeGrid(choices=get_partner_types)),

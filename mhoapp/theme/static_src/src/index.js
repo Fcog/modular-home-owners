@@ -11,6 +11,7 @@ import numberControl from './js/number-control'
 import filtersMenu from './js/filters-menu'
 import floatingInputLabels from './js/floating-input-labels'
 import sharer from 'sharer.js'
+import homesLayoutToggler from './js/wagtail-admin'
 
 document.addEventListener( 'DOMContentLoaded', () => {
     MicroModal.init()
@@ -21,6 +22,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     numberControl()
     filtersMenu()
     floatingInputLabels().init()
+    homesLayoutToggler()
 
     document.addEventListener('htmx:afterRequest', () => {
         floatingInputLabels().init()

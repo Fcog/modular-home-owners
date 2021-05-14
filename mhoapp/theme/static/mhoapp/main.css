@@ -25524,6 +25524,15 @@ div[class^="block-"] ~ .block-headingH2 {
 }
   }
 
+/* Add less spacing between a H1 heading block and a Paragraph block */
+
+@media (min-width: 1024px) {
+
+.block-headingH1 ~ .block-paragraph {
+    margin-top: -2rem
+}
+  }
+
 .richtext-image.left {
     float: left;
     margin-top: 0px;
