@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require("path");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -10,7 +11,10 @@ module.exports = {
     },
 
     plugins: [
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new webpack.ProvidePlugin({
+            wNumb: 'wnumb',
+        })
     ],
 
     module: {

@@ -1,5 +1,4 @@
 import noUiSlider from 'nouislider'
-import wNumb from 'wNumb'
 
 /**
  * Initiate input range widgets.
