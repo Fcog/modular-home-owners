@@ -21,5 +21,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd mhoapp/theme/static_src/ && npm install
-      - run: cd mhoapp/theme/static_src/ && npm run build-webpack
+      - name: Install & Build     
+        run: |
+          cd mhoapp/theme/static_src
+          npm install
+          npm run build-webpack
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
+            mhoapp/theme/static/mhoapp
