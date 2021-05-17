@@ -1,0 +1,15 @@
+<div
+    data-pattern="organisms/grids/lean-cards"
+    class="my-16 md:mt-16 md:mb-24 lg:mt-32 lg:mb-40 container">
+
+    <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 xl:gap-10">
+
+        {% for card in cards %}
+
+            {% include "patterns/molecules/cards/lean/lean.html" with link=card.url icon=card.icon title=card.title description=card.short_description %}
+
+        {% endfor %}
+
+    </div>        
+
+</div>

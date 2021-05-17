@@ -8,6 +8,4 @@ staticfiles
 pgdata
 .devcontainer
 .vscode
-mhoapp/theme/static/mhoapp/*.js
-mhoapp/theme/static/mhoapp/*.css
 mhoapp/theme/static/mhoapp/*.txt

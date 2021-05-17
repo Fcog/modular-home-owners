@@ -2,7 +2,7 @@ from wagtail.core.models import Page
 
 
 class PartnersIndexPage(Page):
-    template = 'patterns/pages/archive/archive.html'
+    template = 'patterns/templates/flexible/two-col.html'
 
     # Parent page / subpage type rules
     subpage_types = ['PartnerTypePage']
