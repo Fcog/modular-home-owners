@@ -25705,14 +25705,13 @@ div[class^="block-"] ~ .block-headingH2 {
 }
   }
 
-/* Add less spacing between a H1 heading block and a Paragraph block */
-
-@media (min-width: 1024px) {
-
+/* Add less spacing between a H1 heading block and a Paragraph block 
 .block-headingH1 ~ .block-paragraph {
-    margin-top: -2rem
+    @screen lg {
+        @apply -mt-8;
+    }
 }
-  }
+*/
 
 .richtext-image.left {
     float: left;

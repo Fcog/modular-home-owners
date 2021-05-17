@@ -17,7 +17,7 @@ class ResourcesCTA(blocks.StaticBlock):
         return context
 
     class Meta:
-        label = 'Resources CTA'
+        label = 'Resources Links'
         admin_text = 'This block is configured in the MHO settings page.'
         icon = 'placeholder'
         template = 'patterns/organisms/cta/links-list.html'

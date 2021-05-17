@@ -31,12 +31,13 @@ div[class^="block-"] ~ .block-headingH2 {
     }
 }
 
-/* Add less spacing between a H1 heading block and a Paragraph block */
+/* Add less spacing between a H1 heading block and a Paragraph block 
 .block-headingH1 ~ .block-paragraph {
     @screen lg {
         @apply -mt-8;
     }
 }
+*/
 
 .richtext-image {
     &.left {
