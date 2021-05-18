@@ -16,6 +16,6 @@ from .Columns import TwoColumnsBlockEqualWidth
 from .Columns import TwoColumnsLeftShorterBlock
 from .PartnerTypeGrid import PartnerTypeGrid
 from .Separator import Separator
-from .Button import Button
+from .Buttons import Buttons
 from .ResourcesCards import ResourcesCards
 from .ArticlesLinksBox import ArticlesLinksBox

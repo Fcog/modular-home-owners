@@ -29,6 +29,7 @@ class ResourcesIndexPage(Page):
         ('articlesCTA', custom_blocks.ArticlesCTABlock()),
         ('ForumCTA', custom_blocks.ForumCTA()),
         ('paragraph', custom_blocks.Paragraph()),
+        ('buttons', custom_blocks.Buttons()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
@@ -45,7 +46,7 @@ class ResourcesIndexPage(Page):
 
 
 class ResourcePage(Page):
-    template = 'patterns/templates/flexible/two-col.html'
+    template = 'patterns/templates/resources/two-col.html'
 
     # Database fields
     short_description = models.TextField(max_length=255, null=True, blank=False, default='')
@@ -73,6 +74,7 @@ class ResourcePage(Page):
         ('articlesCTA', custom_blocks.ArticlesCTABlock()),
         ('ForumCTA', custom_blocks.ForumCTA()),
         ('paragraph', custom_blocks.Paragraph()),
+        ('buttons', custom_blocks.Buttons()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
@@ -98,3 +100,11 @@ class ResourcePage(Page):
 
     # Parent page / subpage type rules
     parent_page_types = ['ResourcesIndexPage']
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['prev_article_title'] = f'Previous Topic: {self.get_prev_sibling().title}' if self.get_prev_sibling() else ''
+        context['prev_article_url'] = self.get_prev_sibling().url if self.get_prev_sibling() else ''
+        context['next_article_title'] = f'Next Topic: {self.get_next_sibling().title}' if self.get_next_sibling() else ''
+        context['next_article_url'] = self.get_next_sibling().url if self.get_next_sibling() else ''
+        return context    

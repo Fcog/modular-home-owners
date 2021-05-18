@@ -34,7 +34,7 @@ class PartnerPage(Page):
         ('headingH1', custom_blocks.HeadingH1()),
         ('headingH2', custom_blocks.HeadingH2()),
         ('paragraph', custom_blocks.Paragraph()),
-        ('button', custom_blocks.Button()),
+        ('buttons', custom_blocks.Buttons()),
         ('Separator', custom_blocks.Separator()),
         ('quote', blocks.BlockQuoteBlock()),
         ('image', ImageChooserBlock()),

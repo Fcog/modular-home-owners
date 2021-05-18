@@ -1,0 +1,35 @@
+{% extends "base_page.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    <div data-pattern="templates/resources/two-col" class="mt-6 md:mt-14">
+    
+        <div class="container">
+
+            {% include_block page.heading %}
+            
+        </div>
+
+        <div class="container mt-8 lg:mt-16 mb-20 lg:mb-32 flex justify-between">
+
+            <div>
+            {% include "patterns/atoms/links/blue-link.html" with text=prev_article_title url=prev_article_url %}
+            </div>
+
+            <div>
+            {% include "patterns/atoms/links/blue-link.html" with text=next_article_title url=next_article_url %}
+            </div>
+        
+        </div>
+
+        <div class="one-col-layout">
+        
+            {% include_block page.body %}
+        
+        </div>
+
+    </div>
+
+{% endblock %}

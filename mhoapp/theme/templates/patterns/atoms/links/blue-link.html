@@ -1,9 +1,9 @@
-{% load svg %}
+{% if url %}
+<a 
+    class="pb-1 lg:pb-2 text-sm lg:text-lg text-blue-green font-medium border-b border-blue-green"
+    href="{{ url }}">
 
-<a class="flex items-center text-base md:text-1.5xl text-blue-light2 font-bold" href="{{ url }}">
-
-    <span class="pb-1 mr-4 border-b-2 border-light2">{{ text }}</span>
-    
-    {% svg 'right arrow' %}
+    {{ text }}
 
 </a>
+{% endif %}

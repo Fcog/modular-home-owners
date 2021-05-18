@@ -7,6 +7,7 @@ from wagtailcolumnblocks.blocks import ColumnsBlock
 
 from .HeadingH1 import HeadingH1
 from .Paragraph import Paragraph
+from .Buttons import Buttons
 from .ReadMoreText import ReadMoreText
 from .BlueBoxCTA import BlueBoxCTA
 from .ArticlesLinksBox import ArticlesLinksBox
@@ -16,6 +17,7 @@ class AvailableColumnBlocks(blocks.StreamBlock):
     headingH1 = HeadingH1()
     paragraph = Paragraph()
     readMoreText = ReadMoreText()
+    buttons = Buttons()
     blueBoxCTA = BlueBoxCTA()
     ArticlesLinksBox = ArticlesLinksBox()
     quote = blocks.BlockQuoteBlock()

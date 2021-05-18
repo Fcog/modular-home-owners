@@ -1,10 +1,18 @@
-<ul class="md:flex flex-wrap list-none {{ class }}">
+<ul class="my-6 lg:my-12 md:flex flex-wrap list-none {{ class }}">
 
     {% for button in buttons %}
 
-    <li class="mb-3 md:mr-5">
+    <li class="mb-3 md:mr-12">
+
+        {% if button.icon or button.image %}
     
-        {% include "patterns/atoms/button/button-icon.html" with text=button.text url=button.url hx_get=button.hx_get hx_target=button.hx_target icon=button.icon image=button.image rounded="small" color="blue" size="small" inverted=True %}
+        {% include "patterns/atoms/button/button-icon.html" with text=button.text url=button.url hx_get=button.hx_get hx_target=button.hx_target icon=button.icon image=button.image rounded=button.rounded color=button.color size=button.size text_size=button.text_size full_width=button.full_width inverted=button.inverted class=button.class %}
+
+        {% else %}
+
+        {% include "patterns/atoms/button/button.html" with text=button.text url=button.url hx_get=button.hx_get hx_target=button.hx_target rounded=button.rounded color=button.color size=button.size text_size=button.text_size full_width=button.full_width inverted=button.inverted class=button.class %}
+
+        {% endif %}
 
     </li>
 

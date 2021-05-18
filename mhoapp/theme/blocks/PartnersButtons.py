@@ -16,6 +16,10 @@ class PartnersButtons(blocks.ChoiceBlock):
                 'hx_target': '#ajax-response',
                 'text': f'{value} {item.title}',
                 'image': item.icon.url,
+                'size': 'small',
+                'color': 'blue',
+                'inverted': True,                
+                'rounded': 'small',                
             },
             apps.get_model('partners', 'PartnerTypePage').objects.live()
         ))
