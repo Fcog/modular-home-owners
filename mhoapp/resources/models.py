@@ -45,7 +45,7 @@ class ResourcesIndexPage(Page):
 
 
 class ResourcePage(Page):
-    template = 'patterns/templates/flexible/one-col.html'
+    template = 'patterns/templates/flexible/two-col.html'
 
     # Database fields
     short_description = models.TextField(max_length=255, null=True, blank=False, default='')
@@ -59,7 +59,7 @@ class ResourcePage(Page):
     )    
 
     heading = fields.StreamField(
-        custom_blocks.TwoColumnsBlock, 
+        custom_blocks.TwoColumnsBlockEqualWidth, 
         default=''
     )
 

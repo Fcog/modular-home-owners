@@ -1,6 +1,3 @@
-from wagtail.core.utils import accepts_kwarg
-from django.utils.safestring import mark_safe
-from django.template.loader import render_to_string
 from wagtail.core import blocks
 from wagtail_link_block.blocks import LinkBlock
 

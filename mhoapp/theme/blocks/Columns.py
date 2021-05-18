@@ -9,6 +9,7 @@ from .HeadingH1 import HeadingH1
 from .Paragraph import Paragraph
 from .ReadMoreText import ReadMoreText
 from .BlueBoxCTA import BlueBoxCTA
+from .ArticlesLinksBox import ArticlesLinksBox
 
 
 class AvailableColumnBlocks(blocks.StreamBlock):
@@ -16,6 +17,7 @@ class AvailableColumnBlocks(blocks.StreamBlock):
     paragraph = Paragraph()
     readMoreText = ReadMoreText()
     blueBoxCTA = BlueBoxCTA()
+    ArticlesLinksBox = ArticlesLinksBox()
     quote = blocks.BlockQuoteBlock()
     image = ImageChooserBlock()
     embed = EmbedBlock()
