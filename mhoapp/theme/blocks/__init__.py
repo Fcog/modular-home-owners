@@ -19,3 +19,6 @@ from .Separator import Separator
 from .Buttons import Buttons
 from .ResourcesCards import ResourcesCards
 from .ArticlesLinksBox import ArticlesLinksBox
+from .ImageCaption import ImageCaption
+from .GreenQuote import GreenQuote
+from .BlueQuote import BlueQuote

@@ -7687,6 +7687,11 @@ select {
   line-height: 1.9rem !important;
 }
 
+.text-4\.5xl {
+  font-size: 2.5rem !important;
+  line-height: 3.15rem !important;
+}
+
 .text-5\.5xl {
   font-size: 3.438rem !important;
 }
@@ -25681,7 +25686,7 @@ div[class^="block-"] {
 @media (min-width: 1024px) {
 
 div[class^="block-"] {
-    margin-bottom: 2rem
+    margin-bottom: 3rem
 }
   }
 
@@ -25734,27 +25739,6 @@ div[class^="block-"] ~ .block-headingH2 {
 .block-quote {
   clear: both;
 }
-
-.block-quote blockquote {
-    --tw-border-opacity: 1;
-    border-color: rgba(9, 41, 60, var(--tw-border-opacity));
-    border-left-width: 2px;
-    font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    margin-left: 1rem;
-    padding-left: 1rem;
-    --tw-text-opacity: 1;
-    color: rgba(105, 105, 105, var(--tw-text-opacity));
-    width: 91.666667%;
-  }
-
-@media (min-width: 1024px) {
-
-.block-quote blockquote {
-      width: 50%
-  }
-    }
 
 .block-embed {
   position: relative;
@@ -33230,6 +33214,11 @@ body {
   .sm\:text-1\.5xl {
     font-size: 1.31rem !important;
     line-height: 1.9rem !important;
+  }
+
+  .sm\:text-4\.5xl {
+    font-size: 2.5rem !important;
+    line-height: 3.15rem !important;
   }
 
   .sm\:text-5\.5xl {
@@ -56390,6 +56379,11 @@ body {
     line-height: 1.9rem !important;
   }
 
+  .md\:text-4\.5xl {
+    font-size: 2.5rem !important;
+    line-height: 3.15rem !important;
+  }
+
   .md\:text-5\.5xl {
     font-size: 3.438rem !important;
   }
@@ -79546,6 +79540,11 @@ body {
   .lg\:text-1\.5xl {
     font-size: 1.31rem !important;
     line-height: 1.9rem !important;
+  }
+
+  .lg\:text-4\.5xl {
+    font-size: 2.5rem !important;
+    line-height: 3.15rem !important;
   }
 
   .lg\:text-5\.5xl {
@@ -102706,6 +102705,11 @@ body {
     line-height: 1.9rem !important;
   }
 
+  .xl\:text-4\.5xl {
+    font-size: 2.5rem !important;
+    line-height: 3.15rem !important;
+  }
+
   .xl\:text-5\.5xl {
     font-size: 3.438rem !important;
   }
@@ -125862,6 +125866,11 @@ body {
   .\32xl\:text-1\.5xl {
     font-size: 1.31rem !important;
     line-height: 1.9rem !important;
+  }
+
+  .\32xl\:text-4\.5xl {
+    font-size: 2.5rem !important;
+    line-height: 3.15rem !important;
   }
 
   .\32xl\:text-5\.5xl {

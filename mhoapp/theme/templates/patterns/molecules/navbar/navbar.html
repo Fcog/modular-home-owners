@@ -6,7 +6,7 @@
 
     <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
 
-    <div class="luxbar-menu luxbar-menu-right {% if header_theme == "blue" %} luxbar-menu-blue {% else %} luxbar-menu-light {% endif %}">
+    <div class="luxbar-menu luxbar-menu-right {% if header_theme == "blue" or header_theme == "green" %} luxbar-menu-blue {% else %} luxbar-menu-light {% endif %}">
 
         <ul class="luxbar-navigation">
 
@@ -32,13 +32,13 @@
 
                 {# Tablet and up mobile button #}
                 
-                <div class="hidden {% if header_theme != 'blue' %} md:block {% endif %} py-0 mt-8 md:mt-0">
+                <div class="hidden {% if header_theme == 'normal' %} md:block {% endif %} py-0 mt-8 md:mt-0">
                     {# Green button for the white theme #}
 				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="green" inverted=True class="" %}
                 </div>
                 
-                <div class="hidden {% if header_theme == 'blue' %} md:block {% endif %} py-0 mt-8 md:mt-0">
-                    {# Blue button for the blue theme #}
+                <div class="hidden {% if header_theme == 'blue' or header_theme == 'green' %} md:block {% endif %} py-0 mt-8 md:mt-0">
+                    {# Blue button for the blue and green themes #}
 				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="blue" inverted=True class="" %}
                 </div>
 

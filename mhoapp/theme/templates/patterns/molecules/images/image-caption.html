@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+<figure>
+
+    {% image image width-1200 %}
+
+    {% if caption %}
+
+    <figcaption class="mt-7 text-sm text-blue-green italic">{{ caption }}</figcaption>
+
+    {% endif %}
+
+</figure>

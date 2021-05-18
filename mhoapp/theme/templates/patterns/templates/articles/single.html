@@ -4,6 +4,26 @@
 
 {% block content %}
 
-    {% include_block page.body %}
+    <div class="container py-24 flex flex-col items-center">
+
+        <div class="w-8/12">
+        
+            {% include_block page.body %}
+        
+        </div>
+
+        <div class="mt-12 lg:mt-32 mb-20 lg:mb-32 flex justify-between w-full">
+
+            <div>
+            {% include "patterns/atoms/links/blue-link.html" with text=prev_article_title url=prev_article_url %}
+            </div>
+
+            <div>
+            {% include "patterns/atoms/links/blue-link.html" with text=next_article_title url=next_article_url %}
+            </div>
+        
+        </div>        
+    
+    </div>
 
 {% endblock %}

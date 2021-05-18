@@ -2,8 +2,12 @@
 
 <header 
     data-pattern="organisms/header/header" 
-    class="md:pt-8 border-b border-gray-50 md:border-0 {% if header_theme == "blue" %} pb-24 md:pb-32 xl:pb-44 bg-blue bg-contain bg-center {% else %} md:pb-8 {% endif %}" 
-    {% if header_theme == "blue" %} style="background-image:url({% static 'images/home-header.png' %})" {% endif %}
+    class="md:pt-8 border-b border-gray-50 md:border-0 
+    {% if header_theme == "blue" %} pb-24 md:pb-32 xl:pb-44 bg-blue bg-contain bg-center {% endif %}
+    {% if header_theme == "green" %} bg-blue bg-cover bg-no-repeat bg-center {% endif %}
+    {% if header_theme == "normal" %} md:pb-8 {% endif %}" 
+    {% if header_theme == "blue" %} style="background-image:url({% static 'images/home-header.jpg' %})" {% endif %}
+    {% if header_theme == "green" %} style="background-image:url({% static 'images/blog-header.jpg' %})" {% endif %}
     >
 
     <div class="relative container z-40">
@@ -11,5 +15,15 @@
         {% main_menu template="patterns/molecules/navbar/navbar.html" add_sub_menus_inline=True %}
 
     </div>
+
+    {% if header_theme == "green" %} 
+
+    <div class="flex justify-center text-center">
+
+        <h1 class="pt-44 pb-32 lg:w-4/12 text-4.5xl text-white font-bold">{{ page.title }}</h1>
+    
+    </div>
+
+    {% endif %}
 
 </header>

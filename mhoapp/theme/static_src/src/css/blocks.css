@@ -3,7 +3,7 @@ div[class^="block-"] {
 	@apply mb-4;
 
 	@screen lg {
-		@apply mb-8;
+		@apply mb-12;
 	}
 }
 
@@ -56,16 +56,6 @@ div[class^="block-"] ~ .block-headingH2 {
 .block-embed,
 .block-quote {
     clear: both;
-}
-
-.block-quote {
-    blockquote {
-        @apply text-lg text-gray-90 font-bold border-l-2 border-blue-dark ml-4 pl-4 w-11/12;
-
-        @screen lg {
-            @apply w-1/2;
-        }        
-    }
 }
 
 .block-embed {
