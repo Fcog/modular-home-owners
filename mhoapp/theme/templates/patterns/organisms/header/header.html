@@ -5,6 +5,7 @@
     class="md:pt-8 border-b border-gray-50 md:border-0 
     {% if header_theme == "blue" %} pb-24 md:pb-32 xl:pb-44 bg-blue bg-contain bg-center {% endif %}
     {% if header_theme == "green" %} bg-blue bg-cover bg-no-repeat bg-center {% endif %}
+    {% if header_show_title is None or header_show_title == False %} pb-16 md:pb-24 2xl:pb-72 {% endif %}
     {% if header_theme == "normal" %} md:pb-8 {% endif %}" 
     {% if header_theme == "blue" %} style="background-image:url({% static 'images/home-header.jpg' %})" {% endif %}
     {% if header_theme == "green" %} style="background-image:url({% static 'images/blog-header.jpg' %})" {% endif %}
@@ -16,11 +17,11 @@
 
     </div>
 
-    {% if header_theme == "green" %} 
+    {% if header_show_title %} 
 
     <div class="flex justify-center text-center">
 
-        <h1 class="pt-20 md:pt-28 pb-16 md:pb-24 2xl:pt-44 2xl:pb-32 w-11/12 md:w-8/12 lg:w-6/12 xl:w-4/12 text-3xl md:text-4.5xl text-white font-bold">{{ page.title }}</h1>
+        <h1 class="pt-20 md:pt-28 2xl:pt-44 pb-16 md:pb-24 2xl:pb-32 w-11/12 md:w-8/12 lg:w-6/12 xl:w-4/12 text-3xl md:text-4.5xl text-white font-bold">{{ page.title }}</h1>
     
     </div>
 

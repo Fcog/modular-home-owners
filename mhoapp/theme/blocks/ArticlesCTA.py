@@ -3,6 +3,10 @@ from wagtail_link_block.blocks import LinkBlock
 
 
 class ArticlesCTABlock(blocks.StructBlock):
+    style = blocks.ChoiceBlock(choices=[
+        ('blue', 'Blue'),
+        ('white', 'White'),
+    ], icon='snippet', default='blue')      
     introduction = blocks.RichTextBlock(features=['bold'])
     column_1_title = blocks.CharBlock()
     column_1_article_1 = blocks.PageChooserBlock(page_type='articles.ArticlePage')
@@ -20,6 +24,9 @@ class ArticlesCTABlock(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
         context.update(value)
+
+        context['links_style'] = 'green' if value['style'] == 'white' else 'blue'
+
         context['links_col_1'] = [
             value['column_1_article_1'],
             value['column_1_article_2'],

@@ -48,9 +48,8 @@
 
     {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} md:text-1.5xl font-bold {% endif %}
 
-    {% if size == "normal" %} py-5 lg:py-8 {% endif %}
+    {% if size is None or size == "medium" %} py-5 lg:py-6 {% endif %}
     {% if size == "small" %} py-3 lg:py-4 {% endif %}
-    {% if size == "medium" %} py-5 lg:py-6 {% endif %}
     {% if size == "mobile-normal-desktop-small" %} py-5 lg:py-4 {% endif %}
 
     {% if rounded == "small" %} rounded-lg {% else %} rounded-full {% endif %}

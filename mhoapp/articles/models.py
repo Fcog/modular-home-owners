@@ -46,6 +46,7 @@ class ArticlePage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context['header_theme'] = 'green'
+        context['header_show_title'] = True
         context['prev_article_title'] = f'Previous Topic: {self.get_prev_sibling().title}' if self.get_prev_sibling() else ''
         context['prev_article_url'] = self.get_prev_sibling().url if self.get_prev_sibling() else ''
         context['next_article_title'] = f'Next Topic: {self.get_next_sibling().title}' if self.get_next_sibling() else ''

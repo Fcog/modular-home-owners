@@ -1,28 +1,32 @@
 {% load static %}
 
-<div class="py-16 md:py-32 bg-blue" style="background-image:url({% static 'images/house-blue-bg.jpg' %})">
+<div 
+    data-pattern="organisms/text-links-button"
+    class="py-16 md:py-32 {% if style == 'blue' %} bg-blue {% endif %}" 
+    {% if style == 'blue' %} style="background-image:url({% static 'images/house-blue-bg.jpg' %})" {% endif %}
+    >
 
     <div class="container">
 
-        <div class="pb-8 md:pb-16 lg:w-1/2 text-lg md:text-3xl text-white leading-snug">
+        <div class="lg:w-1/2 text-lg md:text-3xl leading-snug {% if style == 'blue' %} pb-8 md:pb-16 text-white {% else %} text-blue-green text-bold-green {% endif %}">
 
             {{ introduction }}
 
         </div>
 
-        <div class="mb-12 xl:w-11/12 2xl:w-10/12">
+        <div class="xl:w-11/12 2xl:w-10/12">
 
-            <div class="md:flex px-6 md:px-16 py-6 md:pt-16 md:pb-20 border border-white rounded-xl">
+            <div class="md:flex {% if style == 'blue' %} px-6 md:px-16 md:pb-20 py-6 md:pt-16 mb-12 border border-white rounded-xl {% else %} py-6 md:pt-20 mb-8 {% endif %}">
             
                 <div class="mb-8 md:mb-0 md:w-1/2">
-
-                    {% include "patterns/molecules/links-list/links-list.html" with title=column_1_title links=links_col_1 %}
+                
+                    {% include "patterns/molecules/links-list/links-list.html" with title=column_1_title links=links_col_1 style=links_style %}
 
                 </div>
 
                 <div class="md:w-1/2">
 
-                    {% include "patterns/molecules/links-list/links-list.html" with title=column_2_title links=links_col_2 %}
+                    {% include "patterns/molecules/links-list/links-list.html" with title=column_2_title links=links_col_2 style=links_style %}
 
                 </div>
 
@@ -34,7 +38,7 @@
 
         <div class="flex justify-center md:block">
 
-            {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="normal" inverted=False %}
+            {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" inverted=False %}
 
         </div>
 

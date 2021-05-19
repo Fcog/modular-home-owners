@@ -16,7 +16,7 @@
 
         {% if link %}
 
-        <li class="md:pr-16 lg:pr-8 {% if separation == 'larger' %} mb-4 md:mb-6 {% else %} mb-4 md:mb-2 {% endif %} md:text-1.5xl {% if style == 'green' %} text-green font-medium {% else %} text-blue-light2 {% endif %}">
+        <li class="md:pr-16 lg:pr-8 text-sm md:text-lg xl:text-1.5xl font-medium {% if separation == 'larger' %} mb-4 md:mb-6 {% else %} mb-3 {% endif %} {% if style == 'green' %} text-green font-medium {% else %} text-blue-light2 {% endif %}">
 
             <a 
                 href="{{ link.url }}" 
