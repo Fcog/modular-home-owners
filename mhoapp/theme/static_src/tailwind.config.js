@@ -127,6 +127,13 @@ module.exports = {
                         },
                     },
                 },
+                'lg': {
+                    css: {
+                        p: {
+                            marginBottom: '2em',
+                        }
+                    }
+                }
             },
         }
     },

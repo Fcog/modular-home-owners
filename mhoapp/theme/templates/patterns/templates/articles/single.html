@@ -4,17 +4,17 @@
 
 {% block content %}
 
-    <div class="container py-24 flex flex-col items-center">
+    <div class="container py-12 lg:py-24 flex flex-col items-center">
 
-        <div class="w-8/12">
+        <div class="md:w-10/12 lg:w-8/12">
         
             {% include_block page.body %}
         
         </div>
 
-        <div class="mt-12 lg:mt-32 mb-20 lg:mb-32 flex justify-between w-full">
+        <div class="mt-6 lg:mt-16 mb-16 lg:mb-32 lg:flex justify-between w-full">
 
-            <div>
+            <div class="mb-8 lg:mb-0">
             {% include "patterns/atoms/links/blue-link.html" with text=prev_article_title url=prev_article_url %}
             </div>
 

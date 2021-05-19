@@ -1,6 +1,8 @@
 {% load svg %}
 
-<div class="py-16 md:py-32 full-width text-white text-center bg-blue">
+<div 
+    data-pattern="organisms/cta/icons-cols"
+    class="py-16 md:py-32 full-width text-white text-center bg-blue">
 
     <div class="mb-10 md:mb-24 container flex justify-center">
         <h2 class="md:w-7/12 xl:w-6/12 2xl:w-5/12 text-lg md:text-3xl font-bold leading-snug">{{ title }}</h2>
@@ -18,11 +20,11 @@
 
         <div class="md:flex justify-evenly md:w-8/12 xl:w-6/12">
 
-            <div class="flex justify-center mb-8 md:mb-0">
+            <div class="flex justify-center mb-5 md:mb-0">
                 {% include "patterns/atoms/links/blue-link-arrow.html" with url=link_1_url text=link_1_text %}
             </div>
 
-            <div class="flex justify-center mb-8 md:mb-0">
+            <div class="flex justify-center">
                 {% include "patterns/atoms/links/blue-link-arrow.html" with url=link_2_url text=link_2_text %}
             </div>
 

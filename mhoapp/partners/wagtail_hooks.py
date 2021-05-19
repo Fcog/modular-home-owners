@@ -1,6 +1,6 @@
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
 
-from .models import PartnerPage
+from .models import PartnerPage, PartnerTypePage
 
 
 class PartnersPageAdmin(ModelAdmin):
@@ -13,5 +13,17 @@ class PartnersPageAdmin(ModelAdmin):
     list_display = ('title','PartnerType')
     search_fields = ('title',)
 
-
 modeladmin_register(PartnersPageAdmin)
+
+
+class PartnerTypePageAdmin(ModelAdmin):
+    model = PartnerTypePage
+    menu_label = 'Partner Types'
+    menu_icon = 'snippet'
+    menu_order = 210
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = ('title',)
+    search_fields = ('title',)
+
+modeladmin_register(PartnerTypePageAdmin)

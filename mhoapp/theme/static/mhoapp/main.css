@@ -1395,7 +1395,7 @@ select {
 
 .prose-lg p {
   margin-top: 1.3333333em;
-  margin-bottom: 1.3333333em;
+  margin-bottom: 2em;
 }
 
 .prose-lg [class~="lead"] {
@@ -25690,6 +25690,31 @@ div[class^="block-"] {
 }
   }
 
+div.block-headingH1 {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+
+div.block-headingH1 {
+    margin-bottom: 1.75rem
+}
+  }
+
+div.block-headingH2 {
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+
+div.block-headingH2 {
+    margin-bottom: 1rem;
+
+    margin-top: 6rem
+}
+  }
+
 /* Spacing margin exceptions */
 
 div.block-two_columns, div.block-hero, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA {
@@ -25697,18 +25722,15 @@ div.block-two_columns, div.block-hero, div.block-ForumCTA, div.block-partnersBut
   margin-bottom: 0px;
 }
 
-/* Add more spacing between a block and a H2 Heading block */
-
+/* Add more spacing between a block and a H2 Heading block 
 div[class^="block-"] ~ .block-headingH2 {
-  margin-top: 2rem;
-}
+    @apply mt-8;
 
-@media (min-width: 1024px) {
-
-div[class^="block-"] ~ .block-headingH2 {
-    margin-top: 4rem
+    @screen lg {
+        @apply mt-16;
+    }
 }
-  }
+*/
 
 /* Add less spacing between a H1 heading block and a Paragraph block 
 .block-headingH1 ~ .block-paragraph {
@@ -26924,7 +26946,7 @@ body {
 
   .sm\:prose-lg p {
     margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
+    margin-bottom: 2em;
   }
 
   .sm\:prose-lg [class~="lead"] {
@@ -50087,7 +50109,7 @@ body {
 
   .md\:prose-lg p {
     margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
+    margin-bottom: 2em;
   }
 
   .md\:prose-lg [class~="lead"] {
@@ -73250,7 +73272,7 @@ body {
 
   .lg\:prose-lg p {
     margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
+    margin-bottom: 2em;
   }
 
   .lg\:prose-lg [class~="lead"] {
@@ -96413,7 +96435,7 @@ body {
 
   .xl\:prose-lg p {
     margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
+    margin-bottom: 2em;
   }
 
   .xl\:prose-lg [class~="lead"] {
@@ -119576,7 +119598,7 @@ body {
 
   .\32xl\:prose-lg p {
     margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
+    margin-bottom: 2em;
   }
 
   .\32xl\:prose-lg [class~="lead"] {

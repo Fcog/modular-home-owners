@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <div data-pattern="templates/resources/two-col" class="mt-6 md:mt-14">
+    <div data-pattern="templates/resources/two-col" class="mt-6 md:mt-14 lg:mt-20">
     
         <div class="container">
 
@@ -12,9 +12,9 @@
             
         </div>
 
-        <div class="container mt-8 lg:mt-16 mb-20 lg:mb-32 flex justify-between">
+        <div class="container mt-8 lg:mt-16 mb-20 lg:mb-32 md:flex justify-between">
 
-            <div>
+            <div class="mb-4 md:mb-0">
             {% include "patterns/atoms/links/blue-link.html" with text=prev_article_title url=prev_article_url %}
             </div>
 

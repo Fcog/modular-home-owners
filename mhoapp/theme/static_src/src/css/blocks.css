@@ -7,6 +7,22 @@ div[class^="block-"] {
 	}
 }
 
+div.block-headingH1 {
+	@apply mb-4;
+
+	@screen lg {
+		@apply mb-7;
+	}
+}
+
+div.block-headingH2 {
+	@apply mt-6 mb-2;
+
+	@screen lg {
+		@apply mt-24 mb-4;
+	}
+}
+
 /* Spacing margin exceptions */
 div.block-two_columns,
 div.block-hero,
@@ -22,7 +38,7 @@ div.block-articlesCTA {
 	@apply mb-0 clear-both;
 }
 
-/* Add more spacing between a block and a H2 Heading block */
+/* Add more spacing between a block and a H2 Heading block 
 div[class^="block-"] ~ .block-headingH2 {
     @apply mt-8;
 
@@ -30,7 +46,7 @@ div[class^="block-"] ~ .block-headingH2 {
         @apply mt-16;
     }
 }
-
+*/
 /* Add less spacing between a H1 heading block and a Paragraph block 
 .block-headingH1 ~ .block-paragraph {
     @screen lg {

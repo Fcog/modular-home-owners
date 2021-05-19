@@ -28,6 +28,7 @@ class ArticlePage(Page):
         ('headingH2', HeadingH2()),
         ('paragraph', custom_blocks.Paragraph()),
         ('image', custom_blocks.ImageCaption()),
+        ('buttons', custom_blocks.Buttons()),
         ('quote', custom_blocks.GreenQuote()),
         ('quote2', custom_blocks.BlueQuote()),
         ('embed', EmbedBlock()),
