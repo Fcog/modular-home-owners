@@ -62,6 +62,8 @@ class FlexibleTwoColumnPage(Page):
     keywords = models.CharField(default='', blank=True, max_length=100)
 
     # Database fields
+    offset_2nd_column = models.BooleanField(default=False, blank=True)
+
     heading = fields.StreamField(
         custom_blocks.TwoColumnsBlockEqualWidth, 
         default=''
@@ -71,6 +73,7 @@ class FlexibleTwoColumnPage(Page):
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
+        FieldPanel('offset_2nd_column'),
         StreamFieldPanel('heading'),
         StreamFieldPanel('body'),
     ]

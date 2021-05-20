@@ -2,13 +2,13 @@
 
 <div 
     data-pattern="organisms/text-links-button"
-    class="py-16 md:py-32 {% if style == 'blue' %} bg-blue {% endif %}" 
+    class="{% if style == 'blue' %} py-16 md:py-32 bg-blue {% else %} my-12 md:my-24 {% endif %}" 
     {% if style == 'blue' %} style="background-image:url({% static 'images/house-blue-bg.jpg' %})" {% endif %}
     >
 
     <div class="container">
 
-        <div class="lg:w-1/2 text-lg md:text-3xl leading-snug {% if style == 'blue' %} pb-8 md:pb-16 text-white {% else %} text-blue-green text-bold-green {% endif %}">
+        <div class="md:w-10/12 xl:w-1/2 text-lg md:text-3xl leading-snug {% if style == 'blue' %} pb-8 md:pb-16 text-white {% else %} text-blue-green text-bold-green {% endif %}">
 
             {{ introduction }}
 
@@ -16,7 +16,7 @@
 
         <div class="xl:w-11/12 2xl:w-10/12">
 
-            <div class="md:flex {% if style == 'blue' %} px-6 md:px-16 md:pb-20 py-6 md:pt-16 mb-12 border border-white rounded-xl {% else %} py-6 md:pt-20 mb-8 {% endif %}">
+            <div class="md:flex {% if style == 'blue' %} px-6 md:px-16 md:pb-20 py-6 md:pt-16 mb-12 border border-white rounded-xl {% else %} py-6 md:pt-20 lg:mb-8 {% endif %}">
             
                 <div class="mb-8 md:mb-0 md:w-1/2">
                 

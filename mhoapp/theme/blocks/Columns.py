@@ -11,6 +11,7 @@ from .Buttons import Buttons
 from .ReadMoreText import ReadMoreText
 from .BlueBoxCTA import BlueBoxCTA
 from .ArticlesLinksBox import ArticlesLinksBox
+from .IconsGrid import IconsGrid
 
 
 class AvailableColumnBlocks(blocks.StreamBlock):
@@ -19,6 +20,7 @@ class AvailableColumnBlocks(blocks.StreamBlock):
     readMoreText = ReadMoreText()
     buttons = Buttons()
     blueBoxCTA = BlueBoxCTA()
+    iconsGrid = IconsGrid()
     ArticlesLinksBox = ArticlesLinksBox()
     quote = blocks.BlockQuoteBlock()
     image = ImageChooserBlock()
