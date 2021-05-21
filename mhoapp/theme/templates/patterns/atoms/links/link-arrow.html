@@ -1,0 +1,12 @@
+{% load svg %}
+
+<a 
+    data-pattern="atoms/links/link-arrow"
+    {% if new_window %} target="_blank" {% endif %}
+    class="flex items-center text-base md:text-1.5xl font-bold {% if color == "blue" %} text-blue-light2 {% else %} text-green-medium icon-green {% endif %}" href="{{ url }}">
+
+    <span class="pb-0.5 lg:pb-1 mr-4 {% if underline %} border-b-2 border-light2 {% endif %}">{{ text }}</span>
+    
+    {% svg 'right arrow' %}
+
+</a>

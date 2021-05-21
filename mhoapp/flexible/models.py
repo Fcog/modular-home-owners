@@ -38,10 +38,12 @@ class FlexibleOneColumnPage(Page):
     keywords = models.CharField(default='', blank=True, max_length=100)
 
     # Database fields
+    display_title = models.BooleanField(default=False, blank=True)
     body = StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
+        FieldPanel('display_title'),
         StreamFieldPanel('body'),
     ]
 

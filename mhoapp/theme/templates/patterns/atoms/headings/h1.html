@@ -1,15 +1,11 @@
 {% if title %}
 
-<div class="container mb-2 xl:mb-4">
+<h1 
+    data-pattern="atoms/headings/h1" 
+    class="mb-2 xl:mb-4 text-2xl lg:text-4xl text-blue-dark font-bold {{ h1_class }}">
 
-    <h1 
-        data-pattern="atoms/headings/h1" 
-        class="text-2xl lg:text-4xl text-blue-dark font-bold {{ h1_class }}">
+    {{ title }}
 
-        {{ title }}
-
-    </h1>
-    
-</div>
+</h1>
 
 {% endif %}
