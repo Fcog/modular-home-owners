@@ -5,7 +5,7 @@
     class="md:pt-8 border-b border-gray-50 md:border-0 
     {% if header_theme == "blue" %} pb-24 md:pb-32 xl:pb-44 bg-blue bg-contain bg-center {% endif %}
     {% if header_theme == "green" %} bg-blue bg-cover bg-no-repeat bg-center {% endif %}
-    {% if header_show_title is None or header_show_title == False %} pb-16 md:pb-24 2xl:pb-72 {% endif %}
+    {% if header_show_title == False %} pb-16 md:pb-24 2xl:pb-72 {% endif %}
     {% if header_theme == "normal" %} md:pb-8 {% endif %}" 
     {% if header_theme == "blue" %} style="background-image:url({% static 'images/home-header.jpg' %})" {% endif %}
     {% if header_theme == "green" %} style="background-image:url({% static 'images/blog-header.jpg' %})" {% endif %}

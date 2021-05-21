@@ -1,59 +1,69 @@
-{% extends "patterns/organisms/hero/hero.html" %}
+{% load wagtailcore_tags wagtailimages_tags svg %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+<div class="container pt-2 md:pt-12">
 
-{% block bg_image %}
+    <div class="relative">
 
-    {% image image scale-100 as bg_image %}
+        <div class="relative flex justify-between pb-48 md:pb-0 2xl:pt-16 z-30">
 
-    <div
-        class="absolute bottom-0 full-width h-full pt-4 lg:pt-8 lg:pb-20 bg-bottom md:bg-right-40% 2xl:bg-right-top bg-contain md:bg-50% bg-no-repeat -z-10"
-        style="background-image:url({{ bg_image.url }})"></div>
+            {% image image width-975 as bg_image %}
 
-{% endblock %}        
+            <div
+                class="absolute bottom-0 full-width h-full pt-4 lg:pt-8 lg:pb-20 bg-bottom md:bg-right-40% 2xl:bg-right-top bg-contain md:bg-50% bg-no-repeat -z-10"
+                style="background-image:url({{ bg_image.url }})">
+            </div>
 
-{% block left_content %}
+            <div class="md:relative pb-20 w-full">
 
-    <h1 class="mb-9 text-3xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
+                <div class="lg:w-1/2">
 
-    <p class="mb-9 md:w-8/12 md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
+                    <h1 class="mb-9 text-3xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
 
-    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center z-30" id="hero-home-form">
+                    <p class="mb-9 md:w-8/12 text-sm md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
-        <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
+                    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center z-30" id="hero-home-form">
 
-            <div class="md:w-1/2 mb-3 md:mb-4.5 md:mb-0">
+                        <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
 
-                {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" icon="home icon" select_class="md:border-r-0" %}
+                            <div class="md:w-1/2 mb-3 md:mb-0">
+
+                                {% include "patterns/atoms/select/select.html" with id="style" options=styles default_text="Choose Style" size="big" icon="home icon" select_class="md:border-r-0" %}
+
+                            </div>
+
+                            <div class="md:w-1/2">
+
+                                {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" icon="price icon" size="big" %}
+
+                                <input type="hidden" id="min-price-range" name="min-price-range">
+                                <input type="hidden" id="max-price-range" name="max-price-range">
+
+                            </div>
+
+                        </div>
+
+                        {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="blue" inverted=False type="submit" class="mb-4 md:mb-16" %}
+
+                    </form>
+
+                </div>
 
             </div>
 
-            <div class="md:w-1/2">
+        </div>        
 
-                {% include "patterns/atoms/select/select.html" with id="price-range" options=price_ranges default_text="Price Range" icon="price icon" size="big" %}
+        {# Wave blue overlay on tablet, desktop #}
+        <div class="hidden md:block absolute -bottom-0.5 full-width h-3/6 z-10 overflow-hidden">{% svg 'blue overlay' %}</div>
 
-                <input type="hidden" id="min-price-range" name="min-price-range">
-                <input type="hidden" id="max-price-range" name="max-price-range">
+        <div class="relative -mt-24 md:mt-0 z-40">
 
-            </div>
+            {% include "patterns/molecules/links-bar/links-bar.html" with text=filter_bar_text links=price_ranges class="z-20" %}
+
+            {# Wave blue overlay on mobile #}
+            <div class="md:hidden absolute bottom-0 h-48 full-width bg-blue z-10"></div>
 
         </div>
 
-        {% include "patterns/atoms/button/button.html" with id="search-homes" text=search_button_text color="blue" inverted=False type="submit" class="mb-4 md:mb-16" %}
+    </div>       
 
-    </form>
-
-{% endblock %}
-
-{% block bottom_content %}
-
-    <div class="relative z-20 -mt-24 md:mt-0 z-40">
-
-        {% include "patterns/molecules/links-bar/links-bar.html" with text=filter_bar_text links=price_ranges class="z-20" %}
-
-        {# Wave blue overlay on mobile #}
-        <div class="md:hidden absolute bottom-0 h-48 full-width bg-blue z-10"></div>
-
-    </div>
-
-{% endblock %}
+</div>       

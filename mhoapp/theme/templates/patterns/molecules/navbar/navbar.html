@@ -31,8 +31,7 @@
                 {% slugurl 'homes' as search_homes_url %}
 
                 {# Tablet and up mobile button #}
-                
-                <div class="hidden {% if header_theme == 'normal' %} md:block {% endif %} py-0 mt-8 md:mt-0">
+                <div class="hidden {% if header_theme is None or header_theme == 'normal' %} md:block {% endif %} py-0 mt-8 md:mt-0">
                     {# Green button for the white theme #}
 				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="green" inverted=True class="" %}
                 </div>

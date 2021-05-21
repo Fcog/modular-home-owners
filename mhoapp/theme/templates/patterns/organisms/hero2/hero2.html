@@ -1,21 +1,30 @@
-{% extends "patterns/organisms/hero/hero.html" %}
+{% load wagtailcore_tags wagtailimages_tags svg %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+<div class="relative pt-2 md:pt-12">
 
-{% block bg_image %}
+    <div class="relative container flex justify-between pt-10 xl:pt-16 2xl:pt-20 z-30">
 
-    {% image image scale-100 as bg_image %}
+        <div class="md:relative lg:flex lg:pb-32 xl:pb-24 2xl:pb-10">
 
-    <div
-        class="absolute bottom-0 full-width h-full pt-4 lg:pt-8 lg:pb-20 bg-bottom md:bg-right-40% 2xl:bg-right-top bg-contain md:bg-50% bg-no-repeat -z-10"
-        style="background-image:url({{ bg_image.url }})"></div>
+            <div class="lg:w-1/2 lg:pr-12 xl:pr-24">
+                
+                <h1 class="mb-9 text-3xl md:text-4xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
 
-{% endblock %}        
+                <p class="mb-9 text-sm md:text-lg text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
-{% block left_content %}
+            </div>
 
-    <h1 class="mb-9 text-3xl md:text-5.5xl text-blue-dark font-bold leading-tight">{{ heading }}</h1>
+            <div class="flex items-end lg:w-1/2 xl:-mt-12">
+            
+                {% image image width-975 %}
+            
+            </div>
 
-    <p class="mb-9 md:w-8/12 md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
+        </div>
 
-{% endblock %}
+    </div>
+
+    {# Wave blue overlay on tablet, desktop #}
+    <div class="hidden md:block absolute bottom-0 z-10 overflow-hidden">{% svg 'dark blue overlay' %}</div>
+
+</div>
