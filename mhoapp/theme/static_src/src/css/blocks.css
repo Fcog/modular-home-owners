@@ -35,7 +35,8 @@ div.block-PartnersCTA,
 div.block-ResourcesCTA,
 div.block-Separator,
 div.block-PartnerTypeGrid,
-div.block-articlesCTA {
+div.block-articlesCTA,
+div.block-articlesCTAGlobal {
 	@apply mb-0 clear-both;
 }
 

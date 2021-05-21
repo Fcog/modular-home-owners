@@ -27,6 +27,7 @@ class ResourcesIndexPage(Page):
         ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
         ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
         ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+        ('articlesCTAGlobal', custom_blocks.ArticlesCTAGlobal()),
         ('ForumCTA', custom_blocks.ForumCTA()),
         ('paragraph', custom_blocks.Paragraph()),
         ('buttons', custom_blocks.Buttons()),

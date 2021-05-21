@@ -7,17 +7,23 @@ class ArticlesCTABlock(blocks.StructBlock):
         ('blue', 'Blue'),
         ('white', 'White'),
     ], icon='snippet', default='blue')      
+
+    add_border = blocks.BooleanBlock(default=True)      
+
     introduction = blocks.RichTextBlock(features=['bold'])
+
     column_1_title = blocks.CharBlock()
     column_1_article_1 = blocks.PageChooserBlock(page_type='articles.ArticlePage')
     column_1_article_2 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_1_article_3 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_1_article_4 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
+
     column_2_title = blocks.CharBlock()
     column_2_article_1 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_2_article_2 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_2_article_3 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
     column_2_article_4 = blocks.PageChooserBlock(page_type='articles.ArticlePage', required=False)
+
     button_text = blocks.CharBlock()
     button_link = LinkBlock()
 

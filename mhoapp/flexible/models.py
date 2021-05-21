@@ -20,6 +20,7 @@ blocks = [
     ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
     ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
     ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+    ('articlesCTAGlobal', custom_blocks.ArticlesCTAGlobal()),
     ('ForumCTA', custom_blocks.ForumCTA()),
     ('hero', custom_blocks.HeroBlock()),
     ('hero2', custom_blocks.Hero2Block()),

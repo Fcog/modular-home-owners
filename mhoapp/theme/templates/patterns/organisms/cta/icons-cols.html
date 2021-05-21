@@ -2,7 +2,7 @@
 
 <div 
     data-pattern="organisms/cta/icons-cols"
-    class="py-16 md:py-32 full-width text-white text-center bg-blue">
+    class="py-16 md:py-32 full-width text-white text-center {% if style == 'blue' %} bg-blue {% else %} bg-blue-dark {% endif %}">
 
     <div class="mb-10 md:mb-24 container flex justify-center">
         <h2 class="md:w-7/12 xl:w-6/12 2xl:w-5/12 text-lg md:text-3xl font-bold leading-snug">{{ title }}</h2>

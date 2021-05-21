@@ -1,5 +1,6 @@
 from .HeroBlock import HeroBlock
 from .ArticlesCTA import ArticlesCTABlock
+from .ArticlesCTAGlobal import ArticlesCTAGlobal
 from .ForumCTA import ForumCTA
 from .PopularHomesGrid import PopularHomesGrid
 from .GetYourHouseCTA import GetYourHouseCTA

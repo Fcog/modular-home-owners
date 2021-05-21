@@ -3,9 +3,16 @@ from wagtail.core import blocks
 from mhoapp.base.models import BlocksSettings
 
 
-class GetYourHouseCTA(blocks.StaticBlock):
+class GetYourHouseCTA(blocks.StructBlock):
+    style = blocks.ChoiceBlock(choices=[
+        ('blue', 'Blue'),
+        ('dark-blue', 'Dark Blue'),
+    ], icon='view', default='blue')  
+
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
+
+        context['style'] = value['style']
 
         global_data = BlocksSettings.for_request(context['request'])
 

@@ -141,14 +141,32 @@ class BlocksSettings(BaseSetting):
     gyh_link_2_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Link 2 URL") 
 
     # Partner CTA global data
-    partner_1_title = RichTextField(null=True, blank=True, default="")
+    partner_1_title = RichTextField(null=True, blank=True, default="", features=['bold'])
     partner_1_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 text", default="")     
     partner_1_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 1 button text", default="") 
     partner_1_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 1 link URL") 
     partner_2_title = RichTextField(null=True, blank=True, default="")
     partner_2_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 text", default="")        
     partner_2_button_text = models.TextField(max_length=255, null=True, verbose_name="Column 2 button text", default="")     
-    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link URL")        
+    partner_2_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Column 2 link URL")  
+
+    # Articles CTA global data
+    art_cta_col_intro = RichTextField(null=True, blank=True, default="", features=['bold'])
+
+    art_cta_col_1_title = models.TextField(max_length=255, null=True, blank=True, default="", verbose_name="Column 1 Title")
+    art_cta_col_1_link_1 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=False, null=True, related_name='+', verbose_name="Column 1 Link 1")
+    art_cta_col_1_link_2 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 1 Link 2")
+    art_cta_col_1_link_3 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 1 Link 3")
+    art_cta_col_1_link_4 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 1 Link 4")
+
+    art_cta_col_2_title = models.TextField(max_length=255, null=True, blank=True, default="", verbose_name="Column 2 Title")
+    art_cta_col_2_link_1 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=False, null=True, related_name='+', verbose_name="Column 2 Link 1")
+    art_cta_col_2_link_2 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 2 Link 2")
+    art_cta_col_2_link_3 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 2 Link 3")
+    art_cta_col_2_link_4 = models.ForeignKey('articles.ArticlePage', on_delete=models.SET_NULL, blank=True, null=True, related_name='+', verbose_name="Column 2 Link 4")    
+
+    art_cta_button_text = models.TextField(max_length=255, null=True, blank=True, default="", verbose_name="Button text")     
+    art_cta_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button Link")  
 
     # Resources CTA global data
     resources_text = RichTextField(null=True, blank=True, default="")    
@@ -209,5 +227,24 @@ class BlocksSettings(BaseSetting):
             ],
             heading="Resources CTA",
             classname="collapsible collapsed",
-        ),            
+        ),       
+        MultiFieldPanel(
+            [
+                FieldPanel('art_cta_col_intro'),
+                FieldPanel('art_cta_col_1_title'),
+                PageChooserPanel('art_cta_col_1_link_1'),
+                PageChooserPanel('art_cta_col_1_link_2'),
+                PageChooserPanel('art_cta_col_1_link_3'),
+                PageChooserPanel('art_cta_col_1_link_4'),
+                FieldPanel('art_cta_col_2_title'),
+                PageChooserPanel('art_cta_col_2_link_1'),
+                PageChooserPanel('art_cta_col_2_link_2'),
+                PageChooserPanel('art_cta_col_2_link_3'),
+                PageChooserPanel('art_cta_col_2_link_4'),
+                FieldPanel('art_cta_button_text'),
+                PageChooserPanel('art_cta_button_link'),                
+            ],
+            heading="Articles CTA",
+            classname="collapsible collapsed",
+        ),               
     ]    

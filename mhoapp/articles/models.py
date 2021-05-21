@@ -5,7 +5,6 @@ from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import StreamFieldPanel, FieldPanel
 from wagtail.embeds.blocks import EmbedBlock
 
-from mhoapp.theme.blocks import HeadingH2
 from mhoapp.resources.models import ResourcePage
 from mhoapp.theme import blocks as custom_blocks
 
@@ -25,7 +24,7 @@ class ArticlePage(Page):
 
     body = StreamField([
         ('separator', custom_blocks.Separator()),
-        ('headingH2', HeadingH2()),
+        ('headingH2', custom_blocks.HeadingH2()),
         ('paragraph', custom_blocks.Paragraph()),
         ('image', custom_blocks.ImageCaption()),
         ('buttons', custom_blocks.Buttons()),

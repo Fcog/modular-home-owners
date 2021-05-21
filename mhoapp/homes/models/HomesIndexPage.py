@@ -14,7 +14,6 @@ from mhoapp.base.models import HomeSearchPageSettings
 from mhoapp.homes.models.HomePage import HomePage
 from mhoapp.homes.models.StyleCategory import StyleCategory
 from mhoapp.partners.models.LocationCategory import LocationCategory
-from mhoapp.theme.blocks import Paragraph, ReadMoreText, BlueBoxCTA, PartnersButtons
 from mhoapp.theme import blocks as custom_blocks
 
 
@@ -73,7 +72,6 @@ class HomesIndexPage(Page):
             ('readMoreText', custom_blocks.ReadMoreText()),
             ('blueBoxCTA', custom_blocks.BlueBoxCTA()),
             ('paragraph', custom_blocks.Paragraph()),
-            ('quote', blocks.BlockQuoteBlock()),
             ('image', ImageChooserBlock()),
             ('embed', EmbedBlock()),
         ], 

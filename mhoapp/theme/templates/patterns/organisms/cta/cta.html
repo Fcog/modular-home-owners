@@ -1,16 +1,22 @@
-<div class="container flex justify-center text-center py-12 md:py-32">
+<div 
+    data-pattern="organisms/cta/cta"
+    class="py-12 md:py-32 {% if style == 'gray' %} bg-gray-20 {% endif %}">
 
-    <div class="md:w-10/12 lg:w-9/12 2xl:w-6/12">
+    <div class="container flex justify-center text-center">
 
-        <h2 class="mb-4 md:mb-7 text-black text-1.5xl md:text-3xl font-bold">{{ title|linebreaks }}</h2>
+        <div class="md:w-10/12 lg:w-9/12 2xl:w-48%">
 
-        <p class="mb-7 md:mb-12 text-black-light md:text-1.5xl">{{ text }}</p>
+            <h2 class="mb-4 md:mb-7 text-black text-1.5xl md:text-3xl font-bold">{{ title|linebreaks }}</h2>
 
-        <div class="flex justify-center">
+            <p class="mb-7 md:mb-12 text-black-light md:text-1.5xl">{{ text }}</p>
 
-            {% include "patterns/atoms/button/button.html" with text=button_text url=button_url color="blue" inverted=False %}
+            <div class="flex justify-center">
 
-        </div>
+                {% include "patterns/atoms/button/button.html" with text=button_text url=button_url color="blue" inverted=button_inversion %}
+
+            </div>
+
+        </div>    
 
     </div>    
 

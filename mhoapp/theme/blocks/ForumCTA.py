@@ -3,9 +3,17 @@ from wagtail.core import blocks
 from mhoapp.base.models import BlocksSettings
 
 
-class ForumCTA(blocks.StaticBlock):
+class ForumCTA(blocks.StructBlock):
+    style = blocks.ChoiceBlock(choices=[
+        ('white', 'White'),
+        ('gray', 'Gray'),
+    ], icon='view', default='white')  
+
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
+
+        context['style'] = value['style']
+        context['button_inversion'] = False if value['style'] == 'white' else True
 
         global_data = BlocksSettings.for_request(context['request'])
 

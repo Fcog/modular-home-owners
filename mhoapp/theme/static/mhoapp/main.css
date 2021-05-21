@@ -25898,7 +25898,7 @@ div.block-headingH2 {
 
 /* Spacing margin exceptions */
 
-div.block-two_columns, div.block-hero, div.block-hero2, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA {
+div.block-two_columns, div.block-hero, div.block-hero2, div.block-ForumCTA, div.block-partnersButtons, div.block-PopularHomesGrid, div.block-GetYourHouseCTA, div.block-PartnersCTA, div.block-ResourcesCTA, div.block-Separator, div.block-PartnerTypeGrid, div.block-articlesCTA, div.block-articlesCTAGlobal {
   clear: both;
   margin-bottom: 0px;
 }
