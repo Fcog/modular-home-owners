@@ -3,7 +3,7 @@ from wagtail.core import blocks
 from mhoapp.base.models import BlocksSettings
 
 
-class GetYourHouseCTA(blocks.StructBlock):
+class GetYourHouseCTA(blocks.StaticBlock):
     style = blocks.ChoiceBlock(choices=[
         ('blue', 'Blue'),
         ('dark-blue', 'Dark Blue'),

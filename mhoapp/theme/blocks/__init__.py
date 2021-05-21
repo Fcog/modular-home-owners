@@ -25,3 +25,4 @@ from .GreenQuote import GreenQuote
 from .BlueQuote import BlueQuote
 from .Hero2Block import Hero2Block
 from .IconsGrid import IconsGrid
+from .ThreeColumnsBlock import ThreeColumnsBlock

@@ -1,0 +1,35 @@
+{% load wagtailimages_tags %}
+
+<div
+    data-pattern="organisms/columns/three-blocks"
+    class="container">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {% for column in columns %}
+
+        <div>
+
+            {% image card.image width-65 %}
+        
+            <h3 class="my-16 text-2xl text-blue-dark font-medium">
+            
+                {{ column.title }}
+            
+            </h3>
+
+            <p class="mb-16 text-lg text-black-light font-medium">
+            
+                {{ column.text }}
+
+            </p>
+
+            {% include "patterns/atoms/links/blue-link-arrow.html" with url=column.link.url text=column.link_text new_window=column.link.new_window %}
+
+        </div>
+
+        {% endfor %}  
+
+    </div>    
+
+</div>
