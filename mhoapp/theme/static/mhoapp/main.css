@@ -26110,6 +26110,7 @@ div[class^="block-"] ~ .block-headingH2 {
 
 .form__input.active label {
         transform: translate(0, 1px) scale(.75);
+        background-color: white;
       }
 
 .form__checkbox {
