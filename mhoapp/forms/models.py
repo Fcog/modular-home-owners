@@ -16,12 +16,17 @@ class FormField(AbstractFormField):
 
 
 class FormPage(AbstractEmailForm):
+    # Database fields
     intro = RichTextField(blank=True)
     thank_you_text = RichTextField(blank=True)
+    submit_button_text = models.CharField(max_length=120, blank=True, default="Send")
 
     content_panels = AbstractEmailForm.content_panels + [
         FormSubmissionsPanel(),
-        FieldPanel('intro', classname="full"),
+        MultiFieldPanel([
+                FieldPanel('intro', classname="full"),
+                FieldPanel('submit_button_text', classname="full"),
+        ], heading="Texts", classname="collapsible collapsed"),     
         MultiFieldPanel([
             InlinePanel('form_fields'),
         ], heading="Form Fields", classname="collapsible collapsed"),        
@@ -55,3 +60,6 @@ class FormPage(AbstractEmailForm):
             return 'patterns/atoms/paragraph/paragraph.html'
 
         return 'patterns/templates/forms/thank-you.html'
+
+    class Meta:
+        verbose_name = "Form"    

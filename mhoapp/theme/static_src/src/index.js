@@ -24,6 +24,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
     floatingInputLabels().init()
     homesLayoutToggler()
 
+    /**
+     * When the form is submitted using Ajax.
+     */
     document.addEventListener('htmx:afterRequest', () => {
         floatingInputLabels().init()
     })

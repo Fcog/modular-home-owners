@@ -26,6 +26,7 @@ blocks = [
     ('hero2', custom_blocks.Hero2Block()),
     ('paragraph', custom_blocks.Paragraph()),
     ('threeColumnsBlock', custom_blocks.ThreeColumnsBlock()),
+    ('form', custom_blocks.FormBlock()),
     ('quote', blocks.BlockQuoteBlock()),
     ('image', ImageChooserBlock()),
     ('embed', EmbedBlock()),

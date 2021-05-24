@@ -1,10 +1,10 @@
 export default function floatingInputLabels() {
-    const handleFocus = event => {
+    const moveLabelUp = event => {
         const target = event.target
         target.parentNode.classList.add('active')
     }
 
-    const handleBlur = event => {
+    const moveLabelDown = event => {
         const target = event.target
         if (!target.value) {
           target.parentNode.classList.remove('active')
@@ -12,8 +12,8 @@ export default function floatingInputLabels() {
     }
 
     const bindEvents = (input) => {
-        input.addEventListener('focus', handleFocus)
-        input.addEventListener('blur', handleBlur)
+        input.addEventListener('focus', moveLabelUp)
+        input.addEventListener('blur', moveLabelDown)
     }
 
     const init = () => {
@@ -21,7 +21,7 @@ export default function floatingInputLabels() {
 
         inputContainers.forEach( inputContainer => {
             const input = inputContainer.querySelector('.js-input input, .js-input textarea, .js-input select')
-
+            
             if (!input) {
                 return
             }
