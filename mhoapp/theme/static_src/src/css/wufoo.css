@@ -1,0 +1,29 @@
+.wufoo {
+    h2 {
+        @apply text-lg text-blue-dark font-bold;
+
+        @screen md {
+            @apply text-3xl;
+        }
+    }
+
+    .field {
+        @apply text-blue-dark border border-blue-dark rounded-md;
+    }
+
+    .desc {
+        @apply text-sm text-blue-dark;
+    }
+
+    .submit {
+        @apply py-20 px-20 text-white font-bold bg-blue-light rounded-3xl;
+
+        @screen md {
+            @apply text-1.5xl px-24 py-6;
+        }
+    }
+
+    .info {
+        @apply border-none !important;
+    }
+}
