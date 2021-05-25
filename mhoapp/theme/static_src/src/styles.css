@@ -42,6 +42,9 @@
 /* Forms inputs */
 @import "./css/forms.css";
 
+/* Wufoo form styles */
+@import "./css/wufoo.css";
+
 /* Modal https://micromodal.vercel.app/ */
 @import "./css/modal.css";
 
