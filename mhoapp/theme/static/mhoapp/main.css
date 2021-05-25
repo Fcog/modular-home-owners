@@ -26225,16 +26225,23 @@ select {
     width: 100%;
   }
 
-.wufoo .desc {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    --tw-text-opacity: 1;
-    color: rgba(9, 41, 60, var(--tw-text-opacity));
-  }
+.wufoo label.desc {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      --tw-text-opacity: 1;
+      color: rgba(9, 41, 60, var(--tw-text-opacity));
+    }
+
+@media (min-width: 768px) {
+
+.wufoo label.desc {
+        font-size: 1.125rem;
+
+        line-height: 1.75rem
+    }
+      }
 
 .wufoo .submit {
     --tw-bg-opacity: 1;
@@ -26243,10 +26250,10 @@ select {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     --tw-text-opacity: 1;
     color: rgba(255, 255, 255, var(--tw-text-opacity));
   }
@@ -26258,13 +26265,13 @@ select {
 
       line-height: 1.9rem;
 
-      padding-top: 1.5rem;
+      padding-top: 1.25rem;
 
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
 
-      padding-left: 6rem;
+      padding-left: 3rem;
 
-      padding-right: 6rem
+      padding-right: 3rem
   }
     }
 
