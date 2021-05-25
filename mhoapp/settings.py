@@ -109,6 +109,7 @@ INSTALLED_APPS = [
     'mhoapp.flexible',
     'mhoapp.resources',
     'mhoapp.theme',
+    'mhoapp.forms',
 ]
 
 # Include apps only in dev env.
