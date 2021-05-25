@@ -1,37 +1,41 @@
 .wufoo {
     .info {
         h2 {
-            @apply text-lg text-blue-dark font-bold;
+            @apply text-lg text-blue-dark font-bold !important;
     
             @screen md {
-                @apply text-3xl;
+                @apply text-3xl !important;
             }
         }
     }
 
     .field {
-        @apply px-4 py-4 w-full text-blue-dark border border-blue-dark rounded-md;
+        @apply px-4 pb-1 text-blue-dark border border-blue-dark rounded-md !important;
     }
 
     label {
         &.desc {
-            @apply py-2 text-sm text-blue-dark;
+            @apply py-2 text-sm text-blue-dark !important;
 
             @screen md {
-                @apply text-lg;
+                @apply text-lg !important;
             }
         }
     }
 
     .submit {
-        @apply py-4 px-8 text-white text-base font-bold bg-blue-light rounded-3xl;
+        @apply py-4 px-20 text-white text-base font-bold bg-blue-light rounded-3xl cursor-pointer !important;
 
         @screen md {
-            @apply text-1.5xl px-12 py-5;
+            @apply text-1.5xl py-5 !important;
         }
     }
 
     .info {
         @apply border-none !important;
+    }
+
+    #errorLi {
+        @apply hidden !important;
     }
 }

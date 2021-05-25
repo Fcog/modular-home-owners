@@ -26,19 +26,14 @@ def resources_cta(context, css_class):
 def form_modal(context, modal_id):
     request = context['request']  # important - you must have the request in context
     settings = HomePageSettings.for_request(request)
-    form_page = settings.home_form
+    form_id = settings.home_form_id
+    form_height = settings.home_form_height
 
-    if not form_page:
+    if not form_id:
         return context
 
-    page = form_page.specific
-
-    # this will provide the parts needed to render the form
-    # this does NOT handle the submission of the form - that still goes to the form page
-    # this does NOT handle anything to do with rendering the 'thank you' message
-
-    context['page'] = page
     context['modal_id'] = modal_id
-    context['form'] = page.get_form(page=form_page, user=request.user)
+    context['form_id'] = form_id
+    context['form_height'] = form_height
 
     return context

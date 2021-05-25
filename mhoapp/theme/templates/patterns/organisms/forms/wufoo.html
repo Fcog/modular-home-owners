@@ -1,0 +1,20 @@
+{% load static %}
+
+<div 
+    data-pattern="organisms/forms/form"
+    class="md:py-16 bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto"
+    style="background-image:url({% static 'images/Masked Home Gray 2.jpg' %})">
+
+    <div class="container">
+
+        <div class="lg:w-7/12 xl:w-1/2">
+
+        <div class="bg-blue-light4 py-12 md:px-16 md:py-20 xl:px-24 xl:py-20 full-width md:full-width-none container md:rounded-2xl">                 
+
+            {% include "patterns/molecules/forms/form-body.html" with form_id=form_id form_height=form_height %}
+
+        </div>    
+
+    </div>    
+
+</div>

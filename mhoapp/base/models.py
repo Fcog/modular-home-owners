@@ -43,14 +43,8 @@ class HomePageSettings(BaseSetting):
     home_verified_title = models.CharField(max_length=255, null=True, verbose_name="Verified box title", default="")
     home_verified_text = models.CharField(max_length=255, null=True, verbose_name="Verified box text", default="")
     home_similar_title = models.CharField(max_length=255, null=True, verbose_name="Similar houses section title", default="")
-    home_form = models.ForeignKey(
-        'wagtailcore.Page',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Modal Form'
-    )
+    home_form_id = models.CharField(max_length=20, null=True, verbose_name="Wufoo Form ID", default="")
+    home_form_height = models.IntegerField(null=True, verbose_name="Wufoo Form Height in pixels", default="500")
 
     # Editor panels configuration
     panels = [
@@ -60,7 +54,8 @@ class HomePageSettings(BaseSetting):
         FieldPanel('home_verified_title'),
         FieldPanel('home_verified_text'),
         FieldPanel('home_similar_title'),
-        PageChooserPanel('home_form', page_type='forms.FormPage'),
+        FieldPanel('home_form_id'),
+        FieldPanel('home_form_height'),
     ]    
 
 

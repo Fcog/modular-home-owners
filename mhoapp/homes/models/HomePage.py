@@ -131,7 +131,7 @@ class HomePage(Page):
         # ------------------------------------------------------------------------------
         context['page'].intro = global_data.home_intro.format(home=self) if global_data.home_intro else ''
         
-        context['home_form'] = global_data.home_form
+        context['home_form_id'] = global_data.home_form_id
 
         context['header_theme'] = "blue"
 

@@ -1,27 +1,9 @@
-{% load wagtailcore_tags %}
-
-{% csrf_token %}
-
-<h2 class="modal__title" id="modal-1-title">
-    {{ page.title }}
-</h2>
-
-<div class="modal__intro">
-
-    {{ page.intro|richtext }}
-    
-</div>
-
-{% include "patterns/molecules/fields/fields.html" %}
-
-<div class="modal__footer">
-
-    <div class="modal__footer-inner">
-
-        {% pageurl page as form_url %}
-
-        {% include "patterns/atoms/button/button.html" with text="Submit" hx_post=form_url hx_target=".modal__content" color="blue" size="medium" inverted=False full_width=True %}
-    
-    </div>
-
-</div>
+<iframe 
+    title="Embedded Wufoo Form" 
+    allowtransparency="true" 
+    frameborder="0" 
+    scrolling="no" 
+    style="width:100%;border:none" 
+    height="{{ form_height }}px"
+    src="https://treport.wufoo.com/embed/{{ form_id }}"> 
+</iframe>

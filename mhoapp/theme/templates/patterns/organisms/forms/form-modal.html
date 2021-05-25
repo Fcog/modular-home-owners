@@ -1,6 +1,6 @@
 {% load wagtailcore_tags %}
 
-{% if form %}
+{% if form_id %}
 
 <div 
 	data-pattern="organisms/forms/form-modal" 
@@ -16,15 +16,7 @@
 
 			</header>
 
-			<form action="{% pageurl page %}" method="POST" role="form" class="form">
-
-				<main class="modal__content" id="modal-content">
-
-					{% include "patterns/molecules/forms/form-body.html" %}
-
-				</main>
-
-			</form>
+            {% include "patterns/molecules/forms/form-body.html" with form_id=form_id form_height=form_height %}
 
     	</div>
 
