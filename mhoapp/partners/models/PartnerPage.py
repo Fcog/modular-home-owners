@@ -7,7 +7,6 @@ from modelcluster.fields import ParentalManyToManyField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
-from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
 from .LocationCategory import LocationCategory
@@ -35,9 +34,7 @@ class PartnerPage(Page):
         ('headingH2', custom_blocks.HeadingH2()),
         ('paragraph', custom_blocks.Paragraph()),
         ('buttons', custom_blocks.Buttons()),
-        ('Separator', custom_blocks.Separator()),
-        ('quote', blocks.BlockQuoteBlock()),
-        ('image', ImageChooserBlock()),
+        ('image', custom_blocks.ImageCaption()),
         ('embed', EmbedBlock()),
     ], default='')
 
@@ -50,9 +47,11 @@ class PartnerPage(Page):
         ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
         ('articlesCTA', custom_blocks.ArticlesCTABlock()),
         ('ForumCTA', custom_blocks.ForumCTA()),
-        ('paragraph', custom_blocks.Paragraph()),
-        ('quote', blocks.BlockQuoteBlock()),
-        ('image', ImageChooserBlock()),
+        ('paragraph', custom_blocks.ParagraphSection()),
+        ('form', custom_blocks.FormBlock()),
+        ('quote', custom_blocks.GreenQuote()),
+        ('quote2', custom_blocks.BlueQuote()),
+        ('image', custom_blocks.ImageCaption()),
         ('embed', EmbedBlock()),
     ], default='')
 
