@@ -10,13 +10,11 @@
 
 {% block header %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+    {% include "patterns/organisms/header/header.html" %}
+
+    <nav class="navbar navbar-expand-lg navbar-light mt-24">
 
         <div class="container">
-
-            <a class="logo-white" href="/">
-                <img src="{{ mhoapp.logo_white.url }}" alt="Modular Homeowners Logo" class="h-10 md:h-16">
-            </a>
 
             <button
                 class="navbar-toggler"
@@ -50,7 +48,7 @@
                             name="q">
 
                         <button
-                            class="btn btn-outline-light my-2 my-sm-0"
+                            class="btn text-blue-dark my-2 my-sm-0"
                             type="submit">
                             Search
                         </button>
@@ -58,7 +56,7 @@
                     </form>
 
                     <a
-                        class="nav-item nav-link lg:mr-8"
+                        class="nav-item nav-link text-blue-dark lg:mr-8"
                         href="{% url 'forum_search:search' %}">
                         Advanced search
                     </a>
@@ -70,7 +68,7 @@
                             <a
                                 href="#"
                                 id="id_navbar_dropdown"
-                                class="nav-link dropdown-toggle"
+                                class="nav-link dropdown-toggle text-blue-dark"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false">
@@ -80,7 +78,7 @@
 
                             </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="id_navbar_dropdown">
+                            <ul class="dropdown-menu text-blue-dark" aria-labelledby="id_navbar_dropdown">
 
                                 <a href="{% url 'forum_member:profile' request.user.id %}" class="dropdown-item">
                                     Profile
@@ -122,25 +120,11 @@
 
 {% block body %}
 
-    <div id="wrap">
+    <div class="mb-24" id="wrap">
         {{ block.super }}
         <div id="push"></div>
     </div>
 
-    <footer id="footer" class="py-2 bg-blue fixed-bottom">
-
-        <div class="container">
-            <div class="row">
-            <div class="col-12">
-                <p class="my-2 text-right text-muted">
-                    Powered by <a href="https://www.djangoproject.com/">Django</a>
-                    &amp;
-                    <a href="https://github.com/ellmetha/django-machina">django-machina</a>
-                </p>
-            </div>
-            </div>
-        </div>
-
-    </footer>
+    {% include "patterns/organisms/footer/footer.html" %}
 
 {% endblock body %}
