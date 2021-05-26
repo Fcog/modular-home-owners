@@ -24,6 +24,9 @@ div.block-headingH2 {
 }
 
 /* Spacing margin exceptions */
+div.block-headingH1Paragraph,
+div.block-homesMap,
+div.block-form,
 div.block-form,
 div.block-two_columns,
 div.block-hero,

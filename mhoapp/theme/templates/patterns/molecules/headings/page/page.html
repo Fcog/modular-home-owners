@@ -1,7 +1,17 @@
-<div data-pattern="molecules/page">
+<div 
+    data-pattern="molecules/headings/page" 
+    class="container mt-8 xl:mt-28 mb-8 xl:mb-20 {% if centered %} flex flex-col items-center text-center {% endif %}">
 
-    {% include "patterns/atoms/headings/h1.html" with h1_class="lg:-mt-4" %}    
+    <div class="md:w-7/12 xl:w-5/12">
 
-    {% include "patterns/atoms/paragraph/paragraph.html" %}    
+        <div class="mb-6">
+
+            {% include "patterns/atoms/headings/h1.html" %}   
+
+        </div>
+
+        {% include "patterns/atoms/paragraph/paragraph.html" with paragraph=introduction %}    
+
+    </div>
 
 </div>

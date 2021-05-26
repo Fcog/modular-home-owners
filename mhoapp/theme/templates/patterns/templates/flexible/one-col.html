@@ -5,20 +5,6 @@
 {% block content %}
 
     <div data-pattern="templates/flexible/one-col">
-
-        {% if page.display_title %}
-
-        <div class="container mt-6 md:mt-14 lg:mt-20">
-
-            <div class="md:w-7/12 xl:w-5/12">
-            
-                {% include "patterns/atoms/headings/h1.html" with title=page.title %}    
-            
-            </div>
-          
-        </div>
-
-        {% endif %}
     
     {% include_block page.body %}
     

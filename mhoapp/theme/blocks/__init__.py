@@ -27,3 +27,5 @@ from .Hero2Block import Hero2Block
 from .IconsGrid import IconsGrid
 from .ThreeColumnsBlock import ThreeColumnsBlock
 from .FormBlock import FormBlock
+from .HeadingH1Paragraph import HeadingH1Paragraph
+from .HomesMap import HomesMap

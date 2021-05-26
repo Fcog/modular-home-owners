@@ -13,8 +13,7 @@ from mhoapp.theme import blocks as custom_blocks
 
 blocks = [
     ('separator', custom_blocks.Separator()),
-    ('headingH1', custom_blocks.HeadingH1()),
-    ('headingH2', custom_blocks.HeadingH2()),
+    ('headingH1Paragraph', custom_blocks.HeadingH1Paragraph()),
     ('ResourcesCTA', custom_blocks.ResourcesCTA()),
     ('PartnersCTA', custom_blocks.PartnersCTA()),
     ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
@@ -22,6 +21,7 @@ blocks = [
     ('articlesCTA', custom_blocks.ArticlesCTABlock()),
     ('articlesCTAGlobal', custom_blocks.ArticlesCTAGlobal()),
     ('ForumCTA', custom_blocks.ForumCTA()),
+    ('homesMap', custom_blocks.HomesMap()),
     ('hero', custom_blocks.HeroBlock()),
     ('hero2', custom_blocks.Hero2Block()),
     ('paragraph', custom_blocks.Paragraph()),
@@ -39,12 +39,10 @@ class FlexibleOneColumnPage(Page):
     keywords = models.CharField(default='', blank=True, max_length=100)
 
     # Database fields
-    display_title = models.BooleanField(default=False, blank=True)
     body = StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
-        FieldPanel('display_title'),
         StreamFieldPanel('body'),
     ]
 

@@ -1,0 +1,27 @@
+{% load wagtailimages_tags %}
+
+<div
+    data-pattern="organisms/map"
+    class="my-12 xl:my-24 container flex">
+ 
+    <div class="lg:w-3/4">
+    
+        {% image map width-1200 %}
+    
+    </div>
+    
+    <div class="lg:w-1/4">
+    
+        <ul class="px-20 col-count-2">
+
+            {% for state in states %}
+
+                <li class="mb-3 text-green-medium text-1.5xl font-medium">{{ state }}</li>
+
+            {% endfor %}
+
+        </ul>
+    
+    </div>
+
+</div>
