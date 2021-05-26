@@ -2,7 +2,7 @@ from wagtail.core import blocks
 
 
 class HeadingH1Paragraph(blocks.StructBlock):
-    centered = blocks.BooleanBlock()      
+    centered = blocks.BooleanBlock(required=False)      
     title = blocks.CharBlock()
     introduction = blocks.TextBlock(required=False, default="")
     
