@@ -2,21 +2,25 @@
 
 <div
     data-pattern="organisms/map"
-    class="my-12 xl:my-24 container flex">
+    class="my-12 xl:my-24 container md:flex">
  
-    <div class="lg:w-3/4">
+    <div class="mb-12 md:mb-0 md:w-7/12 lg:w-3/4">
     
         {% image map width-1200 %}
     
     </div>
     
-    <div class="lg:w-1/4">
+    <div class="md:w-5/12 lg:w-1/4">
     
-        <ul class="px-20 col-count-2">
+        <ul class="pl-6 xl:pl-20 col-count-3 md:col-count-2">
 
             {% for state in states %}
 
-                <li class="mb-3 text-green-medium text-1.5xl font-medium">{{ state }}</li>
+                <li class="mb-3">
+                
+                    <a class="text-green-medium text-sm lg:text-1.5xl font-medium" href="{{ state.url }}">{{ state.name }}</a>
+                
+                </li>
 
             {% endfor %}
 

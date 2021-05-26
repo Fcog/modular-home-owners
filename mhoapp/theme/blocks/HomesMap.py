@@ -10,8 +10,11 @@ class HomesMap(blocks.StructBlock):
         context = super().get_context(value, parent_context=parent_context)
         context.update(value)
         context['states'] = list(map(
-            lambda item: item.name,
-            apps.get_model('partners', 'LocationCategory').objects.filter(partnerpage__title__isnull=False).distinct()
+            lambda item: {
+                'name': item.title,
+                'url': item.url,
+            },
+            context['page'].get_children().live()
         ))
         return context    
 
