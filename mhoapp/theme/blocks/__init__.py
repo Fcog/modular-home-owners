@@ -29,3 +29,4 @@ from .ThreeColumnsBlock import ThreeColumnsBlock
 from .FormBlock import FormBlock
 from .HeadingH1Paragraph import HeadingH1Paragraph
 from .HomesMap import HomesMap
+from .ParagraphSection import ParagraphSection

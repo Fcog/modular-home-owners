@@ -2,13 +2,31 @@ from django.db import models
 from wagtail.core import blocks, fields 
 from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import StreamFieldPanel, MultiFieldPanel, FieldPanel, FieldRowPanel
-from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
 
 from mhoapp.theme import blocks as custom_blocks
 
+
+blocks = [
+    ('Separator', custom_blocks.Separator()),
+    ('headingH2', custom_blocks.HeadingH2()),
+    ('ResourcesCards', custom_blocks.ResourcesCards()),
+    ('ResourcesCTA', custom_blocks.ResourcesCTA()),
+    ('PartnersCTA', custom_blocks.PartnersCTA()),
+    ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
+    ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
+    ('articlesCTA', custom_blocks.ArticlesCTABlock()),
+    ('articlesCTAGlobal', custom_blocks.ArticlesCTAGlobal()),
+    ('ForumCTA', custom_blocks.ForumCTA()),
+    ('paragraphSection', custom_blocks.ParagraphSection()),
+    ('buttons', custom_blocks.Buttons()),
+    ('quote', custom_blocks.GreenQuote()),
+    ('quote2', custom_blocks.BlueQuote()),
+    ('image', custom_blocks.ImageCaption()),
+    ('embed', EmbedBlock()),
+ ]
 
 class ResourcesIndexPage(Page):
     template = 'patterns/templates/flexible/two-col.html'
@@ -18,23 +36,7 @@ class ResourcesIndexPage(Page):
         default=''
     )
 
-    body = fields.StreamField([
-        ('Separator', custom_blocks.Separator()),
-        ('headingH2', custom_blocks.HeadingH2()),
-        ('ResourcesCards', custom_blocks.ResourcesCards()),
-        ('ResourcesCTA', custom_blocks.ResourcesCTA()),
-        ('PartnersCTA', custom_blocks.PartnersCTA()),
-        ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
-        ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
-        ('articlesCTA', custom_blocks.ArticlesCTABlock()),
-        ('articlesCTAGlobal', custom_blocks.ArticlesCTAGlobal()),
-        ('ForumCTA', custom_blocks.ForumCTA()),
-        ('paragraph', custom_blocks.Paragraph()),
-        ('buttons', custom_blocks.Buttons()),
-        ('quote', blocks.BlockQuoteBlock()),
-        ('image', ImageChooserBlock()),
-        ('embed', EmbedBlock()),
-    ], default='')
+    body = fields.StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
@@ -65,21 +67,7 @@ class ResourcePage(Page):
         default=''
     )
 
-    body = fields.StreamField([
-        ('Separator', custom_blocks.Separator()),
-        ('headingH2', custom_blocks.HeadingH2()),
-        ('ResourcesCTA', custom_blocks.ResourcesCTA()),
-        ('PartnersCTA', custom_blocks.PartnersCTA()),
-        ('PopularHomesGrid', custom_blocks.PopularHomesGrid()),
-        ('GetYourHouseCTA', custom_blocks.GetYourHouseCTA()),
-        ('articlesCTA', custom_blocks.ArticlesCTABlock()),
-        ('ForumCTA', custom_blocks.ForumCTA()),
-        ('paragraph', custom_blocks.Paragraph()),
-        ('buttons', custom_blocks.Buttons()),
-        ('quote', blocks.BlockQuoteBlock()),
-        ('image', ImageChooserBlock()),
-        ('embed', EmbedBlock()),
-    ], default='')
+    body = fields.StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [

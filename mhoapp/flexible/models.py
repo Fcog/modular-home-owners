@@ -4,7 +4,6 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.core import blocks, fields
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, TabbedInterface, ObjectList
-from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtailyoast.edit_handlers import YoastPanel
 
@@ -24,11 +23,12 @@ blocks = [
     ('homesMap', custom_blocks.HomesMap()),
     ('hero', custom_blocks.HeroBlock()),
     ('hero2', custom_blocks.Hero2Block()),
-    ('paragraph', custom_blocks.Paragraph()),
+    ('paragraphSection', custom_blocks.ParagraphSection()),
     ('threeColumnsBlock', custom_blocks.ThreeColumnsBlock()),
     ('form', custom_blocks.FormBlock()),
-    ('quote', blocks.BlockQuoteBlock()),
-    ('image', ImageChooserBlock()),
+    ('quote', custom_blocks.GreenQuote()),
+    ('quote2', custom_blocks.BlueQuote()),
+    ('image', custom_blocks.ImageCaption()),
     ('embed', EmbedBlock()),
 ]
 
