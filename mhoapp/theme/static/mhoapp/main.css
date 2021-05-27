@@ -25704,6 +25704,10 @@ select {
           fill: #ffffff;
         }
 
+.splide--images .splide__arrow:disabled {
+          display: none !important;
+        }
+
 .splide--images .splide__pagination {
         position: static !important;
         transform: none !important;

@@ -39,6 +39,10 @@
 				path {
 					fill: #ffffff;
 				}
+
+				&:disabled {
+					display: none !important;
+				}
 			}
 
 			&__pagination {
