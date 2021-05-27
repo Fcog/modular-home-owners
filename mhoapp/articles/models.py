@@ -30,7 +30,6 @@ class ArticlePage(Page):
         ('buttons', custom_blocks.Buttons()),
         ('quote', custom_blocks.GreenQuote()),
         ('quote2', custom_blocks.BlueQuote()),
-        ('form', custom_blocks.FormBlock()),
         ('embed', EmbedBlock()),
     ], default='')
 
