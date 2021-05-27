@@ -10,7 +10,7 @@ class ArticlesCTAGlobal(blocks.StructBlock):
         ('white', 'White'),
     ], icon='snippet', default='blue')      
 
-    add_border = blocks.BooleanBlock(default=True)      
+    add_border = blocks.BooleanBlock(default=True, required=False)      
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)

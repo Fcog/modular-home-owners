@@ -96,4 +96,5 @@ class FlexibleTwoColumnPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context['header_theme'] = 'green'
+        context['header_show_title'] = False
         return context    

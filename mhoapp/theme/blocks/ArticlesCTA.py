@@ -8,7 +8,7 @@ class ArticlesCTABlock(blocks.StructBlock):
         ('white', 'White'),
     ], icon='snippet', default='blue')      
 
-    add_border = blocks.BooleanBlock(default=True)      
+    add_border = blocks.BooleanBlock(default=True, required=False)      
 
     introduction = blocks.RichTextBlock(features=['bold'])
 
