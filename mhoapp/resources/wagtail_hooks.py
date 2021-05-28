@@ -10,7 +10,7 @@ class ResourcesPageAdmin(ModelAdmin):
     menu_order = 220
     add_to_settings_menu = False
     exclude_from_explorer = False
-    list_display = ('title',)
+    list_display = ('title','live')
     search_fields = ('title',)
 
 modeladmin_register(ResourcesPageAdmin)
