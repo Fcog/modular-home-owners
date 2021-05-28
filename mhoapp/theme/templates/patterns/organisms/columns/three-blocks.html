@@ -22,7 +22,7 @@
 
             </p>
 
-            {% include "patterns/atoms/links/link-arrow.html" with url=column.link.url text=column.link_text new_window=column.link.new_window color="green" %}
+            {% include "patterns/atoms/links/link-arrow.html" with url=column.link.get_url text=column.link_text new_window=column.link.new_window color="green" %}
 
         </div>
 
