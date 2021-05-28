@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+    'wagtail_multi_image_edit', # This one should be installed before 'wagtail.admin'
+
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -157,6 +159,7 @@ TEMPLATES = [
         'DIRS': [
             'mhoapp/theme/templates',
             MACHINA_MAIN_TEMPLATE_DIR,
+            'wagtail_multi_image_edit/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -357,3 +360,11 @@ DEBUG_TOOLBAR_CONFIG = {
     'SQL_WARNING_THRESHOLD': 100,   # milliseconds
     'INTERCEPT_REDIRECTS': False,
 }
+
+# Multi image edit library config
+# https://pypi.org/project/Wagtail-Multi-Image-Edit/
+# ------------------------------------------------------------------------------
+MULTI_IMAGE_EDIT_FIELDS = [
+    'title',
+    'collection',
+]
