@@ -8,6 +8,7 @@ from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.embeds.blocks import EmbedBlock
+from wagtail_multi_upload.edit_handlers import MultipleImagesPanel
 
 from .LocationCategory import LocationCategory
 from mhoapp.theme import blocks as custom_blocks
@@ -79,9 +80,10 @@ class PartnerPage(Page):
         MultiFieldPanel(
             [
                 ImageChooserPanel('logo'),
-                InlinePanel(
+                MultipleImagesPanel(
                     'gallery_images',
-                    label="Image Gallery"
+                    label="Image Gallery",
+                    image_field_name="image"
                 ),
             ],
             heading="Images",

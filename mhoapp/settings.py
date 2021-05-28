@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'hitcount',
     'wagtailyoast',
     'wagtailcolumnblocks',
+    'wagtail_multi_upload',
 
     # Machina dependencies:
     'mptt',

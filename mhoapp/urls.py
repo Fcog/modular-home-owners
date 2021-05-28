@@ -22,6 +22,7 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail_multi_image_edit.views import multi_image_edit
+from wagtail_multi_upload.views import add as add_multiple_fix
 from machina import urls as machina_urls
 
 from .settings import DEVELOPMENT_MODE, DEBUG_BAR
@@ -31,6 +32,7 @@ if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
 
 urlpatterns = [
     path('admin/images/multi-edit/', multi_image_edit, name='multi_image_edit'),
+    path('multi-add-fix/', add_multiple_fix, name='add_multiple_fix'),
     path('admin/forum', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),

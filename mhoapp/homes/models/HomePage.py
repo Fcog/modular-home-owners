@@ -6,6 +6,7 @@ from wagtail.search import index
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail_multi_upload.edit_handlers import MultipleImagesPanel
 
 from mhoapp.base.models import HomePageSettings
 from mhoapp.base.utils import truncate_float, currency
@@ -99,13 +100,15 @@ class HomePage(Page):
                 FieldPanel('floorplans_link'),
                 FieldPanel('info'),
                 ImageChooserPanel('main_image'),
-                InlinePanel(
+                MultipleImagesPanel(
                     'floorplan_gallery_images',
-                    label="Floorplan Image Gallery"
+                    label="Floorplan Image Gallery",
+                    image_field_name="image"
                 ),
-                InlinePanel(
+                MultipleImagesPanel(
                     'elevation_gallery_images',
-                    label="Elevation Image Gallery"
+                    label="Elevation Image Gallery",
+                    image_field_name="image"
                 ),
             ],
             heading="Basic info",
