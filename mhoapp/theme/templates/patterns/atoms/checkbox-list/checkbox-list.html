@@ -1,4 +1,6 @@
-<ul class="col-count-2">
+<ul
+    data-pattern="atoms/checkbox-list"
+    class="col-count-2">
 
     {% for checkbox in checkbox_list %}
 
@@ -12,7 +14,7 @@
             {% if checkbox.checked %} checked {% endif %}
             class="outline-blue-green" />
 
-        <label for="{{ checkbox.id }}" class="ml-2 text-blue-green text-sm 2xl:text-xl">{{ checkbox.label }}</label>
+        <label for="{{ checkbox.id }}" class="ml-2 text-blue-green text-sm 2xl:text-lg">{{ checkbox.label }}</label>
 
     </li>
 
