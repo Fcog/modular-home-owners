@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from wagtail.core.models import Page
 from wagtail.images.models import Image
 
-from mhoapp.homes.models import HomesIndexPage, HomePage, StyleCategory
+from mhoapp.homes.models import HomesIndexPage, HomePage, StyleCategory, ElevationGalleryImage, FloorplanGalleryImage
 from mhoapp.partners.models import PartnerPage
 
 class Command(BaseCommand):
@@ -18,7 +18,7 @@ class Command(BaseCommand):
         HomePage.objects.all().delete()
 
         # Get the homes index page
-        homesIndex = Page.objects.get(id=options['homes_index_id'])
+        homes_index = Page.objects.get(id=options['homes_index_id'])
 
         # import home pages
         reader = csv.DictReader(open(options['csv_file']))
@@ -39,13 +39,30 @@ class Command(BaseCommand):
                 style=StyleCategory.objects.get(id=int(row["style_django_id"]))
             )
 
-            if self.get_all_elevations(row["code"]):
-                home_page.main_image = self.get_all_elevations(row["code"])[0]
+            elevation_images = self.get_all_images(row["code"], 'Elevations')
+            floorplan_images = self.get_all_images(row["code"], 'Floorplans')
 
-            homesIndex.add_child(instance=home_page)
+            if elevation_images:
+                home_page.main_image = elevation_images[0]
+     
+            homes_index.add_child(instance=home_page)
             home_page.save_revision().publish()
             print("published home page " + row["home_name"])
 
-    def get_all_elevations(self, code):
-        images = Image.objects.filter(title__startswith=code)
-        return images
+            for elevation_image in elevation_images:
+                gallery_image = ElevationGalleryImage(
+                    page=home_page,
+                    image=elevation_image
+                )
+                gallery_image.save()
+
+            for floorplan_image in floorplan_images:
+                gallery_image = FloorplanGalleryImage(
+                    page=home_page,
+                    image=floorplan_image
+                )        
+                gallery_image.save()                     
+
+    def get_all_images(self, code, collection):
+        images = Image.objects.filter(collection__name=collection).filter(title__startswith=code)
+        return images     

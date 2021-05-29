@@ -30,8 +30,8 @@ class HomePage(Page):
     stories = models.FloatField()
     cost = models.PositiveIntegerField()
     estimated_cost = models.PositiveIntegerField()
-    link = models.URLField(blank=True)
-    floorplans_link = models.URLField(blank=True)
+    link = models.URLField(max_length=300, blank=True)
+    floorplans_link = models.URLField(max_length=300, blank=True)
     info = models.TextField(blank=True)
     main_image = models.ForeignKey(
         'wagtailimages.Image',

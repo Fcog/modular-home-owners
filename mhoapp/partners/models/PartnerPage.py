@@ -26,8 +26,8 @@ class PartnerPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    phone = models.TextField(max_length=25)
-    website = models.URLField()
+    phone = models.TextField(max_length=25, blank=True)
+    website = models.URLField(blank=True)
     locations = ParentalManyToManyField(LocationCategory)
 
     left_content = StreamField([
