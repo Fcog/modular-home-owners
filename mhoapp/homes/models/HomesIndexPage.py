@@ -180,7 +180,7 @@ class HomesIndexPage(Page):
 
         # Set up pagination.
         # -------------------------------------------------------------------------------------
-        paginator = Paginator(homes, 9)    
+        paginator = Paginator(homes, 8)    
 
         try:
             homes = paginator.page(page)
