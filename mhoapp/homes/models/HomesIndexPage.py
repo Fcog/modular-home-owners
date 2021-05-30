@@ -104,7 +104,7 @@ class HomesIndexPage(Page):
 
     def get_template(self, request):
         if request.htmx:
-            return 'patterns/molecules/homes-grid/homes-grid.html'
+            return 'patterns/molecules/homes-grid/homes-grid-content.html'
         
         return 'patterns/templates/homes/homes-index-page.html'
 
@@ -180,17 +180,14 @@ class HomesIndexPage(Page):
 
         # Set up pagination.
         # -------------------------------------------------------------------------------------
-        # Render 5 cards on the 1st page to insert the homes ad.
-        pagination = 5 if not page else 6
-
-        paginator = Paginator(homes, pagination, 3)    
+        paginator = Paginator(homes, 9)    
 
         try:
             homes = paginator.page(page)
 
             # Tweak to insert the 6th card from the page 1 (page 1 has a pagination of 5) into the page 2.
-            if page == '2':
-                homes = paginator.object_list[5:13]            
+            #if page == '2':
+                #homes = paginator.object_list[5:13]            
         except PageNotAnInteger:
             # If page is not an integer, deliver first page.
             homes = paginator.page(1)
@@ -199,7 +196,7 @@ class HomesIndexPage(Page):
             homes = paginator.page(paginator.num_pages)               
 
         # Used to show the ad in the 1st page.
-        context['pagination'] = pagination               
+        context['show_add'] = True if not page else False               
 
         # Add the homes data to the page context.
         # -------------------------------------------------------------------------------------        

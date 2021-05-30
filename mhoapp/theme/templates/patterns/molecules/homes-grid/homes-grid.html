@@ -1,22 +1,7 @@
 <div 
     data-pattern="molecules/homes-grid/homes-grid"
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 {{ class }}"
-    {% if activate_inifinite_scroll and homes.next_page_number %}
-    hx-get="/homes/?page={{ homes.next_page_number }}"
-    hx-trigger="revealed"
-    hx-swap="afterend"
-    {% endif %}>
+    class="flex flex-wrap {{ class }}">
 
-    {% if pagination == 5 %}
-
-        {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex" %}
-
-    {% endif %}
-
-    {% for home in homes %}
-
-        {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text class="" %}
-
-    {% endfor %}
+     {% include "patterns/molecules/homes-grid/homes-grid-content.html" %}
 
 </div>
