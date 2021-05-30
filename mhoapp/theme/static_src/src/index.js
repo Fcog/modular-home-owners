@@ -10,8 +10,8 @@ import heroHomePriceRange from './js/hero-home-price-range'
 import numberControl from './js/number-control'
 import filtersMenu from './js/filters-menu'
 import floatingInputLabels from './js/floating-input-labels'
-import sharer from 'sharer.js'
 import homesLayoutToggler from './js/wagtail-admin'
+import tooltip from './js/tooltip'
 
 document.addEventListener( 'DOMContentLoaded', () => {
     MicroModal.init()
@@ -23,6 +23,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     filtersMenu()
     floatingInputLabels().init()
     homesLayoutToggler()
+    tooltip()
 
     /**
      * When the form is submitted using Ajax.

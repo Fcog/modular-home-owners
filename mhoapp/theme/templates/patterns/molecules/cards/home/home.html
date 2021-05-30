@@ -40,11 +40,13 @@
 
         </div>
 
-        <div class="flex">
+        <div class="relative flex js-tooltip">
 
             {% include "patterns/atoms/labels/label1.html" with title="Base Price" value=cost_formatted wide_design=wide_design class="mb-4 lg:mb-0 mr-16" %}
             
             {% include "patterns/atoms/labels/label1.html" with title="Est. total" value=estimated_cost_formatted icon="help" wide_design=wide_design %}
+
+            {% include "patterns/atoms/tooltip/tooltip.html" with message=settings.base.HomePageSettings.home_tooltip_text %}
         
         </div>
     

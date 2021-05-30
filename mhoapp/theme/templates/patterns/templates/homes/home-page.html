@@ -44,13 +44,15 @@
 
                     <!-- Prices in tablet and above -->
                 
-                    <div class="hidden md:block md:pr-16">
+                    <div class="hidden md:block md:pr-16 js-tooltip">
 
                         {% include "patterns/atoms/labels/label1.html" with title="Base Price" value=page.cost_formatted wide_design=True text_size="big" class="md:mb-8" %}
 
                         <div class="hidden md:block mb-8 w-full h-0.5 bg-gray-40"></div>
 
                         {% include "patterns/atoms/labels/label1.html" with title="Est. total" value=page.estimated_cost_formatted icon="help" wide_design=True text_size="big" class="" %}
+
+                        {% include "patterns/atoms/tooltip/tooltip.html" with message=settings.base.HomePageSettings.home_tooltip_text %}
 
                     </div>
 
