@@ -2,6 +2,7 @@
 
 <a 
     href="{{ url }}"
+     {% if activate_inifinite_scroll and show_htmx %} hx-get="/homes/?page={{ homes.next_page_number }}" hx-trigger="revealed" hx-swap="afterend" {% endif %}
     class="border border-gray-60 inline-block">
 
     {% image main_image width-1000 %}

@@ -1,17 +1,11 @@
 {% if show_add %}
 
-    {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex md:w-1/2 lg:w-1/3" %}
+    {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex md:mb-4 md:w-1/2 lg:w-1/3" %}
 
 {% endif %}
 
 {% for home in homes %}
 
-    <div 
-        class="md:w-1/2 lg:w-1/3" 
-        {% if activate_inifinite_scroll and forloop.last %} hx-get="/homes/?page={{ homes.next_page_number }}" hx-trigger="revealed" hx-swap="afterend" {% endif %}>
-
-        {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text class="" %}
-    
-    </div>
+    {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text activate_inifinite_scroll=activate_inifinite_scroll show_htmx=forloop.last class="" %}
 
 {% endfor %}
