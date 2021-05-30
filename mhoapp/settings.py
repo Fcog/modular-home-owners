@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'wagtailyoast',
     'wagtailcolumnblocks',
     'wagtail_multi_upload',
+    'spurl', # https://github.com/j4mie/django-spurl
 
     # Machina dependencies:
     'mptt',
