@@ -30,6 +30,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
      */
     document.addEventListener('htmx:afterRequest', () => {
         floatingInputLabels().init()
+        tooltip()
     })
 
     /**
