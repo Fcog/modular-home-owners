@@ -6,6 +6,6 @@
 
 {% for home in homes %}
 
-    {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text activate_inifinite_scroll=activate_inifinite_scroll show_htmx=forloop.last class="" %}
+    {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text activate_inifinite_scroll=activate_inifinite_scroll show_htmx=forloop.last next_page_number=homes.next_page_number class="" %}
 
 {% endfor %}

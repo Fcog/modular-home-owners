@@ -2,7 +2,7 @@
 
 <a 
     href="{{ url }}"
-    {% if activate_inifinite_scroll and show_htmx %} hx-get="/homes/?page={{ homes.next_page_number }}" hx-trigger="revealed" hx-swap="afterend" {% endif %}
+    {% if activate_inifinite_scroll and show_htmx %} hx-get="/homes/?page={{ next_page_number }}" hx-trigger="revealed" hx-swap="afterend" {% endif %}
     class="inline-block border border-gray-60 w-full {% if activate_inifinite_scroll %} md:max-w-380px {% else %} md:max-w-455px {% endif %}">
 
     {% image main_image fill-380x283 as tmp_photo %}
