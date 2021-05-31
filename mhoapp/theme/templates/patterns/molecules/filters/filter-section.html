@@ -1,13 +1,13 @@
 <div 
     data-pattern="molecules/filters/filter-section"
-    class="relative  px-8 lg:px-4 xl:px-8 2xl:px-10  pb-8 lg:pt-8 mt-6 lg:mt-0 {% if no_border %} {% else %} border-b border-gray-60 {% endif %}">
+    class="relative  px-8 lg:px-4 xl:px-8 2xl:px-10  pb-8 md:pb-6 md:pt-6 2xl:pb-8 2xl:pt-8 mt-6 lg:mt-0 {% if no_border %} {% else %} border-b border-gray-60 {% endif %}">
 
     <div class="flex justify-between">
 
-        <h3 class="text-lg lg:text-1.5xl text-black-medium font-medium lg:font-bold mb-4">{{ title }}</h3>
+        <h3 class="mb-4 md:mb-2 2xl:mb-4 text-lg 2xl:text-1.5xl text-black-medium font-medium lg:font-bold">{{ title }}</h3>
 
         {% if title2 %}
-        <h3 class="text-lg lg:text-1.5xl text-black-medium font-medium lg:font-bold mb-4">{{ title2 }}</h3>
+        <h3 class="mb-4 md:mb-2 2xl:mb-4 text-lg 2xl:text-1.5xl text-black-medium font-medium lg:font-bold">{{ title2 }}</h3>
         {% endif %}
 
     </div>

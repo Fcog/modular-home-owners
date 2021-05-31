@@ -19,6 +19,14 @@
 	}
 }
 
+.icon--small2 {
+	transform: scale(0.8);
+
+	@screen 2xl {
+		transform: scale(1);
+	}
+}
+
 .icon-green {
 	path {
 		fill: #609c00;

@@ -2,9 +2,9 @@
 
 <div 
     data-pattern="atoms/icon-text"
-    class="inline-flex items-center leading-3 overflow-x-hidden {% if text_size == "big" %} text-sm xl:text-lg {% else %} text-xxxs lg:text-xs {% endif %} {{ class }}">
+    class="inline-flex items-center leading-3 overflow-x-hidden {% if big_text %} text-sm xl:text-base {% else %} text-xxxs lg:text-xs {% endif %} {{ class }}">
 
-    <i class="{% if text_size == "big" %} mr-3 {% else %} mr-1 {% endif %} 2xl:mr-2">
+    <i class="icon--small2 {% if big_text %} mr-3 {% else %} mr-1 {% endif %} 2xl:mr-2">
     
         {% svg icon %}
 
@@ -12,7 +12,7 @@
     
     {% if quantity %}
 
-    <div class="mr-1">
+    <div class="mr-0.5 2xl:mr-1">
 
         {{ quantity }} 
 
