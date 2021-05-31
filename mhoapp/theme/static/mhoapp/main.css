@@ -4481,7 +4481,7 @@ select {
     @supports (-webkit-appearance:none) {
 
 .gap-safari-container {
-      margin: -.75rem
+      margin: -.5rem
 }
     }
   }
@@ -4490,7 +4490,7 @@ select {
     @supports (-webkit-appearance:none) {
 
 .gap-safari {
-      margin: .75rem
+      margin: .5rem
 }
     }
   }

@@ -49,7 +49,7 @@
 .gap-safari-container {
   @media not all and (min-resolution:.001dpcm) { 
      @supports (-webkit-appearance:none) {
-        margin: -.75rem;
+        margin: -.5rem;
     }
   }
 }
@@ -57,7 +57,7 @@
 .gap-safari {
   @media not all and (min-resolution:.001dpcm) { 
      @supports (-webkit-appearance:none) {
-        margin: .75rem;
+        margin: .5rem;
     }
   }
 }
