@@ -4705,8 +4705,8 @@ select {
     border-width: 1px !important;
     font-size: 1.125rem !important;
     line-height: 1.75rem !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     --tw-text-opacity: 1 !important;
@@ -4786,11 +4786,27 @@ select {
   box-sizing: border-box;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
 .modal__container {
     width: 100%;
 
+    max-width: 85%;
+
+    padding: 4rem
+}
+  }
+
+@media (min-width: 1024px) {
+
+.modal__container {
+    max-width: 65%
+}
+  }
+
+@media (min-width: 1640px) {
+
+.modal__container {
     max-width: 45%;
 
     padding: 4rem 8rem

@@ -31,11 +31,20 @@
     overflow-y: auto;
     box-sizing: border-box;
 
-    @screen lg {
+    @screen md {
         width: 100%;
+        max-width: 85%;
+        padding: 4rem;
+    }    
+
+    @screen lg {
+        max-width: 65%;
+    }
+
+    @screen 2xl {
         max-width: 45%;
         padding: 4rem 8rem;
-    }
+    }    
 }
   
 .modal__header {

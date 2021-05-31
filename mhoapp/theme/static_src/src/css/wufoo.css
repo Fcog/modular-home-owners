@@ -11,7 +11,7 @@
     }
 
     .field {
-        @apply px-4 py-4 text-blue-dark text-lg border border-blue-dark rounded-md !important; 
+        @apply px-4 py-3 text-blue-dark text-lg border border-blue-dark rounded-md !important; 
     }
 
     label {
