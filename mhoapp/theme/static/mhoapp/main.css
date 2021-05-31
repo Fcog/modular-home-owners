@@ -5176,14 +5176,6 @@ body {
     height: auto !important;
   }
 
-  .md\:h-283px {
-    height: 283px !important;
-  }
-
-  .md\:h-339px {
-    height: 339px !important;
-  }
-
   .md\:text-xs {
     font-size: 0.75rem !important;
     line-height: 1rem !important;
@@ -5931,6 +5923,10 @@ body {
     margin-top: 1.5rem !important;
   }
 
+  .lg\:mr-6 {
+    margin-right: 1.5rem !important;
+  }
+
   .lg\:mb-6 {
     margin-bottom: 1.5rem !important;
   }
@@ -6293,6 +6289,10 @@ body {
     margin-left: 1rem !important;
   }
 
+  .xl\:mr-8 {
+    margin-right: 2rem !important;
+  }
+
   .xl\:mb-16 {
     margin-bottom: 4rem !important;
   }
@@ -6315,10 +6315,6 @@ body {
 
   .xl\:-mt-24 {
     margin-top: -6rem !important;
-  }
-
-  .xl\:max-w-380px {
-    max-width: 380px !important;
   }
 
   .xl\:overflow-auto {
@@ -6427,6 +6423,10 @@ body {
     text-align: left !important;
   }
 
+  .xl\:w-32 {
+    width: 8rem !important;
+  }
+
   .xl\:w-48 {
     width: 12rem !important;
   }
@@ -6499,6 +6499,10 @@ body {
     width: 37% !important;
   }
 
+  .xl\:w-32\% {
+    width: 32% !important;
+  }
+
   .xl\:w-26\.5\% {
     width: 26.5% !important;
   }
@@ -6519,6 +6523,14 @@ body {
 
   .\32xl\:h-24 {
     height: 6rem !important;
+  }
+
+  .\32xl\:h-283px {
+    height: 283px !important;
+  }
+
+  .\32xl\:h-339px {
+    height: 339px !important;
   }
 
   .\32xl\:text-base {
@@ -6564,6 +6576,10 @@ body {
 
   .\32xl\:-mt-44 {
     margin-top: -11rem !important;
+  }
+
+  .\32xl\:max-w-380px {
+    max-width: 380px !important;
   }
 
   .\32xl\:max-w-455px {
@@ -6696,5 +6712,9 @@ body {
 
   .\32xl\:w-48\% {
     width: 48% !important;
+  }
+
+  .\32xl\:gap-8 {
+    gap: 2rem !important;
   }
 }
