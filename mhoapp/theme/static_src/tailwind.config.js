@@ -145,7 +145,8 @@ module.exports = {
     },
     variants: {
         extend: {
-            display: ['group-hover']
+            display: ['hover', 'group-hover'],
+            borderWidth: ['hover'],
         },
     },
     plugins: [

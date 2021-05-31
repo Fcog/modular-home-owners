@@ -42,11 +42,13 @@
 
     data-pattern="atoms/button/button"
 
-    class="inline-flex justify-center items-center px-8 md:px-12 w-full leading-none outline-none
+    class="inline-flex items-center w-full leading-none outline-none transition delay-75 ease-in-out border md:border-2
 
-     {% if full_width %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
+    {% if has_icon %} pl-14 pr-8 lg:pl-16 lg:pr-8 {% else %} px-8 md:px-12 justify-center {% endif %}
 
-    {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} text-base 2xl:text-1.5xl font-bold {% endif %}
+    {% if full_width %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
+
+    {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} text-base xl:text-1.5xl font-bold {% endif %}
 
     {% if size is None or size == "medium" %} py-5 lg:py-6 {% endif %}
     {% if size == "small" %} py-3 lg:py-4 {% endif %}
@@ -54,13 +56,12 @@
 
     {% if rounded == "small" %} rounded-lg {% else %} rounded-full {% endif %}
 
-    {% if inverted is False %} text-white {% endif %}
-    {% if inverted is False and color == "green" %} bg-green {% endif %}
-    {% if inverted is False and color == "blue" %} bg-blue-light {% endif %}
+    {% if inverted is False %} text-white hover:border-2 {% endif %}
+    {% if inverted is False and color == "green" %} bg-green border-green hover:bg-white hover:text-green hover:border-green {% endif %}
+    {% if inverted is False and color == "blue" %} bg-blue-light border-blue-light hover:bg-white hover:text-blue-light hover:border-blue-light {% endif %}
 
-    {% if inverted is True %} border md:border-2 {% endif %}
-    {% if inverted is True and color == "green" %} text-green border-green {% endif %}
-    {% if inverted is True and color == "blue" %} text-blue-light border-blue-light {% endif %}
+    {% if inverted is True and color == "green" %} text-green border-green hover:text-white hover:bg-green {% endif %}
+    {% if inverted is True and color == "blue" %} text-blue-light border-blue-light hover:text-white hover:bg-blue-light {% endif %}
 
     {{ class }}">
 

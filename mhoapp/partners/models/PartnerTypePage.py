@@ -4,7 +4,7 @@ from wagtail.core import blocks, fields
 from wagtail.core.models import Page
 from wagtailsvg.models import Svg
 from wagtailsvg.edit_handlers import SvgChooserPanel
-from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel, MultiFieldPanel, FieldRowPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
@@ -25,6 +25,13 @@ class PartnerTypePage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    icon_inverted = models.ForeignKey(
+        Svg,
+        null=True, 
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )    
 
     heading = fields.StreamField(
         custom_blocks.TwoColumnsBlock, 
@@ -49,7 +56,18 @@ class PartnerTypePage(Page):
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
-        SvgChooserPanel('icon'),
+        MultiFieldPanel(
+            [
+                FieldRowPanel(
+                    [
+                        SvgChooserPanel('icon'),
+                        SvgChooserPanel('icon_inverted'),
+                    ]
+                ),
+            ],
+            heading="Icons",
+            classname="collapsible"
+        ),        
         StreamFieldPanel('heading'),
         StreamFieldPanel('body'),
     ]
