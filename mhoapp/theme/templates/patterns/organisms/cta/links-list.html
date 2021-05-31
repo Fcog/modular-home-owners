@@ -2,7 +2,7 @@
 
 <div 
     data-pattern="organisms/cta/links-list"
-    class="pb-32 md:pb-44 bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto {{ links_list_class }}" 
+    class="bg-right-bottom bg-no-repeat bg-125% md:bg-70% lg:bg-50% 2xl:bg-auto {% if spacing == 'big' %} pt-16 pb-44 md:pt-32 xl:pt-44 {% else %} pb-32 md:pb-44 pt-32 {% endif %}" 
     style="background-image:url({% static 'images/Masked Home Gray.jpg' %})">
 
     <div class="container">

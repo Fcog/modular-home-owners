@@ -44,6 +44,8 @@ class HomePageSettings(BaseSetting):
     home_verified_text = models.CharField(max_length=255, null=True, verbose_name="Verified box text", default="")
     home_tooltip_text = models.TextField(max_length=255, null=True, verbose_name="Est Cost tooltip text", default="")
     home_similar_title = models.CharField(max_length=255, null=True, verbose_name="Similar houses section title", default="")
+    home_similar_button_text = models.CharField(max_length=254, null=True, verbose_name="Similar houses button text",  default="Search All Homes")
+    home_similar_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Similar houses button link")    
     home_form_id = models.CharField(max_length=20, null=True, verbose_name="Wufoo Form ID", default="")
     home_form_height = models.IntegerField(null=True, verbose_name="Wufoo Form Height in pixels", default="500")
 
@@ -56,6 +58,8 @@ class HomePageSettings(BaseSetting):
         FieldPanel('home_verified_text'),
         FieldPanel('home_tooltip_text'),
         FieldPanel('home_similar_title'),
+        FieldPanel('home_similar_button_text'),
+        PageChooserPanel('home_similar_button_link'),
         FieldPanel('home_form_id'),
         FieldPanel('home_form_height'),
     ]    

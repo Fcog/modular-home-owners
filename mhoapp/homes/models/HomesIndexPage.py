@@ -157,10 +157,6 @@ class HomesIndexPage(Page):
 
         # Filter by square footage.
         if min_sqft:
-            homes = homes.filter(sqft__gt=int(min_sqft))
-
-        # Filter by square footage.
-        if min_sqft:
             homes = homes.filter(sqft__gt=int(min_sqft))            
 
         if max_sqft:

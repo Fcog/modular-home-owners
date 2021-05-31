@@ -12,13 +12,13 @@ def is_checkbox(field):
 
 
 @register.inclusion_tag('patterns/organisms/cta/links-list.html', takes_context=True)
-def resources_cta(context, css_class):
+def resources_cta(context, spacing):
     settings = BlocksSettings.for_request(context['request'])
 
     return {
         'text': settings.resources_text,                
         'links': ResourcePage.objects.live(),
-        'links_list_class': css_class,
+        'spacing': spacing,
     }
 
 

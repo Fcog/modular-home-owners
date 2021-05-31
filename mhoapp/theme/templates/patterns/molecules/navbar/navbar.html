@@ -33,18 +33,18 @@
                 {# Tablet and up mobile button #}
                 <div class="hidden {% if header_theme is None or header_theme == 'normal' %} md:block {% endif %} py-0 mt-8 md:mt-0">
                     {# Green button for the white theme #}
-				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="green" inverted=True class="" %}
+				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text=settings.base.GeneralSettings.search_button_text size="small" color="green" inverted=True class="" %}
                 </div>
                 
                 <div class="hidden {% if header_theme == 'blue' or header_theme == 'green' %} md:block {% endif %} py-0 mt-8 md:mt-0">
                     {# Blue button for the blue and green themes #}
-				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" size="small" color="blue" inverted=True class="" %}
+				    {% include "patterns/atoms/button/button.html" with url=search_homes_url text=settings.base.GeneralSettings.search_button_text size="small" color="blue" inverted=True class="" %}
                 </div>
 
                 {# Mobile button #}
                 <div class="md:hidden flex justify-center mt-4 w-full">
 
-                    {% include "patterns/atoms/button/button.html" with url=search_homes_url text="Find Your Home" class="py-0 xl:ml-4 mt-8 md:mt-0" color="blue" inverted=True %}
+                    {% include "patterns/atoms/button/button.html" with url=search_homes_url text=settings.base.GeneralSettings.search_button_text class="py-0 xl:ml-4 mt-8 md:mt-0" color="blue" inverted=True %}
 
                 </div>
 

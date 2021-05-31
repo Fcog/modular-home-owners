@@ -22,11 +22,11 @@
 
     </div>
 
-    {% if button_text %}
+    {% if settings.base.HomePageSettings.home_similar_button_text %}
     
     <div class="flex justify-center">
 
-        {% include "patterns/atoms/button/button.html" with text=button_text url=button_url new_window=new_window color="blue" inverted=False %}
+        {% include "patterns/atoms/button/button.html" with text=settings.base.HomePageSettings.home_similar_button_text url=settings.base.HomePageSettings.home_similar_button_link.get_url color="blue" inverted=False %}
 
     </div>
 
