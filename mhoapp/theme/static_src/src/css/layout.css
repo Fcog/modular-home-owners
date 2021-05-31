@@ -44,3 +44,20 @@
       @apply container;
   }
 }
+
+/* Safari grid gap polyfill */
+.gap-safari-container {
+  @media not all and (min-resolution:.001dpcm) { 
+     @supports (-webkit-appearance:none) {
+        margin: -.75rem;
+    }
+  }
+}
+
+.gap-safari {
+  @media not all and (min-resolution:.001dpcm) { 
+     @supports (-webkit-appearance:none) {
+        margin: .75rem;
+    }
+  }
+}
