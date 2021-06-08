@@ -64,7 +64,7 @@ urllib3==1.26.3
 URLObject==2.4.3
 virtualenv==20.4.2
 virtualenv-clone==0.5.4
-wagtail==2.12.4
+wagtail==2.13.1
 wagtail-generic-chooser==0.1.1
 wagtail-link-block==0.1.2
 Wagtail-Multi-Image-Edit @ git+https://github.com/kevinhowbrook/wagtail-multi-image-edit.git@99a708d2cdd1b7d94095372af632775e9401065b
