@@ -142,6 +142,9 @@ module.exports = {
                     }
                 }
             },
+            columnGap: {
+                lg: '2rem',
+            },
         }
     },
     variants: {

@@ -14,7 +14,7 @@ class HomesMap(blocks.StructBlock):
                 'name': item.title,
                 'url': item.url,
             },
-            context['page'].get_children().live()
+            context['page'].get_children().live().order_by('title')
         ))
         return context    
 
