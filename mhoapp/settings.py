@@ -290,7 +290,6 @@ else:
     # Use AWS S3 storage
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     AWS_S3_ENDPOINT_URL = os.environ['AWS_S3_ENDPOINT_URL']
     AWS_DEFAULT_ACL = 'public-read'
 
@@ -304,8 +303,8 @@ else:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-    STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/'
-    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/'
+    STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
 # https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
 WAGTAIL_USAGE_COUNT_ENABLED = True
