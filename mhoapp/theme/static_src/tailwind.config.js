@@ -151,6 +151,7 @@ module.exports = {
         extend: {
             display: ['hover', 'group-hover'],
             borderWidth: ['hover'],
+            cursor: ['hover'],
         },
     },
     plugins: [

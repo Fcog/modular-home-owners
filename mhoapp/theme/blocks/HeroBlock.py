@@ -25,7 +25,7 @@ class HeroBlock(blocks.StructBlock):
         context['price_ranges'] = list(map(
             lambda item: {
                 'id': f'{item.get_type_display().lower()}-{item.price}',
-                'text': f'{item.get_type_display()} ${item.price}',
+                'text': f'{item.get_type_display() if item.get_type_display() == "Under" else ""} ${"{:,}".format(item.price)} {"+" if item.get_type_display() == "Over" else ""}',
                 'url': item.homes_search_page.url if item.homes_search_page else ''
             },
             PriceRanges.objects.all().order_by('price')

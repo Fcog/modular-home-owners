@@ -313,7 +313,6 @@
 
     .dropdown {
       ul {
-        column-count: 2;
         column-gap: 7rem; 
       }
     }

@@ -1,10 +1,14 @@
 {% extends "base_page.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags svg custom_tags %}
+{% load static wagtailcore_tags wagtailimages_tags svg custom_tags %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+{% endblock %}
 
 {% block content %}
 
-<div data-pattern="templates/homes/home_page" class="-mt-24 xl:-mt-24">
+<div data-pattern="templates/homes/home-page" class="-mt-24 xl:-mt-24">
 
     <!-- Home Info section -->
 
@@ -66,11 +70,11 @@
                         
                             {% with icon_text_class="mr-2 mb-2 lg:px-2 lg:py-2" %}
 
-                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.bedrooms_text quantity=page.bedrooms icon="Beds Icon" text_size="big" class=icon_text_class %}
-                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.baths_text quantity=page.baths_formatted icon="Baths Icon" text_size="big" class=icon_text_class %}
-                            {% include "patterns/atoms/icon-text/icon-text.html" with title="Sq. Ft" quantity=page.sqft icon="Sq Feet Icon" text_size="big" class=icon_text_class %}
-                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.style icon="Home Icon small" text_size="big" class=icon_text_class %}
-                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.stories_text quantity=page.stories_formatted icon="Measure Icon" text_size="big" class=icon_text_class %}
+                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.bedrooms_text quantity=page.bedrooms icon="Beds Icon" big_text=True class=icon_text_class %}
+                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.baths_text quantity=page.baths_formatted icon="Baths Icon" big_text=True class=icon_text_class %}
+                            {% include "patterns/atoms/icon-text/icon-text.html" with title="Sq. Ft" quantity=page.sqft icon="Sq Feet Icon" big_text=True class=icon_text_class %}
+                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.style icon="Home Icon small" big_text=True class=icon_text_class %}
+                            {% include "patterns/atoms/icon-text/icon-text.html" with title=page.stories_text quantity=page.stories_formatted icon="Measure Icon" big_text=True class=icon_text_class %}
 
                             {% endwith %}
 

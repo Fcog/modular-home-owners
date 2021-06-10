@@ -33,6 +33,16 @@
 	}
 }
 
+.icon-green-hover {
+	&:hover {
+		.price-icon-a,
+		.price-icon-b,
+		.home-icon-a {
+			stroke: #609c00;
+		}
+	}
+}
+
 .icon-rotate {
   svg {
     transform: rotate(180deg);

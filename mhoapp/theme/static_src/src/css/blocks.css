@@ -93,3 +93,14 @@ div[class^="block-"] ~ .block-headingH2 {
         height: 100%;        
     }
 }
+
+/*      
+ * Reduce space of Resources CTA block in the partner page template.
+ */
+[data-pattern="templates/partners/partner-page"] {
+    .block-ResourcesCTA {
+        > div {
+            padding-top: 3rem !important;
+        }
+    }
+}

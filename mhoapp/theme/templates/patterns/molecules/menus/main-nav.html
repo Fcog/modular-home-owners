@@ -20,7 +20,7 @@
 
     {% if item.sub_menu %}
 
-    <ul>
+    <ul class="{% if item.sub_menu.items|length > 2 %} col-count-2 {% endif %}">
 
         {% for sub_item in item.sub_menu.items %}
 
