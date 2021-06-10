@@ -14,4 +14,4 @@ def global_admin_js():
     return format_html(
         '<script src="{}"></script>',
         static('mhoapp/bundle.js')
-    )  
+    )
