@@ -1,15 +1,23 @@
-<div class="js-read-more">
+<div
+    data-pattern="molecules/paragraphs/readmore"
+    class="js-read-more">
 
         <div class="js-read-more-button -mt-4 lg:-mt-6">
 
             <span class="text-sm md:text-lg text-green md:font-bold underline cursor-pointer">Read more</span> 
 
-        </div>
+        </div>  
 
         <div class="js-read-more-text hidden">
         
             {% include "patterns/atoms/paragraph/paragraph.html" %}   
 
         </div>
+
+        <div class="js-read-less-button mt-4 lg:mt-6 hidden">
+
+            <span class="text-sm md:text-lg text-green md:font-bold underline cursor-pointer">Read less</span> 
+
+        </div>      
 
 </div>

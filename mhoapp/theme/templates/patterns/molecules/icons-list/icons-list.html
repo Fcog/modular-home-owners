@@ -2,7 +2,7 @@
 
 <div 
     data-pattern="molecules/icons-list"
-    class="grid grid-cols-2 lg:grid-cols-4 gap-x-24 gap-y-16">
+    class="grid grid-cols-2 {% if small_size %} lg:grid-cols-6 {% else %} lg:grid-cols-4 {% endif %} gap-x-24 gap-y-16">
 
     {% for item in list %}
 

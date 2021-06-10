@@ -2,7 +2,9 @@
 
 {% for item in menu_items %}
 
-<li class="luxbar-item luxbar-item-first-level {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
+<li 
+    data-pattern="molecules/menus/main-nav"
+    class="luxbar-item luxbar-item-first-level {% if item.sub_menu %}active{% endif %} {% if item.sub_menu %}dropdown{% endif %}">
 
     <a
         class="luxbar-item-a luxbar-item-a-first-level md:pointer-events-none lg:pointer-events-auto"

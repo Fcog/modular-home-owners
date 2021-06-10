@@ -2,7 +2,9 @@
 
 {% if title %}
 
-<h3 class="mb-2 md:mb-6 text-lg md:text-3xl  {% if style == 'green' %} text-blue-dark font-medium {% else %} text-white {% endif %}">
+<h3 
+    data-pattern="molecules/links-list"
+    class="mb-2 md:mb-6 text-lg md:text-3xl  {% if style == 'green' %} text-blue-dark font-medium {% else %} text-white {% endif %}">
 
 {{ title }}
 

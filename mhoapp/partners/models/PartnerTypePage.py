@@ -104,4 +104,7 @@ class PartnerTypePage(Page):
             partners.specific()
          ))     
 
+        if request.htmx:
+            context['small_size'] = True
+
         return context        

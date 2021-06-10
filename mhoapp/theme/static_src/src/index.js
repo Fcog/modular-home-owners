@@ -12,6 +12,7 @@ import filtersMenu from './js/filters-menu'
 import floatingInputLabels from './js/floating-input-labels'
 import homesLayoutToggler from './js/wagtail-admin'
 import tooltip from './js/tooltip'
+import partnersButtons from './js/partners-buttons'
 
 document.addEventListener( 'DOMContentLoaded', () => {
     MicroModal.init()
@@ -24,6 +25,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     floatingInputLabels().init()
     homesLayoutToggler()
     tooltip()
+    partnersButtons()
 
     /**
      * When the form is submitted using Ajax.

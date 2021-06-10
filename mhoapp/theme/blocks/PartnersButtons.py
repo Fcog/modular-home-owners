@@ -13,7 +13,7 @@ class PartnersButtons(blocks.ChoiceBlock):
         context['buttons'] = list(map(
             lambda item: {
                 'hx_get': f'{item.url}?location={value}',
-                'hx_target': '#ajax-response',
+                'hx_target': '.js-partners-buttons-ajax-response',
                 'text': f'{value} {item.title}',
                 'image': item.icon.url if item.icon else '',
                 'image_inverted': item.icon_inverted.url if item.icon_inverted else '',

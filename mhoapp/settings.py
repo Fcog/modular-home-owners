@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+    # Machina dependencies:
+    'haystack',  # This one should be installed before 'wagtail.*' so that the terminal command "update_index" doesn't get overridden.
+
     'wagtail_multi_image_edit', # This one should be installed before 'wagtail.admin'
 
     'wagtail.contrib.modeladmin',
@@ -85,7 +88,6 @@ INSTALLED_APPS = [
 
     # Machina dependencies:
     'mptt',
-    'haystack',
     'widget_tweaks',
 
     # Machina apps:
@@ -325,7 +327,8 @@ CACHES = {
 # ------------------------------------------------------------------------------
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }
 
