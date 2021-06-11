@@ -61,7 +61,7 @@
     {% if inverted is False and color == "blue" %} bg-blue-light border-blue-light hover:bg-white hover:text-blue-light hover:border-blue-light {% endif %}
 
     {% if inverted is True and color == "green" %} text-green border-green hover:text-white hover:bg-green {% endif %}
-    {% if inverted is True and color == "blue" %} text-blue-light border-blue-light hover:text-white hover:bg-blue-light {% endif %}
+    {% if inverted is True and color == "blue" %} text-blue-light border-blue-light hover:text-white hover:bg-blue-light group-hover:text-white group-hover:bg-blue-light {% endif %}
 
     {{ class }}">
 

@@ -1,8 +1,9 @@
 {% load svg %}
 
-<div 
+<a 
     data-pattern="molecules/cards/home-cta"
-    class="flex flex-col items-center justify-center px-8 xl:pb-4 md:px-6 2xl:px-12 text-center bg-blue w-full md:w-48% lg:w-31% xl:w-31.7% 2xl:max-w-380px gap-safari {{ class }}">
+    href="{{ settings.base.HomeSearchPageSettings.homes_ad_button_url }}"
+    class="flex flex-col items-center justify-center px-8 xl:pb-4 md:px-6 2xl:px-12 text-center bg-blue w-full md:w-48% lg:w-31% xl:w-31.7% 2xl:max-w-380px group gap-safari {{ class }}">
 
     <div class="mb-6 svg-h-house">
 
@@ -12,6 +13,6 @@
 
     <p class="mb-6 text-white text-2xl font-bold">{{ settings.base.HomeSearchPageSettings.homes_ad_text }}</p>
 
-    {% include "patterns/atoms/button/button.html" with url=settings.base.HomeSearchPageSettings.homes_ad_button_url text=settings.base.HomeSearchPageSettings.homes_ad_button_text size="small" text_size="small" color="blue" inverted=True class="" %}
+    {% include "patterns/atoms/button/button.html" with text=settings.base.HomeSearchPageSettings.homes_ad_button_text size="small" text_size="small" color="blue" inverted=True class="" %}
 
-</div>
+</a>
