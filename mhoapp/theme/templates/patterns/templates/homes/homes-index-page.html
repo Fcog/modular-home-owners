@@ -45,25 +45,19 @@
 
         </div>
 
-        <div class="container mb-8 flex justify-between">
+        <div id="scrolling-section" class="pb-8 -mt-8"></div>
 
-            <div class="w-2/5 md:w-1/4 xl:hidden">
+        <div class="sticky top-0 xl:hidden container py-4 flex justify-between w-full bg-white z-10">
+
+            <div class="w-2/5 md:w-1/4">
 
                 {% include "patterns/atoms/button/button-icon.html" with id="filters-open-button" text="Filters" icon="filter icon" size="small" text_size="small" color="blue" inverted=True %}
-
-            </div>
-        
-            <div class="flex justify-end items-center w-3/5 lg:w-full text-xxs md:text-xs lg:text-lg text-gray-70" id="scrolling-section">
-
-                <span class="pr-1 text-green-medium font-medium underline">{{ total_homes }}</span> 
-
-                home{{ total_homes|pluralize }} found
 
             </div>
 
         </div>
 
-        <div class="container md:flex mb-24">
+        <div class="container md:flex mb-24 lg:mt-8">
 
             <div class="xl:block xl:w-26.5%">
 

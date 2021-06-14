@@ -2151,6 +2151,10 @@ select {
   margin-top: -1rem !important;
 }
 
+.-mt-8 {
+  margin-top: -2rem !important;
+}
+
 .-mt-24 {
   margin-top: -6rem !important;
 }
@@ -2445,8 +2449,16 @@ select {
   position: relative !important;
 }
 
+.sticky {
+  position: sticky !important;
+}
+
 .top-0 {
   top: 0px !important;
+}
+
+.right-0 {
+  right: 0px !important;
 }
 
 .bottom-0 {
@@ -2479,6 +2491,10 @@ select {
 
 .-right-7 {
   right: -1.75rem !important;
+}
+
+.-top-12 {
+  top: -3rem !important;
 }
 
 .-bottom-0\.5 {

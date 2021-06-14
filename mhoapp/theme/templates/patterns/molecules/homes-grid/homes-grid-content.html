@@ -1,11 +1,27 @@
-{% if show_add %}
+{% if homes %}
 
-    {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex" %}
+    {% if show_add %}
+
+            <div class="absolute -top-12 right-0 flex justify-end items-center w-3/5 lg:w-full text-xxs md:text-xs lg:text-lg text-gray-70 z-20">
+
+                <span class="pr-1 text-green-medium font-medium underline">{{ total_homes }}</span> 
+
+                home{{ total_homes|pluralize }} found
+
+            </div>
+
+        {% include "patterns/molecules/cards/home-cta/home-cta.html" with class="hidden md:flex" %}
+
+    {% endif %}
+
+    {% for home in homes %}
+
+        {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text activate_inifinite_scroll=activate_inifinite_scroll show_htmx=forloop.last class="" %}
+
+    {% endfor %}
+
+{% else %}    
+
+    <p class="mt-8 text-2xl font-bold">No homes available with this criteria.</p>
 
 {% endif %}
-
-{% for home in homes %}
-
-    {% include "patterns/molecules/cards/home/home.html" with url=home.url title=home.title main_image=home.main_image verified=home.verified bedrooms=home.bedrooms baths_formatted=home.baths_formatted sqft=home.sqft cost_formatted=home.cost_formatted estimated_cost_formatted=home.estimated_cost_formatted bedrooms_text=home.bedrooms_text baths_text=home.baths_text activate_inifinite_scroll=activate_inifinite_scroll show_htmx=forloop.last class="" %}
-
-{% endfor %}

@@ -2,12 +2,12 @@
 
 <div 
     data-pattern="organisms/sections/two-cols-equal-width"
-    class="lg:flex justify-between mb-16 lg:mb-0">
+    class="lg:flex justify-between mb-8 lg:mb-0">
 
     {% for column, width in columns %}
 
         <div 
-            class="{% if forloop.first %} mb-16 lg:mb-0 lg:mr-12 2xl:mr-18 lg:w-1/2 {% else %} mb-6 lg:mb-0 lg:ml-12 2xl:ml-32 lg:w-1/2 {% endif %}
+            class="{% if forloop.first %} mb-8 lg:mb-0 lg:mr-12 2xl:mr-18 lg:w-1/2 {% else %} mb-6 lg:mb-0 lg:ml-12 2xl:ml-32 lg:w-1/2 {% endif %}
             {% if forloop.counter == 2 and page.offset_2nd_column %} lg:-mt-28 2xl:-mt-44 {% endif %}">
 
             {% include_block column %}
