@@ -16,7 +16,7 @@
         
         </div>
         
-        <form hx-get={{ submit_url }} hx-target=".htmx-search-results" hx-indicator=".htmx-indicator" hx-swap="innerHTML swap:2s">
+        <form hx-get={{ submit_url }} hx-target=".htmx-search-results" hx-indicator=".htmx-indicator" hx-swap="innerHTML">
 
             {% include "patterns/molecules/filters/filter-section.html" with title="Price Range" filter="price_range"%}
             {% include "patterns/molecules/filters/filter-section.html" with title="Shipping Available to" filter="locations" %}

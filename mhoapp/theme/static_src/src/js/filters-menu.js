@@ -6,6 +6,8 @@ export default function filtersMenu() {
     const openButton = document.getElementById('filters-open-button')
     const closeButton = document.getElementById('filters-close-button')
     const applySearchButton = document.getElementById('search')
+    const scrollingSection = document.getElementById('scrolling-section')
+    const searchResultsSection = document.getElementById('search-results-section')
 
     if (!menu) {
         return
@@ -33,6 +35,8 @@ export default function filtersMenu() {
     // Closes the filters window in mobile when the user clicks the Apply Search button.
     applySearchButton.addEventListener('click', function closeMenuOutside(event) {
             closeMenu()
+            scrollingSection.scrollIntoView({ behavior: 'smooth'})
+            searchResultsSection.innerHTML = ''
         }
     )
 
