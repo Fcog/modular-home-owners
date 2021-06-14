@@ -67,7 +67,7 @@
 
             <div class="xl:block xl:w-26.5%">
 
-                {% include "patterns/molecules/filters/filters.html" with class="lg:mr-6 xl:mr-8" %}
+                {% include "patterns/molecules/filters/filters.html" with submit_url=page.url class="lg:mr-6 xl:mr-8" %}
 
             </div>
 
@@ -83,7 +83,10 @@
 
                 {% endif %}
 
-                <center><div class="htmx-indicator spinner" width="60"></div></center>
+                <center class="mt-12 htmx-indicator">
+                    <div class="text-2xl text-blue-dark font-bold">Loading results...</div>
+                    <div class="spinner mt-12" width="60"></div>
+                </center>
 
             </div>
 

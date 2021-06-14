@@ -5,6 +5,7 @@ export default function filtersMenu() {
     const menu = document.getElementById('filters-menu')
     const openButton = document.getElementById('filters-open-button')
     const closeButton = document.getElementById('filters-close-button')
+    const applySearchButton = document.getElementById('search')
 
     if (!menu) {
         return
@@ -28,6 +29,12 @@ export default function filtersMenu() {
             closeMenu()
         }
     })
+
+    // Closes the filters window in mobile when the user clicks the Apply Search button.
+    applySearchButton.addEventListener('click', function closeMenuOutside(event) {
+            closeMenu()
+        }
+    )
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
