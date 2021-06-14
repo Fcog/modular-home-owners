@@ -6893,3 +6893,27 @@ body {
     gap: 2rem !important;
   }
 }
+
+@media screen and (max-height: 740px) {
+  .max-740px\:text-base {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+
+  .max-740px\:mt-4 {
+    margin-top: 1rem !important;
+  }
+
+  .max-740px\:py-3 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .max-740px\:pt-4 {
+    padding-top: 1rem !important;
+  }
+
+  .max-740px\:pb-4 {
+    padding-bottom: 1rem !important;
+  }
+}

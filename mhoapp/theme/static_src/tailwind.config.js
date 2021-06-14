@@ -49,7 +49,8 @@ module.exports = {
         },
         extend: {
             screens: {
-                '2xl': '1640px'
+                '2xl': '1640px',
+                'max-740px': {'raw': 'screen and (max-height: 740px)'},
             },
             container: {
               center: true,

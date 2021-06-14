@@ -48,11 +48,11 @@
 
     {% if full_width %} {% else %} max-w-16.25 md:max-w-21.25 {% endif %}
 
-    {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} text-base xl:text-1.5xl font-bold {% endif %}
+    {% if text_size == "small" %} text-sm md:text-lg font-medium {% else %} text-base xl:text-1.5xl max-740px:text-base font-bold {% endif %}
 
     {% if size is None or size == "medium" %} py-5 lg:py-6 {% endif %}
     {% if size == "small" %} py-3 lg:py-4 {% endif %}
-    {% if size == "mobile-normal-desktop-small" %} py-5 lg:py-4 {% endif %}
+    {% if size == "mobile-normal-desktop-small" %} py-5 lg:py-4 max-740px:py-3 {% endif %}
 
     {% if rounded == "small" %} rounded-lg {% else %} rounded-full {% endif %}
 
