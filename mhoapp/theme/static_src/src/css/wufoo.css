@@ -6,38 +6,38 @@
 .wufoo {
     .info {
         h2 {
-            @screen sm {
-                @apply text-2xl text-blue-dark font-bold !important;
-            }
+            @apply text-2xl text-blue-dark font-bold !important;
 
-            @apply text-3xl !important;
+            @screen sm {
+                @apply text-3xl !important;
+            }
         }
     }
 
     .field {
-        @screen sm {
-            @apply px-3 py-2 text-blue-dark text-lg border border-blue-dark rounded-md !important; 
-        }
+        @apply px-3 py-2 text-blue-dark text-lg border border-blue-dark rounded-md !important; 
 
-        @apply px-4 py-3 !important; 
+        @screen sm {
+            @apply px-4 py-3 !important; 
+        }
     }
 
     label {
         &.desc {
+            @apply pb-1 text-sm text-blue-dark !important;
+            
             @screen sm {
-                @apply pb-1 text-sm text-blue-dark !important;
+                @apply text-lg !important;
             }
-
-            @apply text-lg !important;
         }
     }
 
     .submit {
-        @screen sm {
-            @apply py-3 px-12 text-white text-lg font-bold bg-blue-light rounded-3xl cursor-pointer !important;
-        }
+        @apply py-3 px-12 text-white text-lg font-bold bg-blue-light rounded-3xl cursor-pointer !important;
 
-        @apply py-5 px-20 text-1.5xl !important;
+        @screen sm {
+            @apply py-5 px-20 text-1.5xl !important;
+        }
     }
 
     .info {
