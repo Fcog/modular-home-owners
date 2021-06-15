@@ -2,7 +2,7 @@
 
 <div 
     data-pattern="atoms/labels/label1"
-    class="{{ class }}">
+    class="{{ class }} {% if icon %} js-tooltip-trigger z-20 {% endif %}">
 
     <div class="relative inline-flex items-center mb-1 text-xs md:text-sm 2xl:text-base text-gray-70 leading-none uppercase">
 
@@ -10,7 +10,7 @@
 
         {% if icon %}
 
-        <span class="absolute -right-7 -top-1.5 lg:top-0 2xl:top-0.5 ml-1 xl:ml-2 svg-h-1.2 js-tooltip-trigger">{% svg icon %}</span>
+        <span class="absolute -right-7 -top-1.5 lg:top-0 2xl:top-0.5 ml-1 xl:ml-2 svg-h-1.2">{% svg icon %}</span>
 
         {% endif %}
 

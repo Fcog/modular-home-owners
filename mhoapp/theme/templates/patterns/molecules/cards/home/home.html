@@ -4,7 +4,7 @@
     data-pattern="molecules/cards/home"
     href="{{ url }}"
     {% if activate_inifinite_scroll and show_htmx and homes.next_page_number %} hx-get="{% spurl base=request.get_full_path set_query="page={{ homes.next_page_number }}" %}" hx-trigger="revealed" hx-swap="afterend" {% endif %}
-    class="inline-block border border-gray-60 gap-safari {% if activate_inifinite_scroll %} w-full md:w-48% lg:w-31.7% 2xl:max-w-380px {% else %} w-full md:w-48% lg:w-31% 2xl:max-w-455px {% endif %}">
+    class="js-home-card inline-block border border-gray-60 gap-safari {% if activate_inifinite_scroll %} w-full md:w-48% lg:w-31.7% 2xl:max-w-380px {% else %} w-full md:w-48% lg:w-31% 2xl:max-w-455px {% endif %}">
 
     {% image main_image fill-380x283 as tmp_photo %}
 

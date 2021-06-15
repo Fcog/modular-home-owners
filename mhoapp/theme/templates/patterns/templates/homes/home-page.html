@@ -16,22 +16,22 @@
 
         <div class="lg:flex container">
 
-            {% if page.elevation_gallery_images.all %}
-
-            <div class="lg:w-1/2 lg:pr-16">
+            <div class="lg:w-1/2 lg:pr-16 {% if not page.elevation_gallery_images.all %} mt-12 lg:hidden {% endif %}">
 
                 {# Mobile device share button #}
                 <div class="lg:hidden relative flex justify-end mb-1 z-20">
                 {% include "patterns/molecules/sharer/sharer.html" with url=page.full_url title=page.title %}
                 </div>            
+
+                {% if page.elevation_gallery_images.all %}
             
                 {% include "patterns/molecules/sliders/images/images.html" with images=page.elevation_gallery_images.all slider_class="mb-5 lg:mb-0" %}
             
+                {% endif %}
+
             </div>
 
-            {% endif %}
-
-            <div class="lg:w-1/2">
+            <div class="{% if page.elevation_gallery_images.all %} lg:w-1/2 {% else %} lg:w-3/4 mt-6 {% endif %}">
 
                 <div class="flex justify-between mb-5 md:mb-8 lg:mb-16 xl:mb-24 ">
                 
@@ -84,11 +84,13 @@
 
                         <!-- Prices in mobile -->
 
-                        <div class="flex md:hidden justify-between mb-7 w-10/12">
+                        <div class="flex md:hidden justify-between mb-7 w-10/12 js-tooltip">
 
                             {% include "patterns/atoms/labels/label1.html" with title="Base Price" value=page.cost_formatted wide_design=True text_size="big" class="md:mb-8" %}
 
                             {% include "patterns/atoms/labels/label1.html" with title="Est. total" value=page.estimated_cost_formatted icon="help" wide_design=True text_size="big" class="" %}
+
+                            {% include "patterns/atoms/tooltip/tooltip.html" with message=settings.base.HomePageSettings.home_tooltip_text %}
 
                         </div>
 

@@ -21,9 +21,21 @@ export default function tooltip() {
             ],
         })
 
-        function show() {
-            box.setAttribute('data-show', '')
-          
+        function show(event) {
+            if (event.target.classList.contains('js-home-card')) {
+                return
+            }
+            
+            event.preventDefault()
+            event.stopPropagation()
+
+            if (box.hasAttribute('data-show')) {
+                // Hide if the tooltip is already visible (for mobile)
+                hide()
+            } else {
+                box.setAttribute('data-show', '')
+            }
+            
             // We need to tell Popper to update the tooltip position
             // after we show the tooltip, otherwise it will be incorrect
             popperInstance.update()
@@ -33,7 +45,7 @@ export default function tooltip() {
             box.removeAttribute('data-show')
         }
           
-        const showEvents = ['mouseenter', 'focus']
+        const showEvents = ['mouseenter', 'focus', 'touchstart']
         const hideEvents = ['mouseleave', 'blur']
           
         showEvents.forEach(event => {
