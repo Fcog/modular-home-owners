@@ -1,0 +1,8 @@
+#main_container {
+    .form {
+        .nav-tabs,
+        .tab-content {
+            @apply hidden;
+        }
+    }
+}

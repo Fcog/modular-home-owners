@@ -5290,6 +5290,12 @@ select {
     left: -4px;
   }
 
+/* Forum overrides django-machina */
+
+#main_container .form .nav-tabs, #main_container .form .tab-content {
+      display: none;
+    }
+
 html {
   font-size: 16px;
 }

@@ -51,6 +51,9 @@
 /* Tooltip https://popper.js.org/ */
 @import "./css/tooltip.css";
 
+/* Forum overrides django-machina */
+@import "./css/forum.css";
+
 html {
 	font-size: 16px;
 
