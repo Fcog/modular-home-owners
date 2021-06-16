@@ -3,7 +3,7 @@
  * Removes the price Select query URL before submitting.
  */
 export default function heroHomePriceRange() {
-    const form = document.getElementById('hero-home-form')
+    const form = document.getElementById('js-hero-home-form')
 
     if (!form) {
         return
@@ -12,7 +12,7 @@ export default function heroHomePriceRange() {
     const priceRangeSelect = document.getElementById('price-range')
     const minPriceInput = document.getElementById('min-price-range')
     const maxPriceInput = document.getElementById('max-price-range')
-
+    
     priceRangeSelect.addEventListener('change', event => {
         const value = event.target.value
 

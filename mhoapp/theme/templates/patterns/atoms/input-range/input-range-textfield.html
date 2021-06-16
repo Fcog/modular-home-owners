@@ -1,0 +1,21 @@
+<div
+    data-pattern="atoms/input-range-texfield"
+    class="flex mt-2 lg:mt-0">
+
+    <div class="w-1/2 pr-1">
+    
+        <label class="text-base lg:text-lg text-gray-90" for="{{ min_input_name }}">From</label>
+
+        {% include "patterns/atoms/input-text/input-text.html" with name=min_input_name value=min_value class="js-money-textfield" %}
+    
+    </div>
+
+    <div class="w-1/2 pl-1">
+
+        <label class="text-base lg:text-lg text-gray-90" for="{{ max_input_name }}">To</label>
+
+        {% include "patterns/atoms/input-text/input-text.html" with name=max_input_name value=max_value class="js-money-textfield" %}
+
+    </div>
+
+</div>

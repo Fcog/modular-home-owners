@@ -1,6 +1,8 @@
 {% load wagtailcore_tags wagtailimages_tags svg %}
 
-<div class="container pt-2 md:pt-12">
+<div 
+    data-pattern="organisms/hero-home"
+    class="container pt-2 md:pt-12">
 
     <div class="relative">
 
@@ -21,7 +23,7 @@
 
                     <p class="mb-9 md:w-8/12 text-sm md:text-2xl text-blue-dark md:font-normal leading-normal">{{ introduction }}</p>
 
-                    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center z-30" id="hero-home-form">
+                    <form action="{% slugurl 'homes' %}" method="get" class="flex md:block flex-col items-center z-30" id="js-hero-home-form">
 
                         <div class="md:flex mb-4.5 md:mb-8 w-full xl:w-10/12">
 

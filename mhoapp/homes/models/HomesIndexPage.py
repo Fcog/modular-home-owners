@@ -1,3 +1,4 @@
+import re
 from functools import reduce
 from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -115,17 +116,18 @@ class HomesIndexPage(Page):
 
         # Price Range initial values.
         # ------------------------------------------------------------------------------------- 
-        initial_min_price_range = self.initial_price_range.get_min_price_range() if self.initial_price_range else None
-        initial_max_price_range = self.initial_price_range.get_max_price_range() if self.initial_price_range else None
-        context['initial_min_price_range'] = initial_min_price_range
-        context['initial_max_price_range'] = initial_max_price_range
+        initial_min_price_range = self.initial_price_range.get_min_price_range() if self.initial_price_range else global_data.filter_price_min
+        initial_max_price_range = self.initial_price_range.get_max_price_range() if self.initial_price_range else global_data.filter_price_max
 
         # Filtering logic.
         # -------------------------------------------------------------------------------------
         page = request.GET.get('page')
         styles = request.GET.getlist('style')
-        min_price_range = initial_min_price_range if initial_min_price_range else request.GET.get('min-price-range') 
-        max_price_range = initial_max_price_range if initial_max_price_range else request.GET.get('max-price-range') 
+
+        # The prices values are formatted as money, so we use a regex substitution to convert it to an integer. 
+        min_price_range = re.sub('\D', '', request.GET.get('min-price-range')) if request.GET.get('min-price-range') else initial_min_price_range
+        max_price_range = re.sub('\D', '', request.GET.get('max-price-range')) if request.GET.get('max-price-range') else initial_max_price_range
+
         location = self.initial_location.code if self.initial_location else request.GET.get('shipping')
         min_sqft = request.GET.get('min-sqft')
         max_sqft = request.GET.get('max-sqft')
@@ -227,5 +229,8 @@ class HomesIndexPage(Page):
 
         context['bedrooms_initial_value'] = bedrooms or 0
         context['bathrooms_initial_value'] = bathrooms or 0
+
+        context['min_price_range'] = min_price_range
+        context['max_price_range'] = max_price_range
 
         return context     

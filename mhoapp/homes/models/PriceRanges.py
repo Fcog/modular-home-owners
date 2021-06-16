@@ -38,7 +38,7 @@ class PriceRanges(models.Model):
 
     def get_min_price_range(self):
         if self.type == self.UNDER:
-            return None
+            return 0
         return self.price
 
     def get_max_price_range(self):

@@ -2287,6 +2287,11 @@ select {
   padding-bottom: 4rem !important;
 }
 
+.py-2\.5 {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+}
+
 .px-2\.5 {
   padding-left: 0.625rem !important;
   padding-right: 0.625rem !important;
@@ -2307,6 +2312,10 @@ select {
 
 .pb-1 {
   padding-bottom: 0.25rem !important;
+}
+
+.pl-1 {
+  padding-left: 0.25rem !important;
 }
 
 .pt-2 {
@@ -2637,6 +2646,10 @@ select {
 
 .w-6 {
   width: 1.5rem !important;
+}
+
+.w-1\/2 {
+  width: 50% !important;
 }
 
 .w-2\/5 {

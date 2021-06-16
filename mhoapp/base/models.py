@@ -75,7 +75,6 @@ class HomeSearchPageSettings(BaseSetting):
 
     filter_price_min = models.PositiveIntegerField(default="50000", null=True, verbose_name="Price range min value")
     filter_price_max = models.PositiveIntegerField(default="1500000", null=True, verbose_name="Price range max value")
-    filter_price_step = models.PositiveIntegerField(default="10000", null=True, verbose_name="Price range widget values step")
     filter_sqft_min = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage min value")
     filter_sqft_max = models.PositiveIntegerField(default="600", null=True, verbose_name="Square footage max value")
     filter_sqft_step = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage range widget values step")    
@@ -108,7 +107,6 @@ class HomeSearchPageSettings(BaseSetting):
             [
                 FieldPanel('filter_price_min'),
                 FieldPanel('filter_price_max'),
-                FieldPanel('filter_price_step'),
                 FieldPanel('filter_sqft_min'),
                 FieldPanel('filter_sqft_max'),
                 FieldPanel('filter_sqft_step'),
