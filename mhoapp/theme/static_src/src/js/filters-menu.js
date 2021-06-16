@@ -35,7 +35,7 @@ export default function filtersMenu() {
     // Closes the filters window in mobile when the user clicks the Apply Search button.
     applySearchButton.addEventListener('click', function closeMenuOutside(event) {
             closeMenu()
-            scrollingSection.scrollIntoView({ behavior: 'smooth'})
+            scrollingSection.scrollIntoView()
             searchResultsSection.innerHTML = ''
         }
     )
