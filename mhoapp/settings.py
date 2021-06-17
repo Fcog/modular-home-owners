@@ -30,7 +30,7 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Development mode settings
 # ------------------------------------------------------------------------------
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = False
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
 DEBUG_BAR = False
 
