@@ -11,10 +11,6 @@ export default function partnersButtons() {
 
         // For all buttons.
         partnerButtons.forEach( partnerButton => {
-            const button = partnerButton.querySelector('.js-button')
-            const icon = partnerButton.querySelector('.js-button-icon')
-            const iconInverted = partnerButton.querySelector('.js-button-icon-inverted')
-
             // On button click.
             partnerButton.addEventListener('click', event => {
                 // If user clicked the same button.
@@ -50,8 +46,8 @@ export default function partnersButtons() {
 
         function addActiveButtonState(buttonContainer) {
             const button = buttonContainer.querySelector('.js-button')
-            const icon = buttonContainer.querySelector('.js-button-icon')
-            const iconInverted = buttonContainer.querySelector('.js-button-icon-inverted')
+            const icon = buttonContainer.querySelector('.js-button-icon-icon')
+            const iconInverted = buttonContainer.querySelector('.js-button-icon-icon-inverted')
             
             if (button) {
                 button.classList.add('bg-blue-light')
@@ -61,30 +57,38 @@ export default function partnersButtons() {
 
             if (icon) {
                 icon.classList.add('hidden')
+                icon.classList.add('group-hover:hidden')
             }
             
             if (iconInverted) {
                 iconInverted.classList.remove('hidden')    
+                iconInverted.classList.add('group-hover:block')   
             }
         }        
 
         function removeActiveButtonState(buttonContainer) {
             const button = buttonContainer.querySelector('.js-button')
-            const icon = buttonContainer.querySelector('.js-button-icon')
-            const iconInverted = buttonContainer.querySelector('.js-button-icon-inverted')
-            
+            const icon = buttonContainer.querySelector('.js-button-icon-icon')
+            const iconInverted = buttonContainer.querySelector('.js-button-icon-icon-inverted')
+
             if (button) {
                 button.classList.remove('bg-blue-light')
+                button.classList.remove('hover:bg-blue-light')
+                button.classList.remove('group-hover:bg-blue-light')
                 button.classList.add('text-blue-light')
                 button.classList.remove('text-white')
+                button.classList.remove('hover:text-white')
+                button.classList.remove('group-hover:text-white')
             }
 
             if (icon) {
                 icon.classList.remove('hidden')
+                icon.classList.remove('group-hover:hidden')
             }
             
             if (iconInverted) {
                 iconInverted.classList.add('hidden')    
+                iconInverted.classList.remove('group-hover:block')    
             }
         }
     })
