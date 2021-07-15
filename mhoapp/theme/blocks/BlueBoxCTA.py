@@ -10,7 +10,8 @@ class BlueBoxCTA(blocks.StructBlock):
     title = blocks.RichTextBlock(features=['bold'])
     text = blocks.TextBlock()
     button_text = blocks.CharBlock()
-    button_link = LinkBlock()
+    form_id = blocks.CharBlock()
+    form_height = blocks.CharBlock()
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)

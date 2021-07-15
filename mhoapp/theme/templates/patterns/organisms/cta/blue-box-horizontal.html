@@ -1,4 +1,4 @@
-{% load svg %}
+{% load svg custom_tags %}
 
 <div 
     data-pattern="organisms/cta/blue-box-horizontal"    
@@ -14,21 +14,22 @@
 
     <div class="flex items-center w-1/12 lg:w-5/12 xl:w-1/3 2xl:pl-4">
 
-        <a 
+        <button 
             class="lg:hidden py-4" 
-            {% if button_link.new_window %} target="_blank" {% endif %}
-            href="{{ button_link.get_url }}">
+            data-micromodal-trigger="blue-cta-modal">
         
             {% svg 'right arrow blue2' %}
         
-        </a>
+        </button>
 
         <div class="hidden w-full lg:block">
     
-            {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="small" inverted=False %}
+            {% include "patterns/atoms/button/button.html" with text=button_text modal_id="blue-cta-modal" color="blue" size="small" inverted=False %}
 
         </div>
 
     </div>
+
+    {% form_modal "blue-cta-modal" form_id form_height %}
 
 </div>
