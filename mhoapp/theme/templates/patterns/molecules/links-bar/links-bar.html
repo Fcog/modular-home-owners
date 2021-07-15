@@ -16,7 +16,8 @@
 
             <a
                 class="text-lg md:text-1.5xl text-green font-bold underline-spaced underline-spaced-green"
-                href="{{ link.url }}">
+                {% if link.link.new_window %} target="_blank" {% endif %}
+                href="{{ link.link.get_url }}">
 
                 {{ link.text }}
 
