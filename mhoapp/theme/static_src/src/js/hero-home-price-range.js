@@ -1,6 +1,8 @@
 /**
- * Sets the correct URL query params when using the Price Range select field.
- * Removes the price Select query URL before submitting.
+ * Redirects to the proper Home Styles or Price Range pages if the Select fields are used. 
+ * Else redirect to the Main Homes search page.
+ * 
+ * Also cleans the URL query params.
  */
 export default function heroHomePriceRange() {
     let form = null
@@ -63,11 +65,12 @@ export default function heroHomePriceRange() {
     }
 
     const redirectToHomeStylePage = () => styleSelect[styleSelect.selectedIndex].dataset.custom !== undefined
+    const redirectToPriceRangePage = () => priceRangeSelect[priceRangeSelect.selectedIndex].dataset.custom !== undefined
 
     const changeFormActionURL = () => {
         const stylePageURL = styleSelect[styleSelect.selectedIndex].dataset.custom
         const pricePageURL = priceRangeSelect[priceRangeSelect.selectedIndex].dataset.custom
-        form.action = redirectToHomeStylePage() ? stylePageURL : pricePageURL
+        form.action = redirectToHomeStylePage() ? stylePageURL : redirectToPriceRangePage() ? pricePageURL : form.action
     }
 
     const removePriceURLQuery = () => {
