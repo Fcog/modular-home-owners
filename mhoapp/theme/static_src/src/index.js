@@ -21,7 +21,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     inputRangeTextfield()
     slider()
     readMore()
-    heroHomePriceRange()
+    heroHomePriceRange().init()
     numberControl()
     filtersMenu()
     floatingInputLabels().init()

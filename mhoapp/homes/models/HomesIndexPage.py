@@ -46,6 +46,14 @@ class HomesIndexPage(Page):
         verbose_name="Initial location"
     )    
 
+    initial_home_style = models.ForeignKey(
+        'homes.StyleCategory',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name="Initial Home Style"
+    )    
+
     layout = models.CharField(
         max_length=2,
         choices=COLUMNS_LAYOUT,
@@ -88,6 +96,7 @@ class HomesIndexPage(Page):
                     [
                         SnippetChooserPanel('initial_price_range'),
                         SnippetChooserPanel('initial_location'),
+                        SnippetChooserPanel('initial_home_style'),
                     ]
                 )
             ],
@@ -122,7 +131,7 @@ class HomesIndexPage(Page):
         # Filtering logic.
         # -------------------------------------------------------------------------------------
         page = request.GET.get('page')
-        styles = request.GET.getlist('style')
+        styles = [self.initial_home_style.name.lower()] if self.initial_home_style else request.GET.getlist('style')
 
         # The prices values are formatted as money, so we use a regex substitution to convert it to an integer. 
         min_price_range = re.sub('\D', '', request.GET.get('min-price-range')) if request.GET.get('min-price-range') else initial_min_price_range
@@ -136,7 +145,7 @@ class HomesIndexPage(Page):
         partner = request.GET.get('partner')
 
         # Get the full unpaginated listing of homes as a queryset.
-        homes = HomePage.objects.live().order_by('title')
+        homes = HomePage.objects.live().order_by('cost')
 
         # Filter by partner
         if partner:

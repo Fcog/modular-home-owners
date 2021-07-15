@@ -50,7 +50,8 @@ module.exports = {
         extend: {
             screens: {
                 '2xl': '1640px',
-                'max-740px': {'raw': 'screen and (max-height: 740px)'},
+                'max-height-740px': {'raw': 'screen and (max-height: 740px)'},
+                'max-height-520px': {'raw': 'screen and (max-height: 520px) and (min-width: 1280px)'},
             },
             container: {
               center: true,

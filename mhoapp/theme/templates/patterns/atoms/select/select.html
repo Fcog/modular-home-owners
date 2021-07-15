@@ -7,7 +7,7 @@
         id="{{ id }}"
         class="w-full text-blue-green border-blue-green hover:text-green hover:border-green hover:cursor-pointer focus:ring-0
 
-            {% if size == "normal" %} md:py-2.5 lg:pl-6 text-sm md:text-lg max-740px:text-base {% endif %}
+            {% if size == "normal" %} md:py-2.5 lg:pl-6 text-sm md:text-lg max-height-740px:text-base {% endif %}
             {% if size == "big" %} py-3 md:py-7 pl-16 md:pl-20 text-sm md:text-xl font-medium {% endif %}
 
             {{ select_class }}">
@@ -20,7 +20,7 @@
 
         {% for option in options %}
 
-        <option value="{{ option.id }}" {% if option.selected %}selected="selected"{% endif%}>
+        <option value="{{ option.id }}" {% if option.selected %}selected="selected"{% endif%} {% if option.custom_data %} data-custom="{{ option.custom_data }}" {% endif%}>
 
             {{ option.text }}
 
