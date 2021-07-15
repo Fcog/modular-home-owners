@@ -140,6 +140,10 @@ class HomePage(Page):
 
         context['similar_homes'] = HomePage.objects.filter(partner=self.partner).exclude(id=self.id).live()[:3]
 
+        # Home CTA modal form data
+        context['home_form_id'] = global_data.home_form_id
+        context['home_form_height'] = global_data.home_form_height
+
         return context
 
     @property

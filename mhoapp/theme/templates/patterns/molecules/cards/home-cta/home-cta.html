@@ -1,9 +1,9 @@
-{% load svg %}
+{% load svg custom_tags %}
 
-<a 
+<div 
     data-pattern="molecules/cards/home-cta"
-    href="{{ settings.base.HomeSearchPageSettings.homes_ad_button_url }}"
-    class="flex flex-col items-center justify-center px-8 xl:pb-4 md:px-6 2xl:px-12 text-center bg-blue w-full md:w-48% lg:w-31% xl:w-31.7% 2xl:max-w-380px group gap-safari {{ class }}">
+    data-micromodal-trigger="home-cta-modal"
+    class="flex flex-col items-center justify-center px-8 xl:pb-4 md:px-6 2xl:px-12 text-center bg-blue w-full md:w-48% lg:w-31% xl:w-31.7% 2xl:max-w-380px group gap-safari cursor-pointer {{ class }}">
 
     <div class="mb-6 svg-h-house">
 
@@ -13,6 +13,8 @@
 
     <p class="mb-6 text-white text-2xl font-bold">{{ settings.base.HomeSearchPageSettings.homes_ad_text }}</p>
 
-    {% include "patterns/atoms/button/button.html" with text=settings.base.HomeSearchPageSettings.homes_ad_button_text size="small" text_size="small" color="blue" inverted=True class="" %}
+    {% include "patterns/atoms/button/button.html" with text=settings.base.HomeSearchPageSettings.homes_ad_button_text modal_id="home-cta-modal" size="small" text_size="small" color="blue" inverted=True class="" %}
 
-</a>
+</div>
+
+{% form_modal "home-cta-modal" home_cta_form_id home_cta_form_height %}

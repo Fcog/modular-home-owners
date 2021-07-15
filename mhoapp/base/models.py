@@ -70,20 +70,14 @@ class HomeSearchPageSettings(BaseSetting):
     homes_search_page = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Homes Search Page")    
     homes_ad_text = models.CharField(max_length=254, null=True, default="")
     homes_ad_button_text = models.CharField(max_length=255, null=True, verbose_name="Button text", default="")     
-    homes_ad_button_link = models.ForeignKey('wagtailcore.Page', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', verbose_name="Button URL from a page")    
-    homes_ad_external_url = models.URLField('Button external URL', null=True, blank=True, default="")        
+    homes_ad_form_id = models.CharField(max_length=20, null=True, verbose_name="Wufoo Form ID", default="")    
+    homes_ad_form_height = models.IntegerField(null=True, verbose_name="Wufoo Form Height in pixels", default="500")
 
     filter_price_min = models.PositiveIntegerField(default="50000", null=True, verbose_name="Price range min value")
     filter_price_max = models.PositiveIntegerField(default="1500000", null=True, verbose_name="Price range max value")
     filter_sqft_min = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage min value")
     filter_sqft_max = models.PositiveIntegerField(default="600", null=True, verbose_name="Square footage max value")
-    filter_sqft_step = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage range widget values step")    
-
-    def homes_ad_button_url(self):
-        if self.homes_ad_button_link:
-            return self.homes_ad_button_link.url
-        elif self.homes_ad_external_url:
-            return self.homes_ad_external_url        
+    filter_sqft_step = models.PositiveIntegerField(default="50", null=True, verbose_name="Square footage range widget values step")       
 
     panels = [
         MultiFieldPanel(
@@ -97,8 +91,8 @@ class HomeSearchPageSettings(BaseSetting):
             [
                 FieldPanel('homes_ad_text'),
                 FieldPanel('homes_ad_button_text'),
-                PageChooserPanel('homes_ad_button_link'),
-                FieldPanel('homes_ad_external_url'),  
+                FieldPanel('homes_ad_form_id'),
+                FieldPanel('homes_ad_form_height'),  
             ],
             heading="Homes search ad",
             classname="collapsible collapsed",

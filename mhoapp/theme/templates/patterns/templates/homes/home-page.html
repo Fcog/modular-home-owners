@@ -132,7 +132,7 @@
 
                     {% if home_form_id %}
 
-                        {% form_modal "home-modal" %}
+                        {% form_modal "home-modal" home_form_id home_form_height %}
 
                         {% include "patterns/atoms/button/button.html" with text=settings.base.HomePageSettings.home_button_text color="blue" size="medium" inverted=False modal_id="home-modal" %}
                 

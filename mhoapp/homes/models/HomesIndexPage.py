@@ -202,14 +202,16 @@ class HomesIndexPage(Page):
             # If page is out of range (e.g. 9999), deliver last page of results.
             homes = paginator.page(paginator.num_pages)               
 
+        # Set up the Home Ad
+        # -------------------------------------------------------------------------------------
         # Used to show the ad in the 1st page.
         context['show_add'] = True if not page else False               
+        context['home_cta_form_id'] = global_data.homes_ad_form_id
+        context['home_cta_form_height'] = global_data.homes_ad_form_height
 
         # Add the homes data to the page context.
         # -------------------------------------------------------------------------------------        
         context['homes'] = homes  
-
-        context['homes_ad_button_url'] = global_data.homes_ad_button_url()
 
         # Tweak for infinite scroll.
         # -------------------------------------------------------------------------------------

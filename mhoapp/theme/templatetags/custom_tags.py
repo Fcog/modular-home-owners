@@ -23,11 +23,8 @@ def resources_cta(context, spacing):
 
 
 @register.inclusion_tag('patterns/organisms/forms/form-modal.html', takes_context=True)
-def form_modal(context, modal_id):
+def form_modal(context, modal_id, form_id, form_height):
     request = context['request']  # important - you must have the request in context
-    settings = HomePageSettings.for_request(request)
-    form_id = settings.home_form_id
-    form_height = settings.home_form_height
 
     if not form_id:
         return context
