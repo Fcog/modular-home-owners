@@ -30,7 +30,7 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Development mode settings
 # ------------------------------------------------------------------------------
-DEBUG = False
+DEBUG = True
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
 DEBUG_BAR = False
 
@@ -89,7 +89,9 @@ INSTALLED_APPS = [
     # Machina dependencies:
     'mptt',
     'widget_tweaks',
-    'ckeditor',  
+    'tinymce',
+    # tinymce dependencies:
+
 
     # Machina apps:
     'machina',
@@ -310,8 +312,6 @@ else:
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-
 # https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
 WAGTAIL_USAGE_COUNT_ENABLED = True
 
@@ -381,5 +381,15 @@ MULTI_IMAGE_EDIT_FIELDS = [
 # https://django-machina.readthedocs.io/en/stable/customization/recipes/using_another_markup_language.html
 # ------------------------------------------------------------------------------
 MACHINA_MARKUP_LANGUAGE = None
-MACHINA_MARKUP_WIDGET = 'ckeditor.widgets.CKEditorWidget'
+MACHINA_MARKUP_WIDGET = 'tinymce.widgets.TinyMCE'
 
+TINYMCE_DEFAULT_CONFIG = {
+    "plugins": "autolink lists link image charmap preview "
+    "fullscreen insertdatetime media table paste wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline | formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | "
+    " removeformat charmap emoticons "
+    " preview | insertfile image media pageembed template link ",
+    "custom_undo_redo_levels": 10,
+    "menubar": False,
+}
