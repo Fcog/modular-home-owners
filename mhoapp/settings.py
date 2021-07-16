@@ -89,8 +89,7 @@ INSTALLED_APPS = [
     # Machina dependencies:
     'mptt',
     'widget_tweaks',
-    'ckeditor',
-    'ckeditor_uploader',    
+    'ckeditor',  
 
     # Machina apps:
     'machina',
@@ -384,18 +383,3 @@ MULTI_IMAGE_EDIT_FIELDS = [
 MACHINA_MARKUP_LANGUAGE = None
 MACHINA_MARKUP_WIDGET = 'ckeditor.widgets.CKEditorWidget'
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Format', 'Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['Image', 'Smiley'], 
-            ['RemoveFormat'],
-        ],
-        'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
-        ]),    
-    },
-}
