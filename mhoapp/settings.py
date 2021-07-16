@@ -89,6 +89,8 @@ INSTALLED_APPS = [
     # Machina dependencies:
     'mptt',
     'widget_tweaks',
+    'ckeditor',
+    'ckeditor_uploader',    
 
     # Machina apps:
     'machina',
@@ -309,6 +311,8 @@ else:
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 # https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
 WAGTAIL_USAGE_COUNT_ENABLED = True
 
@@ -373,3 +377,25 @@ MULTI_IMAGE_EDIT_FIELDS = [
     'title',
     'collection',
 ]
+
+# Forum - Change default editor to a more friendly WYSIWYG
+# https://django-machina.readthedocs.io/en/stable/customization/recipes/using_another_markup_language.html
+# ------------------------------------------------------------------------------
+MACHINA_MARKUP_LANGUAGE = None
+MACHINA_MARKUP_WIDGET = 'ckeditor.widgets.CKEditorWidget'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Format', 'Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['Image', 'Smiley'], 
+            ['RemoveFormat'],
+        ],
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+        ]),    
+    },
+}

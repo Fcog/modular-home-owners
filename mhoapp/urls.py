@@ -37,6 +37,7 @@ urlpatterns = [
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('', include('mhoapp.authentication.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('forum/', include(machina_urls), name='forum'),
 ]
 
