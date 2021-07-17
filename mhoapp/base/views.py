@@ -20,7 +20,7 @@ def upload_image(request):
 
         upload_time = timezone.now()
         path = os.path.join(
-            settings.MEDIA_ROOT,
+            settings.MEDIA_ROOT if DEVELOPMENT_MODE is True else settings.MEDIA_URL,
             'tinymce'
         )
         # If there is no such path, create
