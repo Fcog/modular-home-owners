@@ -34,6 +34,11 @@ DEBUG = False
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
 DEBUG_BAR = False
 
+if DEVELOPMENT_MODE is True:
+    DEBUG = True
+else:
+    DEBUG = False
+        
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # ------------------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -386,8 +391,8 @@ MACHINA_MARKUP_WIDGET = 'tinymce.widgets.TinyMCE'
 # TinyMCE config
 # https://django-tinymce.readthedocs.io/en/latest/installation.html
 # ------------------------------------------------------------------------------
-
-TINYMCE_JS_URL = os.path.join(STATIC_URL, 'tinymce/tinymce.min.js')
+if DEVELOPMENT_MODE is False:
+    TINYMCE_JS_URL = 'https://nyc3.digitaloceanspaces.com/modular-home-owners/static/tinymce/tinymce.min.js'
 
 TINYMCE_DEFAULT_CONFIG = {
     "plugins": "autolink lists link image charmap preview "
