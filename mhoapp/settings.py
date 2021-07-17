@@ -312,8 +312,8 @@ else:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-    STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
+    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
 
 # https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
 WAGTAIL_USAGE_COUNT_ENABLED = True
@@ -390,7 +390,7 @@ MACHINA_MARKUP_WIDGET = 'tinymce.widgets.TinyMCE'
 # https://django-tinymce.readthedocs.io/en/latest/installation.html
 # ------------------------------------------------------------------------------
 if DEVELOPMENT_MODE is False:
-    TINYMCE_JS_URL = f'{MEDIA_URL}static/tinymce/tinymce.min.js'
+    TINYMCE_JS_URL = f'{STATIC_URL}tinymce/tinymce.min.js'
 
 TINYMCE_DEFAULT_CONFIG = {
     "plugins": "autolink lists link image charmap preview "
