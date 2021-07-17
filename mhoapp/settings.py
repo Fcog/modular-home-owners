@@ -30,7 +30,7 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Development mode settings
 # ------------------------------------------------------------------------------
-DEBUG = True
+DEBUG = False
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
 DEBUG_BAR = False
 
@@ -382,6 +382,12 @@ MULTI_IMAGE_EDIT_FIELDS = [
 # ------------------------------------------------------------------------------
 MACHINA_MARKUP_LANGUAGE = None
 MACHINA_MARKUP_WIDGET = 'tinymce.widgets.TinyMCE'
+
+# TinyMCE config
+# https://django-tinymce.readthedocs.io/en/latest/installation.html
+# ------------------------------------------------------------------------------
+
+TINYMCE_JS_URL = os.path.join(STATIC_URL, 'tinymce/tinymce.min.js')
 
 TINYMCE_DEFAULT_CONFIG = {
     "plugins": "autolink lists link image charmap preview "
