@@ -18,12 +18,9 @@ def upload_image(request):
                 'error': True,
             })
 
-        AWS_S3_ENDPOINT_URL = os.environ['AWS_S3_ENDPOINT_URL']
-        MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/media/'    
-
         upload_time = timezone.now()
         path = os.path.join(
-            MEDIA_URL,
+            settings.MEDIA_ROOT,
             'tinymce',
             str(upload_time.year),
             str(upload_time.month),
