@@ -312,8 +312,8 @@ else:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{MEDIAFILES_LOCATION}/'
+    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/{MEDIAFILES_LOCATION}/'
 
 # https://docs.wagtail.io/en/stable/reference/settings.html#usage-for-images-documents-and-snippets
 WAGTAIL_USAGE_COUNT_ENABLED = True
