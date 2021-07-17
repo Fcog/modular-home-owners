@@ -396,6 +396,7 @@ if DEVELOPMENT_MODE is False:
 TINYMCE_DEFAULT_CONFIG = {
     "plugins": "autolink lists link image charmap preview "
     "fullscreen insertdatetime media table paste wordcount spellchecker",
+    "images_upload_url": '/upload_image/',
     "images_upload_handler": 'tinyMCEImageUpload',
     "toolbar": "undo redo | bold italic underline | formatselect | alignleft "
     "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | "
