@@ -390,7 +390,7 @@ MACHINA_MARKUP_WIDGET = 'tinymce.widgets.TinyMCE'
 # https://django-tinymce.readthedocs.io/en/latest/installation.html
 # ------------------------------------------------------------------------------
 if DEVELOPMENT_MODE is False:
-    TINYMCE_JS_URL = 'https://nyc3.digitaloceanspaces.com/modular-home-owners/static/tinymce/tinymce.min.js'
+    TINYMCE_JS_URL = f'{MEDIA_URL}static/tinymce/tinymce.min.js'
 
 TINYMCE_DEFAULT_CONFIG = {
     "plugins": "autolink lists link image charmap preview "
