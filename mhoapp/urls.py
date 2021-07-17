@@ -26,6 +26,7 @@ from wagtail_multi_upload.views import add as add_multiple_fix
 from machina import urls as machina_urls
 
 from .settings import DEVELOPMENT_MODE, DEBUG_BAR
+from mhoapp.base import views
 
 if DEVELOPMENT_MODE is True & DEBUG_BAR is True:
     import debug_toolbar
@@ -37,6 +38,7 @@ urlpatterns = [
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('', include('mhoapp.authentication.urls')),
+    path('upload_image/', views.upload_image),
     path('tinymce/', include('tinymce.urls')),
     path('forum/', include(machina_urls), name='forum'),
 ]

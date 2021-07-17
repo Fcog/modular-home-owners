@@ -14,6 +14,7 @@ import homesLayoutToggler from './js/wagtail-admin'
 import tooltip from './js/tooltip'
 import partnersButtons from './js/partners-buttons'
 import inputRangeTextfield from './js/input-range-textfield'
+import tinyMCEImageUpload from './js/tinyMCEImageUpload'
 
 document.addEventListener( 'DOMContentLoaded', () => {
     MicroModal.init()
@@ -28,6 +29,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     homesLayoutToggler()
     tooltip()
     partnersButtons()
+
+    window.tinyMCEImageUpload = tinyMCEImageUpload
 
     /**
      * When the form is submitted using Ajax.
