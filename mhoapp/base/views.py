@@ -35,7 +35,9 @@ def upload_image(request):
 
         file_path = os.path.join(path, file_obj.name)
 
-        file_url = f'{settings.MEDIA_URL}tinymce/{upload_time.year}/{upload_time.month}/{upload_time.day}/{file_obj.name}'
+        media_relative_path = f'tinymce/{upload_time.year}/{upload_time.month}/{upload_time.day}/{file_obj.name}'
+
+        file_url = f'{settings.MEDIA_URL}{media_relative_path}'
 
         if os.path.exists(file_path):
             return JsonResponse({
@@ -59,7 +61,7 @@ def upload_image(request):
             from custom_storages import MediaStorage
             media_storage = MediaStorage()
             if not media_storage.exists(file_path): # avoid overwriting existing file
-                media_storage.save(file_path, file_obj)
+                media_storage.save(media_relative_path, file_obj)
                 file_url = media_storage.url(file_path)
 
         return JsonResponse({
