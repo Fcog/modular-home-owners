@@ -60,9 +60,11 @@ def upload_image(request):
         else:            
             from custom_storages import MediaStorage
             media_storage = MediaStorage()
+
             if not media_storage.exists(file_path): # avoid overwriting existing file
                 media_storage.save(media_relative_path, file_obj)
-                file_url = media_storage.url(file_path)
+
+            file_url = media_storage.url(media_relative_path)
 
         return JsonResponse({
             'message': 'Image uploaded successfully',
@@ -70,3 +72,4 @@ def upload_image(request):
             'error': False,
         })
     return JsonResponse({'detail': "Wrong request"})
+
