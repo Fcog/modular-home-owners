@@ -58,6 +58,8 @@ def upload_image(request):
                 for chunk in file_obj.chunks():
                     f.write(chunk)
         else:            
+            # Save in Digital Ocean 
+            # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
             from custom_storages import MediaStorage
             media_storage = MediaStorage()
 

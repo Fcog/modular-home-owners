@@ -393,6 +393,7 @@ if DEVELOPMENT_MODE is False:
     TINYMCE_JS_URL = f'{STATIC_URL}tinymce/tinymce.min.js'
 
 TINYMCE_DEFAULT_CONFIG = {
+    "height": 500,
     "plugins": "autolink lists link image charmap preview "
     "fullscreen insertdatetime media table paste wordcount spellchecker",
     "images_upload_url": '/upload_image/',
