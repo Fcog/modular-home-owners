@@ -15,3 +15,11 @@ def global_admin_js():
         '<script src="{}"></script>',
         static('mhoapp/bundle.js')
     )
+
+@hooks.register("insert_global_admin_css", order=100)
+def global_admin_css():
+    """Add /static/mhoapp/admin.css to the admin."""
+    return format_html(
+        '<link rel="stylesheet" href="{}">',
+        static('mhoapp/admin.css')
+    )
