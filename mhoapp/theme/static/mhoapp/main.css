@@ -4659,12 +4659,14 @@ div[class^="block-"] ~ .block-headingH2 {
     float: left;
     margin-top: 0px;
     margin-right: 1rem;
+    width: 50%;
   }
 
 .richtext-image.right {
     float: right;
     margin-top: 0px;
     margin-left: 1rem;
+    width: 50%;
   }
 
 .prose h2 {

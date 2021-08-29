@@ -63,11 +63,11 @@ div[class^="block-"] ~ .block-headingH2 {
 
 .richtext-image {
     &.left {
-        @apply mt-0 mr-4 float-left;
+        @apply mt-0 mr-4 float-left w-1/2;
     }
 
     &.right {
-        @apply mt-0 ml-4 float-right;
+        @apply mt-0 ml-4 float-right w-1/2;
     }    
 }
 
