@@ -30,7 +30,7 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Development mode settings
 # ------------------------------------------------------------------------------
-DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False') == 'True'
+DEVELOPMENT_MODE = False
 DEBUG_BAR = False
 
 if DEVELOPMENT_MODE is True:
@@ -303,7 +303,7 @@ else:
     AWS_DEFAULT_ACL = 'public-read'
 
     AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
+        'CacheControl': 'max-age=43200',
     }
 
     STATICFILES_LOCATION = 'static'
