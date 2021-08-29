@@ -4655,19 +4655,31 @@ div[class^="block-"] ~ .block-headingH2 {
 }
 */
 
+@media (min-width: 1024px) {
+
 .richtext-image.left {
-    float: left;
-    margin-top: 0px;
-    margin-right: 1rem;
-    width: 50%;
+      float: left;
+
+      margin-top: 0px;
+
+      margin-right: 2rem;
+
+      width: 33.333333%
   }
+    }
+
+@media (min-width: 1024px) {
 
 .richtext-image.right {
-    float: right;
-    margin-top: 0px;
-    margin-left: 1rem;
-    width: 50%;
+      float: right;
+
+      margin-top: 0px;
+
+      margin-left: 2rem;
+
+      width: 33.333333%
   }
+    }
 
 .prose h2 {
     clear: both;
