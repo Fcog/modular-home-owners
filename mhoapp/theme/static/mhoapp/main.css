@@ -4658,13 +4658,17 @@ div[class^="block-"] ~ .block-headingH2 {
 .richtext-image.left {
     float: left;
     margin-top: 0px;
-    margin-right: 0px;
+    margin-right: 1rem;
   }
 
 .richtext-image.right {
     float: right;
     margin-top: 0px;
-    margin-left: 0px;
+    margin-left: 1rem;
+  }
+
+.prose h2 {
+    clear: both;
   }
 
 /* Clear image floating */

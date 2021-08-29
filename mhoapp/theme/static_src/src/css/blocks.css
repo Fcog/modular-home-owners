@@ -63,12 +63,18 @@ div[class^="block-"] ~ .block-headingH2 {
 
 .richtext-image {
     &.left {
-        @apply mt-0 mr-0 float-left;
+        @apply mt-0 mr-4 float-left;
     }
 
     &.right {
-        @apply mt-0 ml-0 float-right;
+        @apply mt-0 ml-4 float-right;
     }    
+}
+
+.prose {
+    h2 {
+        clear: both;
+    }
 }
 
 /* Clear image floating */
