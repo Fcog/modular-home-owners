@@ -4681,6 +4681,10 @@ div[class^="block-"] ~ .block-headingH2 {
   }
     }
 
+.richtext-image.full-width {
+    width: auto;
+  }
+
 .prose h2 {
     clear: both;
   }

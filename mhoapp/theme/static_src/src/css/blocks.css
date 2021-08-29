@@ -73,6 +73,9 @@ div[class^="block-"] ~ .block-headingH2 {
             @apply mt-0 ml-8 float-right w-1/3;
         }
     }    
+    &.full-width {
+        @apply w-auto;
+    }
 }
 
 .prose {
