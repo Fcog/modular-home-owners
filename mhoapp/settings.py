@@ -303,7 +303,7 @@ else:
     AWS_DEFAULT_ACL = 'public-read'
 
     AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=43200',
+        'CacheControl': 'max-age=604800',
     }
 
     STATICFILES_LOCATION = 'static'
