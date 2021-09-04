@@ -9,12 +9,12 @@ def register_forum_menu_item():
   return MenuItem('Forum', '/admin/forum', classnames='icon icon-group', order=10000)
 
 
-@hooks.register('insert_global_admin_js', order=100)
+""" @hooks.register('insert_global_admin_js', order=100)
 def global_admin_js():
     return format_html(
         '<script src="{}"></script>',
         static('mhoapp/bundle.js')
-    )
+    ) """
 
 @hooks.register("insert_global_admin_css", order=100)
 def global_admin_css():
