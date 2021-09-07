@@ -30,7 +30,7 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 
 # Development mode settings
 # ------------------------------------------------------------------------------
-DEVELOPMENT_MODE = False
+DEVELOPMENT_MODE = (os.getenv('DEVELOPMENT_MODE', 'False') == 'True')
 DEBUG_BAR = False
 
 if DEVELOPMENT_MODE is True:
@@ -273,7 +273,6 @@ else:
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 # ------------------------------------------------------------------------------
@@ -300,10 +299,12 @@ else:
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     AWS_S3_ENDPOINT_URL = os.environ['AWS_S3_ENDPOINT_URL']
+    AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
     AWS_DEFAULT_ACL = 'public-read'
+    AWS_QUERYSTRING_AUTH = True
 
     AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=604800',
+        'CacheControl': 'max-age=86400',
     }
 
     STATICFILES_LOCATION = 'static'
