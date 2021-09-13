@@ -301,7 +301,7 @@ else:
     AWS_S3_ENDPOINT_URL = os.environ['AWS_S3_ENDPOINT_URL']
     AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
     AWS_DEFAULT_ACL = 'public-read'
-    AWS_QUERYSTRING_AUTH = True
+    AWS_QUERYSTRING_AUTH = False
 
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
