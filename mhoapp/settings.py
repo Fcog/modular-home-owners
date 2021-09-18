@@ -86,7 +86,6 @@ INSTALLED_APPS = [
     'wagtail_link_block',
     'hitcount',
     'wagtailyoast',
-    'wagtailcolumnblocks',
     'wagtail_multi_upload',
     'spurl', # https://github.com/j4mie/django-spurl
 
@@ -149,7 +148,7 @@ MIDDLEWARE = [
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
-    "django_htmx.middleware.HtmxMiddleware"
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 # Include middleware only in dev env.
