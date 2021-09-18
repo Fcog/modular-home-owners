@@ -61,13 +61,13 @@ class HomesIndexPage(Page):
         verbose_name="Top content layout"
     )
 
-    left_col_content = fields.StreamField(
+    left_column_content = fields.StreamField(
         custom_blocks.AvailableColumnBlocks, 
         default='', 
         blank=True, 
     )    
 
-    right_col_content = fields.StreamField(
+    right_column_content = fields.StreamField(
         custom_blocks.AvailableColumnBlocks, 
         default='', 
         blank=True, 
@@ -104,8 +104,8 @@ class HomesIndexPage(Page):
             classname="collapsible collapsed"
         ),        
         FieldPanel('layout'),
-        StreamFieldPanel('left_col_content', classname="js-left-col-panel"),
-        StreamFieldPanel('right_col_content', classname="js-right-col-panel"),
+        StreamFieldPanel('left_column_content', classname="js-left-col-panel"),
+        StreamFieldPanel('right_column_content', classname="js-right-col-panel"),
         StreamFieldPanel('full_content', classname="js-full-content-panel"),
     ]
 
