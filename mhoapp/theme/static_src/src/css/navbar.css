@@ -225,7 +225,7 @@
       display: flex;
       align-items: center;
       box-sizing: initial !important;
-      padding: .75rem;
+      padding: .75rem .75rem 2rem .75rem;
       text-align: left;      
     }
 
@@ -245,7 +245,7 @@
     .dropdown {
       &:hover {
         ul {
-          top: 60px !important;
+          top: 47px !important;
           z-index: 10;
         }
 
@@ -253,7 +253,7 @@
           /* Horizontal line for the 2nd level box in desktop */
           &:after {
             position: absolute;
-            top: 49px !important;
+            top: 40px !important;
             left: 0;
             content: '';
             height: 5px;
@@ -292,6 +292,29 @@
   }  
 }
 
+/**
+ * ----------------------------------------
+ * Large screen
+ * ----------------------------------------
+ */
+@screen lg {  
+  .luxbar-menu {
+    .dropdown {
+      &:hover {
+        ul {
+          top: 60px !important;
+        }    
+
+        .luxbar-item-a-first-level {      
+          /* Horizontal line for the 2nd level box in desktop */
+          &:after {
+            top: 49px !important;
+          }
+        }
+      }
+    }
+  } 
+}
 /**
  * ----------------------------------------
  * Extra Large screen
