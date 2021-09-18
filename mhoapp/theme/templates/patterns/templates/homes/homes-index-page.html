@@ -6,14 +6,14 @@
 
     <div data-pattern="templates/homes/homes-index-page" class="mt-6 md:mt-14 lg:mt-20">
 
-        <div class="container lg:flex">
+        <div class="lg:flex">
 
 
             {# ------------ COLUMNS LAYOUT: FULL WIDTH (FW) ------------------ #}
 
             {% if page.layout == 'FW' %}
 
-            <div class="pb-6 lg:pb-0">
+            <div class="container pb-6 lg:pb-0">
 
                 {% include_block page.full_content %}
 
