@@ -4158,7 +4158,7 @@ select {
       display: flex;
       align-items: center;
       box-sizing: initial !important;
-      padding: .75rem .75rem 2rem .75rem;
+      padding: .75rem;
       text-align: left;
     }
     .luxbar-menu .luxbar-item-a-first-level {
@@ -4212,22 +4212,6 @@ select {
 
 /**
  * ----------------------------------------
- * Large screen
- * ----------------------------------------
- */
-
-@media (min-width: 1024px) {
-        .luxbar-menu .dropdown:hover ul {
-          top: 60px !important;
-        }
-          /* Horizontal line for the 2nd level box in desktop */
-          .luxbar-menu .dropdown:hover .luxbar-item-a-first-level:after {
-            top: 49px !important;
-          }
-}
-
-/**
- * ----------------------------------------
  * Extra Large screen
  * ----------------------------------------
  */
@@ -4242,11 +4226,24 @@ select {
     .luxbar-menu .luxbar-item-first-level {
       padding: 1rem 1.2rem !important;
     }
+        .luxbar-menu .dropdown:hover ul {
+          top: 60px !important;
+        }
+          /* Horizontal line for the 2nd level box in desktop */
+          .luxbar-menu .dropdown:hover .luxbar-item-a-first-level:after {
+            top: 49px !important;
+          }
       .luxbar-menu .dropdown ul {
         -moz-column-gap: 7rem;
              column-gap: 7rem;
       }
 }
+
+/**
+ * ----------------------------------------
+ * Super Extra Large screen
+ * ----------------------------------------
+ */
 
 @media (min-width: 1640px) {
     .luxbar-menu .luxbar-item-first-level {
