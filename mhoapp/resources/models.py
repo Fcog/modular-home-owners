@@ -29,19 +29,43 @@ blocks = [
  ]
 
 class ResourcesIndexPage(Page):
-    template = 'patterns/templates/flexible/two-col.html'
+    template = 'patterns/templates/resources/two-col.html'
 
-    heading = fields.StreamField(
-        custom_blocks.TwoColumnsBlockEqualWidth, 
+    left_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
+        default=''
+    )
+
+    right_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default=''
     )
 
     body = fields.StreamField(blocks, default='')
 
     # Editor panels configuration
-    content_panels = Page.content_panels + [
-        StreamFieldPanel('heading'),
-        StreamFieldPanel('body'),
+    content_panels = Page.content_panels + [   
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('left_column_content'),
+            ],
+            heading="Left column content",
+            classname="collapsible"
+        ),                 
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('right_column_content'),
+            ],
+            heading="Right column content",
+            classname="collapsible"
+        ),            
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('body'),
+            ],
+            heading="One column content",
+            classname="collapsible"
+        ),      
     ]
 
     # Parent page / subpage type rules
@@ -62,8 +86,13 @@ class ResourcePage(Page):
         related_name='+'
     )    
 
-    heading = fields.StreamField(
-        custom_blocks.TwoColumnsBlockEqualWidth, 
+    left_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
+        default=''
+    )
+
+    right_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default=''
     )
 
@@ -83,8 +112,27 @@ class ResourcePage(Page):
             heading="Basic info",
             classname="collapsible"
         ),        
-        StreamFieldPanel('heading'),
-        StreamFieldPanel('body'),
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('left_column_content'),
+            ],
+            heading="Left column content",
+            classname="collapsible"
+        ),                 
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('right_column_content'),
+            ],
+            heading="Right column content",
+            classname="collapsible"
+        ),            
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('body'),
+            ],
+            heading="Full width content",
+            classname="collapsible"
+        ),         
     ]    
 
     # Parent page / subpage type rules

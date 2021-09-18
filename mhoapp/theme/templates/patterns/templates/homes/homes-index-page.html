@@ -26,8 +26,8 @@
             {# ------------ COLUMNS LAYOUT: EQUAL WIDTH (EW) ------------ #}
 
             {% if page.layout == 'EW' %}
-
-                {% include_block page.two_cols_content %}      
+ 
+                {% include "patterns/organisms/sections/two-cols-equal-width.html" with left_col_content=page.left_col_content right_col_content=page.right_col_content %}
 
             {% endif %}
 
@@ -37,7 +37,7 @@
 
             {% if page.layout == 'LS' %}
 
-                {% include_block page.two_cols_content_shorter %}      
+                {% include "patterns/organisms/sections/two-cols-left-shorter.html" with left_col_content=page.left_col_content right_col_content=page.right_col_content %}
 
             {% endif %}
             

@@ -5,13 +5,13 @@ export default function homesLayoutToggler() {
         return 
     }
 
-    const twoColsPanel = document.querySelector('.js-two-cols-panel')
-    const twoColsShorterPanel = document.querySelector('.js-two-cols-shorter-panel')
+    const leftColPanel = document.querySelector('.js-left-col-panel')
+    const rightColPanel = document.querySelector('.js-right-col-panel')
     const fullContentPanel = document.querySelector('.js-full-content-panel')
 
     const containers = [
-        twoColsPanel,
-        twoColsShorterPanel,
+        leftColPanel,
+        rightColPanel,
         fullContentPanel,
     ]
 
@@ -27,11 +27,13 @@ export default function homesLayoutToggler() {
         }
 
         if (layoutSelector.value == 'EW') {
-            toggleDisplay(twoColsPanel)
+            toggleDisplay(leftColPanel)
+            toggleDisplay(rightColPanel)
         }   
 
         if (layoutSelector.value == 'LS') {
-            toggleDisplay(twoColsShorterPanel)
+            toggleDisplay(leftColPanel)
+            toggleDisplay(rightColPanel)
         }           
     }
 

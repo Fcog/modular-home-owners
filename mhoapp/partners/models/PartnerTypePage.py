@@ -33,10 +33,15 @@ class PartnerTypePage(Page):
         related_name='+'
     )    
 
-    heading = fields.StreamField(
-        custom_blocks.TwoColumnsBlock, 
+    left_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default=''
     )
+
+    right_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
+        default=''
+    )    
 
     body = fields.StreamField([
         ('Separator', custom_blocks.Separator()),
@@ -68,8 +73,27 @@ class PartnerTypePage(Page):
             heading="Icons",
             classname="collapsible"
         ),        
-        StreamFieldPanel('heading'),
-        StreamFieldPanel('body'),
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('left_column_content'),
+            ],
+            heading="Left column content",
+            classname="collapsible"
+        ),                 
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('right_column_content'),
+            ],
+            heading="Right column content",
+            classname="collapsible"
+        ),     
+        MultiFieldPanel(
+            [     
+                StreamFieldPanel('body'),
+            ],
+            heading="Full width content",
+            classname="collapsible"
+        ),                   
     ]
 
     # Parent page / subpage type rules

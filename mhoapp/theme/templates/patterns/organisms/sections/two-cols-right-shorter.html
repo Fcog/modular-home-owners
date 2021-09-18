@@ -1,0 +1,21 @@
+{% load wagtailcore_tags %}
+
+<div data-pattern="organisms/sections/two-cols" class="container">
+
+    <div class="lg:flex justify-between">
+
+            <div class="lg:pr-12 xl:pr-0 pb-8 lg:pb-0 lg:w-8/12 xl:w-48%">
+
+                {% include_block left_column_content %}
+
+            </div>
+
+            <div class="lg:w-4/12 xl:w-37% lg:mt-8">
+
+                {% include_block right_column_content %}
+
+            </div>
+
+    </div>
+
+</div>    

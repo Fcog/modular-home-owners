@@ -58,17 +58,17 @@ class HomesIndexPage(Page):
         max_length=2,
         choices=COLUMNS_LAYOUT,
         default=FULL_WIDTH,
-        verbose_name="Heading layout"
+        verbose_name="Top content layout"
     )
 
-    two_cols_content = fields.StreamField(
-        custom_blocks.TwoColumnsBlockEqualWidth, 
+    left_col_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default='', 
         blank=True, 
     )    
 
-    two_cols_content_shorter = fields.StreamField(
-        custom_blocks.TwoColumnsLeftShorterBlock, 
+    right_col_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default='', 
         blank=True, 
     )        
@@ -104,8 +104,8 @@ class HomesIndexPage(Page):
             classname="collapsible collapsed"
         ),        
         FieldPanel('layout'),
-        StreamFieldPanel('two_cols_content', classname="js-two-cols-panel"),
-        StreamFieldPanel('two_cols_content_shorter', classname="js-two-cols-shorter-panel"),
+        StreamFieldPanel('left_col_content', classname="js-left-col-panel"),
+        StreamFieldPanel('right_col_content', classname="js-right-col-panel"),
         StreamFieldPanel('full_content', classname="js-full-content-panel"),
     ]
 

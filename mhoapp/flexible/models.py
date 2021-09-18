@@ -3,7 +3,7 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.core import blocks, fields
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, TabbedInterface, ObjectList
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, TabbedInterface, ObjectList, MultiFieldPanel
 from wagtail.embeds.blocks import EmbedBlock
 from wagtailyoast.edit_handlers import YoastPanel
 
@@ -67,18 +67,42 @@ class FlexibleTwoColumnPage(Page):
     # Database fields
     offset_2nd_column = models.BooleanField(default=False, blank=True)
 
-    heading = fields.StreamField(
-        custom_blocks.TwoColumnsBlockEqualWidth, 
+    left_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
         default=''
     )
+
+    right_column_content = fields.StreamField(
+        custom_blocks.AvailableColumnBlocks, 
+        default=''
+    )        
 
     body = StreamField(blocks, default='')
 
     # Editor panels configuration
     content_panels = Page.content_panels + [
         FieldPanel('offset_2nd_column'),
-        StreamFieldPanel('heading'),
-        StreamFieldPanel('body'),
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('left_column_content'),
+            ],
+            heading="Left column content",
+            classname="collapsible"
+        ),                 
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('right_column_content'),
+            ],
+            heading="Right column content",
+            classname="collapsible"
+        ),     
+        MultiFieldPanel(
+            [     
+                StreamFieldPanel('body'),
+            ],
+            heading="Full width content",
+            classname="collapsible"
+        ),    
     ]
 
     edit_handler = TabbedInterface([

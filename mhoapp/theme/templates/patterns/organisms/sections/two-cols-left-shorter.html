@@ -2,16 +2,18 @@
 
 <div 
     data-pattern="organisms/sections/two-cols-left-shorter"
-    class="lg:flex justify-between">
+    class="container lg:flex justify-between">
 
-    {% for column, width in columns %}
+    <div class="pb-6 lg:pb-0 lg:w-26.5% lg:pr-12">
 
-        <div class="{% if forloop.first %} pb-6 lg:pb-0 lg:w-26.5% lg:pr-12 {% else %} lg:w-73.5% {% endif %}">
+        {% include_block left_column_content %}
 
-            {% include_block column %}
+    </div>
 
-        </div>
+    <div class="lg:w-73.5%">
 
-    {% endfor %}
+        {% include_block right_column_content %}
+
+    </div>        
 
 </div>

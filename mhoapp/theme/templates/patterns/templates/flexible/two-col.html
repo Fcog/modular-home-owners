@@ -6,11 +6,7 @@
 
     <div data-pattern="templates/flexible/two-col" class="mt-6 md:mt-14 lg:mt-20">
     
-        <div class="container">
-
-            {% include_block page.heading %}
-            
-        </div>
+        {% include "patterns/organisms/sections/two-cols-equal-width.html" with left_column_content=page.left_column_content right_column_content=page.right_column_content %}
 
         <div class="one-col-layout">
         

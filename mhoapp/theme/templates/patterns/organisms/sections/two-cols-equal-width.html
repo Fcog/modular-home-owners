@@ -2,18 +2,20 @@
 
 <div 
     data-pattern="organisms/sections/two-cols-equal-width"
-    class="lg:flex justify-between mb-8 lg:mb-0">
+    class="container lg:flex justify-between mb-8 lg:mb-0">
 
-    {% for column, width in columns %}
+    <div class="mb-8 lg:mb-0 lg:mr-12 2xl:mr-18 lg:w-1/2">
 
-        <div 
-            class="{% if forloop.first %} mb-8 lg:mb-0 lg:mr-12 2xl:mr-18 lg:w-1/2 {% else %} mb-6 lg:mb-0 lg:ml-12 2xl:ml-32 lg:w-1/2 {% endif %}
-            {% if forloop.counter == 2 and page.offset_2nd_column %} lg:-mt-28 2xl:-mt-44 {% endif %}">
+        {% include_block left_column_content %}
 
-            {% include_block column %}
+    </div>
 
-        </div>
+    <div 
+        class="mb-6 lg:mb-0 lg:ml-12 2xl:ml-32 lg:w-1/2
+        {% if page.offset_2nd_column %} lg:-mt-28 2xl:-mt-44 {% endif %}">
 
-    {% endfor %}
+        {% include_block right_column_content %}
+
+    </div>        
 
 </div>

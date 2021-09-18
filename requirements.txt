@@ -73,7 +73,6 @@ wagtail-generic-chooser==0.1.1
 wagtail-link-block==0.1.2
 Wagtail-Multi-Image-Edit @ git+https://github.com/kevinhowbrook/wagtail-multi-image-edit.git@99a708d2cdd1b7d94095372af632775e9401065b
 wagtail-multi-upload @ git+https://github.com/spapas/wagtail-multi-upload.git@4e6474137dc219501e7cd64d5b170c0b8c6bcd04
-wagtailcolumnblocks==2.2.0
 wagtailerrorpages==1.2.1
 wagtailmenus==3.0.2
 wagtailsvg==0.0.14
