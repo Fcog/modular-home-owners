@@ -31,12 +31,12 @@ TAILWIND_APP_NAME = 'mhoapp.theme'
 # Development mode settings
 # ------------------------------------------------------------------------------
 DEVELOPMENT_MODE = (os.getenv('DEVELOPMENT_MODE', 'False') == 'True')
+DEBUG = (os.getenv('DEBUG', 'False') == 'True')
+
 DEBUG_BAR = False
 
 if DEVELOPMENT_MODE is True:
-    DEBUG = True
-else:
-    DEBUG = False
+    DEBUG_BAR = True
         
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # ------------------------------------------------------------------------------
