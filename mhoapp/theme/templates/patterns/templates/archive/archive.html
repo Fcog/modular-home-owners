@@ -1,0 +1,19 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+
+<div data-pattern="templates/archive/archive" class="container my-12 lg:my-24">
+
+    <h1 class="mb-4 lg:mb-8 text-1.5xl lg:text-4xl">{{ page.title }}</h1>
+
+    <ul class="list-disc">
+        {% for page in self.get_children %}
+            <li class="mb-6">
+                {% include "patterns/atoms/links/blue-link.html" with url=page.url text=page.title %}
+            </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

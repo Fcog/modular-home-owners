@@ -1952,6 +1952,10 @@ select {
   list-style-type: none !important;
 }
 
+.list-disc {
+  list-style-type: disc !important;
+}
+
 .m-0 {
   margin: 0px !important;
 }
