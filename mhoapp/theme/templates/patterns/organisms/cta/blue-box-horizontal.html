@@ -24,12 +24,16 @@
 
         <div class="hidden w-full lg:block">
     
-            {% include "patterns/atoms/button/button.html" with text=button_text modal_id="blue-cta-modal" color="blue" size="small" inverted=False %}
+            {% if button_link %}    
+                {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="small" inverted=False %}
+            {% else %}
+                {% include "patterns/atoms/button/button.html" with text=button_text modal_id="blue-cta-modal" color="blue" size="small" inverted=False %}
+            {% endif %}
+
+            {% form_modal "blue-cta-modal" form_id form_height %}
 
         </div>
 
     </div>
-
-    {% form_modal "blue-cta-modal" form_id form_height %}
 
 </div>

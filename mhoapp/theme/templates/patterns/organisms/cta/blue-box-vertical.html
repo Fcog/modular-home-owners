@@ -1,4 +1,4 @@
-{% load wagtailcore_tags svg %}
+{% load wagtailcore_tags svg custom_tags %}
 
 <div 
     data-pattern="organisms/cta/blue-box-vertical"    
@@ -8,6 +8,12 @@
 
     <p class="mb-8 text-xxs lg:text-base text-blue-dark">{{ text }}</p>
         
-    {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="small" inverted=False %}
+    {% if button_link %}    
+        {% include "patterns/atoms/button/button.html" with text=button_text url=button_link.get_url new_window=button_link.new_window color="blue" size="small" inverted=False %}
+    {% else %}
+        {% include "patterns/atoms/button/button.html" with text=button_text modal_id="blue-cta-modal" color="blue" size="small" inverted=False %}
+    {% endif %}
+
+    {% form_modal "blue-cta-modal" form_id form_height %}
 
 </div>

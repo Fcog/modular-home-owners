@@ -9,9 +9,13 @@ class BlueBoxCTA(blocks.StructBlock):
     ], icon='title', default='horizontal') 
     title = blocks.RichTextBlock(features=['bold'])
     text = blocks.TextBlock()
-    button_text = blocks.CharBlock()
-    form_id = blocks.CharBlock()
-    form_height = blocks.CharBlock()
+
+    button_text = blocks.CharBlock(required=False)
+
+    form_id = blocks.CharBlock(required=False)
+    form_height = blocks.CharBlock(required=False)
+
+    button_link = LinkBlock(required=False)
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
