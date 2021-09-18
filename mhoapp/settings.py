@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sitemaps',
 
     # Machina dependencies:
     'haystack',  # This one should be installed before 'wagtail.*' so that the terminal command "update_index" doesn't get overridden.

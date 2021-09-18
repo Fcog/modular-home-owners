@@ -23,7 +23,9 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail_multi_image_edit.views import multi_image_edit
 from wagtail_multi_upload.views import add as add_multiple_fix
+from wagtail.contrib.sitemaps.views import sitemap
 from machina import urls as machina_urls
+
 
 from .settings import DEVELOPMENT_MODE, DEBUG_BAR
 from mhoapp.base import views
@@ -41,6 +43,7 @@ urlpatterns = [
     path('upload_image/', views.upload_image),
     path('tinymce/', include('tinymce.urls')),
     path('forum/', include(machina_urls), name='forum'),
+     path('sitemap.xml', sitemap),
 ]
 
 # Include UI pattern library URL before the Wagtail URLs.
