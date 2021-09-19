@@ -5761,6 +5761,10 @@ body {
     padding-bottom: 8rem !important;
   }
 
+  .md\:pb-36 {
+    padding-bottom: 9rem !important;
+  }
+
   .md\:pb-44 {
     padding-bottom: 11rem !important;
   }
@@ -6268,8 +6272,8 @@ body {
     margin-top: -1.5rem !important;
   }
 
-  .lg\:-mt-28 {
-    margin-top: -7rem !important;
+  .lg\:-mt-32 {
+    margin-top: -8rem !important;
   }
 
   .lg\:py-2 {
@@ -6867,8 +6871,8 @@ body {
     margin-left: 8rem !important;
   }
 
-  .\32xl\:-mt-44 {
-    margin-top: -11rem !important;
+  .\32xl\:-mt-36 {
+    margin-top: -9rem !important;
   }
 
   .\32xl\:max-w-380px {
@@ -6969,6 +6973,10 @@ body {
 
   .\32xl\:pt-44 {
     padding-top: 11rem !important;
+  }
+
+  .\32xl\:pb-52 {
+    padding-bottom: 13rem !important;
   }
 
   .\32xl\:pb-72 {
