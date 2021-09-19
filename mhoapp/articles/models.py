@@ -20,7 +20,12 @@ class ArticlePage(Page):
     template = 'patterns/templates/articles/single.html'
 
     # Database fields
-    resource_category = models.ForeignKey(ResourcePage, on_delete=models.SET_NULL, null=True)
+    resource_category = models.ForeignKey(
+        ResourcePage, 
+        on_delete=models.SET_NULL, 
+        null=True,
+        blank=True,
+    )
 
     body = StreamField([
         ('separator', custom_blocks.Separator()),
