@@ -8,7 +8,7 @@
     
         {% include "patterns/organisms/sections/two-cols-equal-width.html" with left_column_content=page.left_column_content right_column_content=page.right_column_content %}
         
-        {% if prev_article_title %}
+        {% if prev_article_title or next_article_title %}
         <div class="container mt-8 lg:mt-16 mb-20 lg:mb-32 md:flex justify-between">
 
             <div class="mb-4 md:mb-0">
